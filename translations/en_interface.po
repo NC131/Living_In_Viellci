@@ -1,0 +1,434 @@
+# LANGUAGE translation for Living In Viellci for the following files:
+# res://prefabs/screens/mainMenu_screen.tscn
+# res://prefabs/screens/splashScreen_screen_A1.tscn
+# res://prefabs/screens/settings_screen.tscn
+# res://prefabs/screens/settings_screenAudio.tscn
+# res://prefabs/screens/settings_screenGameplay.tscn
+# res://prefabs/screens/settings_screenVisual.tscn
+# res://core/scripts/setup_audioSlider.gd
+# res://core/scripts/global_persistentData.gd
+# res://core/scripts/screen_settingsAudio.gd
+# res://core/scripts/screen_settingsDisplay.gd
+# res://core/scripts/screen_settingsGameplay.gd
+# res://core/scripts/setup_optionCycler.gd
+# res://core/scripts/screen_settings.gd
+#
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Living In Viellci\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.8\n"
+
+#: prefabs/screens/mainMenu_screen.tscn
+msgid "DEV_POST"
+msgstr "DEV POSTS"
+
+#: prefabs/screens/mainMenu_screen.tscn
+msgid "▰ ▱ ▱ ▱ ▱"
+msgstr ""
+
+#: prefabs/screens/mainMenu_screen.tscn
+msgid "BUTTON_NEW_GAME"
+msgstr "NEW GAME"
+
+#: prefabs/screens/mainMenu_screen.tscn
+msgid "BUTTON_LOAD_GAME"
+msgstr "LOAD GAME"
+
+#: prefabs/screens/mainMenu_screen.tscn
+msgid "BUTTON_SETTINGS"
+msgstr "SETTINGS"
+
+#: prefabs/screens/mainMenu_screen.tscn
+msgid "BUTTON_EXTRAS"
+msgstr "EXTRAS"
+
+#: prefabs/screens/mainMenu_screen.tscn
+msgid "BUTTON_QUIT"
+msgstr "QUIT"
+
+#: prefabs/screens/splashScreen_screen_A1.tscn
+msgid ""
+"OPENING ANIMATION FIRST\n"
+"(With it's own audio and stuff)\n"
+"Where initialization begins:\n"
+"- patreon update (blog/patrons)\n"
+"- mods if needed?"
+msgstr ""
+
+#: prefabs/screens/splashScreen_screen_A1.tscn
+msgid "TEXT_DISCLAIMER"
+msgstr ""
+"All names, characters, events and incidents portrayed in this game are fictitious.\n"
+"\n"
+"All characters in this game are over 18 years old."
+
+#: prefabs/screens/splashScreen_screen_A1.tscn
+msgid "[CTC_LABEL]"
+msgstr "[CLICK ANYWHERE TO CONTINUE]"
+
+#: prefabs/screens/settings_screen.tscn
+msgid "PAGE_AUDIO"
+msgstr "AUDIO"
+
+#: prefabs/screens/settings_screen.tscn
+msgid "PAGE_VISUAL"
+msgstr "VISUAL"
+
+#: prefabs/screens/settings_screen.tscn
+msgid "PAGE_GAMEPLAY"
+msgstr "GAMEPLAY"
+
+#: prefabs/screens/settings_screen.tscn core/scripts/screen_settings.gd
+msgid "OPTION_HELPHOVER_DESCRIPTION"
+msgstr "[center]Hover which options you want me to explain~"
+
+#: prefabs/screens/settings_screen.tscn
+msgid "BUTTON_RESET_TO_DEFAULT"
+msgstr "RESET TO DEFAULT"
+
+#: prefabs/screens/settings_screen.tscn
+msgid "BUTTON_RETURN"
+msgstr "RETURN"
+
+#: core/scripts/setup_audioSlider.gd
+msgid "AUDIO_MUTED"
+msgstr "MUTED"
+
+#: core/scripts/global_persistentData.gd
+msgid "INTRO_LINES1"
+msgstr ""
+"Is this\n"
+"Friday Night Funkin mod??"
+
+#: core/scripts/global_persistentData.gd
+msgid "INTRO_LINES2"
+msgstr ""
+"Oh look!\n"
+"A placeholder text!"
+
+#: core/scripts/global_persistentData.gd
+msgid "INTRO_LINES3"
+msgstr ""
+"I like this so much\n"
+"Better than the previous one"
+
+#: core/scripts/global_persistentData.gd
+msgid "INTRO_LINES4"
+msgstr ""
+"I hope this won't\n"
+"Lag in your device"
+
+#: core/scripts/global_persistentData.gd
+msgid "INTRO_LINES5"
+msgstr ""
+"Keep up\n"
+"The grind!"
+
+#: core/scripts/global_persistentData.gd
+msgid "DAY_SUNDAY"
+msgstr "Sunday"
+
+#: core/scripts/global_persistentData.gd
+msgid "DAY_MONDAY"
+msgstr "Monday"
+
+#: core/scripts/global_persistentData.gd
+msgid "DAY_TUESDAY"
+msgstr "Tuesday"
+
+#: core/scripts/global_persistentData.gd
+msgid "DAY_WEDNESDAY"
+msgstr "Wednesday"
+
+#: core/scripts/global_persistentData.gd
+msgid "DAY_THURSDAY"
+msgstr "Thursday"
+
+#: core/scripts/global_persistentData.gd
+msgid "DAY_FRIDAY"
+msgstr "Friday"
+
+#: core/scripts/global_persistentData.gd
+msgid "DAY_SATURDAY"
+msgstr "Saturday"
+
+#: core/scripts/global_persistentData.gd
+msgid "MONTH_JANUARY"
+msgstr "January"
+
+#: core/scripts/global_persistentData.gd
+msgid "MONTH_FEBRUARY"
+msgstr "February"
+
+#: core/scripts/global_persistentData.gd
+msgid "MONTH_MARCH"
+msgstr "March"
+
+#: core/scripts/global_persistentData.gd
+msgid "MONTH_APRIL"
+msgstr "April"
+
+#: core/scripts/global_persistentData.gd
+msgid "MONTH_MAY"
+msgstr "May"
+
+#: core/scripts/global_persistentData.gd
+msgid "MONTH_JUNE"
+msgstr "June"
+
+#: core/scripts/global_persistentData.gd
+msgid "MONTH_JULY"
+msgstr "July"
+
+#: core/scripts/global_persistentData.gd
+msgid "MONTH_AUGUST"
+msgstr "August"
+
+#: core/scripts/global_persistentData.gd
+msgid "MONTH_SEPTEMBER"
+msgstr "September"
+
+#: core/scripts/global_persistentData.gd
+msgid "MONTH_OCTOBER"
+msgstr "October"
+
+#: core/scripts/global_persistentData.gd
+msgid "MONTH_NOVEMBER"
+msgstr "November"
+
+#: core/scripts/global_persistentData.gd
+msgid "MONTH_DECEMBER"
+msgstr "December"
+
+#: core/scripts/global_persistentData.gd
+msgid "OPTION_WINDOWED"
+msgstr "Windowed"
+
+#: core/scripts/global_persistentData.gd
+msgid "OPTION_FULLSCREEN"
+msgstr "Fullscreen"
+
+#: core/scripts/global_persistentData.gd
+msgid "OPTION_MAXIMIZED"
+msgstr "Maximized"
+
+#: core/scripts/global_persistentData.gd
+msgid "OPTION_24_HOUR"
+msgstr "24 Hour"
+
+#: core/scripts/global_persistentData.gd
+msgid "OPTION_12_HOUR"
+msgstr "12 Hour"
+
+#: core/scripts/global_persistentData.gd
+msgid "OPTION_DISABLED"
+msgstr "Disabled"
+
+#: core/scripts/global_persistentData.gd
+msgid "OPTION_ENABLED"
+msgstr "Enabled"
+
+#: core/scripts/global_persistentData.gd
+msgid "VERSION"
+msgstr "VERSION"
+
+#: core/scripts/global_persistentData.gd
+msgid "ALL_RIGHTS_RESERVED"
+msgstr "All rights reserved."
+
+#: core/scripts/global_persistentData.gd
+msgid "AUDIO_MASTERVOLUME_DESC"
+msgstr ""
+"[b]Adjust the main volume of the game.[/b]\n"
+"\n"
+"The father of all volumes! All other volumes depends on him..."
+
+#: core/scripts/global_persistentData.gd
+msgid "AUDIO_MUSICVOLUME_DESC"
+msgstr ""
+"[b]Adjust the music volume.[/b]\n"
+"\n"
+"This adjust the music in the game...! I-isn't this self-explanatory enough?\n"
+"\n"
+"Here! Let me help you:\n"
+"[url]https://dictionary.cambridge.org/dictionary/english/adjust[/url]"
+
+#: core/scripts/global_persistentData.gd
+msgid "AUDIO_AMBIENCEVOLUME_DESC"
+msgstr ""
+"[b]Adjust the ambience volume.[/b]\n"
+"\n"
+"Hmm... you prefer the cityscape's ambience or the music? Whatever it is, adjust the ambience here!"
+
+#: core/scripts/global_persistentData.gd
+msgid "AUDIO_SFXVOLUME_DESC"
+msgstr ""
+"[b]Adjust the sound effects volume.[/b]\n"
+"\n"
+"The sound effects! You know... the one when you click on things?"
+
+#: core/scripts/global_persistentData.gd
+msgid "AUDIO_DIALOGUEVOLUME_DESC"
+msgstr ""
+"[b]Adjust the dialogue volume.[/b]\n"
+"\n"
+"Bleeps and voice lines controlled by this slider! You don't hate our voices... do you?"
+
+#: core/scripts/global_persistentData.gd
+msgid "VISUAL_WINDOWMODE_DESC"
+msgstr ""
+"[b]Set the game's window mode.[/b]\n"
+"\n"
+"Makes the game fully use your monitor or make it a window that you can move around~"
+
+#: core/scripts/global_persistentData.gd
+msgid "VISUAL_MONOCHROMEFILTER_DESC"
+msgstr ""
+"[b]Set the whole game to be monochrome.[/b]\n"
+"\n"
+"Ooohohoho! Back to the good ol' days eh?"
+
+#: core/scripts/global_persistentData.gd
+msgid "GAMEPLAY_LANGUAGEINTERFACE_DESC"
+msgstr ""
+"[b]Change the interface language.[/b]\n"
+"\n"
+"You're currently reading the interface!"
+
+#: core/scripts/global_persistentData.gd
+msgid "GAMEPLAY_HOURFORMAT_DESC"
+msgstr ""
+"[b]Set the in-game's hour format.[/b]\n"
+"\n"
+"I'm sure you can tell what's 21:00 right? Right...?"
+
+#: core/scripts/screen_settings.gd
+msgid "CONFIRMATION_RESET_DEFAULT_TITLE"
+msgstr "Reset to default?"
+
+#: core/scripts/screen_settings.gd
+msgid "CONFIRMATION_RESET_DEFAULT_DESC"
+msgstr ""
+"This will reset all settings to default.\n"
+"[font_size=23]Except windows and language.[/font_size]"
+
+#: core/scripts/screen_settings.gd
+msgid "CONFIRMATION_CONFIRM"
+msgstr "CONFIRM"
+
+#: core/scripts/screen_settings.gd
+msgid "CONFIRMATION_CANCEL"
+msgstr "CANCEL"
+
+#: prefabs/screens/mainMenu_newGame.tscn
+msgid "NEWGAME_MODE1"
+msgstr "STORY MODE"
+
+#: prefabs/screens/mainMenu_newGame.tscn
+msgid "NEWGAME_DESC1"
+msgstr "A letter from my father?"
+
+#: prefabs/screens/mainMenu_newGame.tscn
+msgid "NEWGAME_MODE2"
+msgstr "SANDBOX MODE"
+
+#: prefabs/screens/mainMenu_newGame.tscn
+msgid "NEWGAME_DESC2"
+msgstr "Explore at your own pace, experiment with the world! No strings attached~"
+
+#: prefabs/screens/settings_screenAudio.tscn
+msgid "LABEL_VOLUME"
+msgstr "VOLUME"
+
+#: prefabs/screens/settings_screenAudio.tscn
+msgid "◈ VOLUME_MASTER"
+msgstr "◈ Master Volume"
+
+#: prefabs/screens/settings_screenAudio.tscn
+msgid "◈ VOLUME_MUSIC"
+msgstr "◈ Music Volume"
+
+#: prefabs/screens/settings_screenAudio.tscn
+msgid "◈ VOLUME_AMBIENCE"
+msgstr "◈ Ambience Volume"
+
+#: prefabs/screens/settings_screenAudio.tscn
+msgid "◈ VOLUME_SFX"
+msgstr "◈ Sound Effects Volume"
+
+#: prefabs/screens/settings_screenAudio.tscn
+msgid "◈ VOLUME_DIALOGUE"
+msgstr "◈ Dialogue Volume"
+
+#: prefabs/screens/settings_screenGameplay.tscn
+msgid "LABEL_LANGUAGE"
+msgstr "LANGUAGE"
+
+#: prefabs/screens/settings_screenGameplay.tscn
+msgid "◈ LANGUAGE_INTERFACE"
+msgstr "◈ Interface"
+
+#: prefabs/screens/settings_screenGameplay.tscn
+msgid "LABEL_GAMEPLAY"
+msgstr "GAMEPLAY"
+
+#: prefabs/screens/settings_screenGameplay.tscn
+msgid "◈ GAMEPLAY_HOURFORMAT"
+msgstr "◈ Hour Format"
+
+#: prefabs/screens/settings_screenVisual.tscn
+msgid "LABEL_DISPLAY"
+msgstr "DISPLAY"
+
+#: prefabs/screens/settings_screenVisual.tscn
+msgid "◈ MODE_WINDOW"
+msgstr "◈ Window Mode"
+
+#: prefabs/screens/settings_screenVisual.tscn
+msgid "LABEL_GRAPHICS"
+msgstr "GRAPHICS"
+
+#: prefabs/screens/settings_screenVisual.tscn
+msgid "◈ FILTER_MONOCHROME"
+msgstr "◈ Monochrome Filter"
+
+#~ msgid ""
+#~ "[b]Adjust the music volume.[/b]\n"
+#~ "\n"
+#~ "This adjust the music in the game...! Aren't this self-explanatory enough?\n"
+#~ "\n"
+#~ "Here! Let me help you:\n"
+#~ "[url]https://dictionary.cambridge.org/dictionary/english/adjust[/url]"
+#~ msgstr ""
+#~ "[b]Adjust the music volume.[/b]\n"
+#~ "\n"
+#~ "This adjusts the music in the game... Isn't this self-explanatory enough?\n"
+#~ "\n"
+#~ "Here! Let me help you:\n"
+#~ "[url]https://dictionary.cambridge.org/dictionary/english/adjust[/url]"
+
+#~ msgid ""
+#~ "[b]Set the game's window mode.[/b]\n"
+#~ "\n"
+#~ "Making the game to fully taking your monitor's space or you can move it around~"
+#~ msgstr ""
+#~ "[b]Set the game's window mode.[/b]\n"
+#~ "\n"
+#~ "Makes the game fully use your monitor or make it a window that you can move around~"
+
+#~ msgid "PROCEED"
+#~ msgstr "Proceed"
+
+#~ msgid "CANCEL"
+#~ msgstr "Cancel"
