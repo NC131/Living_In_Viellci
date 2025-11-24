@@ -10,5 +10,17 @@
       "version": "0.2.9",
       "url": "https://raw.githubusercontent.com/NC131/Living_In_Viellci/main/translations/en_subtitle.po"
     }
+  },
+  "id": {
+    "locale": "id",
+    "name": "Indonesia",
+    "interface": {
+      "version": "0.2.9",
+      "url": "https://raw.githubusercontent.com/NC131/Living_In_Viellci/main/translations/id_interface.po"
+    },
+    "subtitle": {
+      "version": "0.2.9",
+      "url": "https://raw.githubusercontent.com/NC131/Living_In_Viellci/main/translations/id_subtitle.po"
+    }
   }
 }
