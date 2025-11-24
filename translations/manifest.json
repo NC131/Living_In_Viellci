@@ -14,6 +14,8 @@
   "id": {
     "locale": "id",
     "name": "Indonesia",
+    "author": "Hayden_036",
+    "flavor": "Community",
     "interface": {
       "version": "0.2.9",
       "url": "https://raw.githubusercontent.com/NC131/Living_In_Viellci/main/translations/id_interface.po"
@@ -21,6 +23,20 @@
     "subtitle": {
       "version": "0.2.9",
       "url": "https://raw.githubusercontent.com/NC131/Living_In_Viellci/main/translations/id_subtitle.po"
+    }
+  },
+  "vi": {
+    "locale": "vi",
+    "name": "Tiếng Việt",
+    "author": "drowsypaunchzy",
+    "flavor": "Community",
+    "interface": {
+      "version": "0.2.9",
+      "url": "https://raw.githubusercontent.com/NC131/Living_In_Viellci/main/translations/vi_interface.po"
+    },
+    "subtitle": {
+      "version": "0.2.9",
+      "url": "https://raw.githubusercontent.com/NC131/Living_In_Viellci/main/translations/vi_subtitle.po"
     }
   }
 }
