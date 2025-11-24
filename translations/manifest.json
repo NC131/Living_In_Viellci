@@ -1,1 +1,14 @@
-
+{
+  "en": {
+    "locale": "en",
+    "name": "English",
+    "interface": {
+      "version": "1.0.0",
+      "url": "https://raw.githubusercontent.com/NC131/Living_In_Viellci/main/translations/en_interface.po"
+    },
+    "subtitle": {
+      "version": "1.0.0",
+      "url": "https://raw.githubusercontent.com/NC131/Living_In_Viellci/main/translations/en_subtitle.po"
+    }
+  }
+}
