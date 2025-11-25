@@ -3,11 +3,11 @@
     "locale": "en",
     "name": "English",
     "interface": {
-      "version": "0.2.91",
+      "version": "0.2.9",
       "url": "https://raw.githubusercontent.com/NC131/Living_In_Viellci/main/translations/en_interface.po"
     },
     "subtitle": {
-      "version": "0.2.91",
+      "version": "0.2.9",
       "url": "https://raw.githubusercontent.com/NC131/Living_In_Viellci/main/translations/en_subtitle.po"
     }
   },
@@ -17,11 +17,11 @@
     "author": "Hayden_036",
     "flavor": "Community",
     "interface": {
-      "version": "0.2.9",
+      "version": "0.2.91",
       "url": "https://raw.githubusercontent.com/NC131/Living_In_Viellci/main/translations/id_interface.po"
     },
     "subtitle": {
-      "version": "0.2.9",
+      "version": "0.2.91",
       "url": "https://raw.githubusercontent.com/NC131/Living_In_Viellci/main/translations/id_subtitle.po"
     }
   },
