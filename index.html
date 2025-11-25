@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Living In Viellci - Patreon Authorization</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            max-width: 500px;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        .status {
+            margin: 20px 0;
+            padding: 15px;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.2);
+        }
+        .success {
+            background: rgba(76, 175, 80, 0.3);
+        }
+        .error {
+            background: rgba(244, 67, 54, 0.3);
+        }
+        .code-display {
+            margin: 20px 0;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 5px;
+            word-break: break-all;
+            font-family: monospace;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Living In Viellci</h1>
+        <h2>Patreon Authorization</h2>
+        
+        <div id="status" class="status">
+            Processing authorization...
+        </div>
+        
+        <div id="codeDisplay" class="code-display" style="display: none;"></div>
+        
+        <p id="instructions">Please wait...</p>
+    </div>
+
+    <script>
+        // Get URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const code = urlParams.get('code');
+        const error = urlParams.get('error');
+        const errorDescription = urlParams.get('error_description');
+        
+        const statusDiv = document.getElementById('status');
+        const codeDisplay = document.getElementById('codeDisplay');
+        const instructions = document.getElementById('instructions');
+
+        if (error) {
+            // Handle error
+            statusDiv.className = 'status error';
+            statusDiv.innerHTML = '<strong>❌ Authorization Failed</strong>';
+            instructions.textContent = `Error: ${errorDescription || error}`;
+        } else if (code) {
+            // Success - got authorization code
+            statusDiv.className = 'status success';
+            statusDiv.innerHTML = '<strong>✅ Authorization Successful!</strong>';
+            instructions.textContent = 'You can now close this window and return to the game.';
+            
+            // Display the code (for debugging/manual use)
+            codeDisplay.style.display = 'block';
+            codeDisplay.textContent = `Authorization Code: ${code}`;
+            
+            // Log to console for debugging
+            console.log('Patreon Authorization Code:', code);
+            
+            // Optional: Send the code back to your game
+            // This depends on how you're implementing the integration
+            // For example, you could use postMessage if the game opened this in an iframe
+            // or use a custom URL scheme to deep link back to your game
+            
+            // Example for custom URL scheme (you'd implement this in your game):
+            // window.location.href = `viellci://patreon-callback?code=${code}`;
+        } else {
+            // No code or error - shouldn't normally happen
+            statusDiv.className = 'status error';
+            statusDiv.innerHTML = '<strong>⚠️ No Authorization Data</strong>';
+            instructions.textContent = 'No authorization code received. Please try again.';
+        }
+    </script>
+</body>
+</html>
