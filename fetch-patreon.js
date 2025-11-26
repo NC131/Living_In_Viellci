@@ -1,13 +1,10 @@
 const fs = require('fs');
 const https = require('https');
 const path = require('path');
-const { createWriteStream } = require('fs');
-const { pipeline } = require('stream/promises');
 
 const PATREON_ACCESS_TOKEN = process.env.PATREON_ACCESS_TOKEN;
 const PATREON_CAMPAIGN_ID = process.env.PATREON_CAMPAIGN_ID;
 
-// Directory to save thumbnails
 const THUMBNAIL_DIR = path.join(__dirname, 'patreon', 'posts');
 
 if (!PATREON_ACCESS_TOKEN || !PATREON_CAMPAIGN_ID) {
@@ -15,13 +12,11 @@ if (!PATREON_ACCESS_TOKEN || !PATREON_CAMPAIGN_ID) {
   process.exit(1);
 }
 
-// Create thumbnail directory if it doesn't exist
 if (!fs.existsSync(THUMBNAIL_DIR)) {
   fs.mkdirSync(THUMBNAIL_DIR, { recursive: true });
   console.log(`Created directory: ${THUMBNAIL_DIR}`);
 }
 
-// Patreon API endpoint
 const API_URL = `https://www.patreon.com/api/oauth2/v2/campaigns/${PATREON_CAMPAIGN_ID}/posts`;
 
 function fetchPatreonPage(url) {
@@ -58,50 +53,75 @@ function fetchPatreonPage(url) {
   });
 }
 
-function extractFirstPngFromContent(content) {
-  if (!content) return null;
+function fetchPostHtml(postUrl) {
+  return new Promise((resolve, reject) => {
+    const fullUrl = postUrl.startsWith('http') ? postUrl : `https://www.patreon.com${postUrl}`;
 
-  // Match all img tags
-  const imgMatches = content.matchAll(/<img[^>]+src="([^">]+)"/g);
+    const options = {
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+      }
+    };
 
-  for (const match of imgMatches) {
-    const url = match[1];
-    // Only return if it's a PNG (case insensitive)
+    https.get(fullUrl, options, (res) => {
+      let data = '';
+
+      // Follow redirects
+      if (res.statusCode === 301 || res.statusCode === 302) {
+        fetchPostHtml(res.headers.location).then(resolve).catch(reject);
+        return;
+      }
+
+      res.on('data', (chunk) => {
+        data += chunk;
+      });
+
+      res.on('end', () => {
+        resolve(data);
+      });
+    }).on('error', (error) => {
+      reject(error);
+    });
+  });
+}
+
+function extractImageFromHtml(html) {
+  if (!html) return null;
+
+  // Look for image meta tag
+  const ogImageMatch = html.match(/<meta\s+property="og:image"\s+content="([^"]+)"/i);
+  if (ogImageMatch && ogImageMatch[1]) {
+    const url = ogImageMatch[1];
+    // Check if it's a PNG
     if (url.match(/\.png(\?|$)/i)) {
       return url;
+    }
+  }
+
+  // Look for first image in content that's a PNG
+  const imgMatches = html.matchAll(/<img[^>]+src="([^"]+\.png[^"]*)"/gi);
+  for (const match of imgMatches) {
+    if (match[1] && !match[1].includes('avatar') && !match[1].includes('icon')) {
+      return match[1];
     }
   }
 
   return null;
 }
 
-function findImageForPost(post) {
-  // Find PNG from embed_data
-  if (post.attributes.embed_data && post.attributes.embed_data.image) {
-    const embedImage = post.attributes.embed_data.image.large_thumb_url ||
-                       post.attributes.embed_data.image.small_thumb_url ||
-                       post.attributes.embed_data.image.url;
-
-    // Only use if it's a PNG
-    if (embedImage && embedImage.match(/\.png(\?|$)/i)) {
-      return embedImage;
-    }
-  }
-
-  // Check embed_url for PNG
-  if (post.attributes.embed_url && post.attributes.embed_url.match(/\.png(\?|$)/i)) {
-    return post.attributes.embed_url;
-  }
-
-  // Finally, extract first PNG from content
-  return extractFirstPngFromContent(post.attributes.content);
-}
-
 async function downloadImage(url, filepath) {
   return new Promise((resolve, reject) => {
-    https.get(url, (response) => {
+    const options = {
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+        'Referer': 'https://www.patreon.com/',
+        'Accept': 'image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8'
+      }
+    };
+
+    https.get(url, options, (response) => {
+      // Follow redirects
       if (response.statusCode === 302 || response.statusCode === 301) {
-        // Follow redirect
         downloadImage(response.headers.location, filepath)
           .then(resolve)
           .catch(reject);
@@ -113,7 +133,7 @@ async function downloadImage(url, filepath) {
         return;
       }
 
-      const fileStream = createWriteStream(filepath);
+      const fileStream = fs.createWriteStream(filepath);
       response.pipe(fileStream);
 
       fileStream.on('finish', () => {
@@ -122,7 +142,7 @@ async function downloadImage(url, filepath) {
       });
 
       fileStream.on('error', (err) => {
-        fs.unlink(filepath, () => {}); // Delete partial file
+        fs.unlink(filepath, () => {});
         reject(err);
       });
     }).on('error', (err) => {
@@ -132,67 +152,83 @@ async function downloadImage(url, filepath) {
 }
 
 async function resizeImage(inputPath, outputPath, width = 425, height = 221) {
-  // We'll use sharp for image resizing
-  // Since sharp is a native module, we need to install it
-  // For now, let's use a simpler approach with child_process and ImageMagick
-  // Or we can use jimp which is pure JS
-
   try {
     const Jimp = require('jimp');
     const image = await Jimp.read(inputPath);
     await image.resize(width, height).quality(90).writeAsync(outputPath);
-    console.log(`   Resized image to ${width}x${height}: ${outputPath}`);
+    console.log(`   Resized to ${width}x${height}`);
   } catch (error) {
-    // If jimp is not available, just copy the file
-    console.warn(`   Warning: Could not resize image (jimp not installed). Using original size.`);
-    fs.copyFileSync(inputPath, outputPath);
+    console.warn(`   Warning: Could not resize (jimp not installed). Using original.`);
+    if (inputPath !== outputPath) {
+      fs.copyFileSync(inputPath, outputPath);
+    }
   }
 }
 
 function sanitizeFilename(str) {
-  // Remove or replace characters that are invalid in filenames
   return str.replace(/[^a-z0-9]/gi, '_').toLowerCase().substring(0, 50);
 }
 
-async function processPostThumbnail(post, index) {
-  const imageUrl = findImageForPost(post);
+function extractFirstPngFromContent(content) {
+  if (!content) return null;
 
-  if (!imageUrl) {
-    console.log(`   No PNG thumbnail found for post: "${post.attributes.title}"`);
-    return null;
+  const imgMatches = content.matchAll(/<img[^>]+src="([^">]+)"/g);
+
+  for (const match of imgMatches) {
+    const url = match[1];
+    if (url.match(/\.png(\?|$)/i)) {
+      return url;
+    }
   }
 
+  return null;
+}
+
+async function processPostThumbnail(post, index) {
   try {
-    // Create filename based on post title and index
     const sanitizedTitle = sanitizeFilename(post.attributes.title);
     const filename = `${index}_${sanitizedTitle}.png`;
     const tempPath = path.join(THUMBNAIL_DIR, `temp_${filename}`);
     const finalPath = path.join(THUMBNAIL_DIR, filename);
 
-    console.log(`   Downloading thumbnail: ${imageUrl}`);
+    // Get PNG from post content
+    let imageUrl = extractFirstPngFromContent(post.attributes.content);
+
+    // If no PNG found in API content, scrape the actual post page
+    if (!imageUrl) {
+      console.log(`   No PNG in API response, scraping post page...`);
+      const postHtml = await fetchPostHtml(post.attributes.url);
+      imageUrl = extractImageFromHtml(postHtml);
+    }
+
+    if (!imageUrl) {
+      console.log(`   No PNG thumbnail found`);
+      return null;
+    }
+
+    console.log(`   Found image: ${imageUrl.substring(0, 80)}...`);
+    console.log(`   Downloading...`);
+
     await downloadImage(imageUrl, tempPath);
 
-    console.log(`   Resizing thumbnail...`);
+    console.log(`   Resizing...`);
     await resizeImage(tempPath, finalPath, 425, 221);
 
-    // Clean up temp file
     if (fs.existsSync(tempPath) && tempPath !== finalPath) {
       fs.unlinkSync(tempPath);
     }
 
-    // Return relative path for JSON
     return `patreon/posts/${filename}`;
   } catch (error) {
-    console.error(`   Error processing thumbnail for "${post.attributes.title}":`, error.message);
+    console.error(`   Error: ${error.message}`);
     return null;
   }
 }
 
 async function main() {
   try {
-    console.log('Fetching all Patreon posts...');
+    console.log('Fetching all Patreon posts...\n');
 
-    // Properly encode query parameters
     const query = new URLSearchParams({
       'fields[post]': 'title,url,published_at,is_public,content,embed_data,embed_url',
       'page[count]': '100'
@@ -204,52 +240,47 @@ async function main() {
 
     while (nextUrl) {
       pageCount++;
-      console.log(`Fetching page ${pageCount}: ${nextUrl}`);
+      console.log(`Fetching page ${pageCount}...`);
       const response = await fetchPatreonPage(nextUrl);
 
       if (!response.data || response.data.length === 0) {
-        console.log(`Page ${pageCount} has no posts.`);
         break;
       }
 
       allPosts = allPosts.concat(response.data);
-      console.log(`Fetched ${response.data.length} posts from page ${pageCount} (total so far: ${allPosts.length})`);
+      console.log(`  Fetched ${response.data.length} posts (total: ${allPosts.length})`);
 
       nextUrl = response.links && response.links.next ? response.links.next : null;
     }
 
     if (allPosts.length === 0) {
-      console.log('No posts found across all pages.');
+      console.log('No posts found.');
       process.exit(0);
     }
 
-    console.log(`Total fetched posts across ${pageCount} pages: ${allPosts.length}`);
+    console.log(`\nTotal posts: ${allPosts.length}`);
 
-    // Filter public posts
     const publicPosts = allPosts.filter(post => post.attributes.is_public);
 
-    // Manually sort by published date, newest first (descending)
     publicPosts.sort((a, b) => {
       const dateA = new Date(a.attributes.published_at);
       const dateB = new Date(b.attributes.published_at);
       return dateB.getTime() - dateA.getTime();
     });
 
-    // Take only the top 10 newest public posts
     const topPosts = publicPosts.slice(0, 10);
 
     if (topPosts.length === 0) {
-      console.log('No public posts found after filtering.');
+      console.log('No public posts found.');
       process.exit(0);
     }
 
-    console.log(`\nProcessing top ${topPosts.length} newest public posts:\n`);
+    console.log(`\nProcessing ${topPosts.length} newest public posts:\n`);
 
-    // Process each post and download/resize thumbnails
     const posts = [];
     for (let i = 0; i < topPosts.length; i++) {
       const post = topPosts[i];
-      console.log(`Processing #${i + 1}: "${post.attributes.title}"`);
+      console.log(`#${i + 1}: "${post.attributes.title}"`);
       console.log(`   Date: ${post.attributes.published_at}`);
       console.log(`   URL: ${post.attributes.url}`);
 
@@ -263,10 +294,9 @@ async function main() {
         is_public: post.attributes.is_public
       });
 
-      console.log(`   Thumbnail: ${thumbnailPath ? '✓ ' + thumbnailPath : '✗ No PNG found'}\n`);
+      console.log(`   Result: ${thumbnailPath ? '✓ ' + thumbnailPath : '✗ No PNG'}\n`);
     }
 
-    // Create output JSON
     const output = {
       last_updated: new Date().toISOString(),
       total_posts: posts.length,
@@ -274,12 +304,11 @@ async function main() {
       posts: posts
     };
 
-    // Save to file
     fs.writeFileSync('patreon-posts.json', JSON.stringify(output, null, 2));
-    console.log(`\n✓ Successfully saved ${posts.length} newest public posts to patreon-posts.json`);
+    console.log(`✓ Successfully saved ${posts.length} posts to patreon-posts.json`);
 
   } catch (error) {
-    console.error('Error fetching Patreon posts:', error.message);
+    console.error('Error:', error.message);
     process.exit(1);
   }
 }
