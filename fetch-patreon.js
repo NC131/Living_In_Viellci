@@ -13,9 +13,7 @@ if (!PATREON_ACCESS_TOKEN || !PATREON_CAMPAIGN_ID) {
 // Patreon API endpoint
 const API_URL = `https://www.patreon.com/api/oauth2/v2/campaigns/${PATREON_CAMPAIGN_ID}/posts`;
 const PARAMS = [
-  'fields[post]=title,url,published_at,is_public,content',
-  'fields[media]=image_urls',
-  'include=images',
+  'fields[post]=title,url,published_at,is_public,content,embed',
   'page[count]=20' // Fetch 20 to ensure we get 10 public ones
 ].join('&');
 
@@ -68,25 +66,13 @@ function extractThumbnailFromContent(content) {
   return null;
 }
 
-function findImageForPost(post, included) {
-  // First, try to find attached images through relationships
-  if (post.relationships && post.relationships.images && post.relationships.images.data) {
-    const imageIds = post.relationships.images.data.map(img => img.id);
-    
-    if (imageIds.length > 0 && included) {
-      const images = included.filter(item => 
-        item.type === 'media' && imageIds.includes(item.id)
-      );
-      
-      if (images.length > 0 && images[0].attributes && images[0].attributes.image_urls) {
-        // Get the largest available image
-        const urls = images[0].attributes.image_urls;
-        return urls.original || urls.url || null;
-      }
-    }
+function findImageForPost(post) {
+  // Try embed first (for posts with featured images)
+  if (post.attributes.embed && post.attributes.embed.image) {
+    return post.attributes.embed.image;
   }
   
-  // Fallback: Try to extract from content
+  // Try to extract from content HTML
   return extractThumbnailFromContent(post.attributes.content);
 }
 
@@ -115,9 +101,9 @@ async function main() {
       })
       .slice(0, 10) // Take only 10 most recent public posts
       .map(post => {
-        const thumbnail = findImageForPost(post, response.included);
+        const thumbnail = findImageForPost(post);
         
-        console.log(`   Processing: "${post.attributes.title}"`);
+        console.log(` Processing: "${post.attributes.title}"`);
         console.log(`   URL: ${post.attributes.url}`);
         console.log(`   Thumbnail: ${thumbnail ? '✓' : '✗'}`);
         
