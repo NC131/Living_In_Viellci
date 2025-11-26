@@ -1,5 +1,7 @@
 const fs = require('fs');
 const https = require('https');
+const path = require('path');
+const { createCanvas, loadImage } = require('canvas');
 
 const PATREON_ACCESS_TOKEN = process.env.PATREON_ACCESS_TOKEN;
 const PATREON_CAMPAIGN_ID = process.env.PATREON_CAMPAIGN_ID;
@@ -10,6 +12,12 @@ if (!PATREON_ACCESS_TOKEN || !PATREON_CAMPAIGN_ID) {
 }
 
 const API_URL = `https://www.patreon.com/api/oauth2/v2/campaigns/${PATREON_CAMPAIGN_ID}/posts`;
+const IMAGES_DIR = 'patreon/posts';
+
+// Ensure images directory exists
+if (!fs.existsSync(IMAGES_DIR)) {
+  fs.mkdirSync(IMAGES_DIR, { recursive: true });
+}
 
 function fetchPatreonPage(url) {
   return new Promise((resolve, reject) => {
@@ -45,16 +53,67 @@ function fetchPatreonPage(url) {
   });
 }
 
+function downloadImageBuffer(url) {
+  return new Promise((resolve, reject) => {
+    const options = {
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
+        'Referer': 'https://www.patreon.com/',
+        'Accept': 'image/webp,image/apng,image/*,*/*;q=0.8'
+      }
+    };
+
+    https.get(url, options, (res) => {
+      if (res.statusCode !== 200) {
+        reject(new Error(`Failed to download image: HTTP ${res.statusCode}`));
+        return;
+      }
+
+      const chunks = [];
+      res.on('data', (chunk) => chunks.push(chunk));
+      res.on('end', () => resolve(Buffer.concat(chunks)));
+    }).on('error', (error) => {
+      reject(error);
+    });
+  });
+}
+
+async function resizeAndSaveImage(imageBuffer, outputPath) {
+  try {
+    // Load the image
+    const img = await loadImage(imageBuffer);
+    
+    // Calculate resize dimensions (fit within 425x221)
+    const targetWidth = 425;
+    const targetHeight = 221;
+    const scale = Math.min(targetWidth / img.width, targetHeight / img.height);
+    const newWidth = Math.floor(img.width * scale);
+    const newHeight = Math.floor(img.height * scale);
+    
+    // Create canvas and resize
+    const canvas = createCanvas(newWidth, newHeight);
+    const ctx = canvas.getContext('2d');
+    ctx.drawImage(img, 0, 0, newWidth, newHeight);
+    
+    // Save as PNG
+    const buffer = canvas.toBuffer('image/png');
+    fs.writeFileSync(outputPath, buffer);
+    
+    return true;
+  } catch (error) {
+    console.error(`Failed to resize image: ${error.message}`);
+    return false;
+  }
+}
+
 function extractFirstPngFromContent(content) {
   if (!content) return null;
   
-  // Match all img tags
   const imgRegex = /<img[^>]+src="([^">]+)"/g;
   let match;
   
   while ((match = imgRegex.exec(content)) !== null) {
     const url = match[1];
-    // Check if URL ends with .png (case insensitive)
     if (url.toLowerCase().match(/\.png(\?|$)/)) {
       return url;
     }
@@ -75,7 +134,6 @@ function findImageForPost(post) {
       imgData.url
     ];
     
-    // Find first PNG in the embed data
     for (const url of possibleUrls) {
       if (url && url.toLowerCase().match(/\.png(\?|$)/)) {
         return url;
@@ -88,13 +146,31 @@ function findImageForPost(post) {
     return attrs.embed_url;
   }
   
-  // Extract first PNG from content (for video posts with image in description)
+  // Extract first PNG from content
   const contentImage = extractFirstPngFromContent(attrs.content);
   if (contentImage) {
     return contentImage;
   }
   
   return null;
+}
+
+function generateSafeFilename(postUrl) {
+  // Convert /posts/weekly-log-11-144156455 to weekly_log_11_144156455.png
+  return postUrl.replace('/posts/', '').replace(/[/-]/g, '_') + '.png';
+}
+
+function cleanupOldImages(currentFilenames) {
+  // Remove images that are no longer in the top 10
+  const existingFiles = fs.readdirSync(IMAGES_DIR);
+  
+  for (const file of existingFiles) {
+    if (file.endsWith('.png') && !currentFilenames.includes(file)) {
+      const filePath = path.join(IMAGES_DIR, file);
+      fs.unlinkSync(filePath);
+      console.log(`   🗑 Deleted old image: ${file}`);
+    }
+  }
 }
 
 async function main() {
@@ -151,30 +227,81 @@ async function main() {
     });
 
     // Take only the top 10 newest public posts with PNG images
-    const posts = publicPostsWithImages.slice(0, 10).map(post => {
-      const thumbnail = findImageForPost(post);
+    const postsToProcess = publicPostsWithImages.slice(0, 10);
 
-      return {
-        title: post.attributes.title,
-        url: post.attributes.url,
-        thumbnail: thumbnail,
-        date: post.attributes.published_at,
-        is_public: post.attributes.is_public
-      };
-    });
-
-    if (posts.length === 0) {
+    if (postsToProcess.length === 0) {
       console.log('No public posts with PNG images found after filtering.');
       process.exit(0);
     }
 
-    console.log(`Processing top ${posts.length} newest public posts with PNG images:`);
-    posts.forEach((post, i) => {
-      console.log(`   #${i + 1}: "${post.title}" (Date: ${post.date})`);
-      console.log(`      URL: ${post.url}`);
-      console.log(`      Thumbnail: ${post.thumbnail ? '✓ ' + post.thumbnail : '✗'}`);
-    });
+    console.log(`\nProcessing top ${postsToProcess.length} newest public posts with PNG images...`);
 
+    // Download and resize images
+    const posts = [];
+    const currentFilenames = [];
+    
+    for (let i = 0; i < postsToProcess.length; i++) {
+      const post = postsToProcess[i];
+      const thumbnailUrl = findImageForPost(post);
+      const filename = generateSafeFilename(post.attributes.url);
+      const imagePath = path.join(IMAGES_DIR, filename);
+      
+      currentFilenames.push(filename);
+      
+      console.log(`\n   #${i + 1}: "${post.attributes.title}"`);
+      console.log(`      Date: ${post.attributes.published_at}`);
+      console.log(`      URL: ${post.attributes.url}`);
+      console.log(`      Image: ${filename}`);
+
+      // Check if image already exists
+      if (fs.existsSync(imagePath)) {
+        console.log(`      ✓ Image already exists, skipping download`);
+        
+        posts.push({
+          title: post.attributes.title,
+          url: post.attributes.url,
+          thumbnail: `patreon/posts/${filename}`,
+          date: post.attributes.published_at,
+          is_public: post.attributes.is_public
+        });
+        continue;
+      }
+
+      try {
+        console.log(`      Downloading...`);
+        const imageBuffer = await downloadImageBuffer(thumbnailUrl);
+        
+        console.log(`      Resizing to fit 425x221...`);
+        const success = await resizeAndSaveImage(imageBuffer, imagePath);
+        
+        if (success) {
+          const fileSize = fs.statSync(imagePath).size;
+          console.log(`      ✓ Saved (${Math.round(fileSize / 1024)}KB)`);
+          
+          posts.push({
+            title: post.attributes.title,
+            url: post.attributes.url,
+            thumbnail: `patreon/posts/${filename}`,
+            date: post.attributes.published_at,
+            is_public: post.attributes.is_public
+          });
+        }
+      } catch (error) {
+        console.error(`      ✗ Failed: ${error.message}`);
+        // Skip posts with failed image downloads
+      }
+    }
+
+    if (posts.length === 0) {
+      console.log('\nNo posts with successfully downloaded images.');
+      process.exit(0);
+    }
+
+    // Clean up old images
+    console.log('\nCleaning up old images...');
+    cleanupOldImages(currentFilenames);
+
+    // Create JSON output
     const output = {
       last_updated: new Date().toISOString(),
       total_posts: posts.length,
@@ -183,7 +310,10 @@ async function main() {
     };
 
     fs.writeFileSync('patreon-posts.json', JSON.stringify(output, null, 2));
-    console.log(`Successfully saved ${posts.length} newest public posts to patreon-posts.json`);
+    
+    const jsonSize = fs.statSync('patreon-posts.json').size;
+    console.log(`\n✓ Successfully saved ${posts.length} posts to patreon-posts.json (${Math.round(jsonSize / 1024)}KB)`);
+    console.log(`✓ Images saved to ${IMAGES_DIR}/`);
 
   } catch (error) {
     console.error('Error fetching Patreon posts:', error.message);
