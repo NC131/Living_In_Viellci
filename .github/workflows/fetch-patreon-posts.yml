@@ -33,9 +33,14 @@ jobs:
         run: |
           node fetch-patreon.js
 
+      - name: Clean working directory
+        run: |
+          git clean -fd  # Remove untracked files/directories
+          git reset --hard HEAD  # Reset to clean state (discard any local changes)
+
       - name: Pull latest changes
         run: |
-          git pull --rebase origin main  # Pull and rebase to resolve conflicts
+          git pull --rebase origin main  # Now it should succeed
 
       - name: Check for changes
         id: changes
