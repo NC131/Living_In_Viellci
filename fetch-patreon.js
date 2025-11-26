@@ -73,63 +73,70 @@ function extractFirstImageFromContent(content) {
   return null;
 }
 
-function findImageForPost(post, mediaByPost) {
-  const medias = mediaByPost[post.id] || [];
-  const imageMedias = medias.filter(m => {
-    const mime = m.attributes.mimetype || '';
-    return mime.startsWith('image/') && !mime.endsWith('gif');
-  });
+function findImageForPost(post, mediaMap) {
+  if (post.relationships && post.relationships.images && post.relationships.images.data) {
+    const imageIds = post.relationships.images.data;
 
-  // Prefer PNG first, then others
-  const pngMedias = imageMedias.filter(m => m.attributes.mimetype === 'image/png');
-  const otherMedias = imageMedias.filter(m => m.attributes.mimetype !== 'image/png');
-  const selectedMedias = [...pngMedias, ...otherMedias];
+    if (imageIds.length > 0) {
+      // Get the first image (usually the cover/main image)
+      const firstImageId = imageIds[0].id;
+      const mediaItem = mediaMap.get(firstImageId);
 
-  const hasEmbed = !!post.attributes.embed_data;
+      if (mediaItem && mediaItem.attributes) {
+        // Try to get the best quality image URL
+        if (mediaItem.attributes.image_urls) {
+          // Get the largest available image
+          const imageUrl = mediaItem.attributes.image_urls.url ||
+                          mediaItem.attributes.image_urls.default ||
+                          mediaItem.attributes.download_url;
 
-  if (hasEmbed) {
-    // For video/embed posts, prefer logic that falls back to content (description) for custom banner
-    if (post.attributes.embed_data && post.attributes.embed_data.image) {
-      const embedImage = post.attributes.embed_data.image.large_thumb_url ||
-                         post.attributes.embed_data.image.small_thumb_url ||
-                         post.attributes.embed_data.image.url;
-
-      if (embedImage && embedImage.match(/\.png(\?|$)/i)) {
-        return embedImage;
-      } else {
-        const contentImage = extractFirstImageFromContent(post.attributes.content);
-        if (contentImage) {
-          return contentImage;
+          if (imageUrl) {
+            console.log(`   Found cover image from relationships`);
+            return imageUrl;
+          }
         }
-        // Fallback to embed image even if not PNG
-        return embedImage;
+
+        // Fallback to download_url
+        if (mediaItem.attributes.download_url) {
+          console.log(`   Found cover image (download_url) from relationships`);
+          return mediaItem.attributes.download_url;
+        }
       }
     }
-
-    if (post.attributes.embed_url && post.attributes.embed_url.match(/\.png(\?|$)/i)) {
-      return post.attributes.embed_url;
-    }
-
-    // Fallback to content
-    return extractFirstImageFromContent(post.attributes.content);
-  } else {
-    // For non-video posts, prefer media attachments (main banner/thumbnail), then fallback to content
-    if (selectedMedias.length > 0) {
-      const att = selectedMedias[0]; // Assume first is the main/featured
-      if (att.attributes.image_urls) {
-        const urls = att.attributes.image_urls;
-        // Prefer a large/resized version for better quality before resizing
-        return urls.large_thumb_url || urls.large || urls.thumb || urls.default || urls.url || att.attributes.download_url || att.attributes.url;
-      } else if (att.attributes.download_url) {
-        return att.attributes.download_url;
-      } else if (att.attributes.url) {
-        return att.attributes.url;
-      }
-    }
-
-    // Fallback to content if no suitable media
-    return extractFirstImageFromContent(post.attributes.content);
   }
+
+  if (post.attributes.embed_data && post.attributes.embed_data.image) {
+    const embedImage = post.attributes.embed_data.image.large_thumb_url ||
+                       post.attributes.embed_data.image.small_thumb_url ||
+                       post.attributes.embed_data.image.url;
+
+    // If it's a video, try to find first PNG in content instead
+    if (embedImage && !embedImage.match(/\.png(\?|$)/i)) {
+      const contentImage = extractFirstImageFromContent(post.attributes.content);
+      if (contentImage) {
+        console.log(`   Found PNG in content (video post)`);
+        return contentImage;
+      }
+    }
+
+    if (embedImage) {
+      console.log(`   Found embed_data image`);
+      return embedImage;
+    }
+  }
+
+  if (post.attributes.embed_url && post.attributes.embed_url.match(/\.png(\?|$)/i)) {
+    console.log(`   Found PNG in embed_url`);
+    return post.attributes.embed_url;
+  }
+
+  const contentImage = extractFirstImageFromContent(post.attributes.content);
+  if (contentImage) {
+    console.log(`   Found PNG in content`);
+    return contentImage;
+  }
+
+  return null;
 }
 
 async function screenshotAndResizeImage(imageUrl, postId, browser) {
@@ -215,16 +222,15 @@ async function main() {
   try {
     console.log('Fetching all Patreon posts...');
 
-    // Properly encode query parameters
     const query = new URLSearchParams({
       'fields[post]': 'title,url,published_at,is_public,content,embed_data,embed_url',
-      'include': 'media',  // Include media to fetch attached images/videos/etc.
-      'fields[media]': 'created_at,download_url,file_name,image_urls,mimetype,owner_id,owner_relationship,owner_type,size_bytes,state,upload_expires_at,upload_parameters,upload_url',
+      'fields[media]': 'image_urls,download_url',
+      'include': 'images',
       'page[count]': '100'
     });
 
     let allPosts = [];
-    let allIncluded = [];
+    let allIncluded = [];  // Store included media resources
     let nextUrl = `${API_URL}?${query.toString()}`;
     let pageCount = 0;
 
@@ -239,9 +245,12 @@ async function main() {
       }
 
       allPosts = allPosts.concat(response.data);
+
+      // Collect included resources (images)
       if (response.included) {
         allIncluded = allIncluded.concat(response.included);
       }
+
       console.log(`Fetched ${response.data.length} posts from page ${pageCount} (total so far: ${allPosts.length})`);
 
       nextUrl = response.links && response.links.next ? response.links.next : null;
@@ -253,14 +262,13 @@ async function main() {
     }
 
     console.log(`Total fetched posts across ${pageCount} pages: ${allPosts.length}`);
+    console.log(`Total included media items: ${allIncluded.length}`);
 
-    // Build mediaByPost map
-    const mediaByPost = {};
-    allIncluded.forEach(inc => {
-      if (inc.type === 'media' && inc.attributes.owner_type === 'post') {
-        const postId = inc.attributes.owner_id;
-        if (!mediaByPost[postId]) mediaByPost[postId] = [];
-        mediaByPost[postId].push(inc);
+    // Create a lookup map for included media
+    const mediaMap = new Map();
+    allIncluded.forEach(item => {
+      if (item.type === 'media') {
+        mediaMap.set(item.id, item);
       }
     });
 
@@ -307,7 +315,7 @@ async function main() {
       console.log(`   Date: ${post.attributes.published_at}`);
       console.log(`   URL: ${post.attributes.url}`);
 
-      const imageUrl = findImageForPost(post, mediaByPost);
+      const imageUrl = findImageForPost(post, mediaMap);
       let thumbnailPath = null;
 
       if (imageUrl) {
@@ -349,6 +357,7 @@ async function main() {
     } else {
       console.log(`   ✓ Deleted ${deletedCount} unused thumbnails.`);
     }
+
     // Close browser
     if (browser) {
       await browser.close();
