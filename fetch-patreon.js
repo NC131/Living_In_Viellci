@@ -1,7 +1,6 @@
 const fs = require('fs');
 const https = require('https');
 const path = require('path');
-const { createCanvas, loadImage } = require('canvas');
 
 const PATREON_ACCESS_TOKEN = process.env.PATREON_ACCESS_TOKEN;
 const PATREON_CAMPAIGN_ID = process.env.PATREON_CAMPAIGN_ID;
@@ -53,19 +52,42 @@ function fetchPatreonPage(url) {
   });
 }
 
-function downloadImageBuffer(url) {
+function downloadImageWithAuth(url) {
   return new Promise((resolve, reject) => {
+    const cleanUrl = url.split('?')[0];
+    
     const options = {
       headers: {
+        'Authorization': `Bearer ${PATREON_ACCESS_TOKEN}`,
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
         'Referer': 'https://www.patreon.com/',
         'Accept': 'image/webp,image/apng,image/*,*/*;q=0.8'
       }
     };
 
-    https.get(url, options, (res) => {
+    https.get(cleanUrl, options, (res) => {
+      // Handle redirects
+      if (res.statusCode === 301 || res.statusCode === 302) {
+        const redirectUrl = res.headers.location;
+        return downloadImageWithAuth(redirectUrl).then(resolve).catch(reject);
+      }
+
       if (res.statusCode !== 200) {
-        reject(new Error(`Failed to download image: HTTP ${res.statusCode}`));
+        // If clean URL fails, try with the original token URL
+        if (cleanUrl !== url) {
+          console.log(`      Retrying with token URL...`);
+          https.get(url, options, (res2) => {
+            if (res2.statusCode !== 200) {
+              reject(new Error(`Failed to download image: HTTP ${res2.statusCode}`));
+              return;
+            }
+            const chunks = [];
+            res2.on('data', (chunk) => chunks.push(chunk));
+            res2.on('end', () => resolve(Buffer.concat(chunks)));
+          }).on('error', reject);
+        } else {
+          reject(new Error(`Failed to download image: HTTP ${res.statusCode}`));
+        }
         return;
       }
 
@@ -78,34 +100,6 @@ function downloadImageBuffer(url) {
   });
 }
 
-async function resizeAndSaveImage(imageBuffer, outputPath) {
-  try {
-    // Load the image
-    const img = await loadImage(imageBuffer);
-    
-    // Calculate resize dimensions (fit within 425x221)
-    const targetWidth = 425;
-    const targetHeight = 221;
-    const scale = Math.min(targetWidth / img.width, targetHeight / img.height);
-    const newWidth = Math.floor(img.width * scale);
-    const newHeight = Math.floor(img.height * scale);
-    
-    // Create canvas and resize
-    const canvas = createCanvas(newWidth, newHeight);
-    const ctx = canvas.getContext('2d');
-    ctx.drawImage(img, 0, 0, newWidth, newHeight);
-    
-    // Save as PNG
-    const buffer = canvas.toBuffer('image/png');
-    fs.writeFileSync(outputPath, buffer);
-    
-    return true;
-  } catch (error) {
-    console.error(`Failed to resize image: ${error.message}`);
-    return false;
-  }
-}
-
 function extractFirstPngFromContent(content) {
   if (!content) return null;
   
@@ -114,7 +108,7 @@ function extractFirstPngFromContent(content) {
   
   while ((match = imgRegex.exec(content)) !== null) {
     const url = match[1];
-    if (url.toLowerCase().match(/\.png(\?|$)/)) {
+    if (url.toLowerCase().match(/\.(png|jpg|jpeg|webp)(\?|$)/i)) {
       return url;
     }
   }
@@ -135,18 +129,18 @@ function findImageForPost(post) {
     ];
     
     for (const url of possibleUrls) {
-      if (url && url.toLowerCase().match(/\.png(\?|$)/)) {
+      if (url) {
         return url;
       }
     }
   }
   
-  // If embed_url is a PNG
-  if (attrs.embed_url && attrs.embed_url.toLowerCase().match(/\.png(\?|$)/)) {
+  // If embed_url is an image
+  if (attrs.embed_url && attrs.embed_url.match(/\.(png|jpg|jpeg|webp)(\?|$)/i)) {
     return attrs.embed_url;
   }
   
-  // Extract first PNG from content
+  // Extract first image from content
   const contentImage = extractFirstPngFromContent(attrs.content);
   if (contentImage) {
     return contentImage;
@@ -209,7 +203,7 @@ async function main() {
 
     console.log(`Total fetched posts across ${pageCount} pages: ${allPosts.length}`);
 
-    // Filter public posts with PNG thumbnails
+    // Filter public posts with images
     const publicPostsWithImages = allPosts.filter(post => {
       if (!post.attributes.is_public) {
         return false;
@@ -226,17 +220,17 @@ async function main() {
       return dateB.getTime() - dateA.getTime();
     });
 
-    // Take only the top 10 newest public posts with PNG images
+    // Take only the top 10 newest public posts with images
     const postsToProcess = publicPostsWithImages.slice(0, 10);
 
     if (postsToProcess.length === 0) {
-      console.log('No public posts with PNG images found after filtering.');
+      console.log('No public posts with images found after filtering.');
       process.exit(0);
     }
 
-    console.log(`\nProcessing top ${postsToProcess.length} newest public posts with PNG images...`);
+    console.log(`\nProcessing top ${postsToProcess.length} newest public posts with images...`);
 
-    // Download and resize images
+    // Download images
     const posts = [];
     const currentFilenames = [];
     
@@ -268,24 +262,21 @@ async function main() {
       }
 
       try {
-        console.log(`      Downloading...`);
-        const imageBuffer = await downloadImageBuffer(thumbnailUrl);
+        console.log(`      Downloading from: ${thumbnailUrl}`);
+        const imageBuffer = await downloadImageWithAuth(thumbnailUrl);
         
-        console.log(`      Resizing to fit 425x221...`);
-        const success = await resizeAndSaveImage(imageBuffer, imagePath);
+        // Save directly (Patreon already serves appropriately sized images)
+        fs.writeFileSync(imagePath, imageBuffer);
+        const fileSize = fs.statSync(imagePath).size;
+        console.log(`      ✓ Saved (${Math.round(fileSize / 1024)}KB)`);
         
-        if (success) {
-          const fileSize = fs.statSync(imagePath).size;
-          console.log(`      ✓ Saved (${Math.round(fileSize / 1024)}KB)`);
-          
-          posts.push({
-            title: post.attributes.title,
-            url: post.attributes.url,
-            thumbnail: `patreon/posts/${filename}`,
-            date: post.attributes.published_at,
-            is_public: post.attributes.is_public
-          });
-        }
+        posts.push({
+          title: post.attributes.title,
+          url: post.attributes.url,
+          thumbnail: `patreon/posts/${filename}`,
+          date: post.attributes.published_at,
+          is_public: post.attributes.is_public
+        });
       } catch (error) {
         console.error(`      ✗ Failed: ${error.message}`);
         // Skip posts with failed image downloads
@@ -305,7 +296,7 @@ async function main() {
     const output = {
       last_updated: new Date().toISOString(),
       total_posts: posts.length,
-      note: posts.length < 10 ? 'Fewer than 10 public posts with PNG images available' : '',
+      note: posts.length < 10 ? 'Fewer than 10 public posts with images available' : '',
       posts: posts
     };
 
