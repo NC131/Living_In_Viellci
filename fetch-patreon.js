@@ -64,7 +64,7 @@ function extractFirstImageFromContent(content) {
 
   for (const match of imgMatches) {
     const imgUrl = match[1];
-    // Only return .png images, skip GIFs
+    // Only return .png images, skip GIFs (per your original logic)
     if (imgUrl.match(/\.png(\?|$)/i)) {
       return imgUrl;
     }
@@ -73,65 +73,52 @@ function extractFirstImageFromContent(content) {
   return null;
 }
 
-function findImageForPost(post) {
-  // Check for post image field (cover image)
-  if (post.attributes.image) {
-    // image might be an object with different sizes
-    if (typeof post.attributes.image === 'object') {
-      const imageUrl = post.attributes.image.large_url ||
-                       post.attributes.image.url ||
-                       post.attributes.image.thumb_url;
-      if (imageUrl) {
-        console.log(`   Found post cover image: ${imageUrl}`);
-        return imageUrl;
+// Updated function to accept the Media Map
+function findImageForPost(post, mediaMap) {
+  // This is where the "Main" image usually lives in API v2
+  if (post.relationships && post.relationships.media && post.relationships.media.data) {
+    const mediaData = post.relationships.media.data;
+    // mediaData can be an array or object depending on count
+    const mediaItems = Array.isArray(mediaData) ? mediaData : [mediaData];
+
+    for (const item of mediaItems) {
+      if (mediaMap[item.id]) {
+        const mediaObj = mediaMap[item.id];
+        if (mediaObj.image_urls && mediaObj.image_urls.original) {
+          return mediaObj.image_urls.original;
+        }
+        if (mediaObj.download_url) {
+          return mediaObj.download_url;
+        }
       }
-    } else if (typeof post.attributes.image === 'string') {
-      console.log(`   Found post cover image: ${post.attributes.image}`);
-      return post.attributes.image;
     }
   }
 
-  // Check thumbnail_url if available
-  if (post.attributes.thumbnail_url) {
-    console.log(`   Found thumbnail_url: ${post.attributes.thumbnail_url}`);
-    return post.attributes.thumbnail_url;
-  }
-
-  // Check if it's a video post with embed data
+  // If it's a video post, your logic to grab the PNG from description applies here
   if (post.attributes.embed_data && post.attributes.embed_data.image) {
     const embedImage = post.attributes.embed_data.image.large_thumb_url ||
                        post.attributes.embed_data.image.small_thumb_url ||
                        post.attributes.embed_data.image.url;
 
-    // If it's a video, try to find first PNG in content instead
+    // If it's a video, try to find first PNG in content (Description) instead
+    // This preserves your workflow of putting thumbnails in description for videos
     if (embedImage && !embedImage.match(/\.png(\?|$)/i)) {
       const contentImage = extractFirstImageFromContent(post.attributes.content);
       if (contentImage) {
-        console.log(`   Found image in content (video post): ${contentImage}`);
         return contentImage;
       }
     }
 
-    if (embedImage) {
-      console.log(`   Found embed image: ${embedImage}`);
-      return embedImage;
-    }
+    return embedImage;
   }
 
-  // Check embed_url, but only if it's a PNG
+  // CHECK EMBED URL
   if (post.attributes.embed_url && post.attributes.embed_url.match(/\.png(\?|$)/i)) {
-    console.log(`   Found embed_url: ${post.attributes.embed_url}`);
     return post.attributes.embed_url;
   }
 
-  // Extract first PNG image from content
-  const contentImage = extractFirstImageFromContent(post.attributes.content);
-  if (contentImage) {
-    console.log(`   Found image in content: ${contentImage}`);
-    return contentImage;
-  }
-
-  return null;
+  // Extract first PNG image from content (Description)
+  return extractFirstImageFromContent(post.attributes.content);
 }
 
 async function screenshotAndResizeImage(imageUrl, postId, browser) {
@@ -139,11 +126,8 @@ async function screenshotAndResizeImage(imageUrl, postId, browser) {
     console.log(`   Screenshotting image: ${imageUrl}`);
 
     const page = await browser.newPage();
-
-    // Set viewport to a reasonable size
     await page.setViewport({ width: 1920, height: 1080 });
 
-    // Create a simple HTML page with just the image
     const html = `
       <!DOCTYPE html>
       <html>
@@ -162,7 +146,7 @@ async function screenshotAndResizeImage(imageUrl, postId, browser) {
     await page.setContent(html);
 
     // Wait for image to load
-    await page.waitForSelector('img', { timeout: 10000 });
+    await page.waitForSelector('img', { timeout: 20000 }); // Increased timeout slightly
     await page.evaluate(() => {
       return new Promise((resolve) => {
         const img = document.querySelector('img');
@@ -175,13 +159,11 @@ async function screenshotAndResizeImage(imageUrl, postId, browser) {
       });
     });
 
-    // Take screenshot of the image element
     const imageElement = await page.$('img');
     const screenshotBuffer = await imageElement.screenshot({ type: 'png' });
 
     await page.close();
 
-    // Resize image to 425x221 using sharp
     const resizedBuffer = await sharp(screenshotBuffer)
       .resize(THUMBNAIL_WIDTH, THUMBNAIL_HEIGHT, {
         fit: 'cover',
@@ -190,7 +172,6 @@ async function screenshotAndResizeImage(imageUrl, postId, browser) {
       .png()
       .toBuffer();
 
-    // Save to file
     const filename = `${postId}.png`;
     const filepath = path.join(THUMBNAIL_DIR, filename);
     fs.writeFileSync(filepath, resizedBuffer);
@@ -206,7 +187,6 @@ async function screenshotAndResizeImage(imageUrl, postId, browser) {
 }
 
 function sanitizePostId(url) {
-  // Extract post ID from URL like "/posts/weekly-log-11-144156455"
   const match = url.match(/(\d+)$/);
   return match ? match[1] : url.replace(/[^a-z0-9]/gi, '-');
 }
@@ -217,13 +197,19 @@ async function main() {
   try {
     console.log('Fetching all Patreon posts...');
 
-    // Request all possible image-related fields
+    // Request 'media' include and fields
     const query = new URLSearchParams({
-      'fields[post]': 'title,url,published_at,is_public,content,embed_data,embed_url,image,thumbnail_url,teaser_text',
+      'include': 'media',
+      'fields[media]': 'image_urls,download_url,metadata',
+      'fields[post]': 'title,url,published_at,is_public,content,embed_data,embed_url',
       'page[count]': '100'
     });
 
     let allPosts = [];
+
+    // Map to store included media objects (ID -> Attributes)
+    let mediaMap = {};
+
     let nextUrl = `${API_URL}?${query.toString()}`;
     let pageCount = 0;
 
@@ -237,7 +223,18 @@ async function main() {
         break;
       }
 
+      // 1. Store posts
       allPosts = allPosts.concat(response.data);
+
+      // 2. Store included media in our map
+      if (response.included) {
+        response.included.forEach(item => {
+          if (item.type === 'media') {
+            mediaMap[item.id] = item.attributes;
+          }
+        });
+      }
+
       console.log(`Fetched ${response.data.length} posts from page ${pageCount} (total so far: ${allPosts.length})`);
 
       nextUrl = response.links && response.links.next ? response.links.next : null;
@@ -248,19 +245,16 @@ async function main() {
       process.exit(0);
     }
 
-    console.log(`Total fetched posts across ${pageCount} pages: ${allPosts.length}`);
-
     // Filter public posts
     const publicPosts = allPosts.filter(post => post.attributes.is_public);
 
-    // Manually sort by published date, newest first (descending)
+    // Sort by published date
     publicPosts.sort((a, b) => {
       const dateA = new Date(a.attributes.published_at);
       const dateB = new Date(b.attributes.published_at);
       return dateB.getTime() - dateA.getTime();
     });
 
-    // Take only the top 10 newest public posts
     const topPosts = publicPosts.slice(0, 10);
 
     if (topPosts.length === 0) {
@@ -270,7 +264,7 @@ async function main() {
 
     console.log(`Processing top ${topPosts.length} newest public posts...`);
 
-    // Launch Puppeteer browser
+    // Launch Puppeteer
     console.log('Launching browser...');
     browser = await puppeteer.launch({
       headless: 'new',
@@ -282,24 +276,19 @@ async function main() {
       ]
     });
 
-    // Process each post
     const posts = [];
     for (let i = 0; i < topPosts.length; i++) {
       const post = topPosts[i];
       const postId = sanitizePostId(post.attributes.url);
 
       console.log(`\n[${i + 1}/${topPosts.length}] Processing: "${post.attributes.title}"`);
-      console.log(`   Post ID: ${postId}`);
-      console.log(`   Date: ${post.attributes.published_at}`);
-      console.log(`   URL: ${post.attributes.url}`);
 
-      // log all available attributes
-      console.log(`   Available attributes:`, Object.keys(post.attributes));
-
-      const imageUrl = findImageForPost(post);
+      // Pass mediaMap to the finder
+      const imageUrl = findImageForPost(post, mediaMap);
       let thumbnailPath = null;
 
       if (imageUrl) {
+        console.log(`   Found image URL: ${imageUrl}`);
         thumbnailPath = await screenshotAndResizeImage(imageUrl, postId, browser);
       } else {
         console.log(`   ✗ No suitable image found`);
@@ -314,6 +303,7 @@ async function main() {
       });
     }
 
+    // Cleanup Logic (Unchanged)
     console.log('\nCleaning up unused thumbnails...');
     const activeThumbnails = new Set(posts.map(p => p.thumbnail ? path.basename(p.thumbnail) : null).filter(Boolean));
     const files = fs.readdirSync(THUMBNAIL_DIR);
@@ -332,18 +322,10 @@ async function main() {
       }
     });
 
-    if (deletedCount === 0) {
-      console.log('   No unused thumbnails to delete.');
-    } else {
-      console.log(`   ✓ Deleted ${deletedCount} unused thumbnails.`);
-    }
+    if (deletedCount > 0) console.log(`   ✓ Deleted ${deletedCount} unused thumbnails.`);
 
-    // Close browser
-    if (browser) {
-      await browser.close();
-    }
+    if (browser) await browser.close();
 
-    // Create output JSON
     const output = {
       last_updated: new Date().toISOString(),
       total_posts: posts.length,
@@ -351,15 +333,12 @@ async function main() {
       posts: posts
     };
 
-    // Save to file
     fs.writeFileSync('patreon-posts.json', JSON.stringify(output, null, 2));
     console.log(`\n✓ Successfully saved ${posts.length} newest public posts to patreon-posts.json`);
 
   } catch (error) {
     console.error('Error fetching Patreon posts:', error.message);
-    if (browser) {
-      await browser.close();
-    }
+    if (browser) await browser.close();
     process.exit(1);
   }
 }
