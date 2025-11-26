@@ -9,7 +9,6 @@ if (!PATREON_ACCESS_TOKEN || !PATREON_CAMPAIGN_ID) {
   process.exit(1);
 }
 
-// Patreon API endpoint
 const API_URL = `https://www.patreon.com/api/oauth2/v2/campaigns/${PATREON_CAMPAIGN_ID}/posts`;
 
 function fetchPatreonPage(url) {
@@ -46,82 +45,65 @@ function fetchPatreonPage(url) {
   });
 }
 
-function isVideoPost(post) {
-  // Detect if post is video-based (e.g., YouTube, Vimeo, or GIF embeds like Tenor)
-  const embedUrl = post.attributes.embed_url || '';
-  return embedUrl.includes('youtube.com') ||
-         embedUrl.includes('youtu.be') ||
-         embedUrl.includes('vimeo.com') ||
-         embedUrl.includes('tenor.com') ||  // Handles GIF-based video embeds
-         embedUrl.match(/\.(mp4|webm|gif)/i);  // Video/GIF extensions
-}
-
 function extractFirstPngFromContent(content) {
   if (!content) return null;
-
-  // Find all img src matches and return the first one ending in .png
+  
+  // Match all img tags
   const imgRegex = /<img[^>]+src="([^">]+)"/g;
   let match;
+  
   while ((match = imgRegex.exec(content)) !== null) {
-    const url = match[1].trim();
-    if (url.toLowerCase().endsWith('.png') && !url.toLowerCase().endsWith('.gif')) {
-      console.log(`Found PNG in content: ${url}`);
+    const url = match[1];
+    // Check if URL ends with .png (case insensitive)
+    if (url.toLowerCase().match(/\.png(\?|$)/)) {
       return url;
-    } else if (url.toLowerCase().endsWith('.gif')) {
-      console.log(`Skipped GIF in content: ${url}`);
     }
   }
+  
   return null;
 }
 
 function findImageForPost(post) {
-  const isVideo = isVideoPost(post);
-  if (isVideo) {
-    console.log(`Video post detected for "${post.attributes.title}"; parsing description for first PNG.`);
-    // For videos: Skip embeds, parse first PNG from content (description)
-    return extractFirstPngFromContent(post.attributes.content);
-  }
-
-  // For image posts: Prioritize embed fields if PNG
-  if (post.attributes.embed_data && post.attributes.embed_data.image) {
-    const urls = [
-      post.attributes.embed_data.image.large_thumb_url,
-      post.attributes.embed_data.image.small_thumb_url,
-      post.attributes.embed_data.image.url
+  const attrs = post.attributes;
+  
+  // If it's an image post, use embed_data image
+  if (attrs.embed_data && attrs.embed_data.image) {
+    const imgData = attrs.embed_data.image;
+    const possibleUrls = [
+      imgData.large_thumb_url,
+      imgData.thumb_url,
+      imgData.url
     ];
-    for (const url of urls) {
-      if (url && url.toLowerCase().endsWith('.png') && !url.toLowerCase().endsWith('.gif')) {
-        console.log(`Found PNG in embed_data: ${url}`);
+    
+    // Find first PNG in the embed data
+    for (const url of possibleUrls) {
+      if (url && url.toLowerCase().match(/\.png(\?|$)/)) {
         return url;
-      } else if (url && url.toLowerCase().endsWith('.gif')) {
-        console.log(`Skipped GIF in embed_data: ${url}`);
       }
     }
   }
-
-  // Check embed_url if it's a PNG image
-  if (post.attributes.embed_url) {
-    const url = post.attributes.embed_url;
-    if (url.toLowerCase().endsWith('.png') && !url.toLowerCase().endsWith('.gif')) {
-      console.log(`Found PNG in embed_url: ${url}`);
-      return url;
-    } else if (url.toLowerCase().endsWith('.gif')) {
-      console.log(`Skipped GIF in embed_url: ${url}`);
-    }
+  
+  // If embed_url is a PNG
+  if (attrs.embed_url && attrs.embed_url.toLowerCase().match(/\.png(\?|$)/)) {
+    return attrs.embed_url;
   }
-
-  // Fallback: Parse first PNG from content
-  return extractFirstPngFromContent(post.attributes.content);
+  
+  // Extract first PNG from content (for video posts with image in description)
+  const contentImage = extractFirstPngFromContent(attrs.content);
+  if (contentImage) {
+    return contentImage;
+  }
+  
+  return null;
 }
 
 async function main() {
   try {
     console.log('Fetching all Patreon posts...');
 
-    // Properly encode query parameters (no sort param, since it's not working)
     const query = new URLSearchParams({
       'fields[post]': 'title,url,published_at,is_public,content,embed_data,embed_url',
-      'page[count]': '100'  // High count to minimize requests
+      'page[count]': '100'
     });
 
     let allPosts = [];
@@ -151,18 +133,25 @@ async function main() {
 
     console.log(`Total fetched posts across ${pageCount} pages: ${allPosts.length}`);
 
-    // Filter public posts
-    const publicPosts = allPosts.filter(post => post.attributes.is_public);
-
-    // Manually sort by published date, newest first (descending)
-    publicPosts.sort((a, b) => {
-      const dateA = new Date(a.attributes.published_at);
-      const dateB = new Date(b.attributes.published_at);
-      return dateB.getTime() - dateA.getTime();  // Newest first
+    // Filter public posts with PNG thumbnails
+    const publicPostsWithImages = allPosts.filter(post => {
+      if (!post.attributes.is_public) {
+        return false;
+      }
+      
+      const thumbnail = findImageForPost(post);
+      return thumbnail !== null;
     });
 
-    // Take only the top 10 newest public posts
-    const posts = publicPosts.slice(0, 10).map(post => {
+    // Sort by published date, newest first
+    publicPostsWithImages.sort((a, b) => {
+      const dateA = new Date(a.attributes.published_at);
+      const dateB = new Date(b.attributes.published_at);
+      return dateB.getTime() - dateA.getTime();
+    });
+
+    // Take only the top 10 newest public posts with PNG images
+    const posts = publicPostsWithImages.slice(0, 10).map(post => {
       const thumbnail = findImageForPost(post);
 
       return {
@@ -175,27 +164,24 @@ async function main() {
     });
 
     if (posts.length === 0) {
-      console.log('No public posts found after filtering.');
+      console.log('No public posts with PNG images found after filtering.');
       process.exit(0);
     }
 
-    // Log processing details
-    console.log(`Processing top ${posts.length} newest public posts:`);
+    console.log(`Processing top ${posts.length} newest public posts with PNG images:`);
     posts.forEach((post, i) => {
       console.log(`   #${i + 1}: "${post.title}" (Date: ${post.date})`);
       console.log(`      URL: ${post.url}`);
       console.log(`      Thumbnail: ${post.thumbnail ? '✓ ' + post.thumbnail : '✗'}`);
     });
 
-    // Create output JSON
     const output = {
       last_updated: new Date().toISOString(),
       total_posts: posts.length,
-      note: posts.length < 10 ? 'Fewer than 10 public posts available' : '',
+      note: posts.length < 10 ? 'Fewer than 10 public posts with PNG images available' : '',
       posts: posts
     };
 
-    // Save to file
     fs.writeFileSync('patreon-posts.json', JSON.stringify(output, null, 2));
     console.log(`Successfully saved ${posts.length} newest public posts to patreon-posts.json`);
 
