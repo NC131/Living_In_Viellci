@@ -46,7 +46,7 @@ jobs:
         if: steps.changes.outputs.changed == 'true'
         run: |
           git config --global user.name 'NC131'
-          git config --global user.email 'your-github-email@example.com'
+          git config --global user.email 'bcore0130@gmail.com'
           git add patreon-posts.json
           git commit -m "Update Patreon posts [skip ci]"
           git push
