@@ -71,39 +71,42 @@ async function scrapePostBanner(postUrl, postId, browser) {
     const fullUrl = postUrl.startsWith('http')
       ? postUrl
       : `https://www.patreon.com${postUrl}`;
+
     console.log(`   Scraping banner from: ${fullUrl}`);
 
     const page = await browser.newPage();
-    await page.goto(fullUrl, { waitUntil: 'networkidle2', timeout: 30000 });
+    await page.goto(fullUrl, { waitUntil: 'networkidle2', timeout: 40000 });
 
-    await page.waitForSelector('img', { timeout: 10000 }).catch(() => {});
+    let bannerUrl = await page.evaluate(() => {
+      const meta = document.querySelector('meta[property="og:image"]');
+      return meta ? meta.content : null;
+    });
+
+    if (bannerUrl) {
+      console.log(`   ✓ Found OG image: ${bannerUrl}`);
+      await page.close();
+      return await screenshotAndResizeImage(bannerUrl, postId, browser);
+    }
 
     const selectors = [
       'img[src*="patreonusercontent"]',
-      'img[data-tag="post-cover-image"]',
+      '.sc-AxheI img',
       'figure img',
-      '.post__image img',
-      'img[src][sizes]'
+      '.post__image img'
     ];
 
-    let bannerUrl = null;
     for (const sel of selectors) {
-      const url = await page.$eval(sel, img => img.src).catch(() => null);
-      if (url) {
-        bannerUrl = url;
-        console.log(`   ✓ Found banner with selector "${sel}": ${url}`);
-        break;
+      bannerUrl = await page.$eval(sel, img => img.src).catch(() => null);
+      if (bannerUrl) {
+        console.log(`   ✓ Found banner via selector "${sel}": ${bannerUrl}`);
+        await page.close();
+        return await screenshotAndResizeImage(bannerUrl, postId, browser);
       }
     }
 
     await page.close();
-
-    if (!bannerUrl) {
-      console.log('   ✗ No banner image found via scraping.');
-      return null;
-    }
-
-    return await screenshotAndResizeImage(bannerUrl, postId, browser);
+    console.log('   ✗ No banner image found via scraping.');
+    return null;
 
   } catch (error) {
     console.error(`   ✗ Scraping error: ${error.message}`);
