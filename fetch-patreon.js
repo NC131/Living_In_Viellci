@@ -1,6 +1,7 @@
 const fs = require('fs');
 const https = require('https');
 const path = require('path');
+const sharp = require('sharp');
 
 const PATREON_ACCESS_TOKEN = process.env.PATREON_ACCESS_TOKEN;
 const PATREON_CAMPAIGN_ID = process.env.PATREON_CAMPAIGN_ID;
@@ -10,13 +11,8 @@ if (!PATREON_ACCESS_TOKEN || !PATREON_CAMPAIGN_ID) {
   process.exit(1);
 }
 
+// Patreon API endpoint
 const API_URL = `https://www.patreon.com/api/oauth2/v2/campaigns/${PATREON_CAMPAIGN_ID}/posts`;
-const IMAGES_DIR = 'patreon/posts';
-
-// Ensure images directory exists
-if (!fs.existsSync(IMAGES_DIR)) {
-  fs.mkdirSync(IMAGES_DIR, { recursive: true });
-}
 
 function fetchPatreonPage(url) {
   return new Promise((resolve, reject) => {
@@ -52,111 +48,68 @@ function fetchPatreonPage(url) {
   });
 }
 
-function downloadImageWithAuth(url) {
+// Download an image from a URL and return as buffer
+function downloadImage(url) {
   return new Promise((resolve, reject) => {
-    const options = {
-      headers: {
-        'Authorization': `Bearer ${PATREON_ACCESS_TOKEN}`,
-        'User-Agent': 'Living-In-Viellci-Game/1.0',
-        'Referer': 'https://www.patreon.com/',
-        'Accept': 'image/webp,image/apng,image/*,*/*;q=0.8'
-      }
-    };
-
-    https.get(url, options, (res) => {
-      // Handle redirects
-      if (res.statusCode === 301 || res.statusCode === 302) {
-        const redirectUrl = res.headers.location;
-        return downloadImageWithAuth(redirectUrl).then(resolve).catch(reject);
-      }
-
+    https.get(url, (res) => {
       if (res.statusCode !== 200) {
-        reject(new Error(`Failed to download image: HTTP ${res.statusCode}`));
+        reject(new Error(`Failed to download image: status ${res.statusCode}`));
         return;
       }
-
       const chunks = [];
       res.on('data', (chunk) => chunks.push(chunk));
       res.on('end', () => resolve(Buffer.concat(chunks)));
-    }).on('error', (error) => {
-      reject(error);
-    });
+    }).on('error', reject);
   });
 }
 
-function extractFirstPngFromContent(content) {
+// Extract first .png URL from content (case-insensitive)
+function extractThumbnailFromContent(content) {
   if (!content) return null;
-  
-  const imgRegex = /<img[^>]+src="([^">]+)"/g;
-  let match;
-  
-  while ((match = imgRegex.exec(content)) !== null) {
-    const url = match[1];
-    if (url.toLowerCase().match(/\.(png|jpg|jpeg|webp)(\?|$)/i)) {
-      return url;
-    }
-  }
-  
-  return null;
+  const imgMatch = content.match(/<img[^>]+src="([^">]+?\.png)"/i);  // Only match .png
+  return imgMatch ? imgMatch[1] : null;
 }
 
-function findImageForPost(post) {
-  const attrs = post.attributes;
-  
-  // If it's an image post, use embed_data image
-  if (attrs.embed_data && attrs.embed_data.image) {
-    const imgData = attrs.embed_data.image;
-    const possibleUrls = [
-      imgData.large_thumb_url,
-      imgData.thumb_url,
-      imgData.url
+// Find the first .png image, prioritizing embed_data > embed_url > content.
+// Special handling for videos: Force fallback to content if no PNG elsewhere.
+async function findImageForPost(post) {
+  const isVideo = post.attributes.post_type && post.attributes.post_type.includes('video');  // Detect video posts
+
+  // Helper to check if URL is PNG (case-insensitive)
+  const isPng = (url) => url && url.match(/\.png$/i);
+
+  // Check embed_data for PNG
+  if (post.attributes.embed_data && post.attributes.embed_data.image) {
+    const candidates = [
+      post.attributes.embed_data.image.large_thumb_url,
+      post.attributes.embed_data.image.small_thumb_url,
+      post.attributes.embed_data.image.url
     ];
-    
-    for (const url of possibleUrls) {
-      if (url) {
-        return url;
-      }
-    }
+    const pngUrl = candidates.find(isPng);
+    if (pngUrl) return pngUrl;
   }
-  
-  // If embed_url is an image
-  if (attrs.embed_url && attrs.embed_url.match(/\.(png|jpg|jpeg|webp)(\?|$)/i)) {
-    return attrs.embed_url;
-  }
-  
-  // Extract first image from content
-  const contentImage = extractFirstPngFromContent(attrs.content);
-  if (contentImage) {
-    return contentImage;
-  }
-  
-  return null;
-}
 
-function generateSafeFilename(postUrl) {
-  // Convert /posts/weekly-log-11-144156455 to weekly_log_11_144156455.png
-  return postUrl.replace('/posts/', '').replace(/[/-]/g, '_') + '.png';
-}
-
-function cleanupOldImages(currentFilenames) {
-  // Remove images that are no longer in the top 10
-  const existingFiles = fs.readdirSync(IMAGES_DIR);
-  
-  for (const file of existingFiles) {
-    if (file.endsWith('.png') && !currentFilenames.includes(file)) {
-      const filePath = path.join(IMAGES_DIR, file);
-      fs.unlinkSync(filePath);
-      console.log(`   🗑 Deleted old image: ${file}`);
-    }
+  // Check embed_url if it's a PNG
+  if (post.attributes.embed_url && isPng(post.attributes.embed_url)) {
+    return post.attributes.embed_url;
   }
+
+  // Fallback to content extraction (always for videos if above failed)
+  if (isVideo || true) {  // Always fallback, but required for videos
+    const contentThumb = extractThumbnailFromContent(post.attributes.content);
+    if (contentThumb) return contentThumb;
+  }
+
+  return null;  // No PNG found
 }
 
 async function main() {
   try {
     console.log('Fetching all Patreon posts...');
 
+    // Add post_type to fields for video detection
     const query = new URLSearchParams({
-      'fields[post]': 'title,url,published_at,is_public,content,embed_data,embed_url',
+      'fields[post]': 'title,url,published_at,is_public,content,embed_data,embed_url,post_type',
       'page[count]': '100'
     });
 
@@ -187,108 +140,82 @@ async function main() {
 
     console.log(`Total fetched posts across ${pageCount} pages: ${allPosts.length}`);
 
-    // Filter public posts with images
-    const publicPostsWithImages = allPosts.filter(post => {
-      if (!post.attributes.is_public) {
-        return false;
-      }
-      
-      const thumbnail = findImageForPost(post);
-      return thumbnail !== null;
-    });
+    // Filter public posts
+    const publicPosts = allPosts.filter(post => post.attributes.is_public);
 
-    // Sort by published date, newest first
-    publicPostsWithImages.sort((a, b) => {
+    // Manually sort by published date, newest first
+    publicPosts.sort((a, b) => {
       const dateA = new Date(a.attributes.published_at);
       const dateB = new Date(b.attributes.published_at);
       return dateB.getTime() - dateA.getTime();
     });
 
-    // Take only the top 10 newest public posts with images
-    const postsToProcess = publicPostsWithImages.slice(0, 10);
-
-    if (postsToProcess.length === 0) {
-      console.log('No public posts with images found after filtering.');
-      process.exit(0);
-    }
-
-    console.log(`\nProcessing top ${postsToProcess.length} newest public posts with images...`);
-
-    // Download images
+    // Take only the top 10 newest public posts
     const posts = [];
-    const currentFilenames = [];
-    
-    for (let i = 0; i < postsToProcess.length; i++) {
-      const post = postsToProcess[i];
-      const thumbnailUrl = findImageForPost(post);
-      const filename = generateSafeFilename(post.attributes.url);
-      const imagePath = path.join(IMAGES_DIR, filename);
-      
-      currentFilenames.push(filename);
-      
-      console.log(`\n   #${i + 1}: "${post.attributes.title}"`);
-      console.log(`      Date: ${post.attributes.published_at}`);
-      console.log(`      URL: ${post.attributes.url}`);
-      console.log(`      Image: ${filename}`);
+    for (const post of publicPosts.slice(0, 10)) {
+      const thumbnailUrl = await findImageForPost(post);  // Get PNG URL
 
-      // Check if image already exists
-      if (fs.existsSync(imagePath)) {
-        console.log(`      ✓ Image already exists, skipping download`);
-        
-        posts.push({
-          title: post.attributes.title,
-          url: post.attributes.url,
-          thumbnail: `patreon/posts/${filename}`,
-          date: post.attributes.published_at,
-          is_public: post.attributes.is_public
-        });
-        continue;
+      let thumbnailPath = null;
+      if (thumbnailUrl) {
+        try {
+          // Download image
+          const imageBuffer = await downloadImage(thumbnailUrl);
+
+          // Create folder if needed
+          const outputDir = path.join(__dirname, 'patreon', 'posts');
+          if (!fs.existsSync(outputDir)) {
+            fs.mkdirSync(outputDir, { recursive: true });
+          }
+
+          // Resize to 425x221 and save as PNG
+          const filename = `${post.id}.png`;  // Use post ID for uniqueness
+          const outputPath = path.join(outputDir, filename);
+          await sharp(imageBuffer)
+            .resize(425, 221, { fit: 'contain', background: { r: 255, g: 255, b: 255, alpha: 1 } })  // Resize with white background if needed
+            .png()  // Ensure output is PNG
+            .toFile(outputPath);
+
+          // Set relative repo path
+          thumbnailPath = `patreon/posts/${filename}`;
+          console.log(`Downloaded and resized thumbnail for post ${post.id}: ${thumbnailPath}`);
+        } catch (error) {
+          console.error(`Failed to process thumbnail for post ${post.id}: ${error.message}`);
+        }
       }
 
-      try {
-        console.log(`      Downloading from: ${thumbnailUrl}`);
-        const imageBuffer = await downloadImageWithAuth(thumbnailUrl);
-        
-        // Save directly (Patreon already serves appropriately sized images)
-        fs.writeFileSync(imagePath, imageBuffer);
-        const fileSize = fs.statSync(imagePath).size;
-        console.log(`      ✓ Saved (${Math.round(fileSize / 1024)}KB)`);
-        
-        posts.push({
-          title: post.attributes.title,
-          url: post.attributes.url,
-          thumbnail: `patreon/posts/${filename}`,
-          date: post.attributes.published_at,
-          is_public: post.attributes.is_public
-        });
-      } catch (error) {
-        console.error(`      ✗ Failed: ${error.message}`);
-        // Skip posts with failed image downloads
-      }
+      posts.push({
+        title: post.attributes.title,
+        url: post.attributes.url,
+        thumbnail: thumbnailPath,  // Now a local repo path (or null if no PNG)
+        date: post.attributes.published_at,
+        is_public: post.attributes.is_public
+      });
     }
 
     if (posts.length === 0) {
-      console.log('\nNo posts with successfully downloaded images.');
+      console.log('No public posts found after filtering.');
       process.exit(0);
     }
 
-    // Clean up old images
-    console.log('\nCleaning up old images...');
-    cleanupOldImages(currentFilenames);
+    // Log processing details
+    console.log(`Processing top ${posts.length} newest public posts:`);
+    posts.forEach((post, i) => {
+      console.log(`   #${i + 1}: "${post.title}" (Date: ${post.date})`);
+      console.log(`      URL: ${post.url}`);
+      console.log(`      Thumbnail: ${post.thumbnail ? '✓ ' + post.thumbnail : '✗ (No PNG found)'}`);
+    });
 
-    // Create JSON output
+    // Create output JSON
     const output = {
       last_updated: new Date().toISOString(),
       total_posts: posts.length,
-      note: posts.length < 10 ? 'Fewer than 10 public posts with images available' : '',
+      note: posts.length < 10 ? 'Fewer than 10 public posts available' : '',
       posts: posts
     };
 
+    // Save to file
     fs.writeFileSync('patreon-posts.json', JSON.stringify(output, null, 2));
-    
-    const jsonSize = fs.statSync('patreon-posts.json').size;
-    console.log(`\n✓ Successfully saved ${posts.length} posts to patreon-posts.json (${Math.round(jsonSize / 1024)}KB)`);
-    console.log(`✓ Images saved to ${IMAGES_DIR}/`);
+    console.log(`Successfully saved ${posts.length} newest public posts to patreon-posts.json`);
 
   } catch (error) {
     console.error('Error fetching Patreon posts:', error.message);
