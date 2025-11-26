@@ -67,51 +67,61 @@ function extractFirstImageFromContent(content) {
 }
 
 async function scrapePostBanner(postUrl, postId, browser) {
-  try {
-    const fullUrl = postUrl.startsWith('http')
-      ? postUrl
-      : `https://www.patreon.com${postUrl}`;
+  console.log(`   Scraping image directly from Patreon page...`);
+  
+  const page = await browser.newPage();
+  await page.setViewport({ width: 1280, height: 800 });
+  await page.goto(postUrl, { waitUntil: 'domcontentloaded', timeout: 30000 });
 
-    console.log(`   Scraping banner from: ${fullUrl}`);
+  const possibleSelectors = [
+    'img[src*="patreonusercontent"]',
+    '.sc-Axz, img',
+    'img[src*="post"]',
+    'img[src^="https://"]',
+    'figure img',
+    '.cover img',
+    'img'
+  ];
 
-    const page = await browser.newPage();
-    await page.goto(fullUrl, { waitUntil: 'networkidle2', timeout: 40000 });
+  let imageUrl = null;
 
-    let bannerUrl = await page.evaluate(() => {
-      const meta = document.querySelector('meta[property="og:image"]');
-      return meta ? meta.content : null;
-    });
+  for (const selector of possibleSelectors) {
+    try {
+      imageUrl = await page.$eval(selector, img => img.src);
+      if (imageUrl) break;
+    } catch (_) { }
+  }
 
-    if (bannerUrl) {
-      console.log(`   ✓ Found OG image: ${bannerUrl}`);
-      await page.close();
-      return await screenshotAndResizeImage(bannerUrl, postId, browser);
-    }
-
-    const selectors = [
-      'img[src*="patreonusercontent"]',
-      '.sc-AxheI img',
-      'figure img',
-      '.post__image img'
-    ];
-
-    for (const sel of selectors) {
-      bannerUrl = await page.$eval(sel, img => img.src).catch(() => null);
-      if (bannerUrl) {
-        console.log(`   ✓ Found banner via selector "${sel}": ${bannerUrl}`);
-        await page.close();
-        return await screenshotAndResizeImage(bannerUrl, postId, browser);
-      }
-    }
-
+  if (!imageUrl) {
+    console.log("   ✗ No image found on the page.");
     await page.close();
-    console.log('   ✗ No banner image found via scraping.');
-    return null;
-
-  } catch (error) {
-    console.error(`   ✗ Scraping error: ${error.message}`);
     return null;
   }
+
+  console.log(`   ✓ Found image from browser: ${imageUrl}`);
+
+  // Take screenshot of the found image
+  const imageElement = await page.$(`img[src="${imageUrl}"]`);
+  if (!imageElement) {
+    await page.close();
+    return null;
+  }
+
+  const rawBuffer = await imageElement.screenshot();
+
+  // Resize to thumbnail dimensions
+  const resizedBuffer = await sharp(rawBuffer)
+    .resize(425, 221, { fit: 'cover', position: 'center' })
+    .png()
+    .toBuffer();
+
+  const filePath = path.join(THUMBNAIL_DIR, `${postId}.png`);
+  fs.writeFileSync(filePath, resizedBuffer);
+
+  await page.close();
+  console.log(`   Thumbnail saved via scraping: ${postId}.png`);
+
+  return `patreon/posts/${postId}.png`;
 }
 
 function findImageForPost(post) {
