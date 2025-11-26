@@ -28,11 +28,11 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: '20'  # Updated to Node 20 for better compatibility
 
       - name: Install Node dependencies
         run: |
-          npm install puppeteer sharp
+          npm install puppeteer@latest sharp@latest
 
       - name: Fetch Patreon Posts
         env:
