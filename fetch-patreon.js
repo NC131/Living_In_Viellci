@@ -1,14 +1,24 @@
 const fs = require('fs');
 const https = require('https');
 const path = require('path');
-const sharp = require('sharp');
+const { createWriteStream } = require('fs');
+const { pipeline } = require('stream/promises');
 
 const PATREON_ACCESS_TOKEN = process.env.PATREON_ACCESS_TOKEN;
 const PATREON_CAMPAIGN_ID = process.env.PATREON_CAMPAIGN_ID;
 
+// Directory to save thumbnails
+const THUMBNAIL_DIR = path.join(__dirname, 'patreon', 'posts');
+
 if (!PATREON_ACCESS_TOKEN || !PATREON_CAMPAIGN_ID) {
   console.error('Missing required environment variables!');
   process.exit(1);
+}
+
+// Create thumbnail directory if it doesn't exist
+if (!fs.existsSync(THUMBNAIL_DIR)) {
+  fs.mkdirSync(THUMBNAIL_DIR, { recursive: true });
+  console.log(`Created directory: ${THUMBNAIL_DIR}`);
 }
 
 // Patreon API endpoint
@@ -48,68 +58,143 @@ function fetchPatreonPage(url) {
   });
 }
 
-// Download an image from a URL and return as buffer
-function downloadImage(url) {
-  return new Promise((resolve, reject) => {
-    https.get(url, (res) => {
-      if (res.statusCode !== 200) {
-        reject(new Error(`Failed to download image: status ${res.statusCode}`));
-        return;
-      }
-      const chunks = [];
-      res.on('data', (chunk) => chunks.push(chunk));
-      res.on('end', () => resolve(Buffer.concat(chunks)));
-    }).on('error', reject);
-  });
-}
-
-// Extract first .png URL from content (case-insensitive)
-function extractThumbnailFromContent(content) {
+function extractFirstPngFromContent(content) {
   if (!content) return null;
-  const imgMatch = content.match(/<img[^>]+src="([^">]+?\.png)"/i);  // Only match .png
-  return imgMatch ? imgMatch[1] : null;
-}
 
-// Find the first .png image, prioritizing embed_data > embed_url > content.
-// Special handling for videos: Force fallback to content if no PNG elsewhere.
-async function findImageForPost(post) {
-  const isVideo = post.attributes.post_type && post.attributes.post_type.includes('video');  // Detect video posts
+  // Match all img tags
+  const imgMatches = content.matchAll(/<img[^>]+src="([^">]+)"/g);
 
-  // Helper to check if URL is PNG (case-insensitive)
-  const isPng = (url) => url && url.match(/\.png$/i);
-
-  // Check embed_data for PNG
-  if (post.attributes.embed_data && post.attributes.embed_data.image) {
-    const candidates = [
-      post.attributes.embed_data.image.large_thumb_url,
-      post.attributes.embed_data.image.small_thumb_url,
-      post.attributes.embed_data.image.url
-    ];
-    const pngUrl = candidates.find(isPng);
-    if (pngUrl) return pngUrl;
+  for (const match of imgMatches) {
+    const url = match[1];
+    // Only return if it's a PNG
+    if (url.match(/\.png(\?|$)/i)) {
+      return url;
+    }
   }
 
-  // Check embed_url if it's a PNG
-  if (post.attributes.embed_url && isPng(post.attributes.embed_url)) {
+  return null;
+}
+
+function findImageForPost(post) {
+  // Try to find PNG from embed_data
+  if (post.attributes.embed_data && post.attributes.embed_data.image) {
+    const embedImage = post.attributes.embed_data.image.large_thumb_url ||
+                       post.attributes.embed_data.image.small_thumb_url ||
+                       post.attributes.embed_data.image.url;
+
+    // Only use if it's a PNG
+    if (embedImage && embedImage.match(/\.png(\?|$)/i)) {
+      return embedImage;
+    }
+  }
+
+  // Check embed_url for PNG
+  if (post.attributes.embed_url && post.attributes.embed_url.match(/\.png(\?|$)/i)) {
     return post.attributes.embed_url;
   }
 
-  // Fallback to content extraction (always for videos if above failed)
-  if (isVideo || true) {  // Always fallback, but required for videos
-    const contentThumb = extractThumbnailFromContent(post.attributes.content);
-    if (contentThumb) return contentThumb;
+  // Finally, extract first PNG from content
+  return extractFirstPngFromContent(post.attributes.content);
+}
+
+async function downloadImage(url, filepath) {
+  return new Promise((resolve, reject) => {
+    https.get(url, (response) => {
+      if (response.statusCode === 302 || response.statusCode === 301) {
+        // Follow redirect
+        downloadImage(response.headers.location, filepath)
+          .then(resolve)
+          .catch(reject);
+        return;
+      }
+
+      if (response.statusCode !== 200) {
+        reject(new Error(`Failed to download image: HTTP ${response.statusCode}`));
+        return;
+      }
+
+      const fileStream = createWriteStream(filepath);
+      response.pipe(fileStream);
+
+      fileStream.on('finish', () => {
+        fileStream.close();
+        resolve(filepath);
+      });
+
+      fileStream.on('error', (err) => {
+        fs.unlink(filepath, () => {}); // Delete partial file
+        reject(err);
+      });
+    }).on('error', (err) => {
+      reject(err);
+    });
+  });
+}
+
+async function resizeImage(inputPath, outputPath, width = 425, height = 221) {
+  // We'll use sharp for image resizing
+  // Since sharp is a native module, we need to install it
+  // For now, let's use a simpler approach with child_process and ImageMagick
+  // Or we can use jimp which is pure JS
+
+  try {
+    const Jimp = require('jimp');
+    const image = await Jimp.read(inputPath);
+    await image.resize(width, height).quality(90).writeAsync(outputPath);
+    console.log(`   Resized image to ${width}x${height}: ${outputPath}`);
+  } catch (error) {
+    // If jimp is not available, just copy the file
+    console.warn(`   Warning: Could not resize image (jimp not installed). Using original size.`);
+    fs.copyFileSync(inputPath, outputPath);
+  }
+}
+
+function sanitizeFilename(str) {
+  // Remove or replace characters that are invalid in filenames
+  return str.replace(/[^a-z0-9]/gi, '_').toLowerCase().substring(0, 50);
+}
+
+async function processPostThumbnail(post, index) {
+  const imageUrl = findImageForPost(post);
+
+  if (!imageUrl) {
+    console.log(`   No PNG thumbnail found for post: "${post.attributes.title}"`);
+    return null;
   }
 
-  return null;  // No PNG found
+  try {
+    // Create filename based on post title and index
+    const sanitizedTitle = sanitizeFilename(post.attributes.title);
+    const filename = `${index}_${sanitizedTitle}.png`;
+    const tempPath = path.join(THUMBNAIL_DIR, `temp_${filename}`);
+    const finalPath = path.join(THUMBNAIL_DIR, filename);
+
+    console.log(`   Downloading thumbnail: ${imageUrl}`);
+    await downloadImage(imageUrl, tempPath);
+
+    console.log(`   Resizing thumbnail...`);
+    await resizeImage(tempPath, finalPath, 425, 221);
+
+    // Clean up temp file
+    if (fs.existsSync(tempPath) && tempPath !== finalPath) {
+      fs.unlinkSync(tempPath);
+    }
+
+    // Return relative path for JSON
+    return `patreon/posts/${filename}`;
+  } catch (error) {
+    console.error(`   Error processing thumbnail for "${post.attributes.title}":`, error.message);
+    return null;
+  }
 }
 
 async function main() {
   try {
     console.log('Fetching all Patreon posts...');
 
-    // Add post_type to fields for video detection
+    // Properly encode query parameters
     const query = new URLSearchParams({
-      'fields[post]': 'title,url,published_at,is_public,content,embed_data,embed_url,post_type',
+      'fields[post]': 'title,url,published_at,is_public,content,embed_data,embed_url',
       'page[count]': '100'
     });
 
@@ -143,7 +228,7 @@ async function main() {
     // Filter public posts
     const publicPosts = allPosts.filter(post => post.attributes.is_public);
 
-    // Manually sort by published date, newest first
+    // Manually sort by published date, newest first (descending)
     publicPosts.sort((a, b) => {
       const dateA = new Date(a.attributes.published_at);
       const dateB = new Date(b.attributes.published_at);
@@ -151,59 +236,35 @@ async function main() {
     });
 
     // Take only the top 10 newest public posts
-    const posts = [];
-    for (const post of publicPosts.slice(0, 10)) {
-      const thumbnailUrl = await findImageForPost(post);  // Get PNG URL
+    const topPosts = publicPosts.slice(0, 10);
 
-      let thumbnailPath = null;
-      if (thumbnailUrl) {
-        try {
-          // Download image
-          const imageBuffer = await downloadImage(thumbnailUrl);
-
-          // Create folder if needed
-          const outputDir = path.join(__dirname, 'patreon', 'posts');
-          if (!fs.existsSync(outputDir)) {
-            fs.mkdirSync(outputDir, { recursive: true });
-          }
-
-          // Resize to 425x221 and save as PNG
-          const filename = `${post.id}.png`;  // Use post ID for uniqueness
-          const outputPath = path.join(outputDir, filename);
-          await sharp(imageBuffer)
-            .resize(425, 221, { fit: 'contain', background: { r: 255, g: 255, b: 255, alpha: 1 } })  // Resize with white background if needed
-            .png()  // Ensure output is PNG
-            .toFile(outputPath);
-
-          // Set relative repo path
-          thumbnailPath = `patreon/posts/${filename}`;
-          console.log(`Downloaded and resized thumbnail for post ${post.id}: ${thumbnailPath}`);
-        } catch (error) {
-          console.error(`Failed to process thumbnail for post ${post.id}: ${error.message}`);
-        }
-      }
-
-      posts.push({
-        title: post.attributes.title,
-        url: post.attributes.url,
-        thumbnail: thumbnailPath,  // Now a local repo path (or null if no PNG)
-        date: post.attributes.published_at,
-        is_public: post.attributes.is_public
-      });
-    }
-
-    if (posts.length === 0) {
+    if (topPosts.length === 0) {
       console.log('No public posts found after filtering.');
       process.exit(0);
     }
 
-    // Log processing details
-    console.log(`Processing top ${posts.length} newest public posts:`);
-    posts.forEach((post, i) => {
-      console.log(`   #${i + 1}: "${post.title}" (Date: ${post.date})`);
-      console.log(`      URL: ${post.url}`);
-      console.log(`      Thumbnail: ${post.thumbnail ? '✓ ' + post.thumbnail : '✗ (No PNG found)'}`);
-    });
+    console.log(`\nProcessing top ${topPosts.length} newest public posts:\n`);
+
+    // Process each post and download/resize thumbnails
+    const posts = [];
+    for (let i = 0; i < topPosts.length; i++) {
+      const post = topPosts[i];
+      console.log(`Processing #${i + 1}: "${post.attributes.title}"`);
+      console.log(`   Date: ${post.attributes.published_at}`);
+      console.log(`   URL: ${post.attributes.url}`);
+
+      const thumbnailPath = await processPostThumbnail(post, i + 1);
+
+      posts.push({
+        title: post.attributes.title,
+        url: post.attributes.url,
+        thumbnail: thumbnailPath,
+        date: post.attributes.published_at,
+        is_public: post.attributes.is_public
+      });
+
+      console.log(`   Thumbnail: ${thumbnailPath ? '✓ ' + thumbnailPath : '✗ No PNG found'}\n`);
+    }
 
     // Create output JSON
     const output = {
@@ -215,7 +276,7 @@ async function main() {
 
     // Save to file
     fs.writeFileSync('patreon-posts.json', JSON.stringify(output, null, 2));
-    console.log(`Successfully saved ${posts.length} newest public posts to patreon-posts.json`);
+    console.log(`\n✓ Successfully saved ${posts.length} newest public posts to patreon-posts.json`);
 
   } catch (error) {
     console.error('Error fetching Patreon posts:', error.message);
