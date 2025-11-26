@@ -6,14 +6,13 @@ const PATREON_CAMPAIGN_ID = process.env.PATREON_CAMPAIGN_ID;
 
 if (!PATREON_ACCESS_TOKEN || !PATREON_CAMPAIGN_ID) {
   console.error('Missing required environment variables!');
-  console.error('Make sure PATREON_ACCESS_TOKEN and PATREON_CAMPAIGN_ID are set in GitHub Secrets');
   process.exit(1);
 }
 
 // Patreon API endpoint
 const API_URL = `https://www.patreon.com/api/oauth2/v2/campaigns/${PATREON_CAMPAIGN_ID}/posts`;
 const PARAMS = [
-  'fields[post]=title,url,published_at,is_public,content,embed',
+  'fields[post]=title,url,published_at,is_public,content,embed_data,embed_url',
   'page[count]=20' // Fetch 20 to ensure we get 10 public ones
 ].join('&');
 
@@ -67,9 +66,17 @@ function extractThumbnailFromContent(content) {
 }
 
 function findImageForPost(post) {
-  // Try embed first (for posts with featured images)
-  if (post.attributes.embed && post.attributes.embed.image) {
-    return post.attributes.embed.image;
+  // Try embed_data first (for posts with featured images/videos)
+  if (post.attributes.embed_data && post.attributes.embed_data.image) {
+    return post.attributes.embed_data.image;
+  }
+  
+  // Try embed_url (sometimes contains image URL)
+  if (post.attributes.embed_url) {
+    // Check if it's an image URL
+    if (post.attributes.embed_url.match(/\.(jpg|jpeg|png|gif|webp)/i)) {
+      return post.attributes.embed_url;
+    }
   }
   
   // Try to extract from content HTML
@@ -103,7 +110,7 @@ async function main() {
       .map(post => {
         const thumbnail = findImageForPost(post);
         
-        console.log(` Processing: "${post.attributes.title}"`);
+        console.log(`   Processing: "${post.attributes.title}"`);
         console.log(`   URL: ${post.attributes.url}`);
         console.log(`   Thumbnail: ${thumbnail ? '✓' : '✗'}`);
         
