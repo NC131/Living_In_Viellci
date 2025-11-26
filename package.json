@@ -1,8 +1,0 @@
-  {
-    "name": "patreon-fetcher",
-    "version": "1.0.0",
-    "main": "fetch-patreon.js",
-    "dependencies": {
-      "sharp": "^0.33.5"
-    }
-  }
