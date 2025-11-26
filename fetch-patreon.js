@@ -73,53 +73,46 @@ function extractFirstImageFromContent(content) {
   return null;
 }
 
-function findImageForPost(post, included) {
-  // Check for image in post_file (main post image attachment)
-  if (post.attributes.post_file && post.attributes.post_file.url) {
-    console.log(`   Found main post image from post_file`);
-    return post.attributes.post_file.url;
-  }
+// Updated function to prefer the main 'image' attribute for non-video posts
+function findImageForPost(post) {
+  // First, check if it's a video post (has embed_data)
+  const isVideoPost = post.attributes.embed_data ? true : false;
 
-  // Check for image in image attribute
-  if (post.attributes.image && post.attributes.image.url) {
-    console.log(`   Found main post image from image attribute`);
-    return post.attributes.image.url;
-  }
-
-  // Check if it's a video post with embed data
-  // For videos, we want to extract from content (your custom thumbnail)
-  if (post.attributes.embed_data && post.attributes.embed_data.image) {
-    console.log(`   Detected video/embed post, checking content for thumbnail...`);
-    const contentImage = extractFirstImageFromContent(post.attributes.content);
-    if (contentImage) {
-      console.log(`   Found custom thumbnail in video post content`);
-      return contentImage;
+  if (!isVideoPost && post.attributes.image) {
+    // For non-video posts, prefer the main banner/cover image
+    const mainImage = post.attributes.image.large_url ||
+                      post.attributes.image.thumb_url ||
+                      post.attributes.image.url;
+    if (mainImage) {
+      console.log(`   Using main post image: ${mainImage}`);
+      return mainImage;
     }
+  }
 
-    // Fallback to embed thumbnail if no content image
+  // Fallback for video posts or if no main image: check embed_data
+  if (post.attributes.embed_data && post.attributes.embed_data.image) {
     const embedImage = post.attributes.embed_data.image.large_thumb_url ||
                        post.attributes.embed_data.image.small_thumb_url ||
                        post.attributes.embed_data.image.url;
-    if (embedImage) {
-      console.log(`   Using embed thumbnail as fallback`);
-      return embedImage;
+
+    // For videos, prefer first PNG in content if embed isn't PNG
+    if (embedImage && !embedImage.match(/\.png(\?|$)/i)) {
+      const contentImage = extractFirstImageFromContent(post.attributes.content);
+      if (contentImage) {
+        return contentImage;
+      }
     }
+
+    return embedImage;
   }
 
   // Check embed_url, but only if it's a PNG
   if (post.attributes.embed_url && post.attributes.embed_url.match(/\.png(\?|$)/i)) {
-    console.log(`   Found PNG in embed_url`);
     return post.attributes.embed_url;
   }
 
-  // Extract first PNG image from content (last resort)
-  const contentImage = extractFirstImageFromContent(post.attributes.content);
-  if (contentImage) {
-    console.log(`   Found image in post content`);
-    return contentImage;
-  }
-
-  return null;
+  // Extract first PNG image from content as final fallback
+  return extractFirstImageFromContent(post.attributes.content);
 }
 
 async function screenshotAndResizeImage(imageUrl, postId, browser) {
@@ -199,43 +192,13 @@ function sanitizePostId(url) {
   return match ? match[1] : url.replace(/[^a-z0-9]/gi, '-');
 }
 
-function cleanupOldThumbnails(currentPostIds) {
-  // Get all PNG files in the thumbnail directory
-  const files = fs.readdirSync(THUMBNAIL_DIR).filter(file => file.endsWith('.png'));
-
-  // Create a set of current post IDs for faster lookup
-  const currentIds = new Set(currentPostIds.map(id => `${id}.png`));
-
-  // Delete files that aren't in the current post list
-  let deletedCount = 0;
-  files.forEach(file => {
-    if (!currentIds.has(file)) {
-      const filepath = path.join(THUMBNAIL_DIR, file);
-      fs.unlinkSync(filepath);
-      console.log(`   🗑️  Deleted old thumbnail: ${file}`);
-      deletedCount++;
-    }
-  });
-
-  if (deletedCount > 0) {
-    console.log(`\n✓ Cleaned up ${deletedCount} old thumbnail(s)`);
-  } else {
-    console.log(`\n✓ No old thumbnails to clean up`);
-  }
-}
-
 async function main() {
   let browser = null;
 
   try {
     console.log('Fetching all Patreon posts...');
 
-    // Request post data with image and post_file fields
-    const query = new URLSearchParams({
-      'fields[post]': 'title,url,published_at,is_public,content,embed_data,embed_url,image,post_file',
-      'page[count]': '100'
-    });
-
+    // Use the global query
     let allPosts = [];
     let nextUrl = `${API_URL}?${query.toString()}`;
     let pageCount = 0;
@@ -297,12 +260,9 @@ async function main() {
 
     // Process each post
     const posts = [];
-    const processedPostIds = [];
-
     for (let i = 0; i < topPosts.length; i++) {
       const post = topPosts[i];
       const postId = sanitizePostId(post.attributes.url);
-      processedPostIds.push(postId);
 
       console.log(`\n[${i + 1}/${topPosts.length}] Processing: "${post.attributes.title}"`);
       console.log(`   Post ID: ${postId}`);
@@ -328,14 +288,35 @@ async function main() {
       });
     }
 
+    // Delete thumbnails for posts no longer in the top 10
+    console.log('\nCleaning up unused thumbnails...');
+    const activeThumbnails = new Set(posts.map(p => p.thumbnail ? path.basename(p.thumbnail) : null).filter(Boolean));
+    const files = fs.readdirSync(THUMBNAIL_DIR);
+    let deletedCount = 0;
+
+    files.forEach(file => {
+      if (file.endsWith('.png') && !activeThumbnails.has(file)) {
+        try {
+          const filePath = path.join(THUMBNAIL_DIR, file);
+          fs.unlinkSync(filePath);
+          console.log(`   ✓ Deleted unused thumbnail: ${file}`);
+          deletedCount++;
+        } catch (error) {
+          console.error(`   ✗ Failed to delete ${file}: ${error.message}`);
+        }
+      }
+    });
+
+    if (deletedCount === 0) {
+      console.log('   No unused thumbnails to delete.');
+    } else {
+      console.log(`   ✓ Deleted ${deletedCount} unused thumbnails.`);
+    }
+
     // Close browser
     if (browser) {
       await browser.close();
     }
-
-    // Clean up old thumbnails that are no longer in the top 10
-    console.log('\nCleaning up old thumbnails...');
-    cleanupOldThumbnails(processedPostIds);
 
     // Create output JSON
     const output = {
@@ -357,5 +338,10 @@ async function main() {
     process.exit(1);
   }
 }
+
+const query = new URLSearchParams({
+  'fields[post]': 'title,url,published_at,is_public,content,embed_data,embed_url,image',
+  'page[count]': '100'
+});
 
 main();
