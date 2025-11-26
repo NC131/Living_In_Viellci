@@ -68,41 +68,43 @@ function extractFirstImageFromContent(content) {
 
 async function scrapePostBanner(postUrl, postId, browser) {
   try {
-    const fullUrl = normalizeURL(postUrl);
+    const fullUrl = postUrl.startsWith('http')
+      ? postUrl
+      : `https://www.patreon.com${postUrl}`;
     console.log(`   Scraping banner from: ${fullUrl}`);
 
     const page = await browser.newPage();
     await page.goto(fullUrl, { waitUntil: 'networkidle2', timeout: 30000 });
 
-    await page.waitForSelector('img', { timeout: 10000 }).catch(() => null);
+    await page.waitForSelector('img', { timeout: 10000 }).catch(() => {});
 
-    const bannerUrl = await page.evaluate(() => {
-      const selectors = [
-        'img[src*="/post"]',              
-        '.sc-Axz`, img[src*="patreonusercontent"]',
-        'img[src*="https://"]',
-        'img[src][sizes]',
-        'img[alt*="banner"]',
-        'img[alt*="cover"]'
-      ];
-      
-      for (const sel of selectors) {
-        const el = document.querySelector(sel);
-        if (el && el.src) return el.src;
+    const selectors = [
+      'img[src*="patreonusercontent"]',
+      'img[data-tag="post-cover-image"]',
+      'figure img',
+      '.post__image img',
+      'img[src][sizes]'
+    ];
+
+    let bannerUrl = null;
+    for (const sel of selectors) {
+      const url = await page.$eval(sel, img => img.src).catch(() => null);
+      if (url) {
+        bannerUrl = url;
+        console.log(`   ✓ Found banner with selector "${sel}": ${url}`);
+        break;
       }
-      
-      return null;
-    });
+    }
 
     await page.close();
 
-    if (bannerUrl) {
-      console.log(`   ✓ Banner scraped: ${bannerUrl}`);
-      return await screenshotAndResizeImage(bannerUrl, postId, browser);
-    } else {
-      console.log(`   ✗ No banner image found via scraping.`);
+    if (!bannerUrl) {
+      console.log('   ✗ No banner image found via scraping.');
       return null;
     }
+
+    return await screenshotAndResizeImage(bannerUrl, postId, browser);
+
   } catch (error) {
     console.error(`   ✗ Scraping error: ${error.message}`);
     return null;
