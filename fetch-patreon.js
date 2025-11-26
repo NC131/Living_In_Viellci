@@ -70,22 +70,21 @@ function findImageForPost(post) {
 
 async function main() {
   try {
-    console.log('Fetching latest Patreon posts (newest first)...');
+    console.log('Fetching all Patreon posts...');
 
-    // Properly encode query parameters
+    // Properly encode query parameters (no sort param, since it's not working)
     const query = new URLSearchParams({
       'fields[post]': 'title,url,published_at,is_public,content,embed_data,embed_url',
-      'page[count]': '50',  // Higher count for efficiency (fetch more per page)
-      'sort': '-published_at'  // Newest first
+      'page[count]': '100'  // High count to minimize requests
     });
 
-    let allPublicPosts = [];
+    let allPosts = [];
     let nextUrl = `${API_URL}?${query.toString()}`;
     let pageCount = 0;
 
-    while (nextUrl && allPublicPosts.length < 10) {
+    while (nextUrl) {
       pageCount++;
-      console.log(`Fetching page ${pageCount} (newest first): ${nextUrl}`);
+      console.log(`Fetching page ${pageCount}: ${nextUrl}`);
       const response = await fetchPatreonPage(nextUrl);
 
       if (!response.data || response.data.length === 0) {
@@ -93,36 +92,53 @@ async function main() {
         break;
       }
 
-      // Filter public posts from this page
-      const publicPostsFromPage = response.data
-        .filter(post => post.attributes.is_public)
-        .map(post => ({
-          title: post.attributes.title,
-          url: post.attributes.url,
-          thumbnail: findImageForPost(post),
-          date: post.attributes.published_at,
-          is_public: post.attributes.is_public
-        }));
-
-      allPublicPosts = allPublicPosts.concat(publicPostsFromPage);
-      console.log(`Fetched ${response.data.length} posts from page ${pageCount}, found ${publicPostsFromPage.length} public (total public so far: ${allPublicPosts.length})`);
+      allPosts = allPosts.concat(response.data);
+      console.log(`Fetched ${response.data.length} posts from page ${pageCount} (total so far: ${allPosts.length})`);
 
       nextUrl = response.links && response.links.next ? response.links.next : null;
     }
 
-    if (allPublicPosts.length === 0) {
-      console.log('No public posts found.');
+    if (allPosts.length === 0) {
+      console.log('No posts found across all pages.');
       process.exit(0);
     }
 
-    // Take only the top 10 newest public posts (already in order due to API sort)
-    const posts = allPublicPosts.slice(0, 10);
+    console.log(`Total fetched posts across ${pageCount} pages: ${allPosts.length}`);
+
+    // Filter public posts
+    const publicPosts = allPosts.filter(post => post.attributes.is_public);
+
+    // Manually sort by published date, newest first (descending)
+    publicPosts.sort((a, b) => {
+      const dateA = new Date(a.attributes.published_at);
+      const dateB = new Date(b.attributes.published_at);
+      return dateB.getTime() - dateA.getTime();  // Newest first
+    });
+
+    // Take only the top 10 newest public posts
+    const posts = publicPosts.slice(0, 10).map(post => {
+      const thumbnail = findImageForPost(post);
+
+      return {
+        title: post.attributes.title,
+        url: post.attributes.url,
+        thumbnail: thumbnail,
+        date: post.attributes.published_at,
+        is_public: post.attributes.is_public
+      };
+    });
+
+    if (posts.length === 0) {
+      console.log('No public posts found after filtering.');
+      process.exit(0);
+    }
 
     // Log processing details
+    console.log(`Processing top ${posts.length} newest public posts:`);
     posts.forEach((post, i) => {
-      console.log(`Processing #${i + 1}: "${post.title}" (Date: ${post.date})`);
-      console.log(`   URL: ${post.url}`);
-      console.log(`   Thumbnail: ${post.thumbnail ? '✓ ' + post.thumbnail : '✗'}`);
+      console.log(`   #${i + 1}: "${post.title}" (Date: ${post.date})`);
+      console.log(`      URL: ${post.url}`);
+      console.log(`      Thumbnail: ${post.thumbnail ? '✓ ' + post.thumbnail : '✗'}`);
     });
 
     // Create output JSON
