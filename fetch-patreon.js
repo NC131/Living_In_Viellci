@@ -46,26 +46,72 @@ function fetchPatreonPage(url) {
   });
 }
 
-function extractThumbnailFromContent(content) {
+function isVideoPost(post) {
+  // Detect if post is video-based (e.g., YouTube, Vimeo, or GIF embeds like Tenor)
+  const embedUrl = post.attributes.embed_url || '';
+  return embedUrl.includes('youtube.com') ||
+         embedUrl.includes('youtu.be') ||
+         embedUrl.includes('vimeo.com') ||
+         embedUrl.includes('tenor.com') ||  // Handles GIF-based video embeds
+         embedUrl.match(/\.(mp4|webm|gif)/i);  // Video/GIF extensions
+}
+
+function extractFirstPngFromContent(content) {
   if (!content) return null;
-  const imgMatch = content.match(/<img[^>]+src="([^">]+)"/);
-  if (imgMatch && imgMatch[1]) {
-    return imgMatch[1];
+
+  // Find all img src matches and return the first one ending in .png
+  const imgRegex = /<img[^>]+src="([^">]+)"/g;
+  let match;
+  while ((match = imgRegex.exec(content)) !== null) {
+    const url = match[1].trim();
+    if (url.toLowerCase().endsWith('.png') && !url.toLowerCase().endsWith('.gif')) {
+      console.log(`Found PNG in content: ${url}`);
+      return url;
+    } else if (url.toLowerCase().endsWith('.gif')) {
+      console.log(`Skipped GIF in content: ${url}`);
+    }
   }
   return null;
 }
 
 function findImageForPost(post) {
-  // Prioritize thumbnail fields
+  const isVideo = isVideoPost(post);
+  if (isVideo) {
+    console.log(`Video post detected for "${post.attributes.title}"; parsing description for first PNG.`);
+    // For videos: Skip embeds, parse first PNG from content (description)
+    return extractFirstPngFromContent(post.attributes.content);
+  }
+
+  // For image posts: Prioritize embed fields if PNG
   if (post.attributes.embed_data && post.attributes.embed_data.image) {
-    return post.attributes.embed_data.image.large_thumb_url ||
-           post.attributes.embed_data.image.small_thumb_url ||
-           post.attributes.embed_data.image.url;
+    const urls = [
+      post.attributes.embed_data.image.large_thumb_url,
+      post.attributes.embed_data.image.small_thumb_url,
+      post.attributes.embed_data.image.url
+    ];
+    for (const url of urls) {
+      if (url && url.toLowerCase().endsWith('.png') && !url.toLowerCase().endsWith('.gif')) {
+        console.log(`Found PNG in embed_data: ${url}`);
+        return url;
+      } else if (url && url.toLowerCase().endsWith('.gif')) {
+        console.log(`Skipped GIF in embed_data: ${url}`);
+      }
+    }
   }
-  if (post.attributes.embed_url && post.attributes.embed_url.match(/\.(jpg|jpeg|png|gif|webp)/i)) {
-    return post.attributes.embed_url;
+
+  // Check embed_url if it's a PNG image
+  if (post.attributes.embed_url) {
+    const url = post.attributes.embed_url;
+    if (url.toLowerCase().endsWith('.png') && !url.toLowerCase().endsWith('.gif')) {
+      console.log(`Found PNG in embed_url: ${url}`);
+      return url;
+    } else if (url.toLowerCase().endsWith('.gif')) {
+      console.log(`Skipped GIF in embed_url: ${url}`);
+    }
   }
-  return extractThumbnailFromContent(post.attributes.content);
+
+  // Fallback: Parse first PNG from content
+  return extractFirstPngFromContent(post.attributes.content);
 }
 
 async function main() {
