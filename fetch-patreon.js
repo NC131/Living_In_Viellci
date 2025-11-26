@@ -73,36 +73,10 @@ function extractFirstImageFromContent(content) {
   return null;
 }
 
-function findImageForPost(post, mediaMap) {
-  if (post.relationships && post.relationships.images && post.relationships.images.data) {
-    const imageIds = post.relationships.images.data;
-
-    if (imageIds.length > 0) {
-      // Get the first image (usually the cover/main image)
-      const firstImageId = imageIds[0].id;
-      const mediaItem = mediaMap.get(firstImageId);
-
-      if (mediaItem && mediaItem.attributes) {
-        // Try to get the best quality image URL
-        if (mediaItem.attributes.image_urls) {
-          // Get the largest available image
-          const imageUrl = mediaItem.attributes.image_urls.url ||
-                          mediaItem.attributes.image_urls.default ||
-                          mediaItem.attributes.download_url;
-
-          if (imageUrl) {
-            console.log(`   Found cover image from relationships`);
-            return imageUrl;
-          }
-        }
-
-        // Fallback to download_url
-        if (mediaItem.attributes.download_url) {
-          console.log(`   Found cover image (download_url) from relationships`);
-          return mediaItem.attributes.download_url;
-        }
-      }
-    }
+function findImageForPost(post) {
+  if (post.attributes.thumbnail_url) {
+    console.log(`   Found thumbnail_url (main banner)`);
+    return post.attributes.thumbnail_url;
   }
 
   if (post.attributes.embed_data && post.attributes.embed_data.image) {
@@ -222,15 +196,13 @@ async function main() {
   try {
     console.log('Fetching all Patreon posts...');
 
+    // Request post data with thumbnail_url field
     const query = new URLSearchParams({
-      'fields[post]': 'title,url,published_at,is_public,content,embed_data,embed_url',
-      'fields[media]': 'image_urls,download_url',
-      'include': 'images',
+      'fields[post]': 'title,url,published_at,is_public,content,embed_data,embed_url,thumbnail_url',
       'page[count]': '100'
     });
 
     let allPosts = [];
-    let allIncluded = [];  // Store included media resources
     let nextUrl = `${API_URL}?${query.toString()}`;
     let pageCount = 0;
 
@@ -245,12 +217,6 @@ async function main() {
       }
 
       allPosts = allPosts.concat(response.data);
-
-      // Collect included resources (images)
-      if (response.included) {
-        allIncluded = allIncluded.concat(response.included);
-      }
-
       console.log(`Fetched ${response.data.length} posts from page ${pageCount} (total so far: ${allPosts.length})`);
 
       nextUrl = response.links && response.links.next ? response.links.next : null;
@@ -262,15 +228,6 @@ async function main() {
     }
 
     console.log(`Total fetched posts across ${pageCount} pages: ${allPosts.length}`);
-    console.log(`Total included media items: ${allIncluded.length}`);
-
-    // Create a lookup map for included media
-    const mediaMap = new Map();
-    allIncluded.forEach(item => {
-      if (item.type === 'media') {
-        mediaMap.set(item.id, item);
-      }
-    });
 
     // Filter public posts
     const publicPosts = allPosts.filter(post => post.attributes.is_public);
@@ -315,7 +272,7 @@ async function main() {
       console.log(`   Date: ${post.attributes.published_at}`);
       console.log(`   URL: ${post.attributes.url}`);
 
-      const imageUrl = findImageForPost(post, mediaMap);
+      const imageUrl = findImageForPost(post);
       let thumbnailPath = null;
 
       if (imageUrl) {
