@@ -54,18 +54,16 @@ function fetchPatreonPage(url) {
 
 function downloadImageWithAuth(url) {
   return new Promise((resolve, reject) => {
-    const cleanUrl = url.split('?')[0];
-    
     const options = {
       headers: {
         'Authorization': `Bearer ${PATREON_ACCESS_TOKEN}`,
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
+        'User-Agent': 'Living-In-Viellci-Game/1.0',
         'Referer': 'https://www.patreon.com/',
         'Accept': 'image/webp,image/apng,image/*,*/*;q=0.8'
       }
     };
 
-    https.get(cleanUrl, options, (res) => {
+    https.get(url, options, (res) => {
       // Handle redirects
       if (res.statusCode === 301 || res.statusCode === 302) {
         const redirectUrl = res.headers.location;
@@ -73,21 +71,7 @@ function downloadImageWithAuth(url) {
       }
 
       if (res.statusCode !== 200) {
-        // If clean URL fails, try with the original token URL
-        if (cleanUrl !== url) {
-          console.log(`      Retrying with token URL...`);
-          https.get(url, options, (res2) => {
-            if (res2.statusCode !== 200) {
-              reject(new Error(`Failed to download image: HTTP ${res2.statusCode}`));
-              return;
-            }
-            const chunks = [];
-            res2.on('data', (chunk) => chunks.push(chunk));
-            res2.on('end', () => resolve(Buffer.concat(chunks)));
-          }).on('error', reject);
-        } else {
-          reject(new Error(`Failed to download image: HTTP ${res.statusCode}`));
-        }
+        reject(new Error(`Failed to download image: HTTP ${res.statusCode}`));
         return;
       }
 
