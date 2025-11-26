@@ -1,48 +1,54 @@
- name: Fetch Patreon Posts
+name: Fetch Patreon Posts
 
-  on:
-    schedule:
-      - cron: '0 */6 * * *'
-    workflow_dispatch:
-    push:
-      branches: [ main ]
+on:
+  # Run every 6 hours
+  schedule:
+    - cron: '0 */6 * * *'
 
-  permissions:
-    contents: write
+  # Allow manual trigger from Actions tab
+  workflow_dispatch:
 
-  jobs:
-    fetch-posts:
-      runs-on: ubuntu-latest
+  # Run on push to main (for testing; remove if not needed)
+  push:
+    branches: [ main ]
 
-      steps:
-        - name: Checkout repository
-          uses: actions/checkout@v3
-          with:
-            token: ${{ secrets.PAT_TOKEN }}
+permissions:
+  contents: write
 
-        - name: Setup Node.js
-          uses: actions/setup-node@v3
-          with:
-            node-version: '18'
+jobs:
+  fetch-posts:
+    runs-on: ubuntu-latest
 
-        - name: Install dependencies
-          run: npm install  # Installs sharp from package.json
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.PAT_TOKEN }}
 
-        - name: Fetch Patreon Posts
-          env:
-            PATREON_ACCESS_TOKEN: ${{ secrets.PATREON_ACCESS_TOKEN }}
-            PATREON_CAMPAIGN_ID: ${{ secrets.PATREON_CAMPAIGN_ID }}
-          run: |
-            node fetch-patreon.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
 
-        - name: Commit and Push if changed
-          run: |
-            git config --global user.name 'GitHub Action'
-            git config --global user.email 'action@github.com'
-            git add patreon-posts.json patreon/posts/*  # Add JSON and all images in the folder
-            if ! git diff --cached --quiet; then
-              git commit -m "Update Patreon posts and thumbnails [skip ci]"
-              git push origin main
-            else
-              echo "No changes; skipping commit/push."
-            fi
+      - name: Install dependencies
+        run: |
+          npm install jimp
+
+      - name: Fetch Patreon Posts
+        env:
+          PATREON_ACCESS_TOKEN: ${{ secrets.PATREON_ACCESS_TOKEN }}
+          PATREON_CAMPAIGN_ID: ${{ secrets.PATREON_CAMPAIGN_ID }}
+        run: |
+          node fetch-patreon.js
+
+      - name: Commit and Push if changed
+        run: |
+          git config --global user.name 'GitHub Action'
+          git config --global user.email 'action@github.com'
+          git add patreon-posts.json patreon/posts/
+          if ! git diff --cached --quiet; then
+            git commit -m "Update Patreon posts and thumbnails [skip ci]"
+            git push origin main
+          else
+            echo "No changes to patreon-posts.json or thumbnails; skipping commit/push."
+          fi
