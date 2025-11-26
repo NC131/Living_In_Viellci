@@ -64,8 +64,8 @@ function extractFirstImageFromContent(content) {
 
   for (const match of imgMatches) {
     const imgUrl = match[1];
-    // Accept .png, .jpg, .jpeg; skip .gif and others
-    if (imgUrl.match(/\.(png|jpg|jpeg)(\?|$)/i)) {
+    // Only return .png images, skip GIFs
+    if (imgUrl.match(/\.png(\?|$)/i)) {
       return imgUrl;
     }
   }
@@ -73,52 +73,63 @@ function extractFirstImageFromContent(content) {
   return null;
 }
 
-// Updated function to accept the Media Map
-function findImageForPost(post, mediaMap) {
+function findImageForPost(post, mediaByPost) {
+  const medias = mediaByPost[post.id] || [];
+  const imageMedias = medias.filter(m => {
+    const mime = m.attributes.mimetype || '';
+    return mime.startsWith('image/') && !mime.endsWith('gif');
+  });
 
-  if (post.relationships && post.relationships.images && post.relationships.images.data) {
-    const mediaData = post.relationships.images.data;
-    // mediaData can be an array (for galleries) or single; normalize to array
-    const mediaItems = Array.isArray(mediaData) ? mediaData : [mediaData];
+  // Prefer PNG first, then others
+  const pngMedias = imageMedias.filter(m => m.attributes.mimetype === 'image/png');
+  const otherMedias = imageMedias.filter(m => m.attributes.mimetype !== 'image/png');
+  const selectedMedias = [...pngMedias, ...otherMedias];
 
-    // Take the first media item (assuming the first is the "main" banner/thumbnail)
-    for (const item of mediaItems) {
-      if (mediaMap[item.id]) {
-        const mediaObj = mediaMap[item.id];
-        // Prefer original image URL; fallback to download_url
-        if (mediaObj.image_urls && mediaObj.image_urls.original) {
-          return mediaObj.image_urls.original;
+  const hasEmbed = !!post.attributes.embed_data;
+
+  if (hasEmbed) {
+    // For video/embed posts, prefer logic that falls back to content (description) for custom banner
+    if (post.attributes.embed_data && post.attributes.embed_data.image) {
+      const embedImage = post.attributes.embed_data.image.large_thumb_url ||
+                         post.attributes.embed_data.image.small_thumb_url ||
+                         post.attributes.embed_data.image.url;
+
+      if (embedImage && embedImage.match(/\.png(\?|$)/i)) {
+        return embedImage;
+      } else {
+        const contentImage = extractFirstImageFromContent(post.attributes.content);
+        if (contentImage) {
+          return contentImage;
         }
-        if (mediaObj.download_url) {
-          return mediaObj.download_url;
-        }
-      }
-    }
-  }
-
-
-  if (post.attributes.embed_data && post.attributes.embed_data.image) {
-    const embedImage = post.attributes.embed_data.image.large_thumb_url ||
-                       post.attributes.embed_data.image.small_thumb_url ||
-                       post.attributes.embed_data.image.url;
-
-    if (embedImage && !embedImage.match(/\.png(\?|$)/i)) {
-      const contentImage = extractFirstImageFromContent(post.attributes.content);
-      if (contentImage) {
-        return contentImage;
+        // Fallback to embed image even if not PNG
+        return embedImage;
       }
     }
 
-    return embedImage;
+    if (post.attributes.embed_url && post.attributes.embed_url.match(/\.png(\?|$)/i)) {
+      return post.attributes.embed_url;
+    }
+
+    // Fallback to content
+    return extractFirstImageFromContent(post.attributes.content);
+  } else {
+    // For non-video posts, prefer media attachments (main banner/thumbnail), then fallback to content
+    if (selectedMedias.length > 0) {
+      const att = selectedMedias[0]; // Assume first is the main/featured
+      if (att.attributes.image_urls) {
+        const urls = att.attributes.image_urls;
+        // Prefer a large/resized version for better quality before resizing
+        return urls.large_thumb_url || urls.large || urls.thumb || urls.default || urls.url || att.attributes.download_url || att.attributes.url;
+      } else if (att.attributes.download_url) {
+        return att.attributes.download_url;
+      } else if (att.attributes.url) {
+        return att.attributes.url;
+      }
+    }
+
+    // Fallback to content if no suitable media
+    return extractFirstImageFromContent(post.attributes.content);
   }
-
-
-  if (post.attributes.embed_url && post.attributes.embed_url.match(/\.(png|jpg|jpeg)(\?|$)/i)) {
-    return post.attributes.embed_url;
-  }
-
-
-  return extractFirstImageFromContent(post.attributes.content);
 }
 
 async function screenshotAndResizeImage(imageUrl, postId, browser) {
@@ -126,8 +137,11 @@ async function screenshotAndResizeImage(imageUrl, postId, browser) {
     console.log(`   Screenshotting image: ${imageUrl}`);
 
     const page = await browser.newPage();
+
+    // Set viewport to a reasonable size
     await page.setViewport({ width: 1920, height: 1080 });
 
+    // Create a simple HTML page with just the image
     const html = `
       <!DOCTYPE html>
       <html>
@@ -146,7 +160,7 @@ async function screenshotAndResizeImage(imageUrl, postId, browser) {
     await page.setContent(html);
 
     // Wait for image to load
-    await page.waitForSelector('img', { timeout: 20000 });
+    await page.waitForSelector('img', { timeout: 10000 });
     await page.evaluate(() => {
       return new Promise((resolve) => {
         const img = document.querySelector('img');
@@ -159,11 +173,13 @@ async function screenshotAndResizeImage(imageUrl, postId, browser) {
       });
     });
 
+    // Take screenshot of the image element
     const imageElement = await page.$('img');
     const screenshotBuffer = await imageElement.screenshot({ type: 'png' });
 
     await page.close();
 
+    // Resize image to 425x221 using sharp
     const resizedBuffer = await sharp(screenshotBuffer)
       .resize(THUMBNAIL_WIDTH, THUMBNAIL_HEIGHT, {
         fit: 'cover',
@@ -172,6 +188,7 @@ async function screenshotAndResizeImage(imageUrl, postId, browser) {
       .png()
       .toBuffer();
 
+    // Save to file
     const filename = `${postId}.png`;
     const filepath = path.join(THUMBNAIL_DIR, filename);
     fs.writeFileSync(filepath, resizedBuffer);
@@ -187,6 +204,7 @@ async function screenshotAndResizeImage(imageUrl, postId, browser) {
 }
 
 function sanitizePostId(url) {
+  // Extract post ID from URL like "/posts/weekly-log-11-144156455"
   const match = url.match(/(\d+)$/);
   return match ? match[1] : url.replace(/[^a-z0-9]/gi, '-');
 }
@@ -197,19 +215,16 @@ async function main() {
   try {
     console.log('Fetching all Patreon posts...');
 
-    // Use 'images' as the relationship name to include media objects
+    // Properly encode query parameters
     const query = new URLSearchParams({
-      'include': 'images',
-      'fields[media]': 'image_urls,download_url,metadata',
       'fields[post]': 'title,url,published_at,is_public,content,embed_data,embed_url',
+      'include': 'media',  // Include media to fetch attached images/videos/etc.
+      'fields[media]': 'created_at,download_url,file_name,image_urls,mimetype,owner_id,owner_relationship,owner_type,size_bytes,state,upload_expires_at,upload_parameters,upload_url',
       'page[count]': '100'
     });
 
     let allPosts = [];
-
-    // Map to store included media objects (ID -> Attributes)
-    let mediaMap = {};
-
+    let allIncluded = [];
     let nextUrl = `${API_URL}?${query.toString()}`;
     let pageCount = 0;
 
@@ -223,18 +238,10 @@ async function main() {
         break;
       }
 
-      // 1. Store posts
       allPosts = allPosts.concat(response.data);
-
-      // 2. Store included media in our map
       if (response.included) {
-        response.included.forEach(item => {
-          if (item.type === 'media') {
-            mediaMap[item.id] = item.attributes;
-          }
-        });
+        allIncluded = allIncluded.concat(response.included);
       }
-
       console.log(`Fetched ${response.data.length} posts from page ${pageCount} (total so far: ${allPosts.length})`);
 
       nextUrl = response.links && response.links.next ? response.links.next : null;
@@ -245,16 +252,29 @@ async function main() {
       process.exit(0);
     }
 
+    console.log(`Total fetched posts across ${pageCount} pages: ${allPosts.length}`);
+
+    // Build mediaByPost map
+    const mediaByPost = {};
+    allIncluded.forEach(inc => {
+      if (inc.type === 'media' && inc.attributes.owner_type === 'post') {
+        const postId = inc.attributes.owner_id;
+        if (!mediaByPost[postId]) mediaByPost[postId] = [];
+        mediaByPost[postId].push(inc);
+      }
+    });
+
     // Filter public posts
     const publicPosts = allPosts.filter(post => post.attributes.is_public);
 
-    // Sort by published date (newest first)
+    // Manually sort by published date, newest first (descending)
     publicPosts.sort((a, b) => {
       const dateA = new Date(a.attributes.published_at);
       const dateB = new Date(b.attributes.published_at);
       return dateB.getTime() - dateA.getTime();
     });
 
+    // Take only the top 10 newest public posts
     const topPosts = publicPosts.slice(0, 10);
 
     if (topPosts.length === 0) {
@@ -264,7 +284,7 @@ async function main() {
 
     console.log(`Processing top ${topPosts.length} newest public posts...`);
 
-    // Launch Puppeteer
+    // Launch Puppeteer browser
     console.log('Launching browser...');
     browser = await puppeteer.launch({
       headless: 'new',
@@ -276,15 +296,18 @@ async function main() {
       ]
     });
 
+    // Process each post
     const posts = [];
     for (let i = 0; i < topPosts.length; i++) {
       const post = topPosts[i];
       const postId = sanitizePostId(post.attributes.url);
 
       console.log(`\n[${i + 1}/${topPosts.length}] Processing: "${post.attributes.title}"`);
+      console.log(`   Post ID: ${postId}`);
+      console.log(`   Date: ${post.attributes.published_at}`);
+      console.log(`   URL: ${post.attributes.url}`);
 
-      // Pass mediaMap to the finder
-      const imageUrl = findImageForPost(post, mediaMap);
+      const imageUrl = findImageForPost(post, mediaByPost);
       let thumbnailPath = null;
 
       if (imageUrl) {
@@ -303,7 +326,6 @@ async function main() {
       });
     }
 
-    // Cleanup Logic (Unchanged)
     console.log('\nCleaning up unused thumbnails...');
     const activeThumbnails = new Set(posts.map(p => p.thumbnail ? path.basename(p.thumbnail) : null).filter(Boolean));
     const files = fs.readdirSync(THUMBNAIL_DIR);
@@ -322,10 +344,17 @@ async function main() {
       }
     });
 
-    if (deletedCount > 0) console.log(`   ✓ Deleted ${deletedCount} unused thumbnails.`);
+    if (deletedCount === 0) {
+      console.log('   No unused thumbnails to delete.');
+    } else {
+      console.log(`   ✓ Deleted ${deletedCount} unused thumbnails.`);
+    }
+    // Close browser
+    if (browser) {
+      await browser.close();
+    }
 
-    if (browser) await browser.close();
-
+    // Create output JSON
     const output = {
       last_updated: new Date().toISOString(),
       total_posts: posts.length,
@@ -333,12 +362,15 @@ async function main() {
       posts: posts
     };
 
+    // Save to file
     fs.writeFileSync('patreon-posts.json', JSON.stringify(output, null, 2));
     console.log(`\n✓ Successfully saved ${posts.length} newest public posts to patreon-posts.json`);
 
   } catch (error) {
     console.error('Error fetching Patreon posts:', error.message);
-    if (browser) await browser.close();
+    if (browser) {
+      await browser.close();
+    }
     process.exit(1);
   }
 }
