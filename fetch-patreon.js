@@ -74,45 +74,16 @@ function extractFirstImageFromContent(content) {
 }
 
 function findImageForPost(post, included) {
-  // Check for attached media/images (main post content)
-  // Look for relationships -> images or media
-  if (post.relationships) {
-    // Check for images relationship
-    if (post.relationships.images && post.relationships.images.data && post.relationships.images.data.length > 0) {
-      const imageId = post.relationships.images.data[0].id;
+  // Check for image in post_file (main post image attachment)
+  if (post.attributes.post_file && post.attributes.post_file.url) {
+    console.log(`   Found main post image from post_file`);
+    return post.attributes.post_file.url;
+  }
 
-      // Find the image in the included array
-      if (included) {
-        const imageData = included.find(item => item.type === 'media' && item.id === imageId);
-        if (imageData && imageData.attributes) {
-          const imageUrl = imageData.attributes.download_url ||
-                          imageData.attributes.image_urls?.original ||
-                          imageData.attributes.image_urls?.default;
-          if (imageUrl) {
-            console.log(`   Found main post image from attachments`);
-            return imageUrl;
-          }
-        }
-      }
-    }
-
-    // Check for generic media relationship
-    if (post.relationships.media && post.relationships.media.data && post.relationships.media.data.length > 0) {
-      const mediaId = post.relationships.media.data[0].id;
-
-      if (included) {
-        const mediaData = included.find(item => item.type === 'media' && item.id === mediaId);
-        if (mediaData && mediaData.attributes) {
-          const imageUrl = mediaData.attributes.download_url ||
-                          mediaData.attributes.image_urls?.original ||
-                          mediaData.attributes.image_urls?.default;
-          if (imageUrl) {
-            console.log(`   Found main post image from media`);
-            return imageUrl;
-          }
-        }
-      }
-    }
+  // Check for image in image attribute
+  if (post.attributes.image && post.attributes.image.url) {
+    console.log(`   Found main post image from image attribute`);
+    return post.attributes.image.url;
   }
 
   // Check if it's a video post with embed data
@@ -259,16 +230,13 @@ async function main() {
   try {
     console.log('Fetching all Patreon posts...');
 
-    // Request both post data and included relationships (media/images)
+    // Request post data with image and post_file fields
     const query = new URLSearchParams({
-      'fields[post]': 'title,url,published_at,is_public,content,embed_data,embed_url',
-      'fields[media]': 'download_url,image_urls',
-      'include': 'images,media',
+      'fields[post]': 'title,url,published_at,is_public,content,embed_data,embed_url,image,post_file',
       'page[count]': '100'
     });
 
     let allPosts = [];
-    let allIncluded = [];
     let nextUrl = `${API_URL}?${query.toString()}`;
     let pageCount = 0;
 
@@ -283,12 +251,6 @@ async function main() {
       }
 
       allPosts = allPosts.concat(response.data);
-
-      // Collect included data (media/images)
-      if (response.included) {
-        allIncluded = allIncluded.concat(response.included);
-      }
-
       console.log(`Fetched ${response.data.length} posts from page ${pageCount} (total so far: ${allPosts.length})`);
 
       nextUrl = response.links && response.links.next ? response.links.next : null;
@@ -347,7 +309,7 @@ async function main() {
       console.log(`   Date: ${post.attributes.published_at}`);
       console.log(`   URL: ${post.attributes.url}`);
 
-      const imageUrl = findImageForPost(post, allIncluded);
+      const imageUrl = findImageForPost(post);
       let thumbnailPath = null;
 
       if (imageUrl) {
