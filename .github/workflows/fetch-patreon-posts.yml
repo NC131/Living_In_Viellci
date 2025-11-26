@@ -4,58 +4,37 @@ on:
   # Run every 6 hours
   schedule:
     - cron: '0 */6 * * *'
-
+  
   # Allow manual trigger from Actions tab
   workflow_dispatch:
-
-permissions:
-  contents: write
+  
+  # Run on push to main (for testing)
+  push:
+    branches: [ main ]
 
 jobs:
   fetch-posts:
     runs-on: ubuntu-latest
-
+    
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-        with:
-          token: ${{ secrets.PAT_TOKEN }}
-
+      
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '18'
-
+      
       - name: Fetch Patreon Posts
         env:
           PATREON_ACCESS_TOKEN: ${{ secrets.PATREON_ACCESS_TOKEN }}
           PATREON_CAMPAIGN_ID: ${{ secrets.PATREON_CAMPAIGN_ID }}
         run: |
           node fetch-patreon.js
-
-      - name: Clean working directory
-        run: |
-          git clean -fd  # Remove untracked files/directories
-          git reset --hard HEAD  # Reset to clean state (discard any local changes)
-
-      - name: Pull latest changes
-        run: |
-          git pull --rebase origin main  # Now it should succeed
-
-      - name: Check for changes
-        id: changes
-        run: |
-          if git diff --quiet patreon-posts.json; then
-            echo "changed=false" >> $GITHUB_OUTPUT
-          else
-            echo "changed=true" >> $GITHUB_OUTPUT
-          fi
-
+      
       - name: Commit and Push if changed
-        if: steps.changes.outputs.changed == 'true'
         run: |
-          git config --global user.name 'NC131'
-          git config --global user.email 'bcore0130@gmail.com'
+          git config --global user.name 'GitHub Action'
+          git config --global user.email 'action@github.com'
           git add patreon-posts.json
-          git commit -m "Update Patreon posts [skip ci]"
-          git push origin main  # Explicitly push to main
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Update Patreon posts [skip ci]" && git push)
