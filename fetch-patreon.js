@@ -9,13 +9,8 @@ if (!PATREON_ACCESS_TOKEN || !PATREON_CAMPAIGN_ID) {
   process.exit(1);
 }
 
-// Patreon API endpoint with sorting for newest first
+// Patreon API endpoint
 const API_URL = `https://www.patreon.com/api/oauth2/v2/campaigns/${PATREON_CAMPAIGN_ID}/posts`;
-const PARAMS = [
-  'fields[post]=title,url,published_at,is_public,content,embed_data,embed_url',
-  'page[count]=20',  // Fetch 20 per page
-  'sort=-published_at'  // NEW: Force API to sort newest first (descending by publish date)
-].join('&');
 
 function fetchPatreonPage(url) {
   return new Promise((resolve, reject) => {
@@ -63,7 +58,7 @@ function extractThumbnailFromContent(content) {
 function findImageForPost(post) {
   // Prioritize thumbnail fields
   if (post.attributes.embed_data && post.attributes.embed_data.image) {
-    return post.attributes.embed_data.image.large_thumb_url ||  // Prefer large thumb for quality
+    return post.attributes.embed_data.image.large_thumb_url ||
            post.attributes.embed_data.image.small_thumb_url ||
            post.attributes.embed_data.image.url;
   }
@@ -75,16 +70,22 @@ function findImageForPost(post) {
 
 async function main() {
   try {
-    console.log('Fetching Patreon posts with pagination (newest first)...');
+    console.log('Fetching latest Patreon posts (newest first)...');
 
-    let allPosts = [];
-    let nextUrl = `${API_URL}?${PARAMS}`;
+    // Properly encode query parameters
+    const query = new URLSearchParams({
+      'fields[post]': 'title,url,published_at,is_public,content,embed_data,embed_url',
+      'page[count]': '50',  // Higher count for efficiency (fetch more per page)
+      'sort': '-published_at'  // Newest first
+    });
+
+    let allPublicPosts = [];
+    let nextUrl = `${API_URL}?${query.toString()}`;
     let pageCount = 0;
-    let publicCount = 0;
 
-    while (nextUrl && publicCount < 10) {  // NEW: Stop early if we have enough public posts
+    while (nextUrl && allPublicPosts.length < 10) {
       pageCount++;
-      console.log(`Fetching page ${pageCount}: ${nextUrl}`);
+      console.log(`Fetching page ${pageCount} (newest first): ${nextUrl}`);
       const response = await fetchPatreonPage(nextUrl);
 
       if (!response.data || response.data.length === 0) {
@@ -92,75 +93,49 @@ async function main() {
         break;
       }
 
-      allPosts = allPosts.concat(response.data);
-      console.log(`Fetched ${response.data.length} posts from page ${pageCount} (total so far: ${allPosts.length})`);
+      // Filter public posts from this page
+      const publicPostsFromPage = response.data
+        .filter(post => post.attributes.is_public)
+        .map(post => ({
+          title: post.attributes.title,
+          url: post.attributes.url,
+          thumbnail: findImageForPost(post),
+          date: post.attributes.published_at,
+          is_public: post.attributes.is_public
+        }));
 
-      // Count public posts so far (for early stop)
-      publicCount = allPosts.filter(p => p.attributes.is_public).length;
+      allPublicPosts = allPublicPosts.concat(publicPostsFromPage);
+      console.log(`Fetched ${response.data.length} posts from page ${pageCount}, found ${publicPostsFromPage.length} public (total public so far: ${allPublicPosts.length})`);
 
       nextUrl = response.links && response.links.next ? response.links.next : null;
     }
 
-    if (allPosts.length === 0) {
-      console.log('No posts found across all pages...');
+    if (allPublicPosts.length === 0) {
+      console.log('No public posts found.');
       process.exit(0);
     }
 
-    console.log(`Total fetched posts: ${allPosts.length}`);
+    // Take only the top 10 newest public posts (already in order due to API sort)
+    const posts = allPublicPosts.slice(0, 10);
 
-    // Filter public posts
-    const publicPosts = allPosts.filter(post => {
-      const isPublic = post.attributes.is_public;
-      if (!isPublic) {
-        console.log(`Skipping private post: "${post.attributes.title}"`);
-      }
-      return isPublic;
+    // Log processing details
+    posts.forEach((post, i) => {
+      console.log(`Processing #${i + 1}: "${post.title}" (Date: ${post.date})`);
+      console.log(`   URL: ${post.url}`);
+      console.log(`   Thumbnail: ${post.thumbnail ? '✓ ' + post.thumbnail : '✗'}`);
     });
-
-    // Sort by published date, newest first (descending) - reinforce API order
-    publicPosts.sort((a, b) => {
-      const dateA = new Date(a.attributes.published_at + 'Z'); // Force UTC
-      const dateB = new Date(b.attributes.published_at + 'Z');
-      return dateB.getTime() - dateA.getTime();  // NEW: Corrected for descending (newest first)
-    });
-
-    // Take only the top 10 newest public posts
-    const posts = publicPosts.slice(0, 10).map(post => {
-      const thumbnail = findImageForPost(post);
-
-      console.log(`Processing: "${post.attributes.title}" (Date: ${post.attributes.published_at})`);
-      console.log(`URL: ${post.attributes.url}`);
-      console.log(`Thumbnail: ${thumbnail ? '✓ ' + thumbnail : '✗'}`);
-
-      return {
-        title: post.attributes.title,
-        url: post.attributes.url,
-        thumbnail: thumbnail,
-        date: post.attributes.published_at,
-        is_public: post.attributes.is_public
-      };
-    });
-
-    if (posts.length === 0) {
-      console.log('No public posts found after filtering');
-      process.exit(0);
-    }
 
     // Create output JSON
     const output = {
       last_updated: new Date().toISOString(),
       total_posts: posts.length,
+      note: posts.length < 10 ? 'Fewer than 10 public posts available' : '',
       posts: posts
     };
 
     // Save to file
     fs.writeFileSync('patreon-posts.json', JSON.stringify(output, null, 2));
-
-    console.log(`Successfully saved ${posts.length} posts to patreon-posts.json`);
-    console.log('Summary (newest first):');
-    posts.forEach((post, i) => {
-      console.log(`   ${i + 1}. ${post.title} (${post.date})`);
-    });
+    console.log(`Successfully saved ${posts.length} newest public posts to patreon-posts.json`);
 
   } catch (error) {
     console.error('Error fetching Patreon posts:', error.message);
