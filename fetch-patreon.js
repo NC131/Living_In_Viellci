@@ -6,6 +6,7 @@ const PATREON_CAMPAIGN_ID = process.env.PATREON_CAMPAIGN_ID;
 
 if (!PATREON_ACCESS_TOKEN || !PATREON_CAMPAIGN_ID) {
   console.error('Missing required environment variables!');
+  console.error('Make sure PATREON_ACCESS_TOKEN and PATREON_CAMPAIGN_ID are set in GitHub Secrets');
   process.exit(1);
 }
 
@@ -90,7 +91,7 @@ async function main() {
     const response = await fetchPatreon();
     
     if (!response.data || response.data.length === 0) {
-      console.log('No posts found');
+      console.log('No posts found...');
       process.exit(0);
     }
     
@@ -106,13 +107,19 @@ async function main() {
         }
         return isPublic;
       })
+      .sort((a, b) => {
+        // Sort by published date, newest first
+        const dateA = new Date(a.attributes.published_at);
+        const dateB = new Date(b.attributes.published_at);
+        return dateB - dateA;
+      })
       .slice(0, 10) // Take only 10 most recent public posts
       .map(post => {
         const thumbnail = findImageForPost(post);
         
-        console.log(`   Processing: "${post.attributes.title}"`);
-        console.log(`   URL: ${post.attributes.url}`);
-        console.log(`   Thumbnail: ${thumbnail ? '✓' : '✗'}`);
+        console.log(`Processing: "${post.attributes.title}"`);
+        console.log(`URL: ${post.attributes.url}`);
+        console.log(`Thumbnail: ${thumbnail ? '✓' : '✗'}`);
         
         return {
           title: post.attributes.title,
