@@ -73,32 +73,14 @@ function extractFirstImageFromContent(content) {
   return null;
 }
 
-// Updated function to prefer attachments for non-video posts
 function findImageForPost(post) {
-  // First, check if it's a video post (has embed_data)
-  const isVideoPost = post.attributes.embed_data ? true : false;
-
-  if (!isVideoPost && post.attachments && post.attachments.length > 0) {
-    // Prefer the first suitable image from attachments
-    for (const attachment of post.attachments) {
-      // Check for resized image URLs or fallback to url/download_url
-      const mainImage = (attachment.attributes.image_urls && attachment.attributes.image_urls.large) || // Use 'large' if available
-                        attachment.attributes.download_url ||
-                        attachment.attributes.url;
-      if (mainImage && mainImage.match(/\.png(\?|$)/i)) { // Prefer PNGs, as per your original logic
-        console.log(`   Using main post attachment image: ${mainImage}`);
-        return mainImage;
-      }
-    }
-  }
-
-  // Fallback for video posts or if no main image: check embed_data
+  // Check if it's a video post with embed data
   if (post.attributes.embed_data && post.attributes.embed_data.image) {
     const embedImage = post.attributes.embed_data.image.large_thumb_url ||
                        post.attributes.embed_data.image.small_thumb_url ||
                        post.attributes.embed_data.image.url;
 
-    // For videos, prefer first PNG in content if embed isn't PNG
+    // If it's a video, try to find first PNG in content instead
     if (embedImage && !embedImage.match(/\.png(\?|$)/i)) {
       const contentImage = extractFirstImageFromContent(post.attributes.content);
       if (contentImage) {
@@ -114,7 +96,7 @@ function findImageForPost(post) {
     return post.attributes.embed_url;
   }
 
-  // Extract first PNG image from content as final fallback
+  // Extract first PNG image from content
   return extractFirstImageFromContent(post.attributes.content);
 }
 
@@ -201,12 +183,15 @@ async function main() {
   try {
     console.log('Fetching all Patreon posts...');
 
+    // Properly encode query parameters
+    const query = new URLSearchParams({
+      'fields[post]': 'title,url,published_at,is_public,content,embed_data,embed_url',
+      'page[count]': '100'
+    });
+
     let allPosts = [];
     let nextUrl = `${API_URL}?${query.toString()}`;
     let pageCount = 0;
-
-    // Collect all included items across pages (for attachments)
-    let allIncluded = [];
 
     while (nextUrl) {
       pageCount++;
@@ -219,9 +204,6 @@ async function main() {
       }
 
       allPosts = allPosts.concat(response.data);
-      if (response.included) {
-        allIncluded = allIncluded.concat(response.included);
-      }
       console.log(`Fetched ${response.data.length} posts from page ${pageCount} (total so far: ${allPosts.length})`);
 
       nextUrl = response.links && response.links.next ? response.links.next : null;
@@ -233,27 +215,6 @@ async function main() {
     }
 
     console.log(`Total fetched posts across ${pageCount} pages: ${allPosts.length}`);
-
-    // Create a map of media ID to media object for quick lookup
-    const mediaMap = {};
-    allIncluded.forEach(item => {
-      if (item.type === 'media') {
-        mediaMap[item.id] = item;
-      }
-    });
-
-    // Attach media to each post via relationships
-    allPosts.forEach(post => {
-      post.attachments = [];
-      if (post.relationships && post.relationships.attachments && post.relationships.attachments.data) {
-        post.relationships.attachments.data.forEach(attachmentRef => {
-          const media = mediaMap[attachmentRef.id];
-          if (media) {
-            post.attachments.push(media);
-          }
-        });
-      }
-    });
 
     // Filter public posts
     const publicPosts = allPosts.filter(post => post.attributes.is_public);
@@ -317,7 +278,6 @@ async function main() {
       });
     }
 
-    // Delete thumbnails for posts no longer in the top 10
     console.log('\nCleaning up unused thumbnails...');
     const activeThumbnails = new Set(posts.map(p => p.thumbnail ? path.basename(p.thumbnail) : null).filter(Boolean));
     const files = fs.readdirSync(THUMBNAIL_DIR);
@@ -341,7 +301,6 @@ async function main() {
     } else {
       console.log(`   ✓ Deleted ${deletedCount} unused thumbnails.`);
     }
-
     // Close browser
     if (browser) {
       await browser.close();
@@ -367,12 +326,5 @@ async function main() {
     process.exit(1);
   }
 }
-
-const query = new URLSearchParams({
-  'include': 'attachments',
-  'fields[post]': 'title,url,published_at,is_public,content,embed_data,embed_url',
-  'fields[media]': 'image_urls,url,download_url',
-  'page[count]': '100'
-});
 
 main();
