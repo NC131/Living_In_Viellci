@@ -182,7 +182,11 @@ async function scrapePostBanner(postUrl, postId, browser) {
     const page = await browser.newPage();
     console.log(`   Opening post page to look for banner: ${postUrl}`);
 
-    await page.goto(postUrl, { waitUntil: 'networkidle2', timeout: 30000 });
+    const fullUrl = postUrl.startsWith('http')
+      ? postUrl
+      : `https://www.patreon.com${postUrl}`;
+    
+    await page.goto(fullUrl, { waitUntil: 'networkidle2', timeout: 30000 });
 
     // Try common Patreon image selectors
     const bannerSelectorCandidates = [
@@ -326,7 +330,9 @@ async function main() {
 
       posts.push({
         title: post.attributes.title,
-        url: post.attributes.url,
+        url: post.attributes.url.startsWith('http') 
+          ? post.attributes.url 
+          : `https://www.patreon.com${post.attributes.url}`,
         thumbnail: thumbnailPath,
         date: post.attributes.published_at,
         is_public: post.attributes.is_public
