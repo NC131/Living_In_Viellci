@@ -73,46 +73,28 @@ function extractFirstImageFromContent(content) {
   return null;
 }
 
-function findMediaForPost(post, includedResources) {
-  // Check if post has media attachments in relationships
-  if (post.relationships && post.relationships.media) {
-    const mediaRelationship = post.relationships.media;
-
-    if (mediaRelationship.data && Array.isArray(mediaRelationship.data) && mediaRelationship.data.length > 0) {
-      // Get the first media item ID
-      const mediaId = mediaRelationship.data[0].id;
-
-      // Find the corresponding media in included resources
-      if (includedResources) {
-        const mediaItem = includedResources.find(item => item.type === 'media' && item.id === mediaId);
-
-        if (mediaItem && mediaItem.attributes) {
-          // Try to get the best quality image URL
-          if (mediaItem.attributes.image_urls) {
-            // Prefer larger images
-            return mediaItem.attributes.image_urls.original ||
-                   mediaItem.attributes.image_urls.default ||
-                   mediaItem.attributes.image_urls.url;
-          }
-
-          // Fallback to download_url
-          if (mediaItem.attributes.download_url) {
-            return mediaItem.attributes.download_url;
-          }
-        }
+function findImageForPost(post) {
+  // Check for post image field (cover image)
+  if (post.attributes.image) {
+    // image might be an object with different sizes
+    if (typeof post.attributes.image === 'object') {
+      const imageUrl = post.attributes.image.large_url ||
+                       post.attributes.image.url ||
+                       post.attributes.image.thumb_url;
+      if (imageUrl) {
+        console.log(`   Found post cover image: ${imageUrl}`);
+        return imageUrl;
       }
+    } else if (typeof post.attributes.image === 'string') {
+      console.log(`   Found post cover image: ${post.attributes.image}`);
+      return post.attributes.image;
     }
   }
 
-  return null;
-}
-
-function findImageForPost(post, includedResources) {
-  // Check for media attachments (main post images)
-  const mediaUrl = findMediaForPost(post, includedResources);
-  if (mediaUrl) {
-    console.log(`   Found media attachment: ${mediaUrl}`);
-    return mediaUrl;
+  // Check thumbnail_url if available
+  if (post.attributes.thumbnail_url) {
+    console.log(`   Found thumbnail_url: ${post.attributes.thumbnail_url}`);
+    return post.attributes.thumbnail_url;
   }
 
   // Check if it's a video post with embed data
@@ -235,15 +217,13 @@ async function main() {
   try {
     console.log('Fetching all Patreon posts...');
 
+    // Request all possible image-related fields
     const query = new URLSearchParams({
-      'fields[post]': 'title,url,published_at,is_public,content,embed_data,embed_url',
-      'fields[media]': 'image_urls,download_url,metadata,file_name',
-      'include': 'media,attachments',
+      'fields[post]': 'title,url,published_at,is_public,content,embed_data,embed_url,image,thumbnail_url,teaser_text',
       'page[count]': '100'
     });
 
     let allPosts = [];
-    let allIncluded = []; // Store all included resources
     let nextUrl = `${API_URL}?${query.toString()}`;
     let pageCount = 0;
 
@@ -258,12 +238,6 @@ async function main() {
       }
 
       allPosts = allPosts.concat(response.data);
-
-      // Collect included resources (media, attachments, etc.)
-      if (response.included) {
-        allIncluded = allIncluded.concat(response.included);
-      }
-
       console.log(`Fetched ${response.data.length} posts from page ${pageCount} (total so far: ${allPosts.length})`);
 
       nextUrl = response.links && response.links.next ? response.links.next : null;
@@ -275,7 +249,6 @@ async function main() {
     }
 
     console.log(`Total fetched posts across ${pageCount} pages: ${allPosts.length}`);
-    console.log(`Total included resources: ${allIncluded.length}`);
 
     // Filter public posts
     const publicPosts = allPosts.filter(post => post.attributes.is_public);
@@ -320,7 +293,10 @@ async function main() {
       console.log(`   Date: ${post.attributes.published_at}`);
       console.log(`   URL: ${post.attributes.url}`);
 
-      const imageUrl = findImageForPost(post, allIncluded);
+      // log all available attributes
+      console.log(`   Available attributes:`, Object.keys(post.attributes));
+
+      const imageUrl = findImageForPost(post);
       let thumbnailPath = null;
 
       if (imageUrl) {
