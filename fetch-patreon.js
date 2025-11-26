@@ -73,31 +73,82 @@ function extractFirstImageFromContent(content) {
   return null;
 }
 
-function findImageForPost(post) {
-  // Check if it's a video post with embed data
-  if (post.attributes.embed_data && post.attributes.embed_data.image) {
-    const embedImage = post.attributes.embed_data.image.large_thumb_url ||
-                       post.attributes.embed_data.image.small_thumb_url ||
-                       post.attributes.embed_data.image.url;
+function findImageForPost(post, included) {
+  // Check for attached media/images (main post content)
+  // Look for relationships -> images or media
+  if (post.relationships) {
+    // Check for images relationship
+    if (post.relationships.images && post.relationships.images.data && post.relationships.images.data.length > 0) {
+      const imageId = post.relationships.images.data[0].id;
 
-    // If it's a video, try to find first PNG in content instead
-    if (embedImage && !embedImage.match(/\.png(\?|$)/i)) {
-      const contentImage = extractFirstImageFromContent(post.attributes.content);
-      if (contentImage) {
-        return contentImage;
+      // Find the image in the included array
+      if (included) {
+        const imageData = included.find(item => item.type === 'media' && item.id === imageId);
+        if (imageData && imageData.attributes) {
+          const imageUrl = imageData.attributes.download_url ||
+                          imageData.attributes.image_urls?.original ||
+                          imageData.attributes.image_urls?.default;
+          if (imageUrl) {
+            console.log(`   Found main post image from attachments`);
+            return imageUrl;
+          }
+        }
       }
     }
 
-    return embedImage;
+    // Check for generic media relationship
+    if (post.relationships.media && post.relationships.media.data && post.relationships.media.data.length > 0) {
+      const mediaId = post.relationships.media.data[0].id;
+
+      if (included) {
+        const mediaData = included.find(item => item.type === 'media' && item.id === mediaId);
+        if (mediaData && mediaData.attributes) {
+          const imageUrl = mediaData.attributes.download_url ||
+                          mediaData.attributes.image_urls?.original ||
+                          mediaData.attributes.image_urls?.default;
+          if (imageUrl) {
+            console.log(`   Found main post image from media`);
+            return imageUrl;
+          }
+        }
+      }
+    }
+  }
+
+  // Check if it's a video post with embed data
+  // For videos, we want to extract from content (your custom thumbnail)
+  if (post.attributes.embed_data && post.attributes.embed_data.image) {
+    console.log(`   Detected video/embed post, checking content for thumbnail...`);
+    const contentImage = extractFirstImageFromContent(post.attributes.content);
+    if (contentImage) {
+      console.log(`   Found custom thumbnail in video post content`);
+      return contentImage;
+    }
+
+    // Fallback to embed thumbnail if no content image
+    const embedImage = post.attributes.embed_data.image.large_thumb_url ||
+                       post.attributes.embed_data.image.small_thumb_url ||
+                       post.attributes.embed_data.image.url;
+    if (embedImage) {
+      console.log(`   Using embed thumbnail as fallback`);
+      return embedImage;
+    }
   }
 
   // Check embed_url, but only if it's a PNG
   if (post.attributes.embed_url && post.attributes.embed_url.match(/\.png(\?|$)/i)) {
+    console.log(`   Found PNG in embed_url`);
     return post.attributes.embed_url;
   }
 
-  // Extract first PNG image from content
-  return extractFirstImageFromContent(post.attributes.content);
+  // Extract first PNG image from content (last resort)
+  const contentImage = extractFirstImageFromContent(post.attributes.content);
+  if (contentImage) {
+    console.log(`   Found image in post content`);
+    return contentImage;
+  }
+
+  return null;
 }
 
 async function screenshotAndResizeImage(imageUrl, postId, browser) {
@@ -177,19 +228,47 @@ function sanitizePostId(url) {
   return match ? match[1] : url.replace(/[^a-z0-9]/gi, '-');
 }
 
+function cleanupOldThumbnails(currentPostIds) {
+  // Get all PNG files in the thumbnail directory
+  const files = fs.readdirSync(THUMBNAIL_DIR).filter(file => file.endsWith('.png'));
+
+  // Create a set of current post IDs for faster lookup
+  const currentIds = new Set(currentPostIds.map(id => `${id}.png`));
+
+  // Delete files that aren't in the current post list
+  let deletedCount = 0;
+  files.forEach(file => {
+    if (!currentIds.has(file)) {
+      const filepath = path.join(THUMBNAIL_DIR, file);
+      fs.unlinkSync(filepath);
+      console.log(`   🗑️  Deleted old thumbnail: ${file}`);
+      deletedCount++;
+    }
+  });
+
+  if (deletedCount > 0) {
+    console.log(`\n✓ Cleaned up ${deletedCount} old thumbnail(s)`);
+  } else {
+    console.log(`\n✓ No old thumbnails to clean up`);
+  }
+}
+
 async function main() {
   let browser = null;
 
   try {
     console.log('Fetching all Patreon posts...');
 
-    // Properly encode query parameters
+    // Request both post data and included relationships (media/images)
     const query = new URLSearchParams({
       'fields[post]': 'title,url,published_at,is_public,content,embed_data,embed_url',
+      'fields[media]': 'download_url,image_urls',
+      'include': 'images,media',
       'page[count]': '100'
     });
 
     let allPosts = [];
+    let allIncluded = [];
     let nextUrl = `${API_URL}?${query.toString()}`;
     let pageCount = 0;
 
@@ -204,6 +283,12 @@ async function main() {
       }
 
       allPosts = allPosts.concat(response.data);
+
+      // Collect included data (media/images)
+      if (response.included) {
+        allIncluded = allIncluded.concat(response.included);
+      }
+
       console.log(`Fetched ${response.data.length} posts from page ${pageCount} (total so far: ${allPosts.length})`);
 
       nextUrl = response.links && response.links.next ? response.links.next : null;
@@ -250,16 +335,19 @@ async function main() {
 
     // Process each post
     const posts = [];
+    const processedPostIds = [];
+
     for (let i = 0; i < topPosts.length; i++) {
       const post = topPosts[i];
       const postId = sanitizePostId(post.attributes.url);
+      processedPostIds.push(postId);
 
       console.log(`\n[${i + 1}/${topPosts.length}] Processing: "${post.attributes.title}"`);
       console.log(`   Post ID: ${postId}`);
       console.log(`   Date: ${post.attributes.published_at}`);
       console.log(`   URL: ${post.attributes.url}`);
 
-      const imageUrl = findImageForPost(post);
+      const imageUrl = findImageForPost(post, allIncluded);
       let thumbnailPath = null;
 
       if (imageUrl) {
@@ -282,6 +370,10 @@ async function main() {
     if (browser) {
       await browser.close();
     }
+
+    // Clean up old thumbnails that are no longer in the top 10
+    console.log('\nCleaning up old thumbnails...');
+    cleanupOldThumbnails(processedPostIds);
 
     // Create output JSON
     const output = {
