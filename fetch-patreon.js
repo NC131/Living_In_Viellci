@@ -64,8 +64,8 @@ function extractFirstImageFromContent(content) {
 
   for (const match of imgMatches) {
     const imgUrl = match[1];
-    // Only return .png images, skip GIFs (per your original logic)
-    if (imgUrl.match(/\.png(\?|$)/i)) {
+    // Accept .png, .jpg, .jpeg; skip .gif and others
+    if (imgUrl.match(/\.(png|jpg|jpeg)(\?|$)/i)) {
       return imgUrl;
     }
   }
@@ -75,15 +75,17 @@ function extractFirstImageFromContent(content) {
 
 // Updated function to accept the Media Map
 function findImageForPost(post, mediaMap) {
-  // This is where the "Main" image usually lives in API v2
-  if (post.relationships && post.relationships.media && post.relationships.media.data) {
-    const mediaData = post.relationships.media.data;
-    // mediaData can be an array or object depending on count
+
+  if (post.relationships && post.relationships.images && post.relationships.images.data) {
+    const mediaData = post.relationships.images.data;
+    // mediaData can be an array (for galleries) or single; normalize to array
     const mediaItems = Array.isArray(mediaData) ? mediaData : [mediaData];
 
+    // Take the first media item (assuming the first is the "main" banner/thumbnail)
     for (const item of mediaItems) {
       if (mediaMap[item.id]) {
         const mediaObj = mediaMap[item.id];
+        // Prefer original image URL; fallback to download_url
         if (mediaObj.image_urls && mediaObj.image_urls.original) {
           return mediaObj.image_urls.original;
         }
@@ -94,14 +96,12 @@ function findImageForPost(post, mediaMap) {
     }
   }
 
-  // If it's a video post, your logic to grab the PNG from description applies here
+
   if (post.attributes.embed_data && post.attributes.embed_data.image) {
     const embedImage = post.attributes.embed_data.image.large_thumb_url ||
                        post.attributes.embed_data.image.small_thumb_url ||
                        post.attributes.embed_data.image.url;
 
-    // If it's a video, try to find first PNG in content (Description) instead
-    // This preserves your workflow of putting thumbnails in description for videos
     if (embedImage && !embedImage.match(/\.png(\?|$)/i)) {
       const contentImage = extractFirstImageFromContent(post.attributes.content);
       if (contentImage) {
@@ -112,12 +112,12 @@ function findImageForPost(post, mediaMap) {
     return embedImage;
   }
 
-  // CHECK EMBED URL
-  if (post.attributes.embed_url && post.attributes.embed_url.match(/\.png(\?|$)/i)) {
+
+  if (post.attributes.embed_url && post.attributes.embed_url.match(/\.(png|jpg|jpeg)(\?|$)/i)) {
     return post.attributes.embed_url;
   }
 
-  // Extract first PNG image from content (Description)
+
   return extractFirstImageFromContent(post.attributes.content);
 }
 
@@ -146,7 +146,7 @@ async function screenshotAndResizeImage(imageUrl, postId, browser) {
     await page.setContent(html);
 
     // Wait for image to load
-    await page.waitForSelector('img', { timeout: 20000 }); // Increased timeout slightly
+    await page.waitForSelector('img', { timeout: 20000 });
     await page.evaluate(() => {
       return new Promise((resolve) => {
         const img = document.querySelector('img');
@@ -197,9 +197,9 @@ async function main() {
   try {
     console.log('Fetching all Patreon posts...');
 
-    // Request 'media' include and fields
+    // Use 'images' as the relationship name to include media objects
     const query = new URLSearchParams({
-      'include': 'media',
+      'include': 'images',
       'fields[media]': 'image_urls,download_url,metadata',
       'fields[post]': 'title,url,published_at,is_public,content,embed_data,embed_url',
       'page[count]': '100'
@@ -248,7 +248,7 @@ async function main() {
     // Filter public posts
     const publicPosts = allPosts.filter(post => post.attributes.is_public);
 
-    // Sort by published date
+    // Sort by published date (newest first)
     publicPosts.sort((a, b) => {
       const dateA = new Date(a.attributes.published_at);
       const dateB = new Date(b.attributes.published_at);
