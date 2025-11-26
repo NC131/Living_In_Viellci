@@ -7,10 +7,6 @@ on:
   
   # Allow manual trigger from Actions tab
   workflow_dispatch:
-  
-  # Run on push to main (for testing)
-  push:
-    branches: [ main ]
 
 permissions:
   contents: write
@@ -37,9 +33,20 @@ jobs:
         run: |
           node fetch-patreon.js
       
+      - name: Check for changes
+        id: changes
+        run: |
+          if git diff --quiet patreon-posts.json; then
+            echo "changed=false" >> $GITHUB_OUTPUT
+          else
+            echo "changed=true" >> $GITHUB_OUTPUT
+          fi
+      
       - name: Commit and Push if changed
+        if: steps.changes.outputs.changed == 'true'
         run: |
           git config --global user.name 'NC131'
-          git config --global user.email 'bcore0130@gmail.com'
-          git add -A
-          git diff --quiet && git diff --staged --quiet || (git commit -m "Update Patreon posts" && git push)
+          git config --global user.email 'your-github-email@example.com'
+          git add patreon-posts.json
+          git commit -m "Update Patreon posts [skip ci]"
+          git push
