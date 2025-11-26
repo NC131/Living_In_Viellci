@@ -20,7 +20,7 @@ const PARAMS = [
 function fetchPatreon() {
   return new Promise((resolve, reject) => {
     const url = `${API_URL}?${PARAMS}`;
-    
+
     const options = {
       headers: {
         'Authorization': `Bearer ${PATREON_ACCESS_TOKEN}`,
@@ -40,7 +40,7 @@ function fetchPatreon() {
           reject(new Error(`Patreon API returned status ${res.statusCode}: ${data}`));
           return;
         }
-        
+
         try {
           resolve(JSON.parse(data));
         } catch (error) {
@@ -54,103 +54,91 @@ function fetchPatreon() {
 }
 
 function extractThumbnailFromContent(content) {
-  // Try to extract first image URL from content
-  // Patreon embeds images like: <img src="..." />
   if (!content) return null;
-  
   const imgMatch = content.match(/<img[^>]+src="([^">]+)"/);
   if (imgMatch && imgMatch[1]) {
     return imgMatch[1];
   }
-  
   return null;
 }
 
 function findImageForPost(post) {
-  // Try embed_data first (for posts with featured images/videos)
   if (post.attributes.embed_data && post.attributes.embed_data.image) {
-    return post.attributes.embed_data.image;
+    return post.attributes.embed_data.image.large_thumb_url || post.attributes.embed_data.image.url; // Prefer thumb if available
   }
-  
-  // Try embed_url (sometimes contains image URL)
-  if (post.attributes.embed_url) {
-    // Check if it's an image URL
-    if (post.attributes.embed_url.match(/\.(jpg|jpeg|png|gif|webp)/i)) {
-      return post.attributes.embed_url;
-    }
+  if (post.attributes.embed_url && post.attributes.embed_url.match(/\.(jpg|jpeg|png|gif|webp)/i)) {
+    return post.attributes.embed_url;
   }
-  
-  // Try to extract from content HTML
   return extractThumbnailFromContent(post.attributes.content);
 }
 
 async function main() {
   try {
     console.log('Fetching Patreon posts...');
-    
+
     const response = await fetchPatreon();
-    
+
     if (!response.data || response.data.length === 0) {
       console.log('No posts found...');
       process.exit(0);
     }
-    
+
     console.log(`Fetched ${response.data.length} posts from Patreon`);
-    
-    // Filter and process posts
-    const posts = response.data
-      .filter(post => {
-        // Only include public posts
-        const isPublic = post.attributes.is_public;
-        if (!isPublic) {
-          console.log(`Skipping private post: "${post.attributes.title}"`);
-        }
-        return isPublic;
-      })
-      .sort((a, b) => {
-        // Sort by published date, newest first
-        const dateA = new Date(a.attributes.published_at);
-        const dateB = new Date(b.attributes.published_at);
-        return dateB - dateA;
-      })
-      .slice(0, 10) // Take only 10 most recent public posts
-      .map(post => {
-        const thumbnail = findImageForPost(post);
-        
-        console.log(`Processing: "${post.attributes.title}"`);
-        console.log(`URL: ${post.attributes.url}`);
-        console.log(`Thumbnail: ${thumbnail ? '✓' : '✗'}`);
-        
-        return {
-          title: post.attributes.title,
-          url: post.attributes.url,
-          thumbnail: thumbnail,
-          date: post.attributes.published_at,
-          is_public: post.attributes.is_public
-        };
-      });
-    
+
+    // Filter public posts FIRST
+    const publicPosts = response.data.filter(post => {
+      const isPublic = post.attributes.is_public;
+      if (!isPublic) {
+        console.log(`Skipping private post: "${post.attributes.title}"`);
+      }
+      return isPublic;
+    });
+
+    // Sort by published date, newest first (explicit UTC parsing)
+    publicPosts.sort((a, b) => {
+      const dateA = new Date(a.attributes.published_at + 'Z'); // Force UTC
+      const dateB = new Date(b.attributes.published_at + 'Z');
+      return dateB.getTime() - dateA.getTime(); // Newest first
+    });
+
+    // Take only the top 10 newest public posts
+    const posts = publicPosts.slice(0, 10).map(post => {
+      const thumbnail = findImageForPost(post);
+
+      console.log(`Processing: "${post.attributes.title}"`);
+      console.log(`URL: ${post.attributes.url}`);
+      console.log(`Thumbnail: ${thumbnail ? '✓' : '✗'}`);
+
+      return {
+        title: post.attributes.title,
+        url: post.attributes.url,
+        thumbnail: thumbnail,
+        date: post.attributes.published_at,
+        is_public: post.attributes.is_public
+      };
+    });
+
     if (posts.length === 0) {
       console.log('No public posts found after filtering');
       process.exit(0);
     }
-    
+
     // Create output JSON
     const output = {
       last_updated: new Date().toISOString(),
       total_posts: posts.length,
       posts: posts
     };
-    
+
     // Save to file
     fs.writeFileSync('patreon-posts.json', JSON.stringify(output, null, 2));
-    
+
     console.log(`Successfully saved ${posts.length} posts to patreon-posts.json`);
     console.log('Summary:');
     posts.forEach((post, i) => {
-      console.log(`   ${i + 1}. ${post.title}`);
+      console.log(`   ${i + 1}. ${post.title} (${post.date})`);
     });
-    
+
   } catch (error) {
     console.error('Error fetching Patreon posts:', error.message);
     process.exit(1);
