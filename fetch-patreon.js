@@ -9,11 +9,12 @@ if (!PATREON_ACCESS_TOKEN || !PATREON_CAMPAIGN_ID) {
   process.exit(1);
 }
 
-// Patreon API endpoint
+// Patreon API endpoint with sorting for newest first
 const API_URL = `https://www.patreon.com/api/oauth2/v2/campaigns/${PATREON_CAMPAIGN_ID}/posts`;
 const PARAMS = [
   'fields[post]=title,url,published_at,is_public,content,embed_data,embed_url',
-  'page[count]=20' // Fetch 20 per page
+  'page[count]=20',  // Fetch 20 per page
+  'sort=-published_at'  // NEW: Force API to sort newest first (descending by publish date)
 ].join('&');
 
 function fetchPatreonPage(url) {
@@ -74,13 +75,14 @@ function findImageForPost(post) {
 
 async function main() {
   try {
-    console.log('Fetching Patreon posts with pagination...');
+    console.log('Fetching Patreon posts with pagination (newest first)...');
 
     let allPosts = [];
     let nextUrl = `${API_URL}?${PARAMS}`;
     let pageCount = 0;
+    let publicCount = 0;
 
-    while (nextUrl) {
+    while (nextUrl && publicCount < 10) {  // NEW: Stop early if we have enough public posts
       pageCount++;
       console.log(`Fetching page ${pageCount}: ${nextUrl}`);
       const response = await fetchPatreonPage(nextUrl);
@@ -92,6 +94,9 @@ async function main() {
 
       allPosts = allPosts.concat(response.data);
       console.log(`Fetched ${response.data.length} posts from page ${pageCount} (total so far: ${allPosts.length})`);
+
+      // Count public posts so far (for early stop)
+      publicCount = allPosts.filter(p => p.attributes.is_public).length;
 
       nextUrl = response.links && response.links.next ? response.links.next : null;
     }
@@ -112,11 +117,11 @@ async function main() {
       return isPublic;
     });
 
-    // Sort by published date, newest first (descending)
+    // Sort by published date, newest first (descending) - reinforce API order
     publicPosts.sort((a, b) => {
       const dateA = new Date(a.attributes.published_at + 'Z'); // Force UTC
       const dateB = new Date(b.attributes.published_at + 'Z');
-      return dateA.getTime() - dateB.getTime();  // Corrected for descending (newest first)
+      return dateB.getTime() - dateA.getTime();  // NEW: Corrected for descending (newest first)
     });
 
     // Take only the top 10 newest public posts
