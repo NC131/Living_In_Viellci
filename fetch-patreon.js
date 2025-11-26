@@ -66,64 +66,6 @@ function extractFirstImageFromContent(content) {
   return null;
 }
 
-async function scrapePostBanner(postUrl, postId, browser) {
-  console.log(`   Scraping image directly from Patreon page...`);
-  
-  const page = await browser.newPage();
-  await page.setViewport({ width: 1280, height: 800 });
-  await page.goto(postUrl, { waitUntil: 'domcontentloaded', timeout: 30000 });
-
-  const possibleSelectors = [
-    'img[src*="patreonusercontent"]',
-    '.sc-Axz, img',
-    'img[src*="post"]',
-    'img[src^="https://"]',
-    'figure img',
-    '.cover img',
-    'img'
-  ];
-
-  let imageUrl = null;
-
-  for (const selector of possibleSelectors) {
-    try {
-      imageUrl = await page.$eval(selector, img => img.src);
-      if (imageUrl) break;
-    } catch (_) { }
-  }
-
-  if (!imageUrl) {
-    console.log("   ✗ No image found on the page.");
-    await page.close();
-    return null;
-  }
-
-  console.log(`   ✓ Found image from browser: ${imageUrl}`);
-
-  // Take screenshot of the found image
-  const imageElement = await page.$(`img[src="${imageUrl}"]`);
-  if (!imageElement) {
-    await page.close();
-    return null;
-  }
-
-  const rawBuffer = await imageElement.screenshot();
-
-  // Resize to thumbnail dimensions
-  const resizedBuffer = await sharp(rawBuffer)
-    .resize(425, 221, { fit: 'cover', position: 'center' })
-    .png()
-    .toBuffer();
-
-  const filePath = path.join(THUMBNAIL_DIR, `${postId}.png`);
-  fs.writeFileSync(filePath, resizedBuffer);
-
-  await page.close();
-  console.log(`   Thumbnail saved via scraping: ${postId}.png`);
-
-  return `patreon/posts/${postId}.png`;
-}
-
 function findImageForPost(post) {
   const descImage = extractFirstImageFromContent(post.attributes.content);
   
@@ -147,39 +89,73 @@ async function screenshotAndResizeImage(imageUrl, postId, browser) {
 
     const page = await browser.newPage();
 
+    // Set viewport to a reasonable size
     await page.setViewport({ width: 1920, height: 1080 });
 
+    // Create a simple HTML page with just the image
     const html = `
+      <!DOCTYPE html>
       <html>
-      <body style="margin:0;display:flex;align-items:center;justify-content:center;background:#000;">
-        <img src="${imageUrl}" style="max-width:100%;max-height:100vh;object-fit:contain;">
+      <head>
+        <style>
+          body { margin: 0; padding: 0; display: flex; justify-content: center; align-items: center; background: #000; }
+          img { max-width: 100%; max-height: 100vh; object-fit: contain; }
+        </style>
+      </head>
+      <body>
+        <img src="${imageUrl}" alt="Post thumbnail" />
       </body>
       </html>
     `;
 
     await page.setContent(html);
-    const imageElement = await page.$('img');
 
-    const buffer = await imageElement.screenshot({ type: 'png' });
+    // Wait for image to load
+    await page.waitForSelector('img', { timeout: 10000 });
+    await page.evaluate(() => {
+      return new Promise((resolve) => {
+        const img = document.querySelector('img');
+        if (img.complete) {
+          resolve();
+        } else {
+          img.addEventListener('load', resolve);
+          img.addEventListener('error', resolve);
+        }
+      });
+    });
+
+    // Take screenshot of the image element
+    const imageElement = await page.$('img');
+    const screenshotBuffer = await imageElement.screenshot({ type: 'png' });
+
     await page.close();
 
-    const resizedBuffer = await sharp(buffer)
-      .resize(THUMBNAIL_WIDTH, THUMBNAIL_HEIGHT, { fit: 'cover', position: 'center' })
+    // Resize image to 425x221 using sharp
+    const resizedBuffer = await sharp(screenshotBuffer)
+      .resize(THUMBNAIL_WIDTH, THUMBNAIL_HEIGHT, {
+        fit: 'cover',
+        position: 'center'
+      })
       .png()
       .toBuffer();
 
+    // Save to file
     const filename = `${postId}.png`;
-    fs.writeFileSync(path.join(THUMBNAIL_DIR, filename), resizedBuffer);
+    const filepath = path.join(THUMBNAIL_DIR, filename);
+    fs.writeFileSync(filepath, resizedBuffer);
 
-    console.log(`   ✓ Thumbnail saved: ${filename}`);
+    console.log(`   ✓ Saved thumbnail: ${filename}`);
+
     return `patreon/posts/${filename}`;
+
   } catch (error) {
-    console.error(`   ✗ Screenshot error: ${error.message}`);
+    console.error(`   ✗ Failed to screenshot image: ${error.message}`);
     return null;
   }
 }
 
 function sanitizePostId(url) {
+  // Extract post ID from URL like "/posts/weekly-log-11-144156455"
   const match = url.match(/(\d+)$/);
   return match ? match[1] : url.replace(/[^a-z0-9]/gi, '-');
 }
@@ -188,8 +164,9 @@ async function main() {
   let browser = null;
 
   try {
-    console.log('Fetching posts...');
+    console.log('Fetching all Patreon posts...');
 
+    // Properly encode query parameters
     const query = new URLSearchParams({
       'fields[post]': 'title,url,published_at,is_public,content,embed_data,embed_url',
       'page[count]': '100'
@@ -197,58 +174,139 @@ async function main() {
 
     let allPosts = [];
     let nextUrl = `${API_URL}?${query.toString()}`;
+    let pageCount = 0;
 
     while (nextUrl) {
+      pageCount++;
+      console.log(`Fetching page ${pageCount}: ${nextUrl}`);
       const response = await fetchPatreonPage(nextUrl);
+
+      if (!response.data || response.data.length === 0) {
+        console.log(`Page ${pageCount} has no posts.`);
+        break;
+      }
+
       allPosts = allPosts.concat(response.data);
-      nextUrl = response.links?.next || null;
+      console.log(`Fetched ${response.data.length} posts from page ${pageCount} (total so far: ${allPosts.length})`);
+
+      nextUrl = response.links && response.links.next ? response.links.next : null;
     }
 
-    const publicPosts = allPosts
-      .filter(p => p.attributes.is_public)
-      .sort((a, b) => new Date(b.attributes.published_at) - new Date(a.attributes.published_at))
-      .slice(0, 10);
+    if (allPosts.length === 0) {
+      console.log('No posts found across all pages.');
+      process.exit(0);
+    }
 
-    browser = await puppeteer.launch({
-      headless: 'new',
-      args: ['--no-sandbox', '--disable-gpu']
+    console.log(`Total fetched posts across ${pageCount} pages: ${allPosts.length}`);
+
+    // Filter public posts
+    const publicPosts = allPosts.filter(post => post.attributes.is_public);
+
+    // Manually sort by published date, newest first (descending)
+    publicPosts.sort((a, b) => {
+      const dateA = new Date(a.attributes.published_at);
+      const dateB = new Date(b.attributes.published_at);
+      return dateB.getTime() - dateA.getTime();
     });
 
+    // Take only the top 10 newest public posts
+    const topPosts = publicPosts.slice(0, 10);
+
+    if (topPosts.length === 0) {
+      console.log('No public posts found after filtering.');
+      process.exit(0);
+    }
+
+    console.log(`Processing top ${topPosts.length} newest public posts...`);
+
+    // Launch Puppeteer browser
+    console.log('Launching browser...');
+    browser = await puppeteer.launch({
+      headless: 'new',
+      args: [
+        '--no-sandbox',
+        '--disable-setuid-sandbox',
+        '--disable-dev-shm-usage',
+        '--disable-gpu'
+      ]
+    });
+
+    // Process each post
     const posts = [];
-    
-    for (const post of publicPosts) {
+    for (let i = 0; i < topPosts.length; i++) {
+      const post = topPosts[i];
       const postId = sanitizePostId(post.attributes.url);
-      console.log(`\nProcessing: "${post.attributes.title}"`);
 
-      let thumbnailPath = await scrapePostBanner(normalizeURL(post.attributes.url), postId, browser);
+      console.log(`\n[${i + 1}/${topPosts.length}] Processing: "${post.attributes.title}"`);
+      console.log(`   Post ID: ${postId}`);
+      console.log(`   Date: ${post.attributes.published_at}`);
+      console.log(`   URL: ${post.attributes.url}`);
 
-      if (!thumbnailPath) {
-        const imageUrl = findImageForPost(post);
-        if (imageUrl) {
-          console.log(`   Found fallback image: ${imageUrl}`);
-          thumbnailPath = await screenshotAndResizeImage(imageUrl, postId, browser);
-        }
+      const imageUrl = findImageForPost(post);
+      let thumbnailPath = null;
+
+      if (imageUrl) {
+        console.log(`   Found image URL: ${imageUrl}`);
+        thumbnailPath = await screenshotAndResizeImage(imageUrl, postId, browser);
+      } else {
+        console.log(`   ✗ No suitable image found`);
       }
 
       posts.push({
         title: post.attributes.title,
-        url: normalizeURL(post.attributes.url),
+        url: post.attributes.url,
         thumbnail: thumbnailPath,
-        date: post.attributes.published_at
+        date: post.attributes.published_at,
+        is_public: post.attributes.is_public
       });
     }
 
-    fs.writeFileSync('patreon-posts.json', JSON.stringify({
+    console.log('\nCleaning up unused thumbnails...');
+    const activeThumbnails = new Set(posts.map(p => p.thumbnail ? path.basename(p.thumbnail) : null).filter(Boolean));
+    const files = fs.readdirSync(THUMBNAIL_DIR);
+    let deletedCount = 0;
+
+    files.forEach(file => {
+      if (file.endsWith('.png') && !activeThumbnails.has(file)) {
+        try {
+          const filePath = path.join(THUMBNAIL_DIR, file);
+          fs.unlinkSync(filePath);
+          console.log(`   ✓ Deleted unused thumbnail: ${file}`);
+          deletedCount++;
+        } catch (error) {
+          console.error(`   ✗ Failed to delete ${file}: ${error.message}`);
+        }
+      }
+    });
+
+    if (deletedCount === 0) {
+      console.log('   No unused thumbnails to delete.');
+    } else {
+      console.log(`   ✓ Deleted ${deletedCount} unused thumbnails.`);
+    }
+    // Close browser
+    if (browser) {
+      await browser.close();
+    }
+
+    // Create output JSON
+    const output = {
       last_updated: new Date().toISOString(),
       total_posts: posts.length,
-      posts
-    }, null, 2));
+      note: posts.length < 10 ? 'Fewer than 10 public posts available' : '',
+      posts: posts
+    };
 
-    console.log('\n✓ All done.');
+    // Save to file
+    fs.writeFileSync('patreon-posts.json', JSON.stringify(output, null, 2));
+    console.log(`\n✓ Successfully saved ${posts.length} newest public posts to patreon-posts.json`);
+
   } catch (error) {
-    console.error('Fatal error:', error.message);
-  } finally {
-    if (browser) await browser.close();
+    console.error('Error fetching Patreon posts:', error.message);
+    if (browser) {
+      await browser.close();
+    }
+    process.exit(1);
   }
 }
 
