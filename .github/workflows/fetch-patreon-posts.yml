@@ -23,7 +23,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.PAT_TOKEN }}
       
       - name: Setup Node.js
         uses: actions/setup-node@v3
@@ -39,7 +39,7 @@ jobs:
       
       - name: Commit and Push if changed
         run: |
-          git config --global user.name 'GitHub Action'
-          git config --global user.email 'action@github.com'
+          git config --global user.name 'NC131'
+          git config --global user.email 'bcore0130@gmail.com'
           git add -A
-          git diff --quiet && git diff --staged --quiet || (git commit -m "Update Patreon posts [skip ci]" && git push)
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Update Patreon posts" && git push)
