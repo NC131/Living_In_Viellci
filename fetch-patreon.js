@@ -6,7 +6,6 @@ const PATREON_CAMPAIGN_ID = process.env.PATREON_CAMPAIGN_ID;
 
 if (!PATREON_ACCESS_TOKEN || !PATREON_CAMPAIGN_ID) {
   console.error('Missing required environment variables!');
-  console.error('Make sure PATREON_ACCESS_TOKEN and PATREON_CAMPAIGN_ID are set in GitHub Secrets');
   process.exit(1);
 }
 
@@ -14,13 +13,11 @@ if (!PATREON_ACCESS_TOKEN || !PATREON_CAMPAIGN_ID) {
 const API_URL = `https://www.patreon.com/api/oauth2/v2/campaigns/${PATREON_CAMPAIGN_ID}/posts`;
 const PARAMS = [
   'fields[post]=title,url,published_at,is_public,content,embed_data,embed_url',
-  'page[count]=20' // Fetch 20 to ensure we get 10 public ones
+  'page[count]=20' // Fetch 20 per page
 ].join('&');
 
-function fetchPatreon() {
+function fetchPatreonPage(url) {
   return new Promise((resolve, reject) => {
-    const url = `${API_URL}?${PARAMS}`;
-
     const options = {
       headers: {
         'Authorization': `Bearer ${PATREON_ACCESS_TOKEN}`,
@@ -63,8 +60,11 @@ function extractThumbnailFromContent(content) {
 }
 
 function findImageForPost(post) {
+  // Prioritize thumbnail fields
   if (post.attributes.embed_data && post.attributes.embed_data.image) {
-    return post.attributes.embed_data.image.large_thumb_url || post.attributes.embed_data.image.url; // Prefer thumb if available
+    return post.attributes.embed_data.image.large_thumb_url ||  // Prefer large thumb for quality
+           post.attributes.embed_data.image.small_thumb_url ||
+           post.attributes.embed_data.image.url;
   }
   if (post.attributes.embed_url && post.attributes.embed_url.match(/\.(jpg|jpeg|png|gif|webp)/i)) {
     return post.attributes.embed_url;
@@ -74,19 +74,37 @@ function findImageForPost(post) {
 
 async function main() {
   try {
-    console.log('Fetching Patreon posts...');
+    console.log('Fetching Patreon posts with pagination...');
 
-    const response = await fetchPatreon();
+    let allPosts = [];
+    let nextUrl = `${API_URL}?${PARAMS}`;
+    let pageCount = 0;
 
-    if (!response.data || response.data.length === 0) {
-      console.log('No posts found...');
+    while (nextUrl) {
+      pageCount++;
+      console.log(`Fetching page ${pageCount}: ${nextUrl}`);
+      const response = await fetchPatreonPage(nextUrl);
+
+      if (!response.data || response.data.length === 0) {
+        console.log(`Page ${pageCount} has no posts.`);
+        break;
+      }
+
+      allPosts = allPosts.concat(response.data);
+      console.log(`Fetched ${response.data.length} posts from page ${pageCount} (total so far: ${allPosts.length})`);
+
+      nextUrl = response.links && response.links.next ? response.links.next : null;
+    }
+
+    if (allPosts.length === 0) {
+      console.log('No posts found across all pages...');
       process.exit(0);
     }
 
-    console.log(`Fetched ${response.data.length} posts from Patreon`);
+    console.log(`Total fetched posts: ${allPosts.length}`);
 
-    // Filter public posts FIRST
-    const publicPosts = response.data.filter(post => {
+    // Filter public posts
+    const publicPosts = allPosts.filter(post => {
       const isPublic = post.attributes.is_public;
       if (!isPublic) {
         console.log(`Skipping private post: "${post.attributes.title}"`);
@@ -94,20 +112,20 @@ async function main() {
       return isPublic;
     });
 
-    // Sort by published date, newest first (explicit UTC parsing)
+    // Sort by published date, newest first (descending)
     publicPosts.sort((a, b) => {
       const dateA = new Date(a.attributes.published_at + 'Z'); // Force UTC
       const dateB = new Date(b.attributes.published_at + 'Z');
-      return dateB.getTime() - dateA.getTime(); // Newest first
+      return dateA.getTime() - dateB.getTime();  // Corrected for descending (newest first)
     });
 
     // Take only the top 10 newest public posts
     const posts = publicPosts.slice(0, 10).map(post => {
       const thumbnail = findImageForPost(post);
 
-      console.log(`Processing: "${post.attributes.title}"`);
+      console.log(`Processing: "${post.attributes.title}" (Date: ${post.attributes.published_at})`);
       console.log(`URL: ${post.attributes.url}`);
-      console.log(`Thumbnail: ${thumbnail ? '✓' : '✗'}`);
+      console.log(`Thumbnail: ${thumbnail ? '✓ ' + thumbnail : '✗'}`);
 
       return {
         title: post.attributes.title,
@@ -134,7 +152,7 @@ async function main() {
     fs.writeFileSync('patreon-posts.json', JSON.stringify(output, null, 2));
 
     console.log(`Successfully saved ${posts.length} posts to patreon-posts.json`);
-    console.log('Summary:');
+    console.log('Summary (newest first):');
     posts.forEach((post, i) => {
       console.log(`   ${i + 1}. ${post.title} (${post.date})`);
     });
