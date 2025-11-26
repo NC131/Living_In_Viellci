@@ -269,7 +269,7 @@ async function main() {
       console.log(`   Date: ${post.attributes.published_at}`);
       console.log(`   URL: ${post.attributes.url}`);
 
-      const imageUrl = findImageForPost(post, response.included || []));
+      const imageUrl = findImageForPost(post, response.included || []);
       let thumbnailPath = null;
 
       if (imageUrl) {
