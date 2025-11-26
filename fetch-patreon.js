@@ -73,19 +73,22 @@ function extractFirstImageFromContent(content) {
   return null;
 }
 
-// Updated function to prefer the main 'image' attribute for non-video posts
+// Updated function to prefer attachments for non-video posts
 function findImageForPost(post) {
   // First, check if it's a video post (has embed_data)
   const isVideoPost = post.attributes.embed_data ? true : false;
 
-  if (!isVideoPost && post.attributes.image) {
-    // For non-video posts, prefer the main banner/cover image
-    const mainImage = post.attributes.image.large_url ||
-                      post.attributes.image.thumb_url ||
-                      post.attributes.image.url;
-    if (mainImage) {
-      console.log(`   Using main post image: ${mainImage}`);
-      return mainImage;
+  if (!isVideoPost && post.attachments && post.attachments.length > 0) {
+    // Prefer the first suitable image from attachments
+    for (const attachment of post.attachments) {
+      // Check for resized image URLs or fallback to url/download_url
+      const mainImage = (attachment.attributes.image_urls && attachment.attributes.image_urls.large) || // Use 'large' if available
+                        attachment.attributes.download_url ||
+                        attachment.attributes.url;
+      if (mainImage && mainImage.match(/\.png(\?|$)/i)) { // Prefer PNGs, as per your original logic
+        console.log(`   Using main post attachment image: ${mainImage}`);
+        return mainImage;
+      }
     }
   }
 
@@ -198,10 +201,12 @@ async function main() {
   try {
     console.log('Fetching all Patreon posts...');
 
-    // Use the global query
     let allPosts = [];
     let nextUrl = `${API_URL}?${query.toString()}`;
     let pageCount = 0;
+
+    // Collect all included items across pages (for attachments)
+    let allIncluded = [];
 
     while (nextUrl) {
       pageCount++;
@@ -214,6 +219,9 @@ async function main() {
       }
 
       allPosts = allPosts.concat(response.data);
+      if (response.included) {
+        allIncluded = allIncluded.concat(response.included);
+      }
       console.log(`Fetched ${response.data.length} posts from page ${pageCount} (total so far: ${allPosts.length})`);
 
       nextUrl = response.links && response.links.next ? response.links.next : null;
@@ -225,6 +233,27 @@ async function main() {
     }
 
     console.log(`Total fetched posts across ${pageCount} pages: ${allPosts.length}`);
+
+    // Create a map of media ID to media object for quick lookup
+    const mediaMap = {};
+    allIncluded.forEach(item => {
+      if (item.type === 'media') {
+        mediaMap[item.id] = item;
+      }
+    });
+
+    // Attach media to each post via relationships
+    allPosts.forEach(post => {
+      post.attachments = [];
+      if (post.relationships && post.relationships.attachments && post.relationships.attachments.data) {
+        post.relationships.attachments.data.forEach(attachmentRef => {
+          const media = mediaMap[attachmentRef.id];
+          if (media) {
+            post.attachments.push(media);
+          }
+        });
+      }
+    });
 
     // Filter public posts
     const publicPosts = allPosts.filter(post => post.attributes.is_public);
@@ -340,7 +369,9 @@ async function main() {
 }
 
 const query = new URLSearchParams({
-  'fields[post]': 'title,url,published_at,is_public,content,embed_data,embed_url,image',
+  'include': 'attachments',
+  'fields[post]': 'title,url,published_at,is_public,content,embed_data,embed_url',
+  'fields[media]': 'image_urls,url,download_url',
   'page[count]': '100'
 });
 
