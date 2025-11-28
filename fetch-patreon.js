@@ -17,6 +17,12 @@ const TIER_NAME_MAP = {
   "10450352": "Former"
 };
 
+const TIER_PRIORITY = {
+  "Tourist": 1,
+  "Citizen": 2,
+  "Landlord": 3
+};
+
 if (!PATREON_ACCESS_TOKEN || !PATREON_CAMPAIGN_ID) {
   console.error('Missing required environment variables!');
   process.exit(1);
@@ -206,42 +212,44 @@ function processMembers(rawMembers) {
 
   // Build final list
   const finalMembers = rawMembers.map(member => {
+    const id = member.relationships?.user?.data?.id || null;
+    if (!id) return null;
+
     const name = member.attributes.full_name || "Unknown";
     const rawTierIds = member.relationships?.currently_entitled_tiers?.data.map(t => t.id) || [];
     const paidTierIds = rawTierIds.filter(id => id !== FORMER_TIER_ID);
 
+    const previous = existingMap[id];
+
     if (paidTierIds.length === 0) {
-      const previous = existingMap[name];
-      const previousHasPaid = previous && Array.isArray(previous.pledge_levels) && previous.pledge_levels.some(p => p && p !== FORMER_TIER_ID);
-      if (!previousHasPaid) {
-        return null;
-      }
+       const previousHasPaid = previous?.pledge_levels?.some(p => p !== "Former");
+      if (!previousHasPaid) return null;
 
       return {
+        id,
         name,
         pledge_levels: previous.pledge_levels,
-        is_active: member.attributes.patron_status === "active_patron",
+        is_active: null,
         additional_note: previous.additional_note || ""
       };
     }
 
-    const tierNames = paidTierIds
-        .map(id => TIER_NAME_MAP[id])
-        .filter(Boolean);
+    const tierNames = [...new Set(paidTierIds.map(id => TIER_NAME_MAP[id]).filter(Boolean))];
+    const highestTier = tierNames.sort((a, b) => TIER_PRIORITY[b] - TIER_PRIORITY[a])[0] || null;
 
     // Merge pledge history with previous
-    const previous = existingMap[name];
     const mergedLevels = previous
       ? Array.from(new Set([...(previous.pledge_levels || []), ...tierNames]))
       : tierNames;
 
     return {
+      id,
       name,
       pledge_levels: mergedLevels,
-      is_active: member.attributes.patron_status === "active_patron",
+      is_active: highestTier,
       additional_note: previous?.additional_note || ""
     };
-  }).filter(Boolean); // remove nulls
+  }).filter(Boolean);
 
   return finalMembers;
 }
@@ -399,14 +407,11 @@ async function main() {
   const rawMembers = await fetchPatreonMembers();
   const finalMembers = processMembers(rawMembers);
   
-  const jsonContent = {
-    last_updated: new Date().toISOString(),
-    total_members: finalMembers.length,
-    members: finalMembers
-  };
-  
-  // Save to file
-  fs.writeFileSync("patreon-members.json", JSON.stringify(jsonContent, null, 2));
+  fs.writeFileSync("patreon-members.json", JSON.stringify({
+      last_updated: new Date().toISOString(),
+      total_members: finalMembers.length,
+      members: finalMembers
+    }, null, 2));
   console.log(`Saved ${finalMembers.length} members`);
 }
 
