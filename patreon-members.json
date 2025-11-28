@@ -1,2564 +1,1031 @@
 {
-  "last_updated": "2025-11-28T12:55:31.929Z",
+  "last_updated": "2025-11-28T16:44:44.296Z",
   "total_members": 114,
   "members": [
     {
-      "name": "SpritezUp",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Kiba",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Franzu",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Sidney Allen",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "freedome1146",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Rain",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Meekle Free",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "asdfasdf asdfdasfasdfds",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Daniel Perez",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "PD.B",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "aldo marquez salas",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Wessner Leonid",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Thomas Sheahan",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "汁 橙",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Jesus Hernandez",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "blank.",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Хом'яков",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Pichai Sriphrom",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Pluto",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Jacob",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "SAN",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "L1ghtning_Spark",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Freya",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Austin",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Royal Sero",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "jawn",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Gacha_dark-angel",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Joshua Inman",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Eraqus Rengo",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "phon",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Frisk",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Diego Chon Aguayo",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Jeff loomis",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Dysautic",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "jakob meyer",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "coadedpaul",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Lachie",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Flover",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Dominick Delia",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Lars-Magnus Nikkolai Nilssen",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Jp",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "derka stan",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Jansel Sanchez",
-      "pledge_levels": [
-        "Citizen"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Appljuice",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Chiko",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Hunter",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Emanuel Cincunegui",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "coadedpaul",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "弦 結,
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "0mmz",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Darkirit",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Dameon",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "M K",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Darling Azusaneko",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Hideyoshi",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Brett Roberson",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Vanter Side",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "SpamDustsprayIRL",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Garrett Foister",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Triss Jacques",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "toast",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Serrern",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Drackmg",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Alex Creasman",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Wong Chin Siong",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Ultra967",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Mattymuffygöj",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Tasdy",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Lost",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Nuttakit 7841",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Lucifer",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Qonyin",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Evol1t💜",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Jarod Auffret-Parent",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Nicholas Sao",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Ernst Fox",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "NerveGamers",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "MFr4nky",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "tbomb233",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Jason",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "khangplayerbest059",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Josué Gravel",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Zombiedude93",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Christopher Scurlock",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Luke",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "bcd051",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "caylemstewart",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "LeFouDuRoi",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Sean Randall",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Kelton",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "lean",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Waffle Madness",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "giangian",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Rin",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "nappyboi",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "User name",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Dun",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "angel_THA_BEST",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "José Tong",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "James",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "BeansOnToast",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Ice",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Luck",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Markus Nilsson",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "ZEeo",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Dergras",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Beanibus",
-      "pledge_levels": [
-        "citizen",
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Dank21",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Yule Iniko",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Kareploof",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "cat",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Jonas Umlauft",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Thiên Thảo Đinh",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Matthew de Leon",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Zack Roman",
-      "pledge_levels": [
-        "Citizen"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "AJ King",
-      "pledge_levels": [
-        "Citizen"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "James stan",
-      "pledge_levels": [
-        "Citizen"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Александр Бондарук",
-      "pledge_levels": [
-        "Citizen"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "HOLY HANDS",
-      "pledge_levels": [
-        "Citizen",
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "René Heinrich",
-      "pledge_levels": [
-        "Citizen"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Hyrulean Kid",
-      "pledge_levels": [
-        "Citizen"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Dereck",
-      "pledge_levels": [
-        "Citizen"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Quantum Quake",
-      "pledge_levels": [
-        "Citizen"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Onix",
-      "pledge_levels": [
-        "Citizen"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Sheiiki",
-      "pledge_levels": [
-        "Citizen"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "RiskySchooner",
-      "pledge_levels": [
-        "Citizen"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Yuppers",
-      "pledge_levels": [
-        "Citizen"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "JibJab",
-      "pledge_levels": [
-        "Citizen"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Timono",
-      "pledge_levels": [
-        "Citizen"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Ub Vi-Star",
-      "pledge_levels": [
-        "Citizen"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Gucci_Supreme",
-      "pledge_levels": [
-        "Citizen"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "yank my utters",
-      "pledge_levels": [
-        "Citizen",
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Blake Wolff",
-      "pledge_levels": [
-        "Citizen"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Crossy",
-      "pledge_levels": [
-        "Citizen"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Lithrea",
-      "pledge_levels": [
-        "Citizen"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Switchinloki",
-      "pledge_levels": [
-        "Citizen"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Lord_MaGoa",
-      "pledge_levels": [
-        "Citizen"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Cristian Ramirez Sanchez",
-      "pledge_levels": [
-        "Citizen"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Main One",
-      "pledge_levels": [
-        "Citizen",
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Ashton Ingle",
-      "pledge_levels": [
-        "Citizen"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Lord Nicholas Graham",
-      "pledge_levels": [
-        "Citizen"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Чекунаев Влад",
-      "pledge_levels": [
-        "Citizen"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "OmegaXD2",
-      "pledge_levels": [
-        "Citizen"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Igor Griskevicius",
-      "pledge_levels": [
-        "Citizen"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Knepo",
-      "pledge_levels": [
-        "Citizen"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Manuel Millan",
-      "pledge_levels": [
-        "Citizen"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Paunch",
-      "pledge_levels": [
-        "Citizen",
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Honeycomb",
-      "pledge_levels": [
-        "Citizen"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "KiT AZUSA",
-      "pledge_levels": [
-        "Citizen"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Delta",
-      "pledge_levels": [
-        "Citizen"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "irwin43",
-      "pledge_levels": [
-        "Citizen"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "WolfMoon117",
-      "pledge_levels": [
-        "Citizen"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "#1SteveFan",
-      "pledge_levels": [
-        "Citizen"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Kenodoxia",
-      "pledge_levels": [
-        "Citizen"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Kingfrost313",
-      "pledge_levels": [
-        "Citizen"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Rodolfo Soto",
-      "pledge_levels": [
-        "Citizen"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "sleddingwelder7",
-      "pledge_levels": [
-        "Citizen"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "A💜",
-      "pledge_levels": [
-        "Citizen"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Jonathan Maison",
-      "pledge_levels": [
-        "Citizen"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "DoktorMert",
-      "pledge_levels": [
-        "Citizen"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Terrence wiggins",
-      "pledge_levels": [
-        "Citizen"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "RandomPatreonUser",
-      "pledge_levels": [
-        "Citizen"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "bathosbathtime",
-      "pledge_levels": [
-        "Citizen"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Alexander Macke",
-      "pledge_levels": [
-        "Citizen"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Michael Barnes",
-      "pledge_levels": [
-        "Citizen"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Mal",
-      "pledge_levels": [
-        "Citizen"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Delta Starfall",
-      "pledge_levels": [
-        "Citizen"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Sarifeer",
-      "pledge_levels": [
-        "Citizen"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Alexis Yagami",
-      "pledge_levels": [
-        "Citizen",
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "JolteonofVapor",
-      "pledge_levels": [
-        "Citizen"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Izu",
-      "pledge_levels": [
-        "Citizen"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Posab",
-      "pledge_levels": [
-        "Citizen"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "SettySiron",
-      "pledge_levels": [
-        "Citizen"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Justin Müller",
-      "pledge_levels": [
-        "Citizen"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Luscious Potato",
-      "pledge_levels": [
-        "Citizen"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "JackWalker",
-      "pledge_levels": [
-        "Citizen",
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Corvis123",
-      "pledge_levels": [
-        "Citizen"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Elyse",
-      "pledge_levels": [
-        "Citizen"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Armandiel",
-      "pledge_levels": [
-        "Citizen"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "SporadicAvery",
-      "pledge_levels": [
-        "Citizen"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Francesca Maud",
-      "pledge_levels": [
-        "Citizen"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Tommy",
-      "pledge_levels": [
-        "Citizen"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Yarino Tengoku",
-      "pledge_levels": [
-        "Citizen"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Christian Storms",
-      "pledge_levels": [
-        "Citizen"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "GrautNisse",
-      "pledge_levels": [
-        "Landlord"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Ryzed",
-      "pledge_levels": [
-        "Landlord",
-        "Citizen"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "polimer",
-      "pledge_levels": [
-        "Landlord",
-        "tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "jade skal",
-      "pledge_levels": [
-        "Landlord",
-        "Citizen"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Archer",
-      "pledge_levels": [
-        "Landlord"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "TYRANICULE",
-      "pledge_levels": [
-        "Landlord"
-      ],
-      "is_active": false,
-      "additional_note": "Owns: Trantgod-old record store"
-    },
-    {
-      "name": "Varstel",
-      "pledge_levels": [
-        "Landlord"
-      ],
-      "is_active": false,
-      "additional_note": "Owns: Vars-Tech apparatus"
-    },
-    {
-      "name": "C4Eye",
-      "pledge_levels": [
-        "Landlord"
-      ],
-      "is_active": false,
-      "additional_note": "Owns: Game Machine arcade"
-    },
-    {
-      "name": "Reaves",
-      "pledge_levels": [
-        "Landlord"
-      ],
-      "is_active": false,
-      "additional_note": "Owns: Reaves restaurant"
-    },
-    {
-      "name": "Donald Skinner",
-      "pledge_levels": [
-        "Landlord"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Donald skinner",
-      "pledge_levels": [
-        "Landlord"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "xanth100",
-      "pledge_levels": [
-        "Landlord",
-        "Citizen"
-      ],
-      "is_active": false,
-      "additional_note": "Owns: Ori-gami crafts and gifts store"
-    },
-    {
-      "name": "Raven",
-      "pledge_levels": [
-        "Landlord"
-      ],
-      "is_active": false,
-      "additional_note": "Owns: Raven's Breadcrumbs bakery"
-    },
-    {
-      "name": "LilCuwyBells",
-      "pledge_levels": [
-        "Landlord"
-      ],
-      "is_active": false,
-      "additional_note": "Owns: Bells of love cafe"
-    },
-    {
-      "name": "Jeremiah Mccollum",
-      "pledge_levels": [
-        "Landlord"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Este44.",
-      "pledge_levels": [
-        "Landlord"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Azure",
-      "pledge_levels": [
-        "Landlord"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "name": "Ryu",
-      "pledge_levels": [
-        "Landlord",
-        "Citizen"
-      ],
-      "is_active": false,
-      "additional_note": "Owns: Ryu's HARDware store"
-    },
-    {
-      "name": "Cardboard knight Bikes",
-      "pledge_levels": [
-        "Landlord"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
+      "id": "36671371",
       "name": "Cod",
       "pledge_levels": [
         "Citizen"
       ],
-      "is_active": true,
+      "is_active": "Citizen",
       "additional_note": ""
     },
     {
+      "id": "3313755",
       "name": "Trashboii",
       "pledge_levels": [
         "Citizen"
       ],
-      "is_active": true,
+      "is_active": "Citizen",
       "additional_note": ""
     },
     {
+      "id": "71483380",
       "name": "Romantic Joker",
       "pledge_levels": [
         "Tourist"
       ],
-      "is_active": true,
+      "is_active": "Tourist",
       "additional_note": ""
     },
     {
+      "id": "139178436",
       "name": "Ham63",
       "pledge_levels": [
         "Citizen"
       ],
-      "is_active": true,
+      "is_active": "Citizen",
       "additional_note": ""
     },
     {
+      "id": "48213186",
       "name": "EventfullMars",
       "pledge_levels": [
         "Tourist"
       ],
-      "is_active": true,
+      "is_active": "Tourist",
       "additional_note": ""
     },
     {
+      "id": "83334282",
       "name": "Landon",
       "pledge_levels": [
         "Tourist"
       ],
-      "is_active": true,
+      "is_active": "Tourist",
       "additional_note": ""
     },
     {
+      "id": "78900486",
       "name": "DvD_R",
       "pledge_levels": [
         "Citizen"
       ],
-      "is_active": true,
+      "is_active": "Citizen",
       "additional_note": ""
     },
     {
+      "id": "84555170",
       "name": "Zadeno",
       "pledge_levels": [
         "Tourist"
       ],
-      "is_active": true,
+      "is_active": "Tourist",
       "additional_note": ""
     },
     {
+      "id": "125686142",
       "name": "Remington",
       "pledge_levels": [
         "Tourist"
       ],
-      "is_active": true,
+      "is_active": "Tourist",
       "additional_note": ""
     },
     {
+      "id": "7268508",
       "name": "Silvii",
       "pledge_levels": [
         "Tourist"
       ],
-      "is_active": true,
+      "is_active": "Tourist",
       "additional_note": ""
     },
     {
+      "id": "97529110",
       "name": "[TheUserNameOf_TBOTUkN]",
       "pledge_levels": [
         "Landlord"
       ],
-      "is_active": true,
+      "is_active": "Landlord",
       "additional_note": ""
     },
     {
+      "id": "52871704",
       "name": "M",
       "pledge_levels": [
         "Tourist"
       ],
-      "is_active": true,
+      "is_active": "Tourist",
       "additional_note": ""
     },
     {
+      "id": "29365088",
       "name": "ConnorZL",
       "pledge_levels": [
-        "Citizen",
-        "Tourist"
+        "Citizen"
       ],
-      "is_active": true,
+      "is_active": "Citizen",
       "additional_note": ""
     },
     {
+      "id": "25048994",
       "name": "Ephintanic",
       "pledge_levels": [
         "Landlord"
       ],
-      "is_active": true,
+      "is_active": "Landlord",
       "additional_note": ""
     },
     {
+      "id": "66739304",
       "name": "SunFish",
       "pledge_levels": [
         "Landlord"
       ],
-      "is_active": true,
+      "is_active": "Landlord",
       "additional_note": ""
     },
     {
+      "id": "90405584",
       "name": "0bsev3r",
       "pledge_levels": [
         "Tourist"
       ],
-      "is_active": true,
+      "is_active": "Tourist",
       "additional_note": ""
     },
     {
+      "id": "90896844",
       "name": "JohnTheChair",
       "pledge_levels": [
-        "Landlord",
-        "Citizen"
+        "Landlord"
       ],
-      "is_active": true,
-      "additional_note": "Owns: John salon"
+      "is_active": "Landlord",
+      "additional_note": ""
     },
     {
+      "id": "96585295",
       "name": "Glowkatz",
       "pledge_levels": [
         "Citizen"
       ],
-      "is_active": true,
+      "is_active": "Citizen",
       "additional_note": ""
     },
     {
+      "id": "124082992",
       "name": "Gappo",
       "pledge_levels": [
         "Tourist"
       ],
-      "is_active": true,
+      "is_active": "Tourist",
       "additional_note": ""
     },
     {
+      "id": "17231828",
       "name": "s0m3per5on",
       "pledge_levels": [
         "Tourist"
       ],
-      "is_active": true,
+      "is_active": "Tourist",
       "additional_note": ""
     },
     {
+      "id": "31654055",
       "name": "Angelboss60",
       "pledge_levels": [
         "Tourist"
       ],
-      "is_active": true,
+      "is_active": "Tourist",
       "additional_note": ""
     },
     {
+      "id": "21946484",
       "name": "Hazelkidz",
       "pledge_levels": [
         "Tourist"
       ],
-      "is_active": true,
+      "is_active": "Tourist",
       "additional_note": ""
     },
     {
+      "id": "11403472",
       "name": "Jorge Luis Carreras Perez Jr",
       "pledge_levels": [
         "Citizen"
       ],
-      "is_active": true,
+      "is_active": "Citizen",
       "additional_note": ""
     },
     {
+      "id": "6484470",
       "name": "Sebastian ",
       "pledge_levels": [
-        "Citizen",
-        "Tourist"
+        "Citizen"
       ],
-      "is_active": true,
+      "is_active": "Citizen",
       "additional_note": ""
     },
     {
+      "id": "58864433",
       "name": "ZeroTwo",
       "pledge_levels": [
         "Tourist"
       ],
-      "is_active": true,
+      "is_active": "Tourist",
       "additional_note": ""
     },
     {
+      "id": "109053839",
       "name": "MiraiMei",
       "pledge_levels": [
         "Tourist"
       ],
-      "is_active": true,
+      "is_active": "Tourist",
       "additional_note": ""
     },
     {
+      "id": "40741863",
       "name": "Vas’Tel",
       "pledge_levels": [
         "Tourist"
       ],
-      "is_active": true,
+      "is_active": "Tourist",
       "additional_note": ""
     },
     {
+      "id": "73003265",
       "name": "Gintaras Simkus",
       "pledge_levels": [
         "Landlord"
       ],
-      "is_active": true,
-      "additional_note": "Owns: Voidling bathhouse"
+      "is_active": "Landlord",
+      "additional_note": ""
     },
     {
+      "id": "96761345",
       "name": "Karl A Courtney",
       "pledge_levels": [
         "Tourist"
       ],
-      "is_active": true,
+      "is_active": "Tourist",
       "additional_note": ""
     },
     {
+      "id": "15811468",
       "name": "ElectroBeatz ",
       "pledge_levels": [
         "Tourist"
       ],
-      "is_active": true,
+      "is_active": "Tourist",
       "additional_note": ""
     },
     {
+      "id": "42510768",
       "name": "D",
       "pledge_levels": [
-        "Citizen",
         "Tourist"
       ],
-      "is_active": true,
+      "is_active": "Tourist",
       "additional_note": ""
     },
     {
+      "id": "25334031",
       "name": "Arp Toolbox",
       "pledge_levels": [
         "Tourist"
       ],
-      "is_active": true,
+      "is_active": "Tourist",
       "additional_note": ""
     },
     {
+      "id": "65533",
       "name": "guillermo2620",
       "pledge_levels": [
         "Tourist"
       ],
-      "is_active": true,
+      "is_active": "Tourist",
       "additional_note": ""
     },
     {
+      "id": "91408911",
       "name": "diteol",
       "pledge_levels": [
         "Landlord"
       ],
-      "is_active": true,
-      "additional_note": "Owns: Diteol toothpaste ads"
+      "is_active": "Landlord",
+      "additional_note": ""
     },
     {
+      "id": "176610205",
       "name": "milkmann2000",
       "pledge_levels": [
         "Tourist"
       ],
-      "is_active": true,
+      "is_active": "Tourist",
       "additional_note": ""
     },
     {
+      "id": "178382233",
       "name": "bdgtim",
       "pledge_levels": [
         "Tourist"
       ],
-      "is_active": true,
+      "is_active": "Tourist",
       "additional_note": ""
     },
     {
+      "id": "104680547",
       "name": "delay",
       "pledge_levels": [
         "Tourist"
       ],
-      "is_active": true,
+      "is_active": "Tourist",
       "additional_note": ""
     },
     {
+      "id": "21349447",
       "name": "YuukiToyaro",
       "pledge_levels": [
         "Tourist"
       ],
-      "is_active": true,
+      "is_active": "Tourist",
       "additional_note": ""
     },
     {
+      "id": "93990351",
       "name": "宇呈 張",
       "pledge_levels": [
         "Citizen"
       ],
-      "is_active": true,
+      "is_active": "Citizen",
       "additional_note": ""
     },
     {
+      "id": "40957408",
       "name": "Majima",
       "pledge_levels": [
         "Tourist"
       ],
-      "is_active": true,
+      "is_active": "Tourist",
       "additional_note": ""
     },
     {
+      "id": "3720973",
       "name": "Lv9Slime",
       "pledge_levels": [
         "Citizen"
       ],
-      "is_active": true,
+      "is_active": "Citizen",
       "additional_note": ""
     },
     {
+      "id": "138472674",
       "name": "Jurywin",
       "pledge_levels": [
         "Tourist"
       ],
-      "is_active": true,
+      "is_active": "Tourist",
       "additional_note": ""
     },
     {
+      "id": "52371395",
       "name": "Bidart",
       "pledge_levels": [
         "Tourist"
       ],
-      "is_active": true,
+      "is_active": "Tourist",
       "additional_note": ""
     },
     {
+      "id": "98237202",
       "name": "Dayton Parsons",
       "pledge_levels": [
         "Tourist"
       ],
-      "is_active": true,
+      "is_active": "Tourist",
       "additional_note": ""
     },
     {
+      "id": "112254199",
       "name": "CENT",
       "pledge_levels": [
         "Citizen"
       ],
-      "is_active": true,
+      "is_active": "Citizen",
       "additional_note": ""
     },
     {
+      "id": "11600747",
       "name": "Dastun",
       "pledge_levels": [
         "Landlord"
       ],
-      "is_active": true,
-      "additional_note": "Owns: Dastun last call bar"
+      "is_active": "Landlord",
+      "additional_note": ""
     },
     {
+      "id": "48849873",
       "name": "Randomized",
       "pledge_levels": [
         "Tourist"
       ],
-      "is_active": true,
+      "is_active": "Tourist",
       "additional_note": ""
     },
     {
+      "id": "107119104",
       "name": "Timme1409",
       "pledge_levels": [
         "Tourist"
       ],
-      "is_active": true,
+      "is_active": "Tourist",
       "additional_note": ""
     },
     {
+      "id": "8029542",
       "name": "Leondrick Guerra",
       "pledge_levels": [
-        "Citizen",
         "Tourist"
       ],
-      "is_active": true,
+      "is_active": "Tourist",
       "additional_note": ""
     },
     {
+      "id": "56354495",
       "name": "Ragnarok _",
       "pledge_levels": [
         "Tourist"
       ],
-      "is_active": true,
+      "is_active": "Tourist",
       "additional_note": ""
     },
     {
+      "id": "101080760",
       "name": "Godou19",
       "pledge_levels": [
         "Tourist"
       ],
-      "is_active": true,
+      "is_active": "Tourist",
       "additional_note": ""
     },
     {
+      "id": "99245510",
       "name": "mambo",
       "pledge_levels": [
         "Tourist"
       ],
-      "is_active": true,
+      "is_active": "Tourist",
       "additional_note": ""
     },
     {
+      "id": "89091233",
       "name": "Andy Perez",
       "pledge_levels": [
         "Tourist"
       ],
-      "is_active": true,
+      "is_active": "Tourist",
       "additional_note": ""
     },
     {
+      "id": "112566125",
       "name": "Lurchy",
       "pledge_levels": [
-        "Citizen",
-        "Tourist"
+        "Citizen"
       ],
-      "is_active": true,
+      "is_active": "Citizen",
       "additional_note": ""
     },
     {
+      "id": "170978456",
       "name": "Marc Michel",
       "pledge_levels": [
         "Tourist"
       ],
-      "is_active": true,
+      "is_active": "Tourist",
       "additional_note": ""
     },
     {
+      "id": "96348577",
       "name": "Baron Rowhof",
       "pledge_levels": [
-        "Landlord",
-        "Citizen"
+        "Landlord"
       ],
-      "is_active": true,
-      "additional_note": "Owns: Baron foodbar"
+      "is_active": "Landlord",
+      "additional_note": ""
     },
     {
+      "id": "96874180",
       "name": "wynautt",
       "pledge_levels": [
         "Citizen"
       ],
-      "is_active": true,
+      "is_active": "Citizen",
       "additional_note": ""
     },
     {
+      "id": "128415746",
       "name": "Fabio Bellavia",
       "pledge_levels": [
         "Tourist"
       ],
-      "is_active": true,
+      "is_active": "Tourist",
       "additional_note": ""
     },
     {
+      "id": "30044771",
       "name": "Timothy Gianotti II",
       "pledge_levels": [
         "Tourist"
       ],
-      "is_active": true,
+      "is_active": "Tourist",
       "additional_note": ""
     },
     {
+      "id": "866847",
       "name": "Abysma ",
       "pledge_levels": [
         "Tourist"
       ],
-      "is_active": true,
+      "is_active": "Tourist",
       "additional_note": ""
     },
     {
+      "id": "55559521",
       "name": "Ling_Na",
       "pledge_levels": [
-        "Landlord",
-        "Citizen"
+        "Landlord"
       ],
-      "is_active": true,
-      "additional_note": "Owns: Campbell Defense Dynamic"
+      "is_active": "Landlord",
+      "additional_note": ""
     },
     {
+      "id": "4246836",
       "name": "skyshadow235 ",
       "pledge_levels": [
         "Citizen"
       ],
-      "is_active": true,
+      "is_active": "Citizen",
       "additional_note": ""
     },
     {
+      "id": "63745730",
       "name": "Quemp",
       "pledge_levels": [
         "Citizen"
       ],
-      "is_active": true,
+      "is_active": "Citizen",
       "additional_note": ""
     },
     {
+      "id": "111852389",
       "name": "Xargoul",
       "pledge_levels": [
         "Tourist"
       ],
-      "is_active": true,
+      "is_active": "Tourist",
       "additional_note": ""
     },
     {
+      "id": "68920852",
       "name": "GHG_Lion",
       "pledge_levels": [
         "Citizen"
       ],
-      "is_active": true,
+      "is_active": "Citizen",
       "additional_note": ""
     },
     {
+      "id": "77193890",
       "name": "DapperDage",
       "pledge_levels": [
-        "Citizen",
-        "Tourist"
+        "Citizen"
       ],
-      "is_active": true,
+      "is_active": "Citizen",
       "additional_note": ""
     },
     {
+      "id": "39346318",
       "name": "Der Mr.",
       "pledge_levels": [
         "Citizen"
       ],
-      "is_active": true,
+      "is_active": "Citizen",
       "additional_note": ""
     },
     {
+      "id": "487455",
       "name": "Segichi ",
       "pledge_levels": [
         "Tourist"
       ],
-      "is_active": true,
+      "is_active": "Tourist",
       "additional_note": ""
     },
     {
+      "id": "134739618",
       "name": "Al3_DaGama",
       "pledge_levels": [
         "Tourist"
       ],
-      "is_active": true,
+      "is_active": "Tourist",
       "additional_note": ""
     },
     {
+      "id": "60887999",
       "name": "B",
       "pledge_levels": [
         "Tourist"
       ],
-      "is_active": true,
+      "is_active": "Tourist",
       "additional_note": ""
     },
     {
+      "id": "186143480",
       "name": "EnholThrowAway",
       "pledge_levels": [
         "Landlord"
       ],
-      "is_active": true,
-      "additional_note": "Owns: Enhol electronic"
+      "is_active": "Landlord",
+      "additional_note": ""
     },
     {
+      "id": "92714991",
       "name": "Tomas Gudauskas",
       "pledge_levels": [
         "Tourist"
       ],
-      "is_active": true,
+      "is_active": "Tourist",
       "additional_note": ""
     },
     {
+      "id": "76799678",
       "name": "gunther andrews",
       "pledge_levels": [
         "Citizen"
       ],
-      "is_active": true,
+      "is_active": "Citizen",
       "additional_note": ""
     },
     {
+      "id": "5513474",
       "name": "Phillip Gar",
       "pledge_levels": [
         "Tourist"
       ],
-      "is_active": true,
+      "is_active": "Tourist",
       "additional_note": ""
     },
     {
+      "id": "81766356",
       "name": "Surviving Moon",
       "pledge_levels": [
         "Citizen"
       ],
-      "is_active": true,
+      "is_active": "Citizen",
       "additional_note": ""
     },
     {
+      "id": "3466729",
       "name": "KiloWarrior",
       "pledge_levels": [
         "Citizen"
       ],
-      "is_active": true,
+      "is_active": "Citizen",
       "additional_note": ""
     },
     {
+      "id": "56724184",
       "name": "Electric2341",
       "pledge_levels": [
         "Citizen"
       ],
-      "is_active": true,
+      "is_active": "Citizen",
       "additional_note": ""
     },
     {
+      "id": "58423288",
       "name": "TheGuyInHere",
       "pledge_levels": [
         "Landlord"
       ],
-      "is_active": true,
-      "additional_note": "Owns: Guy's clothing store"
+      "is_active": "Landlord",
+      "additional_note": ""
     },
     {
+      "id": "81745453",
       "name": "ShadesIshere",
       "pledge_levels": [
         "Landlord"
       ],
-      "is_active": true,
-      "additional_note": "Owns: Shades casino"
+      "is_active": "Landlord",
+      "additional_note": ""
     },
     {
+      "id": "84105486",
       "name": "Aphelion Caelum",
       "pledge_levels": [
         "Citizen"
       ],
-      "is_active": true,
+      "is_active": "Citizen",
       "additional_note": ""
     },
     {
+      "id": "60026184",
       "name": "Fallen_",
       "pledge_levels": [
         "Citizen"
       ],
-      "is_active": true,
+      "is_active": "Citizen",
       "additional_note": ""
     },
     {
+      "id": "108817070",
       "name": "Bonnie",
       "pledge_levels": [
         "Citizen"
       ],
-      "is_active": true,
+      "is_active": "Citizen",
       "additional_note": ""
     },
     {
+      "id": "52447587",
       "name": "Wtyson",
       "pledge_levels": [
         "Tourist"
       ],
-      "is_active": true,
+      "is_active": "Tourist",
       "additional_note": ""
     },
     {
+      "id": "17094215",
       "name": "Salmondude",
       "pledge_levels": [
         "Landlord"
       ],
-      "is_active": true,
-      "additional_note": "Owns: SalmonCare Pharma"
+      "is_active": "Landlord",
+      "additional_note": ""
     },
     {
+      "id": "112022621",
       "name": "htts2f",
       "pledge_levels": [
         "Tourist"
       ],
-      "is_active": true,
+      "is_active": "Tourist",
       "additional_note": ""
     },
     {
+      "id": "84829111",
       "name": "jimmy kudo_17",
       "pledge_levels": [
         "Tourist"
       ],
-      "is_active": true,
+      "is_active": "Tourist",
       "additional_note": ""
     },
     {
+      "id": "120067707",
       "name": "祺琳 刀藤",
       "pledge_levels": [
         "Citizen"
       ],
-      "is_active": true,
+      "is_active": "Citizen",
       "additional_note": ""
     },
     {
+      "id": "987904",
       "name": "Funya",
       "pledge_levels": [
         "Tourist"
       ],
-      "is_active": true,
+      "is_active": "Tourist",
       "additional_note": ""
     },
     {
+      "id": "7408189",
       "name": "Francis York Morgan",
       "pledge_levels": [
         "Citizen"
       ],
-      "is_active": true,
+      "is_active": "Citizen",
       "additional_note": ""
     },
     {
+      "id": "83634223",
       "name": "TheSeventhGeek",
       "pledge_levels": [
         "Citizen"
       ],
-      "is_active": true,
+      "is_active": "Citizen",
       "additional_note": ""
     },
     {
+      "id": "133462128",
       "name": "Frost Rock",
       "pledge_levels": [
         "Citizen"
       ],
-      "is_active": true,
+      "is_active": "Citizen",
       "additional_note": ""
     },
     {
+      "id": "11931292",
       "name": "Luna365 ",
       "pledge_levels": [
         "Tourist"
       ],
-      "is_active": true,
+      "is_active": "Tourist",
       "additional_note": ""
     },
     {
+      "id": "16824214",
       "name": "YellowLotr ",
       "pledge_levels": [
         "Landlord"
       ],
-      "is_active": true,
+      "is_active": "Landlord",
       "additional_note": ""
     },
     {
+      "id": "32419517",
       "name": "That_ Guy",
       "pledge_levels": [
-        "Citizen",
-        "Tourist"
+        "Citizen"
       ],
-      "is_active": true,
+      "is_active": "Citizen",
       "additional_note": ""
     },
     {
+      "id": "2677392",
       "name": "EmberHeart",
       "pledge_levels": [
         "Tourist"
       ],
-      "is_active": true,
+      "is_active": "Tourist",
       "additional_note": ""
     },
     {
+      "id": "37704254",
       "name": "Richard Joyce",
       "pledge_levels": [
         "Tourist"
       ],
-      "is_active": true,
+      "is_active": "Tourist",
       "additional_note": ""
     },
     {
+      "id": "3065151",
       "name": "Darkvirus969 ",
       "pledge_levels": [
         "Citizen"
       ],
-      "is_active": true,
+      "is_active": "Citizen",
       "additional_note": ""
     },
     {
+      "id": "142810347",
       "name": "B Davenport",
       "pledge_levels": [
         "Tourist"
       ],
-      "is_active": false,
+      "is_active": "Tourist",
       "additional_note": ""
     },
     {
+      "id": "154486885",
       "name": "юрий ножкин",
       "pledge_levels": [
         "Tourist"
       ],
-      "is_active": true,
+      "is_active": "Tourist",
       "additional_note": ""
     },
     {
+      "id": "2276398",
       "name": "Eirik Nielsen",
       "pledge_levels": [
         "Tourist"
       ],
-      "is_active": true,
+      "is_active": "Tourist",
       "additional_note": ""
     },
     {
+      "id": "32874103",
       "name": "Argo",
       "pledge_levels": [
         "Citizen"
       ],
-      "is_active": true,
+      "is_active": "Citizen",
       "additional_note": ""
     },
     {
+      "id": "2637467",
       "name": "christopher ",
       "pledge_levels": [
         "Tourist"
       ],
-      "is_active": true,
+      "is_active": "Tourist",
       "additional_note": ""
     },
     {
+      "id": "29461775",
       "name": "Zack Stone",
       "pledge_levels": [
         "Citizen"
       ],
-      "is_active": true,
+      "is_active": "Citizen",
       "additional_note": ""
     },
     {
+      "id": "91139847",
       "name": "ivo bovens",
       "pledge_levels": [
         "Citizen"
       ],
-      "is_active": true,
+      "is_active": "Citizen",
       "additional_note": ""
     },
     {
+      "id": "24551336",
       "name": "The Air",
       "pledge_levels": [
         "Tourist"
       ],
-      "is_active": true,
+      "is_active": "Tourist",
       "additional_note": ""
     },
     {
+      "id": "20936377",
       "name": "Pharaoh",
       "pledge_levels": [
         "Tourist"
       ],
-      "is_active": true,
+      "is_active": "Tourist",
       "additional_note": ""
     },
     {
+      "id": "136172542",
       "name": "Philip Tennant",
       "pledge_levels": [
         "Tourist"
       ],
-      "is_active": true,
+      "is_active": "Tourist",
       "additional_note": ""
     },
     {
+      "id": "27371129",
       "name": "KetoRocks Gaming",
       "pledge_levels": [
         "Citizen"
       ],
-      "is_active": true,
+      "is_active": "Citizen",
       "additional_note": ""
     },
     {
+      "id": "70633953",
       "name": "Jason Alfaro",
       "pledge_levels": [
         "Tourist"
       ],
-      "is_active": true,
+      "is_active": "Tourist",
       "additional_note": ""
     },
     {
+      "id": "3010366",
       "name": "Xeku Zwei",
       "pledge_levels": [
         "Tourist"
       ],
-      "is_active": true,
+      "is_active": "Tourist",
       "additional_note": ""
     },
     {
+      "id": "40372281",
       "name": "Damaged Codex",
       "pledge_levels": [
-        "Citizen",
         "Tourist"
       ],
-      "is_active": true,
+      "is_active": "Tourist",
       "additional_note": ""
     },
     {
+      "id": "12400438",
       "name": "Dan Shikulai",
       "pledge_levels": [
         "Citizen"
       ],
-      "is_active": true,
+      "is_active": "Citizen",
       "additional_note": ""
     },
     {
+      "id": "61080030",
       "name": "The Music Anon",
       "pledge_levels": [
         "Citizen"
       ],
-      "is_active": true,
+      "is_active": "Citizen",
       "additional_note": ""
     },
     {
+      "id": "111554623",
       "name": "Ricci",
       "pledge_levels": [
         "Tourist"
       ],
-      "is_active": true,
+      "is_active": "Tourist",
       "additional_note": ""
     }
   ]
