@@ -225,18 +225,20 @@ function processMembers(rawMembers) {
       member.relationships?.currently_entitled_tiers?.data.map(t => t.id) || [];
     const paidTierIds = rawTierIds.filter(id => id !== FORMER_TIER_ID);
 
-    const previous = existingMap[id];
+    const previous = memberId
+      ? existingById[memberId]
+      : existingByName[name];
 
     if (paidTierIds.length === 0) {
        const previousHasPaid = previous?.pledge_levels?.some(p => p !== "Former");
       if (!previousHasPaid) return null;
 
       return {
-        id: memberId || previous.id || null,
+        id: previous?.id || null,
         name,
         pledge_levels: previous.pledge_levels || [],
         is_active: null,
-        additional_note: previous.additional_note || ""
+        additional_note: previous?.additional_note || ""
       };
     }
 
@@ -246,7 +248,7 @@ function processMembers(rawMembers) {
       : tierNames;
 
     return {
-      id: memberId,
+      id: memberId || previous?.id || null,
       name,
       pledge_levels: mergedLevels,
       is_active: getHighestTier(tierNames),
