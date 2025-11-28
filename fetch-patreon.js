@@ -160,6 +160,57 @@ function sanitizePostId(url) {
   return match ? match[1] : url.replace(/[^a-z0-9]/gi, '-');
 }
 
+async function fetchPatreonMembers() {
+  console.log(`\nFetching Patreon members`);
+  let allMembers = [];
+  let nextUrl = `https://www.patreon.com/api/oauth2/v2/campaigns/${PATREON_CAMPAIGN_ID}/members?include=user,currently_entitled_tiers&fields[member]=patron_status,full_name`;
+
+  while (nextUrl) {
+    const response = await fetchPatreonPage(nextUrl);
+    if (!response) break;
+
+    if (response.data) allMembers = allMembers.concat(response.data);
+    nextUrl = response.links?.next || null;
+  }
+
+  console.log(`Found ${allMembers.length} total member entries`);
+  return allMembers;
+}
+
+function processMembers(rawMembers) {
+  console.log(`\nProcessing members...`);
+
+  // Load existing members to preserve history & notes
+  let existing = [];
+  if (fs.existsSync(MEMBERS_FILE)) {
+    existing = JSON.parse(fs.readFileSync(MEMBERS_FILE)).members || [];
+  }
+
+  const existingMap = {};
+  existing.forEach(m => existingMap[m.name] = m);
+
+  // Build final list
+  const finalMembers = rawMembers.map(member => {
+    const name = member.attributes.full_name || "Unknown";
+    const tierIds = member.relationships?.currently_entitled_tiers?.data.map(t => t.id) || [];
+    
+    // Merge pledge history
+    const previous = existingMap[name];
+    const mergedLevels = previous
+      ? Array.from(new Set([...(previous.pledge_levels || []), ...tierIds]))
+      : tierIds;
+
+    return {
+      name,
+      pledge_levels: mergedLevels,
+      is_active: member.attributes.patron_status === "active_patron",
+      additional_note: previous?.additional_note || ""
+    };
+  });
+
+  return finalMembers;
+}
+
 async function main() {
   let browser = null;
 
@@ -308,6 +359,21 @@ async function main() {
     }
     process.exit(1);
   }
+
+  const jsonContent = {
+    last_updated: new Date().toISOString(),
+    total_members: members.length,
+    members
+  };
+
+  // Fetch members
+  const rawMembers = await fetchPatreonMembers();
+  const finalMembers = processMembers(rawMembers);
+  
+  // Save to file
+  fs.writeFileSync("patreon-members.json", JSON.stringify(jsonContent, null, 2));
+  console.log(`Saved ${members.length} members to ${MEMBERS_FILE}`);
 }
+
 
 main();
