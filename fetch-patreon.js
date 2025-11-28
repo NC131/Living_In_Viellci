@@ -214,8 +214,6 @@ function processMembers(rawMembers) {
 
   const FORMER_TIER_ID = "10450352";
 
-  const tierNames = [...new Set(paidTierIds.map(id => TIER_NAME_MAP[id]).filter(Boolean))];
-  const highestTier = tierNames.sort((a, b) => TIER_PRIORITY[b] - TIER_PRIORITY[a])[0] || null;
   // Build final list
   const finalMembers = rawMembers.map(member => {
     const memberId = member.id || null;
@@ -242,6 +240,9 @@ function processMembers(rawMembers) {
       };
     }
 
+    const tierNames = [...new Set(paidTierIds.map(id => TIER_NAME_MAP[id]).filter(Boolean))];
+    const highestTier = tierNames.sort((a, b) => TIER_PRIORITY[b] - TIER_PRIORITY[a])[0] || null;
+
     // Merge pledge history with previous
     const mergedLevels = previous
       ? Array.from(new Set([...(previous.pledge_levels || []), ...tierNames]))
@@ -251,7 +252,7 @@ function processMembers(rawMembers) {
       id: memberId || previous?.id || null,
       name,
       pledge_levels: mergedLevels,
-      is_active: getHighestTier(tierNames),
+      is_active: highestTier,
       additional_note: previous?.additional_note || ""
     };
   }).filter(Boolean);
