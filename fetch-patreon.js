@@ -182,8 +182,8 @@ function processMembers(rawMembers) {
 
   // Load existing members to preserve history & notes
   let existing = [];
-  if (fs.existsSync(MEMBERS_FILE)) {
-    existing = JSON.parse(fs.readFileSync(MEMBERS_FILE)).members || [];
+  if (fs.existsSync("patreon-members.json")) {
+    existing = JSON.parse(fs.readFileSync("patreon-members.json")).members || [];
   }
 
   const existingMap = {};
