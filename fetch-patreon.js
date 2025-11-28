@@ -183,7 +183,14 @@ function processMembers(rawMembers) {
   // Load existing members to preserve history & notes
   let existing = [];
   if (fs.existsSync("patreon-members.json")) {
-    existing = JSON.parse(fs.readFileSync("patreon-members.json")).members || [];
+    try {
+      const fileData = fs.readFileSync("patreon-members.json", "utf8");
+      if (fileData.trim()) {
+        existing = JSON.parse(fileData).members || [];
+      }
+    } catch (err) {
+      console.warn("⚠️ Warning: Could not parse patreon-members.json, starting fresh.");
+    }
   }
 
   const existingMap = {};
@@ -372,7 +379,7 @@ async function main() {
   
   // Save to file
   fs.writeFileSync("patreon-members.json", JSON.stringify(jsonContent, null, 2));
-  console.log(`Saved ${members.length} members`);
+  console.log(`Saved ${finalMembers.length} members`);
 }
 
 
