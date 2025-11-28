@@ -10,6 +10,13 @@ const THUMBNAIL_DIR = path.join(__dirname, 'patreon', 'posts');
 const THUMBNAIL_WIDTH = 425;
 const THUMBNAIL_HEIGHT = 221;
 
+const TIER_NAME_MAP = {
+  "9596103": "Tourist",
+  "9115228": "Citizen",
+  "9115236": "Landlord",
+  "10450352": "Former"
+};
+
 if (!PATREON_ACCESS_TOKEN || !PATREON_CAMPAIGN_ID) {
   console.error('Missing required environment variables!');
   process.exit(1);
@@ -162,29 +169,21 @@ function sanitizePostId(url) {
 
 async function fetchPatreonMembers() {
   console.log(`\nFetching Patreon members`);
-  let allMembers = [];
-  let allIncluded = [];
+  let rawMembers = [];
   let nextUrl = `https://www.patreon.com/api/oauth2/v2/campaigns/${PATREON_CAMPAIGN_ID}/members?include=user,currently_entitled_tiers&fields[member]=patron_status,full_name`;
 
   while (nextUrl) {
     const response = await fetchPatreonPage(nextUrl);
     if (!response) break;
 
-    if (response.data) allMembers = allMembers.concat(response.data);
-    if (response.included) allIncluded = allIncluded.concat(response.included);
+    if (response.data) rawMembers = rawMembers.concat(response.data);
     nextUrl = response.links?.next || null;
   }
-  const includedTypes = {};
-  allIncluded.forEach(item => includedTypes[item.type] = (includedTypes[item.type] || 0) + 1);
-  console.log('DEBUG: included types and counts =', includedTypes);
 
-  console.log('DEBUG: included sample first 10 =', allIncluded.slice(0, 10));
-  
-  console.log(`Found ${allMembers.length} total member entries`);
-  return { allMembers, allIncluded };
+  return rawMembers;
 }
 
-function processMembers(rawMembers, rawIncluded) {
+function processMembers(rawMembers) {
   console.log(`\nProcessing members...`);
 
   // Load existing members to preserve history & notes
@@ -203,16 +202,6 @@ function processMembers(rawMembers, rawIncluded) {
   const existingMap = {};
   existing.forEach(m => existingMap[m.name] = m);
 
-  const tierLookup = {};
-  rawIncluded
-    .filter(item => item.type === "tier")
-    .forEach(tier => {
-      const title = tier.attributes && (tier.attributes.title || tier.attributes.name || tier.attributes.description) || null;
-      if (title) tierLookup[tier.id] = title;
-      else tierLookup[tier.id] = null;
-    });
-  console.log('DEBUG: tierLookup built =', tierLookup);
-
   const FORMER_TIER_ID = "10450352";
 
   // Build final list
@@ -223,14 +212,11 @@ function processMembers(rawMembers, rawIncluded) {
 
     if (paidTierIds.length === 0) {
       const previous = existingMap[name];
-
       const previousHasPaid = previous && Array.isArray(previous.pledge_levels) && previous.pledge_levels.some(p => p && p !== FORMER_TIER_ID);
-
       if (!previousHasPaid) {
         return null;
       }
 
-      console.log(`DEBUG: keeping ${name} from existing file - was former paid`);
       return {
         name,
         pledge_levels: previous.pledge_levels,
@@ -239,14 +225,9 @@ function processMembers(rawMembers, rawIncluded) {
       };
     }
 
-    // At least one paid tier present — convert IDs to names
-    const tierNames = paidTierIds.map(id => {
-      const resolved = tierLookup[id];
-      if (!resolved) {
-        console.warn(`DEBUG: tier id ${id} has no resolved name in included data.`);
-      }
-      return resolved;
-    }).filter(Boolean);
+    const tierNames = paidTierIds
+        .map(id => TIER_NAME_MAP[id])
+        .filter(Boolean);
 
     // Merge pledge history with previous
     const previous = existingMap[name];
@@ -262,7 +243,6 @@ function processMembers(rawMembers, rawIncluded) {
     };
   }).filter(Boolean); // remove nulls
 
-  console.log(`DEBUG: finalMembers count = ${finalMembers.length}`);
   return finalMembers;
 }
 
@@ -416,8 +396,8 @@ async function main() {
   }
 
   // Fetch members
-  const { allMembers, allIncluded } = await fetchPatreonMembers();
-  const finalMembers = processMembers(allMembers, allIncluded);
+  const rawMembers = await fetchPatreonMembers();
+  const finalMembers = processMembers(rawMembers);
   
   const jsonContent = {
     last_updated: new Date().toISOString(),
