@@ -205,57 +205,130 @@ function processMembers(rawMembers) {
     }
   }
 
-  const existingByName = {};
+  // Build lookup maps for existing members
   const existingById = {};
+  const existingByName = {};
+  
   existing.forEach(m => {
-    if (m.name) existingByName[m.name] = m;
-    if (m.id) existingById[m.id] = m;
+    if (m.id) {
+      existingById[m.id] = m;
+    }
+    if (m.name && !m.id) {
+      // Only map by name if there's no ID
+      existingByName[m.name] = m;
+    }
   });
 
   const FORMER_TIER_ID = "10450352";
+  const processedIds = new Set();
+  const finalMembers = [];
 
-  // Build final list
-  const finalMembers = rawMembers.map(member => {
+  // Process current members from API
+  rawMembers.forEach(member => {
     const memberId = member.id || null;
-    const name = member.attributes.full_name?.trim() || "Unknown";
+    const currentName = member.attributes.full_name?.trim() || "Unknown";
+
+    if (memberId && processedIds.has(memberId)) {
+      console.log(`   Skipping duplicate ID: ${memberId}`);
+      return;
+    }
 
     const rawTierIds =
       member.relationships?.currently_entitled_tiers?.data.map(t => t.id) || [];
     const paidTierIds = rawTierIds.filter(id => id !== FORMER_TIER_ID);
 
-    const previous = memberId
-      ? existingById[memberId]
-      : existingByName[name];
+    // Look up existing member data
+    let previous = null;
+    if (memberId) {
+      previous = existingById[memberId];
+      processedIds.add(memberId);
+    }
+    if (!previous && currentName !== "Unknown") {
+      previous = existingByName[currentName];
+      if (previous && memberId) {
+        console.log(`   Found existing member "${currentName}" without ID, adding ID: ${memberId}`);
+      }
+    }
 
+    // If member has no paid tiers currently
     if (paidTierIds.length === 0) {
-       const previousHasPaid = previous?.pledge_levels?.some(p => p !== "Former");
-      if (!previousHasPaid) return null;
+      const previousHasPaid = previous?.pledge_levels?.some(p => p !== "Former");
+      if (!previousHasPaid) {
+        return;
+      }
 
-      return {
-        id: previous?.id || null,
-        name,
+      // Keep former members with their history
+      finalMembers.push({
+        id: memberId || previous?.id || null,
+        name: currentName,
         pledge_levels: previous.pledge_levels || [],
-        is_active: null,
+        is_active: false,
         additional_note: previous?.additional_note || ""
-      };
+      });
+      return;
     }
 
     const tierNames = [...new Set(paidTierIds.map(id => TIER_NAME_MAP[id]).filter(Boolean))];
-    const highestTier = tierNames.sort((a, b) => TIER_PRIORITY[b] - TIER_PRIORITY[a])[0] || null;
+    const highestTier = tierNames.sort((a, b) => 
+      (TIER_PRIORITY[b] || 0) - (TIER_PRIORITY[a] || 0)
+    )[0] || tierNames[0] || null;
 
     // Merge pledge history with previous
     const mergedLevels = previous
       ? Array.from(new Set([...(previous.pledge_levels || []), ...tierNames]))
       : tierNames;
 
-    return {
+    finalMembers.push({
       id: memberId || previous?.id || null,
-      name,
+      name: currentName,
       pledge_levels: mergedLevels,
       is_active: highestTier,
       additional_note: previous?.additional_note || ""
-    };
-  }).filter(Boolean);
+    });
+  });
+
+  existing.forEach(existingMember => {
+    if (existingMember.id && processedIds.has(existingMember.id)) {
+      return;
+    }
+    
+    if (!existingMember.id && existingMember.name) {
+      const wasMatched = finalMembers.some(m => m.name === existingMember.name);
+      if (wasMatched) {
+        return;
+      }
+    }
+
+    // Only keep if they have pledge history
+    const hasPaidHistory = existingMember.pledge_levels?.some(p => p !== "Former");
+    if (hasPaidHistory) {
+      finalMembers.push({
+        id: existingMember.id || null,
+        name: existingMember.name,
+        pledge_levels: existingMember.pledge_levels || [],
+        is_active: false,
+        additional_note: existingMember.additional_note || ""
+      });
+    }
+  });
+
+  // Sort active members
+  finalMembers.sort((a, b) => {
+    if (a.is_active && !b.is_active) return -1;
+    if (!a.is_active && b.is_active) return 1;
+
+    if (a.is_active && b.is_active) {
+      const aPriority = TIER_PRIORITY[a.is_active] || 0;
+      const bPriority = TIER_PRIORITY[b.is_active] || 0;
+      if (aPriority !== bPriority) return bPriority - aPriority;
+    }
+    
+    return a.name.localeCompare(b.name);
+  });
+
+  console.log(`   Processed ${finalMembers.length} total members`);
+  console.log(`   Active: ${finalMembers.filter(m => m.is_active).length}`);
+  console.log(`   Former: ${finalMembers.filter(m => !m.is_active).length}`);
 
   return finalMembers;
 }
