@@ -205,18 +205,24 @@ function processMembers(rawMembers) {
     }
   }
 
-  const existingMap = {};
-  existing.forEach(m => existingMap[m.name] = m);
+  const existingByName = {};
+  const existingById = {};
+  existing.forEach(m => {
+    if (m.name) existingByName[m.name] = m;
+    if (m.id) existingById[m.id] = m;
+  });
 
   const FORMER_TIER_ID = "10450352";
 
+  const tierNames = [...new Set(paidTierIds.map(id => TIER_NAME_MAP[id]).filter(Boolean))];
+  const highestTier = tierNames.sort((a, b) => TIER_PRIORITY[b] - TIER_PRIORITY[a])[0] || null;
   // Build final list
   const finalMembers = rawMembers.map(member => {
-    const id = member.relationships?.user?.data?.id || null;
-    if (!id) return null;
+    const memberId = member.id || null;
+    const name = member.attributes.full_name?.trim() || "Unknown";
 
-    const name = member.attributes.full_name || "Unknown";
-    const rawTierIds = member.relationships?.currently_entitled_tiers?.data.map(t => t.id) || [];
+    const rawTierIds =
+      member.relationships?.currently_entitled_tiers?.data.map(t => t.id) || [];
     const paidTierIds = rawTierIds.filter(id => id !== FORMER_TIER_ID);
 
     const previous = existingMap[id];
@@ -226,16 +232,13 @@ function processMembers(rawMembers) {
       if (!previousHasPaid) return null;
 
       return {
-        id,
+        id: memberId || previous.id || null,
         name,
-        pledge_levels: previous.pledge_levels,
+        pledge_levels: previous.pledge_levels || [],
         is_active: null,
         additional_note: previous.additional_note || ""
       };
     }
-
-    const tierNames = [...new Set(paidTierIds.map(id => TIER_NAME_MAP[id]).filter(Boolean))];
-    const highestTier = tierNames.sort((a, b) => TIER_PRIORITY[b] - TIER_PRIORITY[a])[0] || null;
 
     // Merge pledge history with previous
     const mergedLevels = previous
@@ -243,10 +246,10 @@ function processMembers(rawMembers) {
       : tierNames;
 
     return {
-      id,
+      id: memberId,
       name,
       pledge_levels: mergedLevels,
-      is_active: highestTier,
+      is_active: getHighestTier(tierNames),
       additional_note: previous?.additional_note || ""
     };
   }).filter(Boolean);
