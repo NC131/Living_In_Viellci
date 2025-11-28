@@ -380,7 +380,7 @@ async function main() {
 
   // Fetch members
   const { allMembers, allIncluded } = await fetchPatreonMembers();
-  const finalMembers = processMembers(rawMembers, allIncluded);
+  const finalMembers = processMembers(allMembers, allIncluded);
   
   const jsonContent = {
     last_updated: new Date().toISOString(),
