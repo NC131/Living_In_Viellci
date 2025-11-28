@@ -32,7 +32,7 @@ function fetchPatreonPage(url) {
     const options = {
       headers: {
         'Authorization': `Bearer ${PATREON_ACCESS_TOKEN}`,
-        'User-Agent': 'Living-In-Viellci-Game/1.0'
+        'User-Agent': 'Living-In-Viellci'
       }
     };
     https.get(url, options, (res) => {
@@ -163,6 +163,7 @@ function sanitizePostId(url) {
 async function fetchPatreonMembers() {
   console.log(`\nFetching Patreon members`);
   let allMembers = [];
+  let allIncluded = [];
   let nextUrl = `https://www.patreon.com/api/oauth2/v2/campaigns/${PATREON_CAMPAIGN_ID}/members?include=user,currently_entitled_tiers&fields[member]=patron_status,full_name`;
 
   while (nextUrl) {
@@ -170,14 +171,15 @@ async function fetchPatreonMembers() {
     if (!response) break;
 
     if (response.data) allMembers = allMembers.concat(response.data);
+    if (response.included) allIncluded = allIncluded.concat(response.included);
     nextUrl = response.links?.next || null;
   }
 
   console.log(`Found ${allMembers.length} total member entries`);
-  return allMembers;
+  return { allMembers, allIncluded };
 }
 
-function processMembers(rawMembers) {
+function processMembers(rawMembers, rawIncluded) {
   console.log(`\nProcessing members...`);
 
   // Load existing members to preserve history & notes
@@ -189,17 +191,26 @@ function processMembers(rawMembers) {
         existing = JSON.parse(fileData).members || [];
       }
     } catch (err) {
-      console.warn("⚠️ Warning: Could not parse patreon-members.json, starting fresh.");
+      console.warn("Could not parse patreon-members.json, starting fresh.");
     }
   }
 
   const existingMap = {};
   existing.forEach(m => existingMap[m.name] = m);
 
+  const tierLookup = {};
+  rawIncluded.filter(item => item.type === "tier").forEach(tier => {
+      tierLookup[tier.id] = tier.attributes.title;
+    });
+
   // Build final list
   const finalMembers = rawMembers.map(member => {
     const name = member.attributes.full_name || "Unknown";
     const tierIds = member.relationships?.currently_entitled_tiers?.data.map(t => t.id) || [];
+    if (tierIds.length === 0 && !existingMap[name]?.pledge_levels?.length) {
+      return null;
+    }
+    const tierNames = tierIds.map(id => tierLookup[id]).filter(Boolean);
     
     // Merge pledge history
     const previous = existingMap[name];
@@ -213,7 +224,7 @@ function processMembers(rawMembers) {
       is_active: member.attributes.patron_status === "active_patron",
       additional_note: previous?.additional_note || ""
     };
-  });
+  }).filter(Boolean);
 
   return finalMembers;
 }
@@ -368,8 +379,8 @@ async function main() {
   }
 
   // Fetch members
-  const rawMembers = await fetchPatreonMembers();
-  const finalMembers = processMembers(rawMembers);
+  const { allMembers, allIncluded } = await fetchPatreonMembers();
+  const finalMembers = processMembers(rawMembers, allIncluded);
   
   const jsonContent = {
     last_updated: new Date().toISOString(),
