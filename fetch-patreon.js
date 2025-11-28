@@ -360,19 +360,19 @@ async function main() {
     process.exit(1);
   }
 
-  const jsonContent = {
-    last_updated: new Date().toISOString(),
-    total_members: members.length,
-    members
-  };
-
   // Fetch members
   const rawMembers = await fetchPatreonMembers();
   const finalMembers = processMembers(rawMembers);
   
+  const jsonContent = {
+    last_updated: new Date().toISOString(),
+    total_members: finalMembers.length,
+    members: finalMembers
+  };
+  
   // Save to file
   fs.writeFileSync("patreon-members.json", JSON.stringify(jsonContent, null, 2));
-  console.log(`Saved ${members.length} members to ${MEMBERS_FILE}`);
+  console.log(`Saved ${members.length} members`);
 }
 
 
