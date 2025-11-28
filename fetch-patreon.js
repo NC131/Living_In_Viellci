@@ -174,7 +174,12 @@ async function fetchPatreonMembers() {
     if (response.included) allIncluded = allIncluded.concat(response.included);
     nextUrl = response.links?.next || null;
   }
+  const includedTypes = {};
+  allIncluded.forEach(item => includedTypes[item.type] = (includedTypes[item.type] || 0) + 1);
+  console.log('DEBUG: included types and counts =', includedTypes);
 
+  console.log('DEBUG: included sample first 10 =', allIncluded.slice(0, 10));
+  
   console.log(`Found ${allMembers.length} total member entries`);
   return { allMembers, allIncluded };
 }
@@ -199,24 +204,55 @@ function processMembers(rawMembers, rawIncluded) {
   existing.forEach(m => existingMap[m.name] = m);
 
   const tierLookup = {};
-  rawIncluded.filter(item => item.type === "tier").forEach(tier => {
-      tierLookup[tier.id] = tier.attributes.title;
+  rawIncluded
+    .filter(item => item.type === "tier")
+    .forEach(tier => {
+      const title = tier.attributes && (tier.attributes.title || tier.attributes.name || tier.attributes.description) || null;
+      if (title) tierLookup[tier.id] = title;
+      else tierLookup[tier.id] = null;
     });
+  console.log('DEBUG: tierLookup built =', tierLookup);
+
+  const FORMER_TIER_ID = "10450352";
 
   // Build final list
   const finalMembers = rawMembers.map(member => {
     const name = member.attributes.full_name || "Unknown";
-    const tierIds = member.relationships?.currently_entitled_tiers?.data.map(t => t.id) || [];
-    if (tierIds.length === 0 && !existingMap[name]?.pledge_levels?.length) {
-      return null;
+    const rawTierIds = member.relationships?.currently_entitled_tiers?.data.map(t => t.id) || [];
+    const paidTierIds = rawTierIds.filter(id => id !== FORMER_TIER_ID);
+
+    if (paidTierIds.length === 0) {
+      const previous = existingMap[name];
+
+      const previousHasPaid = previous && Array.isArray(previous.pledge_levels) && previous.pledge_levels.some(p => p && p !== FORMER_TIER_ID);
+
+      if (!previousHasPaid) {
+        return null;
+      }
+
+      console.log(`DEBUG: keeping ${name} from existing file - was former paid`);
+      return {
+        name,
+        pledge_levels: previous.pledge_levels,
+        is_active: member.attributes.patron_status === "active_patron",
+        additional_note: previous.additional_note || ""
+      };
     }
-    const tierNames = tierIds.map(id => tierLookup[id]).filter(Boolean);
-    
-    // Merge pledge history
+
+    // At least one paid tier present — convert IDs to names
+    const tierNames = paidTierIds.map(id => {
+      const resolved = tierLookup[id];
+      if (!resolved) {
+        console.warn(`DEBUG: tier id ${id} has no resolved name in included data.`);
+      }
+      return resolved;
+    }).filter(Boolean);
+
+    // Merge pledge history with previous
     const previous = existingMap[name];
     const mergedLevels = previous
-      ? Array.from(new Set([...(previous.pledge_levels || []), ...tierIds]))
-      : tierIds;
+      ? Array.from(new Set([...(previous.pledge_levels || []), ...tierNames]))
+      : tierNames;
 
     return {
       name,
@@ -224,8 +260,9 @@ function processMembers(rawMembers, rawIncluded) {
       is_active: member.attributes.patron_status === "active_patron",
       additional_note: previous?.additional_note || ""
     };
-  }).filter(Boolean);
+  }).filter(Boolean); // remove nulls
 
+  console.log(`DEBUG: finalMembers count = ${finalMembers.length}`);
   return finalMembers;
 }
 
@@ -271,7 +308,7 @@ async function main() {
     // Filter public posts
     const publicPosts = allPosts.filter(post => post.attributes.is_public);
 
-    // Manually sort by published date, newest first (descending)
+    // Manually sort by published date, newest first
     publicPosts.sort((a, b) => {
       const dateA = new Date(a.attributes.published_at);
       const dateB = new Date(b.attributes.published_at);
