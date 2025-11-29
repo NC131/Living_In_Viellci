@@ -1,5 +1,5 @@
 {
-  "last_updated": "2025-11-29T12:26:38.290Z",
+  "last_updated": "2025-11-29T06:21:06.567Z",
   "total_members": 330,
   "members": [
     {
@@ -372,7 +372,8 @@
       "id": "35014711-3d1e-466f-85b8-c531f5412b1c",
       "name": "Sebastian",
       "pledge_levels": [
-        "Citizen"
+        "Citizen",
+        "Tourist"
       ],
       "is_active": "Citizen",
       "additional_note": ""
@@ -1057,15 +1058,6 @@
       "additional_note": ""
     },
     {
-      "id": null,
-      "name": "Abysma ",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
       "id": "8ff06bb4-0f09-4f2a-b59b-2805e44a7f2e",
       "name": "AJ King",
       "pledge_levels": [
@@ -1223,7 +1215,7 @@
       "id": "5ea55baf-4309-48af-8ada-1fa69a10b4cf",
       "name": "Beanibus",
       "pledge_levels": [
-        "citizen",
+        "Citizen",
         "Tourist"
       ],
       "is_active": false,
@@ -1320,15 +1312,6 @@
       "additional_note": ""
     },
     {
-      "id": null,
-      "name": "christopher ",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
       "id": "9fb41733-1b0e-403c-87fe-a2e8f0afaebd",
       "name": "Christopher Scurlock",
       "pledge_levels": [
@@ -1405,15 +1388,6 @@
       "name": "Darkirit",
       "pledge_levels": [
         "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "id": null,
-      "name": "Darkvirus969 ",
-      "pledge_levels": [
-        "Citizen"
       ],
       "is_active": false,
       "additional_note": ""
@@ -1545,15 +1519,6 @@
       "additional_note": ""
     },
     {
-      "id": null,
-      "name": "ElectroBeatz ",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
       "id": "49350cd0-99ea-44e0-bb40-724dda5d832f",
       "name": "Elyse",
       "pledge_levels": [
@@ -1585,15 +1550,6 @@
       "name": "Ernst Fox",
       "pledge_levels": [
         "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "id": null,
-      "name": "Este44.",
-      "pledge_levels": [
-        "Landlord"
       ],
       "is_active": false,
       "additional_note": ""
@@ -2205,15 +2161,6 @@
       "additional_note": ""
     },
     {
-      "id": null,
-      "name": "Luna365 ",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
       "id": "a75d6f38-0d9a-48ae-b1be-b80dc392ea2e",
       "name": "Luscious Potato",
       "pledge_levels": [
@@ -2368,8 +2315,7 @@
       "additional_note": ""
     },
     {
-      "id": null,
-      "name": "Paunch",
+      "name": "Paunchzy",
       "pledge_levels": [
         "Citizen",
         "Tourist"
@@ -2418,7 +2364,7 @@
       "name": "polimer",
       "pledge_levels": [
         "Landlord",
-        "tourist"
+        "Tourist"
       ],
       "is_active": false,
       "additional_note": ""
@@ -2579,25 +2525,6 @@
       "additional_note": ""
     },
     {
-      "id": null,
-      "name": "Sebastian ",
-      "pledge_levels": [
-        "Citizen",
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "id": null,
-      "name": "Segichi ",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
       "id": "ea41bacb-178a-452d-915c-1b4e3452e5be",
       "name": "Serrern",
       "pledge_levels": [
@@ -2629,15 +2556,6 @@
       "name": "Sidney Allen",
       "pledge_levels": [
         "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "id": null,
-      "name": "skyshadow235 ",
-      "pledge_levels": [
-        "Citizen"
       ],
       "is_active": false,
       "additional_note": ""
@@ -2683,15 +2601,6 @@
       "name": "Switchinloki",
       "pledge_levels": [
         "Citizen"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "id": null,
-      "name": "Tasdy",
-      "pledge_levels": [
-        "Tourist"
       ],
       "is_active": false,
       "additional_note": ""
@@ -2894,15 +2803,6 @@
       "name": "Yarino Tengoku",
       "pledge_levels": [
         "Citizen"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "id": null,
-      "name": "YellowLotr ",
-      "pledge_levels": [
-        "Landlord"
       ],
       "is_active": false,
       "additional_note": ""
