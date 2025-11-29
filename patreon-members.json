@@ -1,5 +1,5 @@
 {
-  "last_updated": "2025-11-28T18:20:42.448Z",
+  "last_updated": "2025-11-29T01:04:32.544Z",
   "total_members": 329,
   "members": [
     {
@@ -525,15 +525,6 @@
     {
       "id": "ace75346-f85a-47ec-a141-316759dffcca",
       "name": "B",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": "Tourist",
-      "additional_note": ""
-    },
-    {
-      "id": "e0adea9a-0dba-487f-8b5f-8e531be8aef3",
-      "name": "B Davenport",
       "pledge_levels": [
         "Tourist"
       ],
@@ -1197,6 +1188,15 @@
       "name": "Azure",
       "pledge_levels": [
         "Landlord"
+      ],
+      "is_active": false,
+      "additional_note": ""
+    },
+    {
+      "id": "e0adea9a-0dba-487f-8b5f-8e531be8aef3",
+      "name": "B Davenport",
+      "pledge_levels": [
+        "Tourist"
       ],
       "is_active": false,
       "additional_note": ""
