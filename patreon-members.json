@@ -2832,6 +2832,16 @@
       "additional_note": ""
     },
     {
+      "name": "WhoIsSozu",
+      "pledge_levels": [
+        "Landlord",
+        "Citizen",
+        "Tourist"
+      ],
+      "is_active": false,
+      "additional_note": "Owns: Sozu's Armoury store"
+    },
+    {
       "id": "b635805e-70c4-473b-a5d3-cdf363de9cff",
       "name": "Wessner Leonid",
       "pledge_levels": [
