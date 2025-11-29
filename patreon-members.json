@@ -1,6 +1,6 @@
 {
-  "last_updated": "2025-11-29T01:04:32.544Z",
-  "total_members": 329,
+  "last_updated": "2025-11-29T01:26:31.718Z",
+  "total_members": 330,
   "members": [
     {
       "id": "16b8b61e-709a-4f85-a54c-0a906fac3c79",
@@ -2832,6 +2832,16 @@
       "additional_note": ""
     },
     {
+      "id": "b635805e-70c4-473b-a5d3-cdf363de9cff",
+      "name": "Wessner Leonid",
+      "pledge_levels": [
+        "Tourist"
+      ],
+      "is_active": false,
+      "additional_note": ""
+    },
+    {
+      "id": "6c0edd70-4c5a-4972-8d56-26a8bd044820",
       "name": "WhoIsSozu",
       "pledge_levels": [
         "Landlord",
@@ -2840,15 +2850,6 @@
       ],
       "is_active": false,
       "additional_note": "Owns: Sozu's Armoury store"
-    },
-    {
-      "id": "b635805e-70c4-473b-a5d3-cdf363de9cff",
-      "name": "Wessner Leonid",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
     },
     {
       "id": "70b2c18e-f319-4924-9d24-18142c1c65d4",
