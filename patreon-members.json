@@ -1,6 +1,6 @@
 {
-  "last_updated": "2025-11-29T18:19:53.886Z",
-  "total_members": 319,
+  "last_updated": "2025-11-30T01:14:37.774Z",
+  "total_members": 320,
   "members": [
     {
       "id": "16b8b61e-709a-4f85-a54c-0a906fac3c79",
@@ -280,6 +280,15 @@
     {
       "id": "2a2787cb-2191-4278-81ec-37a4f2e6f089",
       "name": "Glowkatz",
+      "pledge_levels": [
+        "Citizen"
+      ],
+      "is_active": "Citizen",
+      "additional_note": ""
+    },
+    {
+      "id": "0c5c2474-09c8-4103-960c-e309fabe71d6",
+      "name": "goo mba",
       "pledge_levels": [
         "Citizen"
       ],
