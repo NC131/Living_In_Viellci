@@ -69,7 +69,8 @@
       "id": "LdXSIRhSd",
       "name": "JohnTheChair",
       "pledge_levels": [
-        "Landlord"
+        "Landlord",
+        "Citizen"
       ],
       "is_active": "Landlord",
       "additional_note": "Owns: John salon"
@@ -78,7 +79,8 @@
       "id": "uJTkgIBRy",
       "name": "Ling_Na",
       "pledge_levels": [
-        "Landlord"
+        "Landlord",
+        "Citizen"
       ],
       "is_active": "Landlord",
       "additional_note": "Owns: Campbell Defense Dynamic"
@@ -177,7 +179,8 @@
       "id": "FahDYbpeN",
       "name": "ConnorZL",
       "pledge_levels": [
-        "Citizen"
+        "Citizen",
+        "Tourist"
       ],
       "is_active": "Citizen",
       "additional_note": ""
@@ -195,7 +198,8 @@
       "id": "WukUGpooh",
       "name": "DapperDage",
       "pledge_levels": [
-        "Citizen"
+        "Citizen",
+        "Tourist"
       ],
       "is_active": "Citizen",
       "additional_note": ""
@@ -348,7 +352,8 @@
       "id": "6p0wV8n5k",
       "name": "Lurchy",
       "pledge_levels": [
-        "Citizen"
+        "Citizen",
+        "Tourist"
       ],
       "is_active": "Citizen",
       "additional_note": ""
@@ -375,7 +380,8 @@
       "id": "lLvvqBspW",
       "name": "Sebastian",
       "pledge_levels": [
-        "Citizen"
+        "Citizen",
+        "Tourist"
       ],
       "is_active": "Citizen",
       "additional_note": ""
@@ -402,7 +408,8 @@
       "id": "pkc5DxpHJ",
       "name": "That_ Guy",
       "pledge_levels": [
-        "Citizen"
+        "Citizen",
+        "Tourist"
       ],
       "is_active": "Citizen",
       "additional_note": ""
