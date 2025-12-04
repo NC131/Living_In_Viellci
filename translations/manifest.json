@@ -1,0 +1,70 @@
+{
+  "en": {
+    "locale": "en",
+    "name": "English",
+    "interface": {
+      "version": "0.2.9",
+      "url": "https://raw.githubusercontent.com/NC131/Living_In_Viellci/main/translations/en_interface.po"
+    },
+    "subtitle": {
+      "version": "0.2.9",
+      "url": "https://raw.githubusercontent.com/NC131/Living_In_Viellci/main/translations/en_subtitle.po"
+    }
+  },
+  "id": {
+    "locale": "id",
+    "name": "Indonesia",
+    "author": "Hayden_036",
+    "flavor": "Community",
+    "interface": {
+      "version": "0.2.9",
+      "url": "https://raw.githubusercontent.com/NC131/Living_In_Viellci/main/translations/id_interface.po"
+    },
+    "subtitle": {
+      "version": "0.2.9",
+      "url": "https://raw.githubusercontent.com/NC131/Living_In_Viellci/main/translations/id_subtitle.po"
+    }
+  },
+  "vi": {
+    "locale": "vi",
+    "name": "Tiếng Việt",
+    "author": "drowsypaunchzy",
+    "flavor": "Community",
+    "interface": {
+      "version": "0.2.9",
+      "url": "https://raw.githubusercontent.com/NC131/Living_In_Viellci/main/translations/vi_interface.po"
+    },
+    "subtitle": {
+      "version": "0.2.9",
+      "url": "https://raw.githubusercontent.com/NC131/Living_In_Viellci/main/translations/vi_subtitle.po"
+    }
+  },
+  "ru": {
+    "locale": "ru",
+    "name": "Русский",
+    "author": "politro",
+    "flavor": "Community",
+    "interface": {
+      "version": "0.2.9",
+      "url": "https://raw.githubusercontent.com/NC131/Living_In_Viellci/main/translations/ru_interface.po"
+    },
+    "subtitle": {
+      "version": "0.2.9",
+      "url": "https://raw.githubusercontent.com/NC131/Living_In_Viellci/main/translations/ru_subtitle.po"
+    }
+  },
+  "ph": {
+    "locale": "ph",
+    "name": "Pilipinas",
+    "author": "3rn57tf",
+    "flavor": "Community",
+    "interface": {
+      "version": "0.2.9",
+      "url": "https://raw.githubusercontent.com/NC131/Living_In_Viellci/main/translations/ph_interface.po"
+    },
+    "subtitle": {
+      "version": "0.2.9",
+      "url": "https://raw.githubusercontent.com/NC131/Living_In_Viellci/main/translations/ph_subtitle.po"
+    }
+  }
+}

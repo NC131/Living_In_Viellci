@@ -1,0 +1,442 @@
+# LANGUAGE translation for Living In Viellci for the following files:
+# res://prefabs/screens/mainMenu_screen.tscn
+# res://prefabs/screens/splashScreen_screen_A1.tscn
+# res://prefabs/screens/settings_screen.tscn
+# res://prefabs/screens/settings_screenAudio.tscn
+# res://prefabs/screens/settings_screenGameplay.tscn
+# res://prefabs/screens/settings_screenVisual.tscn
+# res://core/scripts/setup_audioSlider.gd
+# res://core/scripts/global_persistentData.gd
+# res://core/scripts/screen_settingsAudio.gd
+# res://core/scripts/screen_settingsDisplay.gd
+# res://core/scripts/screen_settingsGameplay.gd
+# res://core/scripts/setup_optionCycler.gd
+# res://core/scripts/screen_settings.gd
+#
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Living In Viellci\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2025-11-25 18:05+0700\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fil\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n==1 || n==2 || n==3 || (n%10!=4 && n%10!=6 "
+"&& n%10!=9));\n"
+"X-Generator: Poedit 3.8\n"
+
+#: prefabs/screens/mainMenu_screen.tscn
+msgid "DEV_POST"
+msgstr "DEV POSTS"
+
+#: prefabs/screens/mainMenu_screen.tscn
+msgid "▰ ▱ ▱ ▱ ▱"
+msgstr ""
+
+#: prefabs/screens/mainMenu_screen.tscn
+msgid "BUTTON_NEW_GAME"
+msgstr "BAGONG LARO"
+
+#: prefabs/screens/mainMenu_screen.tscn
+msgid "BUTTON_LOAD_GAME"
+msgstr "I-LOAD ANG LARO"
+
+#: prefabs/screens/mainMenu_screen.tscn
+msgid "BUTTON_SETTINGS"
+msgstr "SETTINGS"
+
+#: prefabs/screens/mainMenu_screen.tscn
+msgid "BUTTON_EXTRAS"
+msgstr "EXTRAS"
+
+#: prefabs/screens/mainMenu_screen.tscn
+msgid "BUTTON_QUIT"
+msgstr "QUIT"
+
+#: prefabs/screens/splashScreen_screen_A1.tscn
+msgid ""
+"OPENING ANIMATION FIRST\n"
+"(With it's own audio and stuff)\n"
+"Where initialization begins:\n"
+"- patreon update (blog/patrons)\n"
+"- mods if needed?"
+msgstr ""
+
+#: prefabs/screens/splashScreen_screen_A1.tscn
+msgid "TEXT_DISCLAIMER"
+msgstr ""
+"Lahat ng pangalan, karakter, pangyayari at insidenteng inilalarawan sa larong "
+"ito ay kathang-isip lamang.\n"
+"\n"
+"Lahat ng karakter sa larong ito ay mahigit 18 taong gulang."
+
+#: prefabs/screens/splashScreen_screen_A1.tscn
+msgid "[CTC_LABEL]"
+msgstr "[CLICK PARA MAGPATULOY]"
+
+#: prefabs/screens/settings_screen.tscn
+msgid "PAGE_AUDIO"
+msgstr "TUNOG"
+
+#: prefabs/screens/settings_screen.tscn
+msgid "PAGE_VISUAL"
+msgstr "BISWAL"
+
+#: prefabs/screens/settings_screen.tscn
+msgid "PAGE_GAMEPLAY"
+msgstr "GAMEPLAY"
+
+#: prefabs/screens/settings_screen.tscn core/scripts/screen_settings.gd
+msgid "OPTION_HELPHOVER_DESCRIPTION"
+msgstr "[center]hover ang mouse sa mga opsyon na gusto mong ipaliwanag ko~"
+
+#: prefabs/screens/settings_screen.tscn
+msgid "BUTTON_RESET_TO_DEFAULT"
+msgstr "IBALIK ANG DEFAULT"
+
+#: prefabs/screens/settings_screen.tscn
+msgid "BUTTON_RETURN"
+msgstr "BALIK"
+
+#: core/scripts/setup_audioSlider.gd
+msgid "AUDIO_MUTED"
+msgstr "MUTED"
+
+#: core/scripts/global_persistentData.gd
+msgid "INTRO_LINES1"
+msgstr ""
+"Ginawa ng soro!\n"
+"Isinalin ng soro!"
+
+#: core/scripts/global_persistentData.gd
+msgid "INTRO_LINES2"
+msgstr ""
+"Ano?\n"
+"Flavor text ba to?"
+
+#: core/scripts/global_persistentData.gd
+msgid "INTRO_LINES3"
+msgstr ""
+"Subukan din ang\n"
+"Friday Night Funkin"
+
+#: core/scripts/global_persistentData.gd
+msgid "INTRO_LINES4"
+msgstr ""
+"Ang mga soro\n"
+"Ang cute nila, 'di ba?"
+
+#: core/scripts/global_persistentData.gd
+msgid "INTRO_LINES5"
+msgstr ""
+"Magtanong din tunkol sa\n"
+"AI card ni Millie"
+
+#: core/scripts/global_persistentData.gd
+msgid "DAY_SUNDAY"
+msgstr "Linggo"
+
+#: core/scripts/global_persistentData.gd
+msgid "DAY_MONDAY"
+msgstr "Lunes"
+
+#: core/scripts/global_persistentData.gd
+msgid "DAY_TUESDAY"
+msgstr "Martes"
+
+#: core/scripts/global_persistentData.gd
+msgid "DAY_WEDNESDAY"
+msgstr "Miyerkules"
+
+#: core/scripts/global_persistentData.gd
+msgid "DAY_THURSDAY"
+msgstr "Huwebes"
+
+#: core/scripts/global_persistentData.gd
+msgid "DAY_FRIDAY"
+msgstr "Biyernes"
+
+#: core/scripts/global_persistentData.gd
+msgid "DAY_SATURDAY"
+msgstr "Sabado"
+
+#: core/scripts/global_persistentData.gd
+msgid "MONTH_JANUARY"
+msgstr "Enero"
+
+#: core/scripts/global_persistentData.gd
+msgid "MONTH_FEBRUARY"
+msgstr "Pebrero"
+
+#: core/scripts/global_persistentData.gd
+msgid "MONTH_MARCH"
+msgstr "Marso"
+
+#: core/scripts/global_persistentData.gd
+msgid "MONTH_APRIL"
+msgstr "Abril"
+
+#: core/scripts/global_persistentData.gd
+msgid "MONTH_MAY"
+msgstr "Mayo"
+
+#: core/scripts/global_persistentData.gd
+msgid "MONTH_JUNE"
+msgstr "Hunyo"
+
+#: core/scripts/global_persistentData.gd
+msgid "MONTH_JULY"
+msgstr "Hulyo"
+
+#: core/scripts/global_persistentData.gd
+msgid "MONTH_AUGUST"
+msgstr "Augusto"
+
+#: core/scripts/global_persistentData.gd
+msgid "MONTH_SEPTEMBER"
+msgstr "Setyembre"
+
+#: core/scripts/global_persistentData.gd
+msgid "MONTH_OCTOBER"
+msgstr "Oktubre"
+
+#: core/scripts/global_persistentData.gd
+msgid "MONTH_NOVEMBER"
+msgstr "Nobyembre"
+
+#: core/scripts/global_persistentData.gd
+msgid "MONTH_DECEMBER"
+msgstr "Disyembre"
+
+#: core/scripts/global_persistentData.gd
+msgid "OPTION_WINDOWED"
+msgstr "Windowed"
+
+#: core/scripts/global_persistentData.gd
+msgid "OPTION_FULLSCREEN"
+msgstr "Fullscreen"
+
+#: core/scripts/global_persistentData.gd
+msgid "OPTION_MAXIMIZED"
+msgstr "Maximized"
+
+#: core/scripts/global_persistentData.gd
+msgid "OPTION_24_HOUR"
+msgstr "24 Hour"
+
+#: core/scripts/global_persistentData.gd
+msgid "OPTION_12_HOUR"
+msgstr "12 Hour"
+
+#: core/scripts/global_persistentData.gd
+msgid "OPTION_DISABLED"
+msgstr "Naka-off"
+
+#: core/scripts/global_persistentData.gd
+msgid "OPTION_ENABLED"
+msgstr "Naka-on"
+
+#: core/scripts/global_persistentData.gd
+msgid "VERSION"
+msgstr "BERSYON"
+
+#: core/scripts/global_persistentData.gd
+msgid "ALL_RIGHTS_RESERVED"
+msgstr "Lahat ng karapatan ay nakalaan."
+
+#: core/scripts/global_persistentData.gd
+msgid "AUDIO_MASTERVOLUME_DESC"
+msgstr ""
+"[b]Ayusin ang pangunahing volume.[/b]\n"
+"\n"
+"Lahat ng volume slider ay apektado nito!"
+
+#: core/scripts/global_persistentData.gd
+msgid "AUDIO_MUSICVOLUME_DESC"
+msgstr ""
+"[b]Adjust ang volume ng musika.[/b]\n"
+"\n"
+"Ito ang nag-aayos ng musika sa laro...! Hindi pa ba sapat ang paliwanag na "
+"ito?\n"
+"\n"
+"Heto! Tutulungan kita:\n"
+"[url]https://dictionary.cambridge.org/dictionary/english/adjust[/url]"
+
+#: core/scripts/global_persistentData.gd
+msgid "AUDIO_AMBIENCEVOLUME_DESC"
+msgstr ""
+"[b]Adjust ang volume ng ambience.[/b]\n"
+"\n"
+"Hmm… cityscape vibe o musika? I-adjust ang ambiance ayon sa gusto mo!"
+
+#: core/scripts/global_persistentData.gd
+msgid "AUDIO_SFXVOLUME_DESC"
+msgstr ""
+"[b]Adjust ang volume ng sound effects.[/b]\n"
+"\n"
+"Ang mga sound effects! ‘Yung tunog na naririnig mo tuwing nagki-click ka, ‘di "
+"ba?"
+
+#: core/scripts/global_persistentData.gd
+msgid "AUDIO_DIALOGUEVOLUME_DESC"
+msgstr ""
+"[b]Adjust the dialogue volume.[/b]\n"
+"\n"
+"“Ang mga bleep at mga voice lines , kontrolado ng slider na ‘to! ‘Di mo naman "
+"talaga galit sa boses namin… ‘di ba?”"
+
+#: core/scripts/global_persistentData.gd
+msgid "VISUAL_WINDOWMODE_DESC"
+msgstr ""
+"[b]Set ang window mode ng dula.[/b]\n"
+"\n"
+"Laro na full screen, o kung trip mo, ilipat-lipat mo na lang~"
+
+#: core/scripts/global_persistentData.gd
+msgid "VISUAL_MONOCHROMEFILTER_DESC"
+msgstr ""
+"[b]Gawing monokromo ang buong laro.[/b]\n"
+"\n"
+"Ooohohoho! Balik sa dating, ‘di ba?"
+
+#: core/scripts/global_persistentData.gd
+msgid "GAMEPLAY_LANGUAGEINTERFACE_DESC"
+msgstr ""
+"[b]Palitan ang wika ng interface.[/b]\n"
+"\n"
+"Uy, ikaw… binabasa mo ‘tong interface, ‘no?"
+
+#: core/scripts/global_persistentData.gd
+msgid "GAMEPLAY_HOURFORMAT_DESC"
+msgstr ""
+"[b]Set ang time format ng dula.[/b]\n"
+"\n"
+"Siguro ko na alam mo anong oras ang 21:00, ‘di ba? ...`di ba?"
+
+#: core/scripts/screen_settings.gd
+msgid "CONFIRMATION_RESET_DEFAULT_TITLE"
+msgstr "Balikin ang default?"
+
+#: core/scripts/screen_settings.gd
+msgid "CONFIRMATION_RESET_DEFAULT_DESC"
+msgstr ""
+"Ire-reset nito ang lahat ng settings sa default.\n"
+"[font_size=23]Maliban sa windows at language.[/font_size]"
+
+#: core/scripts/screen_settings.gd
+msgid "CONFIRMATION_CONFIRM"
+msgstr "MAGPATULOY"
+
+#: core/scripts/screen_settings.gd
+msgid "CONFIRMATION_CANCEL"
+msgstr "BABALIK"
+
+#: prefabs/screens/mainMenu_newGame.tscn
+msgid "NEWGAME_MODE1"
+msgstr "STORY MODE"
+
+#: prefabs/screens/mainMenu_newGame.tscn
+msgid "NEWGAME_DESC1"
+msgstr "Isang sulat mula sa aking ama?"
+
+#: prefabs/screens/mainMenu_newGame.tscn
+msgid "NEWGAME_MODE2"
+msgstr "SANDBOX MODE"
+
+#: prefabs/screens/mainMenu_newGame.tscn
+msgid "NEWGAME_DESC2"
+msgstr "Gora lang! Galugarin at subukan ang mundo! Walang kondisyon~"
+
+#: prefabs/screens/settings_screenAudio.tscn
+msgid "LABEL_VOLUME"
+msgstr "VOLUME"
+
+#: prefabs/screens/settings_screenAudio.tscn
+msgid "◈ VOLUME_MASTER"
+msgstr "◈ Master Volume"
+
+#: prefabs/screens/settings_screenAudio.tscn
+msgid "◈ VOLUME_MUSIC"
+msgstr "◈ Musika"
+
+#: prefabs/screens/settings_screenAudio.tscn
+msgid "◈ VOLUME_AMBIENCE"
+msgstr "◈ Ambience"
+
+#: prefabs/screens/settings_screenAudio.tscn
+msgid "◈ VOLUME_SFX"
+msgstr "◈ Mga Sound Effect"
+
+#: prefabs/screens/settings_screenAudio.tscn
+msgid "◈ VOLUME_DIALOGUE"
+msgstr "◈ Diyalogo"
+
+#: prefabs/screens/settings_screenGameplay.tscn
+msgid "LABEL_LANGUAGE"
+msgstr "WIKA"
+
+#: prefabs/screens/settings_screenGameplay.tscn
+msgid "◈ LANGUAGE_INTERFACE"
+msgstr "◈ Interface"
+
+#: prefabs/screens/settings_screenGameplay.tscn
+msgid "LABEL_GAMEPLAY"
+msgstr "GAMEPLAY"
+
+#: prefabs/screens/settings_screenGameplay.tscn
+msgid "◈ GAMEPLAY_HOURFORMAT"
+msgstr "◈ Format ng Oras"
+
+#: prefabs/screens/settings_screenVisual.tscn
+msgid "LABEL_DISPLAY"
+msgstr "DISPLAY"
+
+#: prefabs/screens/settings_screenVisual.tscn
+msgid "◈ MODE_WINDOW"
+msgstr "◈ Window Mode"
+
+#: prefabs/screens/settings_screenVisual.tscn
+msgid "LABEL_GRAPHICS"
+msgstr "GRAPHICS"
+
+#: prefabs/screens/settings_screenVisual.tscn
+msgid "◈ FILTER_MONOCHROME"
+msgstr "◈ Monochromiya"
+
+#~ msgid ""
+#~ "[b]Adjust the music volume.[/b]\n"
+#~ "\n"
+#~ "This adjust the music in the game...! Aren't this self-explanatory enough?\n"
+#~ "\n"
+#~ "Here! Let me help you:\n"
+#~ "[url]https://dictionary.cambridge.org/dictionary/english/adjust[/url]"
+#~ msgstr ""
+#~ "[b]Adjust the music volume.[/b]\n"
+#~ "\n"
+#~ "This adjusts the music in the game... Isn't this self-explanatory enough?\n"
+#~ "\n"
+#~ "Here! Let me help you:\n"
+#~ "[url]https://dictionary.cambridge.org/dictionary/english/adjust[/url]"
+
+#~ msgid ""
+#~ "[b]Set the game's window mode.[/b]\n"
+#~ "\n"
+#~ "Making the game to fully taking your monitor's space or you can move it "
+#~ "around~"
+#~ msgstr ""
+#~ "[b]Set the game's window mode.[/b]\n"
+#~ "\n"
+#~ "Makes the game fully use your monitor or make it a window that you can move "
+#~ "around~"
+
+#~ msgid "PROCEED"
+#~ msgstr "Proceed"
+
+#~ msgid "CANCEL"
+#~ msgstr "Cancel"

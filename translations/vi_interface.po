@@ -1,0 +1,434 @@
+# LANGUAGE translation for Living In Viellci for the following files:
+# res://prefabs/screens/mainMenu_screen.tscn
+# res://prefabs/screens/splashScreen_screen_A1.tscn
+# res://prefabs/screens/settings_screen.tscn
+# res://prefabs/screens/settings_screenAudio.tscn
+# res://prefabs/screens/settings_screenGameplay.tscn
+# res://prefabs/screens/settings_screenVisual.tscn
+# res://core/scripts/setup_audioSlider.gd
+# res://core/scripts/global_persistentData.gd
+# res://core/scripts/screen_settingsAudio.gd
+# res://core/scripts/screen_settingsDisplay.gd
+# res://core/scripts/screen_settingsGameplay.gd
+# res://core/scripts/setup_optionCycler.gd
+# res://core/scripts/screen_settings.gd
+#
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Living In Viellci\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2025-11-24 19:38+0700\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: vi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.8\n"
+
+#: prefabs/screens/mainMenu_screen.tscn
+msgid "DEV_POST"
+msgstr "BÀI ĐĂNG CỦA DEV"
+
+#: prefabs/screens/mainMenu_screen.tscn
+msgid "▰ ▱ ▱ ▱ ▱"
+msgstr ""
+
+#: prefabs/screens/mainMenu_screen.tscn
+msgid "BUTTON_NEW_GAME"
+msgstr "BẮT ĐẦU"
+
+#: prefabs/screens/mainMenu_screen.tscn
+msgid "BUTTON_LOAD_GAME"
+msgstr "TIẾP TỤC"
+
+#: prefabs/screens/mainMenu_screen.tscn
+msgid "BUTTON_SETTINGS"
+msgstr "CÀI ĐẶT"
+
+#: prefabs/screens/mainMenu_screen.tscn
+msgid "BUTTON_EXTRAS"
+msgstr "EXTRAS"
+
+#: prefabs/screens/mainMenu_screen.tscn
+msgid "BUTTON_QUIT"
+msgstr "THOÁT GAME"
+
+#: prefabs/screens/splashScreen_screen_A1.tscn
+msgid ""
+"OPENING ANIMATION FIRST\n"
+"(With it's own audio and stuff)\n"
+"Where initialization begins:\n"
+"- patreon update (blog/patrons)\n"
+"- mods if needed?"
+msgstr ""
+
+#: prefabs/screens/splashScreen_screen_A1.tscn
+msgid "TEXT_DISCLAIMER"
+msgstr ""
+"Tất cả các sự kiện, nhân vật trong cậu chuyện đều là viễn tưởng.\n"
+"\n"
+"Tất cả các nhân vật trong câu chuyện đều 18+"
+
+#: prefabs/screens/splashScreen_screen_A1.tscn
+msgid "[CTC_LABEL]"
+msgstr "[BẤM CHUỘT TRÁI ĐỂ TIẾP TỤC]"
+
+#: prefabs/screens/settings_screen.tscn
+msgid "PAGE_AUDIO"
+msgstr "ÂM THANH"
+
+#: prefabs/screens/settings_screen.tscn
+msgid "PAGE_VISUAL"
+msgstr "ĐỒ HỌA"
+
+#: prefabs/screens/settings_screen.tscn
+msgid "PAGE_GAMEPLAY"
+msgstr "GAMEPLAY"
+
+#: prefabs/screens/settings_screen.tscn core/scripts/screen_settings.gd
+msgid "OPTION_HELPHOVER_DESCRIPTION"
+msgstr "[center]Di chuột lên cài đặt để được giải thích~"
+
+#: prefabs/screens/settings_screen.tscn
+msgid "BUTTON_RESET_TO_DEFAULT"
+msgstr "CHUYỂN VỀ BAN ĐẦU"
+
+#: prefabs/screens/settings_screen.tscn
+msgid "BUTTON_RETURN"
+msgstr "TRỞ VỀ"
+
+#: core/scripts/setup_audioSlider.gd
+msgid "AUDIO_MUTED"
+msgstr "TẮT TIẾNG"
+
+#: core/scripts/global_persistentData.gd
+msgid "INTRO_LINES1"
+msgstr ""
+"Đây có phải là\n"
+"một Friday Night Funkin' Mod?"
+
+#: core/scripts/global_persistentData.gd
+msgid "INTRO_LINES2"
+msgstr ""
+"Cha nội NC\n"
+"Bắt tôi dịch mấy dòng giải thích"
+
+#: core/scripts/global_persistentData.gd
+msgid "INTRO_LINES3"
+msgstr ""
+"Cuối cùng\n"
+"0.3 cũng ra."
+
+#: core/scripts/global_persistentData.gd
+msgid "INTRO_LINES4"
+msgstr ""
+"Tôi mong rằng\n"
+"game không lag máy bạn."
+
+#: core/scripts/global_persistentData.gd
+msgid "INTRO_LINES5"
+msgstr ""
+"Tiếp tục\n"
+"Cày game"
+
+#: core/scripts/global_persistentData.gd
+msgid "DAY_SUNDAY"
+msgstr "Chủ Nhật"
+
+#: core/scripts/global_persistentData.gd
+msgid "DAY_MONDAY"
+msgstr "Thứ 2"
+
+#: core/scripts/global_persistentData.gd
+msgid "DAY_TUESDAY"
+msgstr "Thứ 3"
+
+#: core/scripts/global_persistentData.gd
+msgid "DAY_WEDNESDAY"
+msgstr "Thứ 4"
+
+#: core/scripts/global_persistentData.gd
+msgid "DAY_THURSDAY"
+msgstr "Thứ 5"
+
+#: core/scripts/global_persistentData.gd
+msgid "DAY_FRIDAY"
+msgstr "Thứ 6"
+
+#: core/scripts/global_persistentData.gd
+msgid "DAY_SATURDAY"
+msgstr "Thứ 7"
+
+#: core/scripts/global_persistentData.gd
+msgid "MONTH_JANUARY"
+msgstr "Tháng 1"
+
+#: core/scripts/global_persistentData.gd
+msgid "MONTH_FEBRUARY"
+msgstr "Tháng 2"
+
+#: core/scripts/global_persistentData.gd
+msgid "MONTH_MARCH"
+msgstr "Tháng 3"
+
+#: core/scripts/global_persistentData.gd
+msgid "MONTH_APRIL"
+msgstr "Tháng 4"
+
+#: core/scripts/global_persistentData.gd
+msgid "MONTH_MAY"
+msgstr "Tháng 5"
+
+#: core/scripts/global_persistentData.gd
+msgid "MONTH_JUNE"
+msgstr "Tháng 6"
+
+#: core/scripts/global_persistentData.gd
+msgid "MONTH_JULY"
+msgstr "Tháng 7"
+
+#: core/scripts/global_persistentData.gd
+msgid "MONTH_AUGUST"
+msgstr "Tháng 8"
+
+#: core/scripts/global_persistentData.gd
+msgid "MONTH_SEPTEMBER"
+msgstr "Tháng 9"
+
+#: core/scripts/global_persistentData.gd
+msgid "MONTH_OCTOBER"
+msgstr "Tháng 10"
+
+#: core/scripts/global_persistentData.gd
+msgid "MONTH_NOVEMBER"
+msgstr "Tháng 11"
+
+#: core/scripts/global_persistentData.gd
+msgid "MONTH_DECEMBER"
+msgstr "Tháng 12"
+
+#: core/scripts/global_persistentData.gd
+msgid "OPTION_WINDOWED"
+msgstr "Ô Cửa Sổ"
+
+#: core/scripts/global_persistentData.gd
+msgid "OPTION_FULLSCREEN"
+msgstr "Toàn Màn Hình"
+
+#: core/scripts/global_persistentData.gd
+msgid "OPTION_MAXIMIZED"
+msgstr "Phóng to hết cỡ"
+
+#: core/scripts/global_persistentData.gd
+msgid "OPTION_24_HOUR"
+msgstr "24 H"
+
+#: core/scripts/global_persistentData.gd
+msgid "OPTION_12_HOUR"
+msgstr "12 H"
+
+#: core/scripts/global_persistentData.gd
+msgid "OPTION_DISABLED"
+msgstr "Tắt"
+
+#: core/scripts/global_persistentData.gd
+msgid "OPTION_ENABLED"
+msgstr "Bật"
+
+#: core/scripts/global_persistentData.gd
+msgid "VERSION"
+msgstr "BẢN"
+
+#: core/scripts/global_persistentData.gd
+msgid "ALL_RIGHTS_RESERVED"
+msgstr "Mọi quyền được bảo lưu."
+
+#: core/scripts/global_persistentData.gd
+msgid "AUDIO_MASTERVOLUME_DESC"
+msgstr ""
+"[b]Điều chỉnh âm lượng tông thể.[/b]\n"
+"\n"
+"Điều chỉnh tổng thể âm thanh trong game."
+
+#: core/scripts/global_persistentData.gd
+msgid "AUDIO_MUSICVOLUME_DESC"
+msgstr ""
+"[b]Điều chỉnh âm lượng âm nhạc.[/b]\n"
+"\n"
+"Tự hiểu nhé mấy bạn :))"
+
+#: core/scripts/global_persistentData.gd
+msgid "AUDIO_AMBIENCEVOLUME_DESC"
+msgstr ""
+"[b]Điều chỉnh âm thanh của thành phố.[/b]\n"
+"\n"
+"Bạn có thích tiếng động của thành phô hơn là nhạc? Vậy hãy điều chỉnh tại đây."
+
+#: core/scripts/global_persistentData.gd
+msgid "AUDIO_SFXVOLUME_DESC"
+msgstr ""
+"[b]Điều chỉnh SFX .[/b]\n"
+"\n"
+"Điều chỉnh hiệu ứng âm thanh khi bấm vào UI ở đây."
+
+#: core/scripts/global_persistentData.gd
+msgid "AUDIO_DIALOGUEVOLUME_DESC"
+msgstr ""
+"[b]Điều chỉnh giọng nói.[/b]\n"
+"\n"
+"Điều chỉnh giọng nói của các nhân vật ở đây."
+
+#: core/scripts/global_persistentData.gd
+msgid "VISUAL_WINDOWMODE_DESC"
+msgstr ""
+"[b]Đặt game ở chế độ Ô Cửa Sổ.[/b]\n"
+"\n"
+"Tự hiểu :))"
+
+#: core/scripts/global_persistentData.gd
+msgid "VISUAL_MONOCHROMEFILTER_DESC"
+msgstr ""
+"[b]Đặt game ở chế độ Đơn Sắc.[/b]\n"
+"\n"
+"Khuyến khích dùng nếu người chơi muốn quay lại kiểu nhìn của 0.2."
+
+#: core/scripts/global_persistentData.gd
+msgid "GAMEPLAY_LANGUAGEINTERFACE_DESC"
+msgstr ""
+"[b]Chuyển ngôn ngữ cho dao diện.[/b]\n"
+"\n"
+"Cha nội đang đọc dòng chữ này đó."
+
+#: core/scripts/global_persistentData.gd
+msgid "GAMEPLAY_HOURFORMAT_DESC"
+msgstr ""
+"[b]Chuyển định dạng thời gian trong game.[/b]\n"
+"\n"
+"Mấy giờ rồi mà chưa ngủ hả mấy chàng trai? :))"
+
+#: core/scripts/screen_settings.gd
+msgid "CONFIRMATION_RESET_DEFAULT_TITLE"
+msgstr "Cài đặt lại ban đầu?"
+
+#: core/scripts/screen_settings.gd
+msgid "CONFIRMATION_RESET_DEFAULT_DESC"
+msgstr ""
+"Lựa chọn này sẽ chuyển đổi mọi thứ về ban đầu.\n"
+"[font_size=23]Trừ ngôn ngữ và chế độ màn hình.[/font_size]"
+
+#: core/scripts/screen_settings.gd
+msgid "CONFIRMATION_CONFIRM"
+msgstr "OK"
+
+#: core/scripts/screen_settings.gd
+msgid "CONFIRMATION_CANCEL"
+msgstr "HỦY"
+
+#: prefabs/screens/mainMenu_newGame.tscn
+msgid "NEWGAME_MODE1"
+msgstr "CHẾ ĐỘ CỐT TRUYỆN"
+
+#: prefabs/screens/mainMenu_newGame.tscn
+msgid "NEWGAME_DESC1"
+msgstr "\"Một lá thư đến từ bố?\""
+
+#: prefabs/screens/mainMenu_newGame.tscn
+msgid "NEWGAME_MODE2"
+msgstr "CHẾ ĐỘ SANDBOX"
+
+#: prefabs/screens/mainMenu_newGame.tscn
+msgid "NEWGAME_DESC2"
+msgstr "Khám phá theo tiến độ của bạn, chúc vui vẻ~"
+
+#: prefabs/screens/settings_screenAudio.tscn
+msgid "LABEL_VOLUME"
+msgstr "Âm Thanh"
+
+#: prefabs/screens/settings_screenAudio.tscn
+msgid "◈ VOLUME_MASTER"
+msgstr "◈ Âm Lượng Tổng Thể"
+
+#: prefabs/screens/settings_screenAudio.tscn
+msgid "◈ VOLUME_MUSIC"
+msgstr "◈ Âm Lượng Nhạc"
+
+#: prefabs/screens/settings_screenAudio.tscn
+msgid "◈ VOLUME_AMBIENCE"
+msgstr "◈ Âm Lượng Tiếng Động"
+
+#: prefabs/screens/settings_screenAudio.tscn
+msgid "◈ VOLUME_SFX"
+msgstr "◈ Âm Lượng SFX"
+
+#: prefabs/screens/settings_screenAudio.tscn
+msgid "◈ VOLUME_DIALOGUE"
+msgstr "◈ Âm Lượng Giọng Nói"
+
+#: prefabs/screens/settings_screenGameplay.tscn
+msgid "LABEL_LANGUAGE"
+msgstr "LANGUAGE"
+
+#: prefabs/screens/settings_screenGameplay.tscn
+msgid "◈ LANGUAGE_INTERFACE"
+msgstr "◈ Dao Diện"
+
+#: prefabs/screens/settings_screenGameplay.tscn
+msgid "LABEL_GAMEPLAY"
+msgstr "GAMEPLAY"
+
+#: prefabs/screens/settings_screenGameplay.tscn
+msgid "◈ GAMEPLAY_HOURFORMAT"
+msgstr "◈ Định Dạng Thời GIan"
+
+#: prefabs/screens/settings_screenVisual.tscn
+msgid "LABEL_DISPLAY"
+msgstr "MÀN HÌNH"
+
+#: prefabs/screens/settings_screenVisual.tscn
+msgid "◈ MODE_WINDOW"
+msgstr "◈ Chế độ Ô Cửa Sổ"
+
+#: prefabs/screens/settings_screenVisual.tscn
+msgid "LABEL_GRAPHICS"
+msgstr "Đồ Họa"
+
+#: prefabs/screens/settings_screenVisual.tscn
+msgid "◈ FILTER_MONOCHROME"
+msgstr "◈ Filter Đơn Sắc"
+
+#~ msgid ""
+#~ "[b]Adjust the music volume.[/b]\n"
+#~ "\n"
+#~ "This adjust the music in the game...! Aren't this self-explanatory enough?\n"
+#~ "\n"
+#~ "Here! Let me help you:\n"
+#~ "[url]https://dictionary.cambridge.org/dictionary/english/adjust[/url]"
+#~ msgstr ""
+#~ "[b]Adjust the music volume.[/b]\n"
+#~ "\n"
+#~ "This adjusts the music in the game... Isn't this self-explanatory enough?\n"
+#~ "\n"
+#~ "Here! Let me help you:\n"
+#~ "[url]https://dictionary.cambridge.org/dictionary/english/adjust[/url]"
+
+#~ msgid ""
+#~ "[b]Set the game's window mode.[/b]\n"
+#~ "\n"
+#~ "Making the game to fully taking your monitor's space or you can move it "
+#~ "around~"
+#~ msgstr ""
+#~ "[b]Set the game's window mode.[/b]\n"
+#~ "\n"
+#~ "Makes the game fully use your monitor or make it a window that you can move "
+#~ "around~"
+
+#~ msgid "PROCEED"
+#~ msgstr "Proceed"
+
+#~ msgid "CANCEL"
+#~ msgstr "Cancel"

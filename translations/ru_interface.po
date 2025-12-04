@@ -1,0 +1,566 @@
+# LANGUAGE translation for Living In Viellci for the following files:
+# res://prefabs/screens/mainMenu_screen.tscn
+# res://prefabs/screens/splashScreen_screen_A1.tscn
+# res://prefabs/screens/settings_screen.tscn
+# res://prefabs/screens/settings_screenAudio.tscn
+# res://prefabs/screens/settings_screenGameplay.tscn
+# res://prefabs/screens/settings_screenVisual.tscn
+# res://core/scripts/setup_audioSlider.gd
+# res://core/scripts/global_persistentData.gd
+# res://core/scripts/screen_settingsAudio.gd
+# res://core/scripts/screen_settingsDisplay.gd
+# res://core/scripts/screen_settingsGameplay.gd
+# res://core/scripts/setup_optionCycler.gd
+# res://core/scripts/screen_settings.gd
+# res://prefabs/screens/mainMenu_newGame.tscn
+#
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Living In Viellci\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.8\n"
+
+#: prefabs/screens/mainMenu_screen.tscn
+msgid "DEV_POST"
+msgstr "СООБЩЕНИЯ РАЗРАБОТЧИКОВ"
+
+#: prefabs/screens/mainMenu_screen.tscn
+msgid "▰ ▱ ▱ ▱ ▱"
+msgstr ""
+
+#: prefabs/screens/mainMenu_screen.tscn
+msgid "BUTTON_NEW_GAME"
+msgstr "НОВАЯ ИГРА"
+
+#: prefabs/screens/mainMenu_screen.tscn
+msgid "BUTTON_LOAD_GAME"
+msgstr "ЗАГРУЗИТЬ"
+
+#: prefabs/screens/mainMenu_screen.tscn
+msgid "BUTTON_SETTINGS"
+msgstr "НАСТРОЙКИ"
+
+#: prefabs/screens/mainMenu_screen.tscn
+msgid "BUTTON_EXTRAS"
+msgstr "ЕЩЁ"
+
+#: prefabs/screens/mainMenu_screen.tscn
+msgid "BUTTON_QUIT"
+msgstr "ВЫХОД"
+
+#: prefabs/screens/splashScreen_screen_A1.tscn
+msgid ""
+"OPENING ANIMATION FIRST\n"
+"(With it's own audio and stuff)\n"
+"Where initialization begins:\n"
+"- patreon update (blog/patrons)\n"
+"- mods if needed?"
+msgstr ""
+
+#: prefabs/screens/splashScreen_screen_A1.tscn
+msgid "TEXT_DISCLAIMER"
+msgstr ""
+"Все имена, персонажи, события и происшествия, описанные в этой игре, "
+"являются вымышленными.\n"
+"\n"
+"Всем персонажам этой игры больше 18 лет."
+
+#: prefabs/screens/splashScreen_screen_A1.tscn
+msgid "[CTC_LABEL]"
+msgstr "[НАЖМИТЕ, ЧТОБЫ ПРОДОЛЖИТЬ]"
+
+#: prefabs/screens/settings_screen.tscn
+msgid "PAGE_AUDIO"
+msgstr "АУДИО"
+
+#: prefabs/screens/settings_screen.tscn
+msgid "PAGE_VISUAL"
+msgstr "ВИЗУАЛ"
+
+#: prefabs/screens/settings_screen.tscn
+msgid "PAGE_GAMEPLAY"
+msgstr "ИГРОВОЙ ПРОЦЕСС"
+
+#: prefabs/screens/settings_screen.tscn core/scripts/screen_settings.gd
+msgid "OPTION_HELPHOVER_DESCRIPTION"
+msgstr ""
+"[center]Наведите курсор на опции, которые вы хотите, чтобы я объяснил~"
+
+#: prefabs/screens/settings_screen.tscn
+msgid "BUTTON_RESET_TO_DEFAULT"
+msgstr "СБРОС НАСТРОЕК"
+
+#: prefabs/screens/settings_screen.tscn
+msgid "BUTTON_RETURN"
+msgstr "ВЕРНУТСЯ"
+
+#: core/scripts/setup_audioSlider.gd
+msgid "AUDIO_MUTED"
+msgstr "МУТ"
+
+#: core/scripts/global_persistentData.gd
+msgid "INTRO_LINES1"
+msgstr ""
+"ЭТО\n"
+" Мод Веселой Пятницы ??"
+
+#: core/scripts/global_persistentData.gd
+msgid "INTRO_LINES2"
+msgstr ""
+"Ох смотри!\n"
+"Текст-заполнитель! А зачем он?"
+
+#: core/scripts/global_persistentData.gd
+msgid "INTRO_LINES3"
+msgstr ""
+"Мне это так нравится\n"
+"Что облизываю пятачки разработчика:)"
+
+#: core/scripts/global_persistentData.gd
+msgid "INTRO_LINES4"
+msgstr ""
+"Надеюсь, твое устройство\n"
+"примет вызов с достоинством"
+
+#: core/scripts/global_persistentData.gd
+msgid "INTRO_LINES5"
+msgstr ""
+"Не отставай\n"
+"Работа не ждет...Отдохну 5 минут)"
+
+#: core/scripts/global_persistentData.gd
+msgid "DAY_SUNDAY"
+msgstr "Воскресенье"
+
+#: core/scripts/global_persistentData.gd
+msgid "DAY_MONDAY"
+msgstr "Понедельник"
+
+#: core/scripts/global_persistentData.gd
+msgid "DAY_TUESDAY"
+msgstr "Вторник"
+
+#: core/scripts/global_persistentData.gd
+msgid "DAY_WEDNESDAY"
+msgstr "Среда"
+
+#: core/scripts/global_persistentData.gd
+msgid "DAY_THURSDAY"
+msgstr "Четверг"
+
+#: core/scripts/global_persistentData.gd
+msgid "DAY_FRIDAY"
+msgstr "Пятница"
+
+#: core/scripts/global_persistentData.gd
+msgid "DAY_SATURDAY"
+msgstr "Суббота"
+
+#: core/scripts/global_persistentData.gd
+msgid "MONTH_JANUARY"
+msgstr "Январь"
+
+#: core/scripts/global_persistentData.gd
+msgid "MONTH_FEBRUARY"
+msgstr "Февраль"
+
+#: core/scripts/global_persistentData.gd
+msgid "MONTH_MARCH"
+msgstr "Март"
+
+#: core/scripts/global_persistentData.gd
+msgid "MONTH_APRIL"
+msgstr "Апрель"
+
+#: core/scripts/global_persistentData.gd
+msgid "MONTH_MAY"
+msgstr "Май"
+
+#: core/scripts/global_persistentData.gd
+msgid "MONTH_JUNE"
+msgstr "Июнь"
+
+#: core/scripts/global_persistentData.gd
+msgid "MONTH_JULY"
+msgstr "Июль"
+
+#: core/scripts/global_persistentData.gd
+msgid "MONTH_AUGUST"
+msgstr "Август"
+
+#: core/scripts/global_persistentData.gd
+msgid "MONTH_SEPTEMBER"
+msgstr "Сентябрь"
+
+#: core/scripts/global_persistentData.gd
+msgid "MONTH_OCTOBER"
+msgstr "Октябрь"
+
+#: core/scripts/global_persistentData.gd
+msgid "MONTH_NOVEMBER"
+msgstr "Ноябрь"
+
+#: core/scripts/global_persistentData.gd
+msgid "MONTH_DECEMBER"
+msgstr "Декабрь"
+
+#: core/scripts/global_persistentData.gd
+msgid "OPTION_WINDOWED"
+msgstr "Оконный"
+
+#: core/scripts/global_persistentData.gd
+msgid "OPTION_FULLSCREEN"
+msgstr "Полноэкранный"
+
+#: core/scripts/global_persistentData.gd
+msgid "OPTION_MAXIMIZED"
+msgstr "Максимально расширенный"
+
+#: core/scripts/global_persistentData.gd
+msgid "OPTION_24_HOUR"
+msgstr "24 Часа"
+
+#: core/scripts/global_persistentData.gd
+msgid "OPTION_12_HOUR"
+msgstr "12 Часов"
+
+#: core/scripts/global_persistentData.gd
+msgid "OPTION_DISABLED"
+msgstr "Отключенный"
+
+#: core/scripts/global_persistentData.gd
+msgid "OPTION_ENABLED"
+msgstr "Включенный"
+
+#: core/scripts/global_persistentData.gd
+msgid "VERSION"
+msgstr "ВЕРСИЯ"
+
+#: core/scripts/global_persistentData.gd
+msgid "ALL_RIGHTS_RESERVED"
+msgstr "Все права защищены."
+
+#: core/scripts/global_persistentData.gd
+msgid "AUDIO_MASTERVOLUME_DESC"
+msgstr ""
+"[b]Отрегулируйте основную громкость игры.[/b]\n"
+"\n"
+"Отец всех громкостей! Вся остальная громкость зависит от него..."
+
+#: core/scripts/global_persistentData.gd
+msgid "AUDIO_MUSICVOLUME_DESC"
+msgstr ""
+"[b]Отрегулируйте громкость музыки.[/b]\n"
+"\n"
+"Это позволяет настроить музыку в игре...! Разве это не говорит само за себя "
+"Достаточно?\n"
+"\n"
+"Вот! Позвольте мне помочь вам:\n"
+"[url]https://en.openrussian.org/ru/регули'ровать--отрегули'ровать[/url]"
+
+#: core/scripts/global_persistentData.gd
+msgid "AUDIO_AMBIENCEVOLUME_DESC"
+msgstr ""
+"[b]Отрегулируйте громкость звука.[/b]\n"
+"\n"
+"Хм... вы предпочитаете атмосферу городского пейзажа или музыку? Что бы это "
+"ни было, измените обстановку здесь!"
+
+#: core/scripts/global_persistentData.gd
+msgid "AUDIO_SFXVOLUME_DESC"
+msgstr ""
+"[b]Отрегулируйте громкость звуковых эффектов.[/b]\n"
+"\n"
+"Звуковые эффекты! Ну, знаете... те, что звучат, когда вы на что-то "
+"нажимаете?"
+
+#: core/scripts/global_persistentData.gd
+msgid "AUDIO_DIALOGUEVOLUME_DESC"
+msgstr ""
+"[b] Отрегулируйте громкость диалога.[/b]\n"
+"\n"
+"Звуковые сигналы и голосовые линии регулируются этим ползунком! Вам не "
+"нравятся наши голоса?.. не так ли?\""
+
+#: core/scripts/global_persistentData.gd
+msgid "VISUAL_WINDOWMODE_DESC"
+msgstr ""
+"[b]Установите режим окна игры.[/b]\n"
+"\n"
+"Игра будет полностью занимать ваш монитор или станет окном, которое можно "
+"перемещать~"
+
+#: core/scripts/global_persistentData.gd
+msgid "VISUAL_MONOCHROMEFILTER_DESC"
+msgstr ""
+"[b]Сделайте всю игру монохромной.[/b]\n"
+"\n"
+"ОООХОХОХО! Обратно в старые добрые времена, а?"
+
+#: core/scripts/global_persistentData.gd
+msgid "GAMEPLAY_LANGUAGEINTERFACE_DESC"
+msgstr ""
+"[b]Измените язык интерфейса.[/b]\n"
+"\n"
+"В данный момент вы читаете интерфейс!"
+
+#: core/scripts/global_persistentData.gd
+msgid "GAMEPLAY_HOURFORMAT_DESC"
+msgstr ""
+"[b]Установите формат времени в игре.[/b]\n"
+"\n"
+"Хммм 4:00... Я уверен, что сейчас время обеда или сна. Как вы думаете?"
+
+#: core/scripts/screen_settings.gd
+msgid "CONFIRMATION_RESET_DEFAULT_TITLE"
+msgstr "Сделать по умолчанию?"
+
+#: core/scripts/screen_settings.gd
+msgid "CONFIRMATION_RESET_DEFAULT_DESC"
+msgstr ""
+"Это приведет к сбросу всех настроек до значений по умолчанию.\n"
+"[font_size=23]Кроме настроек окон и языка.[/font_size]"
+
+#: core/scripts/screen_settings.gd
+msgid "CONFIRMATION_CONFIRM"
+msgstr "ПОДТВЕРДИТЬ"
+
+#: core/scripts/screen_settings.gd
+msgid "CONFIRMATION_CANCEL"
+msgstr "ОТМЕНИТЬ"
+
+#: prefabs/screens/mainMenu_newGame.tscn
+msgid "NEWGAME_MODE1"
+msgstr "РЕЖИМ ИСТОРИИ"
+
+#: prefabs/screens/mainMenu_newGame.tscn
+msgid "NEWGAME_DESC1"
+msgstr ""
+"Письмо от моего отца?\n"
+"Прохождение основного сюжета это тоже важно... ПРАВДА, в нем много "
+"интересного...ПОВЕРЬ МНЕ!!!"
+
+#: prefabs/screens/mainMenu_newGame.tscn
+msgid "NEWGAME_MODE2"
+msgstr "РЕЖИМ ПЕСОЧНИЦЫ"
+
+#: prefabs/screens/mainMenu_newGame.tscn
+msgid "NEWGAME_DESC2"
+msgstr ""
+"Исследуйте мир в своем собственном темпе, экспериментируйте с ним! Никаких "
+"обязательств~"
+
+#: prefabs/screens/settings_screenAudio.tscn
+msgid "LABEL_VOLUME"
+msgstr "ОБЪЕМ"
+
+#: prefabs/screens/settings_screenAudio.tscn
+msgid "◈ VOLUME_MASTER"
+msgstr "◈ Общая Громкость"
+
+#: prefabs/screens/settings_screenAudio.tscn
+msgid "◈ VOLUME_MUSIC"
+msgstr "◈ Громкость Музыки"
+
+#: prefabs/screens/settings_screenAudio.tscn
+msgid "◈ VOLUME_AMBIENCE"
+msgstr "◈ Фоновые Звуки"
+
+#: prefabs/screens/settings_screenAudio.tscn
+msgid "◈ VOLUME_SFX"
+msgstr "◈ Громкость Звуковых Эффектов"
+
+#: prefabs/screens/settings_screenAudio.tscn
+msgid "◈ VOLUME_DIALOGUE"
+msgstr "◈ Громкость Диалога"
+
+#: prefabs/screens/settings_screenGameplay.tscn
+msgid "LABEL_LANGUAGE"
+msgstr "ЯЗЫК"
+
+#: prefabs/screens/settings_screenGameplay.tscn
+msgid "◈ LANGUAGE_INTERFACE"
+msgstr "◈ Интерфейс"
+
+#: prefabs/screens/settings_screenGameplay.tscn
+msgid "LABEL_GAMEPLAY"
+msgstr "ИГРОВОЙ ПРОЦЕСС"
+
+#: prefabs/screens/settings_screenGameplay.tscn
+msgid "◈ GAMEPLAY_HOURFORMAT"
+msgstr "◈ Часовой Формат"
+
+#: prefabs/screens/settings_screenVisual.tscn
+msgid "LABEL_DISPLAY"
+msgstr "ДИСПЛЕЙ"
+
+#: prefabs/screens/settings_screenVisual.tscn
+msgid "◈ MODE_WINDOW"
+msgstr "◈ Оконный Режим"
+
+#: prefabs/screens/settings_screenVisual.tscn
+msgid "LABEL_GRAPHICS"
+msgstr "ГРАФИКА"
+
+#: prefabs/screens/settings_screenVisual.tscn
+msgid "◈ FILTER_MONOCHROME"
+msgstr "◈ Монохромный Фильтр"
+
+#~ msgid ""
+#~ "All names, characters, events and incidents portrayed in this game are "
+#~ "fictitious.\n"
+#~ "\n"
+#~ "All characters in this game are over 18 years old."
+#~ msgstr ""
+#~ "Все имена, персонажи, события и инциденты, описанные в этой игре, "
+#~ "являются выдуманными.\n"
+#~ "\n"
+#~ "Всем персонажам в этой игре больше 18 лет."
+
+#~ msgid "[center]Hover which options you want me to explain~"
+#~ msgstr ""
+#~ "[center]Наведите курсор на то, какие параметры вы хотите, чтобы я "
+#~ "объяснил ~"
+
+#~ msgid ""
+#~ "Is this\n"
+#~ "Friday Night Funkin mod??"
+#~ msgstr ""
+#~ "Является ли это\n"
+#~ "Мода на пятничный вечер в стиле Фанк??"
+
+#~ msgid ""
+#~ "Oh look!\n"
+#~ "A placeholder text!"
+#~ msgstr ""
+#~ "Ох смотри!\n"
+#~ "Текст-заполнитель!"
+
+#~ msgid ""
+#~ "I like this so much\n"
+#~ "Better than the previous one"
+#~ msgstr ""
+#~ "Мне это так нравится\n"
+#~ "Лучше, чем предыдущий"
+
+#~ msgid ""
+#~ "[b]Adjust the main volume of the game.[/b]\n"
+#~ "\n"
+#~ "The father of all volumes! All other volumes depends on him..."
+#~ msgstr ""
+#~ "[b][font_size=30]Отрегулируйте основную громкость игры.[/font_size][/b]\n"
+#~ "\n"
+#~ "Отец всех громкостей! Вся остальная громкость зависит от него..."
+
+#~ msgid ""
+#~ "[b]Adjust the music volume.[/b]\n"
+#~ "\n"
+#~ "This adjust the music in the game...! Aren't this self-explanatory "
+#~ "enough?\n"
+#~ "\n"
+#~ "Here! Let me help you:\n"
+#~ "[url]https://dictionary.cambridge.org/dictionary/english/adjust[/url]"
+#~ msgstr ""
+#~ "[b[font_size=30]]Отрегулируйте громкость музыки.[/font_size][/b]\n"
+#~ "\n"
+#~ "Это позволяет настроить музыку в игре...! Разве это не говорит само за "
+#~ "себя Достаточно?\n"
+#~ "\n"
+#~ "Вот! Позвольте мне помочь вам:\n"
+#~ "[url]https://en.openrussian.org/ru/регули'ровать--отрегули'ровать[/url]"
+
+#~ msgid ""
+#~ "[b]Adjust the ambience volume.[/b]\n"
+#~ "\n"
+#~ "Hmm... you prefer the cityscape's ambience or the music? Whatever it is, "
+#~ "adjust the ambience here!"
+#~ msgstr ""
+#~ "[b][font_size=30]Отрегулируйте громкость звука.[/font_size][/b]\n"
+#~ "\n"
+#~ "Хм... вы предпочитаете атмосферу городского пейзажа или музыку? Что бы "
+#~ "это ни было, измените обстановку здесь!"
+
+#~ msgid ""
+#~ "[b]Adjust the sound effects volume.[/b]\n"
+#~ "\n"
+#~ "The sound effects! You know... the one when you click on things?"
+#~ msgstr ""
+#~ "[b][font_size=30]Отрегулируйте громкость звуковых эффектов.[/font_size][/"
+#~ "b]\n"
+#~ "\n"
+#~ "Звуковые эффекты! Ну, знаете... такие, когда нажимаешь на предметы?"
+
+#~ msgid ""
+#~ "[b]Adjust the dialogue volume.[/b]\n"
+#~ "\n"
+#~ "Bleeps and voice lines controlled by this slider! You don't hate our "
+#~ "voices... do you?"
+#~ msgstr ""
+#~ "[b][font_size=30]Отрегулируйте громкость диалога.[/font_size][/b]\n"
+#~ "\n"
+#~ "Звуковые сигналы и голосовые линии регулируются этим ползунком! Вам не "
+#~ "нравятся наши голоса?. не так ли?"
+
+#~ msgid ""
+#~ "[b]Set the game's window mode.[/b]\n"
+#~ "\n"
+#~ "Making the game to fully taking your monitor's space or you can move it "
+#~ "around~"
+#~ msgstr ""
+#~ "[b][font_size=30]Установите оконный режим игры.[/font_size][/b]\n"
+#~ "\n"
+#~ "Сделайте так, чтобы игра полностью занимала место на вашем мониторе, или "
+#~ "вы можете переместить еевокруг~"
+
+#~ msgid ""
+#~ "[b]Set the whole game to be monochrome.[/b]\n"
+#~ "\n"
+#~ "Ooohohoho! Back to the good ol' days eh?"
+#~ msgstr ""
+#~ "[b][font_size=30]Сделайте всю игру монохромной.[/font_size][/b]\n"
+#~ "\n"
+#~ "ОООХОХОХО! Обратно в старые добрые времена, а?"
+
+#~ msgid ""
+#~ "[b]Set the in-game's hour format.[/b]\n"
+#~ "\n"
+#~ "I'm sure you can tell what's 21:00 right? Right...?"
+#~ msgstr ""
+#~ "[b][font_size=30]Установите часовой формат в игре.[/font_size][/b]\n"
+#~ "\n"
+#~ "Я уверен, ты можешь сказать, который сейчас 21:00, верно? Верно...?"
+
+#~ msgid ""
+#~ "[b]Change the interface language.[/b]\n"
+#~ "\n"
+#~ "You're currently reading the interface!"
+#~ msgstr ""
+#~ "[b][font_size=30]Измените язык интерфейса.[/font_size][/b]\n"
+#~ "\n"
+#~ "В данный момент вы читаете интерфейс!"
+
+#~ msgid "Reset to default?"
+#~ msgstr "Сброс Настроек?"
+
+#~ msgid ""
+#~ "This will reset all settings to default.\n"
+#~ "[font_size=23]Except windows and language.[/font_size]"
+#~ msgstr ""
+#~ "Это приведет к сбросу всех настроек.\n"
+#~ "[font_size=23]За исключением Windows и языка.[/font_size]"
+
+#~ msgid "PROCEED"
+#~ msgstr "Приступать"
+
+#~ msgid "CANCEL"
+#~ msgstr "Отменить"
