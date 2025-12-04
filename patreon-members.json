@@ -1,6 +1,6 @@
 {
-  "last_updated": "2025-12-04T12:57:05.142Z",
-  "total_members": 320,
+  "last_updated": "2025-12-04T18:41:02.991Z",
+  "total_members": 321,
   "members": [
     {
       "id": "hxd0XgcT0",
@@ -597,6 +597,15 @@
     {
       "id": "X0GGCtvlE",
       "name": "delay",
+      "pledge_levels": [
+        "Tourist"
+      ],
+      "is_active": "Tourist",
+      "additional_note": ""
+    },
+    {
+      "id": "hlyDpslj5",
+      "name": "Denis Sanchez",
       "pledge_levels": [
         "Tourist"
       ],
