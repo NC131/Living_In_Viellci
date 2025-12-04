@@ -1,0 +1,70 @@
+name: Fetch Patreon Posts
+
+on:
+  # Run every 6 hours
+  schedule:
+    - cron: '0 */6 * * *'
+
+  workflow_dispatch:
+
+  # Run on push to main
+  push:
+    branches: [ main ]
+
+permissions:
+  contents: write
+
+jobs:
+  fetch-posts:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.PAT_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+
+      - name: Install Node dependencies
+        run: |
+          npm install puppeteer@latest sharp@latest
+      - name: Restore ID mapping cache
+        uses: actions/cache/restore@v3
+        with:
+          path: id-mapping.json
+          key: id-mapping-stable
+          restore-keys: |
+            id-mapping-stable
+
+      - name: Fetch Patreon Posts
+        env:
+          PATREON_ACCESS_TOKEN: ${{ secrets.PATREON_ACCESS_TOKEN }}
+          PATREON_CAMPAIGN_ID: ${{ secrets.PATREON_CAMPAIGN_ID }}
+        run: |
+          node fetch-patreon.js
+      - name: Save ID mapping cache
+        uses: actions/cache/save@v3
+        if: always()
+        with:
+          path: id-mapping.json
+          key: id-mapping-stable
+
+      - name: Commit and Push if changed
+        run: |
+          git config --global user.name 'GitHub Action'
+          git config --global user.email 'action@github.com'
+
+          # Make sure id-mapping.json is NOT staged
+          git reset id-mapping.json 2>/dev/null || true
+
+          git add patreon-posts.json patreon-members.json patreon/posts/
+          if ! git diff --cached --quiet; then
+            git commit -m "Update Patreon posts [skip ci]"
+            git push origin main
+          else
+            echo "No changes to commit; skipping push."
+          fi
