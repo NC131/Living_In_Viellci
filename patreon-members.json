@@ -1,5 +1,5 @@
 {
-  "last_updated": "2025-12-04T18:41:02.991Z",
+  "last_updated": "2025-12-05T02:01:36.785Z",
   "total_members": 321,
   "members": [
     {
@@ -604,7 +604,7 @@
       "additional_note": ""
     },
     {
-      "id": "hlyDpslj5",
+      "id": "cX2m41lQN",
       "name": "Denis Sanchez",
       "pledge_levels": [
         "Tourist"
@@ -768,15 +768,6 @@
     {
       "id": "CPT3vVASa",
       "name": "Luna365",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": "Tourist",
-      "additional_note": ""
-    },
-    {
-      "id": "X6K7ZDzKL",
-      "name": "M",
       "pledge_levels": [
         "Tourist"
       ],
@@ -2179,6 +2170,15 @@
       "name": "Luscious Potato",
       "pledge_levels": [
         "Citizen"
+      ],
+      "is_active": false,
+      "additional_note": ""
+    },
+    {
+      "id": "X6K7ZDzKL",
+      "name": "M",
+      "pledge_levels": [
+        "Tourist"
       ],
       "is_active": false,
       "additional_note": ""
