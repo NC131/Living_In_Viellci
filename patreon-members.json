@@ -18,7 +18,7 @@
         "Landlord"
       ],
       "is_active": "Landlord",
-      "additional_note": "Owns: Baron foodbar"
+      "additional_note": "Baron foodbar"
     },
     {
       "id": "8AmEvUv2V",
@@ -27,7 +27,7 @@
         "Landlord"
       ],
       "is_active": "Landlord",
-      "additional_note": "Owns: Dastun last call bar"
+      "additional_note": "Dastun last call bar"
     },
     {
       "id": "AYU5cp7nQ",
@@ -36,7 +36,7 @@
         "Landlord"
       ],
       "is_active": "Landlord",
-      "additional_note": "Owns: Diteol toothpaste ads"
+      "additional_note": "Diteol toothpaste ads"
     },
     {
       "id": "J2EdId74C",
@@ -45,7 +45,7 @@
         "Landlord"
       ],
       "is_active": "Landlord",
-      "additional_note": "Owns: Enhol electronic"
+      "additional_note": "Enhol electronic"
     },
     {
       "id": "ykHsk0xyK",
@@ -63,7 +63,7 @@
         "Landlord"
       ],
       "is_active": "Landlord",
-      "additional_note": "Owns: Voidling bathhouse"
+      "additional_note": "Voidling bathhouse"
     },
     {
       "id": "LdXSIRhSd",
@@ -73,7 +73,7 @@
         "Citizen"
       ],
       "is_active": "Landlord",
-      "additional_note": "Owns: John salon"
+      "additional_note": "John salon"
     },
     {
       "id": "uJTkgIBRy",
@@ -83,7 +83,7 @@
         "Citizen"
       ],
       "is_active": "Landlord",
-      "additional_note": "Owns: Campbell Defense Dynamic"
+      "additional_note": "Campbell Defense Dynamic"
     },
     {
       "id": "9i1IZdJtz",
@@ -92,7 +92,7 @@
         "Landlord"
       ],
       "is_active": "Landlord",
-      "additional_note": "Owns: SalmonCare Pharma"
+      "additional_note": "SalmonCare Pharma"
     },
     {
       "id": "MLJf5BZwV",
@@ -101,7 +101,7 @@
         "Landlord"
       ],
       "is_active": "Landlord",
-      "additional_note": "Owns: Shades casino"
+      "additional_note": "Shades casino"
     },
     {
       "id": "gLrV8tYHA",
@@ -119,7 +119,7 @@
         "Landlord"
       ],
       "is_active": "Landlord",
-      "additional_note": "Owns: Guy's clothing store"
+      "additional_note": "Guy's clothing store"
     },
     {
       "id": "1WmsPEXvZ",
@@ -1279,7 +1279,7 @@
         "Landlord"
       ],
       "is_active": false,
-      "additional_note": "Owns: Game Machine arcade"
+      "additional_note": "Game Machine arcade"
     },
     {
       "id": "9uSurr2N4",
@@ -2091,7 +2091,7 @@
         "Landlord"
       ],
       "is_active": false,
-      "additional_note": "Owns: Bells of love cafe"
+      "additional_note": "Bells of love cafe"
     },
     {
       "id": "EAgQhPhcu",
@@ -2436,7 +2436,7 @@
         "Landlord"
       ],
       "is_active": false,
-      "additional_note": "Owns: Raven's Breadcrumbs bakery"
+      "additional_note": "Raven's Breadcrumbs bakery"
     },
     {
       "id": "UPfoCPTnA",
@@ -2445,7 +2445,7 @@
         "Landlord"
       ],
       "is_active": false,
-      "additional_note": "Owns: Reaves restaurant"
+      "additional_note": "Reaves restaurant"
     },
     {
       "id": "xFF1p2ZCh",
@@ -2500,7 +2500,7 @@
         "Citizen"
       ],
       "is_active": false,
-      "additional_note": "Owns: Ryu's HARDware store"
+      "additional_note": "Ryu's HARDware store"
     },
     {
       "id": "EKPBrK47d",
@@ -2699,7 +2699,7 @@
         "Landlord"
       ],
       "is_active": false,
-      "additional_note": "Owns: Trantgod-old record store"
+      "additional_note": "Trantgod-old record store"
     },
     {
       "id": "9vGEErDZF",
@@ -2744,7 +2744,7 @@
         "Landlord"
       ],
       "is_active": false,
-      "additional_note": "Owns: Vars-Tech apparatus"
+      "additional_note": "Vars-Tech apparatus"
     },
     {
       "id": "u6Wsm1VWv",
@@ -2773,7 +2773,7 @@
         "Tourist"
       ],
       "is_active": false,
-      "additional_note": "Owns: Sozu's Armoury store"
+      "additional_note": "Sozu's Armoury store"
     },
     {
       "id": "IR4DRYTkr",
@@ -2801,7 +2801,7 @@
         "Citizen"
       ],
       "is_active": false,
-      "additional_note": "Owns: Ori-gami crafts and gifts store"
+      "additional_note": "Ori-gami crafts and gifts store"
     },
     {
       "id": "bns9hmPVU",
