@@ -1,6 +1,6 @@
 {
-  "last_updated": "2025-12-09T02:01:26.195Z",
-  "total_members": 321,
+  "last_updated": "2025-12-09T06:41:04.344Z",
+  "total_members": 322,
   "members": [
     {
       "id": "hxd0XgcT0",
@@ -605,7 +605,7 @@
       "additional_note": ""
     },
     {
-      "id": "eeEIGxDCq",
+      "id": "kVGEWYkXn",
       "name": "Denis Sanchez",
       "pledge_levels": [
         "Tourist"
@@ -931,6 +931,15 @@
     {
       "id": "3KaOi3f1R",
       "name": "The Air",
+      "pledge_levels": [
+        "Tourist"
+      ],
+      "is_active": "Tourist",
+      "additional_note": ""
+    },
+    {
+      "id": "EkfN08Axb",
+      "name": "ThrobsGoblin",
       "pledge_levels": [
         "Tourist"
       ],
