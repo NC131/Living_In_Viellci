@@ -1,6 +1,6 @@
 {
-  "last_updated": "2025-12-09T18:36:03.172Z",
-  "total_members": 322,
+  "last_updated": "2025-12-10T02:03:38.174Z",
+  "total_members": 323,
   "members": [
     {
       "id": "hxd0XgcT0",
@@ -332,15 +332,6 @@
       "additional_note": ""
     },
     {
-      "id": "FblLz1rJL",
-      "name": "Jorge Luis Carreras Perez Jr",
-      "pledge_levels": [
-        "Citizen"
-      ],
-      "is_active": "Citizen",
-      "additional_note": ""
-    },
-    {
       "id": "LAztJHwBu",
       "name": "KetoRocks Gaming",
       "pledge_levels": [
@@ -605,7 +596,7 @@
       "additional_note": ""
     },
     {
-      "id": "g5KnUtRBW",
+      "id": "ZHj3abT5p",
       "name": "Denis Sanchez",
       "pledge_levels": [
         "Tourist"
@@ -652,6 +643,15 @@
     {
       "id": "b0lX59EwD",
       "name": "Fabio Bellavia",
+      "pledge_levels": [
+        "Tourist"
+      ],
+      "is_active": "Tourist",
+      "additional_note": ""
+    },
+    {
+      "id": "2KcTN7iSO",
+      "name": "Felipe de Souza",
       "pledge_levels": [
         "Tourist"
       ],
@@ -1925,6 +1925,15 @@
     {
       "id": "lqZBuJNcp",
       "name": "Jonathan Maison",
+      "pledge_levels": [
+        "Citizen"
+      ],
+      "is_active": false,
+      "additional_note": ""
+    },
+    {
+      "id": "FblLz1rJL",
+      "name": "Jorge Luis Carreras Perez Jr",
       "pledge_levels": [
         "Citizen"
       ],
