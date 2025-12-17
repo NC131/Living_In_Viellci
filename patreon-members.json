@@ -1,5 +1,5 @@
 {
-  "last_updated": "2025-12-16T18:40:38.924Z",
+  "last_updated": "2025-12-17T02:00:30.819Z",
   "total_members": 326,
   "members": [
     {
@@ -704,7 +704,7 @@
       "additional_note": ""
     },
     {
-      "id": "oRm7H2T5x",
+      "id": "KlXoRsdMV",
       "name": "Kade Stevens",
       "pledge_levels": [
         "Tourist"
@@ -922,15 +922,6 @@
     {
       "id": "3KaOi3f1R",
       "name": "The Air",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": "Tourist",
-      "additional_note": ""
-    },
-    {
-      "id": "EkfN08Axb",
-      "name": "ThrobsGoblin",
       "pledge_levels": [
         "Tourist"
       ],
@@ -1453,7 +1444,7 @@
       "additional_note": ""
     },
     {
-      "id": "lR6DAiBZx",
+      "id": "Ell5Tmbz2",
       "name": "Denis Sanchez",
       "pledge_levels": [
         "Tourist"
@@ -2695,6 +2686,15 @@
     {
       "id": "pRpbFT1Ya",
       "name": "Thomas Sheahan",
+      "pledge_levels": [
+        "Tourist"
+      ],
+      "is_active": false,
+      "additional_note": ""
+    },
+    {
+      "id": "EkfN08Axb",
+      "name": "ThrobsGoblin",
       "pledge_levels": [
         "Tourist"
       ],
