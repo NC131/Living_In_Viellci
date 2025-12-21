@@ -1,6 +1,6 @@
 {
-  "last_updated": "2025-12-21T12:50:44.895Z",
-  "total_members": 326,
+  "last_updated": "2025-12-21T18:35:29.985Z",
+  "total_members": 327,
   "members": [
     {
       "id": "B3McfawEs",
@@ -714,7 +714,7 @@
       "additional_note": ""
     },
     {
-      "id": "oSF0Gh49g",
+      "id": "ZJxgESpzl",
       "name": "Kade Stevens",
       "pledge_levels": [
         "Tourist"
@@ -887,6 +887,15 @@
     {
       "id": "pcaJliy7q",
       "name": "Romantic Joker",
+      "pledge_levels": [
+        "Tourist"
+      ],
+      "is_active": "Tourist",
+      "additional_note": ""
+    },
+    {
+      "id": "UzGOmPGxF",
+      "name": "Roy",
       "pledge_levels": [
         "Tourist"
       ],
@@ -1445,7 +1454,7 @@
       "additional_note": ""
     },
     {
-      "id": "RkkhQfg5n",
+      "id": "zOF3GzPe8",
       "name": "Denis Sanchez",
       "pledge_levels": [
         "Tourist"
