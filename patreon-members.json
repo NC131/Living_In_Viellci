@@ -1,5 +1,5 @@
 {
-  "last_updated": "2025-12-23T18:39:26.045Z",
+  "last_updated": "2025-12-24T02:03:45.036Z",
   "total_members": 328,
   "members": [
     {
@@ -299,16 +299,6 @@
       "name": "Ham63",
       "pledge_levels": [
         "Citizen"
-      ],
-      "is_active": "Citizen",
-      "additional_note": ""
-    },
-    {
-      "id": "kdirMv822",
-      "name": "HOLY HANDS",
-      "pledge_levels": [
-        "Citizen",
-        "Tourist"
       ],
       "is_active": "Citizen",
       "additional_note": ""
@@ -714,7 +704,7 @@
       "additional_note": ""
     },
     {
-      "id": "KLfWuWn9E",
+      "id": "yQHBIXJek",
       "name": "Kade Stevens",
       "pledge_levels": [
         "Tourist"
@@ -903,17 +893,8 @@
       "additional_note": ""
     },
     {
-      "id": "ixG0RJFBp",
+      "id": "ja3yWt0Ud",
       "name": "Roy",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": "Tourist",
-      "additional_note": ""
-    },
-    {
-      "id": "BB6QsUoxJ",
-      "name": "s0m3per5on",
       "pledge_levels": [
         "Tourist"
       ],
@@ -1463,7 +1444,7 @@
       "additional_note": ""
     },
     {
-      "id": "7g44pJ3MW",
+      "id": "gVxniYrHs",
       "name": "Denis Sanchez",
       "pledge_levels": [
         "Tourist"
@@ -1727,6 +1708,16 @@
       "id": "YjSib5wbd",
       "name": "Hideyoshi",
       "pledge_levels": [
+        "Tourist"
+      ],
+      "is_active": false,
+      "additional_note": ""
+    },
+    {
+      "id": "kdirMv822",
+      "name": "HOLY HANDS",
+      "pledge_levels": [
+        "Citizen",
         "Tourist"
       ],
       "is_active": false,
@@ -2572,6 +2563,15 @@
       "pledge_levels": [
         "Landlord",
         "Citizen"
+      ],
+      "is_active": false,
+      "additional_note": ""
+    },
+    {
+      "id": "BB6QsUoxJ",
+      "name": "s0m3per5on",
+      "pledge_levels": [
+        "Tourist"
       ],
       "is_active": false,
       "additional_note": ""
