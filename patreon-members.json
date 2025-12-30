@@ -1,5 +1,5 @@
 {
-  "last_updated": "2025-12-30T02:06:19.394Z",
+  "last_updated": "2025-12-30T06:41:45.024Z",
   "total_members": 329,
   "members": [
     {
@@ -93,6 +93,15 @@
       ],
       "is_active": "Landlord",
       "additional_note": "Shades casino"
+    },
+    {
+      "id": "gLrV8tYHA",
+      "name": "SunFish",
+      "pledge_levels": [
+        "Landlord"
+      ],
+      "is_active": "Landlord",
+      "additional_note": ""
     },
     {
       "id": "XSah4TTC8",
@@ -587,7 +596,7 @@
       "additional_note": ""
     },
     {
-      "id": "0vmSrBYYz",
+      "id": "gf8w9bZWC",
       "name": "euirin",
       "pledge_levels": [
         "Tourist"
@@ -705,7 +714,7 @@
       "additional_note": ""
     },
     {
-      "id": "sEHPPR28l",
+      "id": "A0vZi4130",
       "name": "Kade Stevens",
       "pledge_levels": [
         "Tourist"
@@ -894,7 +903,7 @@
       "additional_note": ""
     },
     {
-      "id": "tU3uDCc6w",
+      "id": "BmkZhExX9",
       "name": "Roy",
       "pledge_levels": [
         "Tourist"
@@ -1454,7 +1463,7 @@
       "additional_note": ""
     },
     {
-      "id": "40HSWGDEy",
+      "id": "4IiON4t0s",
       "name": "Denis Sanchez",
       "pledge_levels": [
         "Tourist"
@@ -2663,15 +2672,6 @@
       "name": "SpritezUp",
       "pledge_levels": [
         "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "id": "gLrV8tYHA",
-      "name": "SunFish",
-      "pledge_levels": [
-        "Landlord"
       ],
       "is_active": false,
       "additional_note": ""
