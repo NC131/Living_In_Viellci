@@ -1,5 +1,5 @@
 {
-  "last_updated": "2025-12-31T18:37:33.745Z",
+  "last_updated": "2026-01-01T02:23:41.151Z",
   "total_members": 329,
   "members": [
     {
@@ -46,15 +46,6 @@
       ],
       "is_active": "Landlord",
       "additional_note": ""
-    },
-    {
-      "id": "QRJqxKdYR",
-      "name": "Gintaras Simkus",
-      "pledge_levels": [
-        "Landlord"
-      ],
-      "is_active": "Landlord",
-      "additional_note": "Voidling bathhouse"
     },
     {
       "id": "LdXSIRhSd",
@@ -315,15 +306,6 @@
     {
       "id": "LAztJHwBu",
       "name": "KetoRocks Gaming",
-      "pledge_levels": [
-        "Citizen"
-      ],
-      "is_active": "Citizen",
-      "additional_note": ""
-    },
-    {
-      "id": "CQFNNXHeL",
-      "name": "KiloWarrior",
       "pledge_levels": [
         "Citizen"
       ],
@@ -605,7 +587,7 @@
       "additional_note": ""
     },
     {
-      "id": "Kf9iycfpH",
+      "id": "8aSX3SE76",
       "name": "euirin",
       "pledge_levels": [
         "Tourist"
@@ -723,7 +705,7 @@
       "additional_note": ""
     },
     {
-      "id": "WTwfPWAge",
+      "id": "EgkwmbIz7",
       "name": "Kade Stevens",
       "pledge_levels": [
         "Tourist"
@@ -912,7 +894,7 @@
       "additional_note": ""
     },
     {
-      "id": "JUmH52quT",
+      "id": "bKnzfSc5p",
       "name": "Roy",
       "pledge_levels": [
         "Tourist"
@@ -1463,7 +1445,7 @@
       "additional_note": ""
     },
     {
-      "id": "ujiTCoANn",
+      "id": "3TgvGiIJD",
       "name": "Denis Sanchez",
       "pledge_levels": [
         "Tourist"
@@ -1704,6 +1686,15 @@
       ],
       "is_active": false,
       "additional_note": ""
+    },
+    {
+      "id": "QRJqxKdYR",
+      "name": "Gintaras Simkus",
+      "pledge_levels": [
+        "Landlord"
+      ],
+      "is_active": false,
+      "additional_note": "Voidling bathhouse"
     },
     {
       "id": "xrJ3ji0dF",
@@ -2055,6 +2046,15 @@
       "name": "Kiba",
       "pledge_levels": [
         "Tourist"
+      ],
+      "is_active": false,
+      "additional_note": ""
+    },
+    {
+      "id": "CQFNNXHeL",
+      "name": "KiloWarrior",
+      "pledge_levels": [
+        "Citizen"
       ],
       "is_active": false,
       "additional_note": ""
