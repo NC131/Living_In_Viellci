@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-01-02T18:37:33.697Z",
+  "last_updated": "2026-01-03T02:01:40.321Z",
   "total_members": 329,
   "members": [
     {
@@ -578,7 +578,7 @@
       "additional_note": ""
     },
     {
-      "id": "xhaPsHqdf",
+      "id": "YWts9E4kc",
       "name": "euirin",
       "pledge_levels": [
         "Tourist"
@@ -696,7 +696,7 @@
       "additional_note": ""
     },
     {
-      "id": "uFia9qIML",
+      "id": "VfNqu9klB",
       "name": "Kade Stevens",
       "pledge_levels": [
         "Tourist"
@@ -885,7 +885,7 @@
       "additional_note": ""
     },
     {
-      "id": "XLETunLln",
+      "id": "arpAlSJMY",
       "name": "Roy",
       "pledge_levels": [
         "Tourist"
@@ -977,15 +977,6 @@
     {
       "id": "HteXjR0IO",
       "name": "Wtyson",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": "Tourist",
-      "additional_note": ""
-    },
-    {
-      "id": "k27aaQA07",
-      "name": "Xargoul",
       "pledge_levels": [
         "Tourist"
       ],
@@ -1436,7 +1427,7 @@
       "additional_note": ""
     },
     {
-      "id": "c7aqACnQr",
+      "id": "OLfcDfkjR",
       "name": "Denis Sanchez",
       "pledge_levels": [
         "Tourist"
@@ -2867,6 +2858,15 @@
       ],
       "is_active": false,
       "additional_note": "Ori-gami crafts and gifts store"
+    },
+    {
+      "id": "k27aaQA07",
+      "name": "Xargoul",
+      "pledge_levels": [
+        "Tourist"
+      ],
+      "is_active": false,
+      "additional_note": ""
     },
     {
       "id": "bns9hmPVU",
