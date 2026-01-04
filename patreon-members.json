@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-01-03T18:36:11.827Z",
+  "last_updated": "2026-01-04T02:24:52.050Z",
   "total_members": 329,
   "members": [
     {
@@ -66,6 +66,16 @@
       ],
       "is_active": "Landlord",
       "additional_note": "Campbell Defense Dynamic"
+    },
+    {
+      "id": "12ojchgR8",
+      "name": "Ryu",
+      "pledge_levels": [
+        "Landlord",
+        "Citizen"
+      ],
+      "is_active": "Landlord",
+      "additional_note": "Ryu's HARDware store"
     },
     {
       "id": "9i1IZdJtz",
@@ -442,15 +452,6 @@
       "additional_note": ""
     },
     {
-      "id": "iUOhBPilM",
-      "name": "Al3_DaGama",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": "Tourist",
-      "additional_note": ""
-    },
-    {
       "id": "XJez62Ybj",
       "name": "Andy Perez",
       "pledge_levels": [
@@ -687,7 +688,7 @@
       "additional_note": ""
     },
     {
-      "id": "0y1xEAp5X",
+      "id": "9sbwFKpzr",
       "name": "Kade Stevens",
       "pledge_levels": [
         "Tourist"
@@ -876,7 +877,7 @@
       "additional_note": ""
     },
     {
-      "id": "20e9K3OHu",
+      "id": "DCqmeG9VA",
       "name": "Roy",
       "pledge_levels": [
         "Tourist"
@@ -1060,6 +1061,15 @@
       "name": "AJ King",
       "pledge_levels": [
         "Citizen"
+      ],
+      "is_active": false,
+      "additional_note": ""
+    },
+    {
+      "id": "iUOhBPilM",
+      "name": "Al3_DaGama",
+      "pledge_levels": [
+        "Tourist"
       ],
       "is_active": false,
       "additional_note": ""
@@ -1418,7 +1428,7 @@
       "additional_note": ""
     },
     {
-      "id": "wL3jZiap9",
+      "id": "47auff65o",
       "name": "Denis Sanchez",
       "pledge_levels": [
         "Tourist"
@@ -1562,7 +1572,7 @@
       "additional_note": ""
     },
     {
-      "id": "4gh54war2",
+      "id": "ayercppuv",
       "name": "euirin",
       "pledge_levels": [
         "Tourist"
@@ -2538,16 +2548,6 @@
       ],
       "is_active": false,
       "additional_note": ""
-    },
-    {
-      "id": "12ojchgR8",
-      "name": "Ryu",
-      "pledge_levels": [
-        "Landlord",
-        "Citizen"
-      ],
-      "is_active": false,
-      "additional_note": "Ryu's HARDware store"
     },
     {
       "id": "EKPBrK47d",
