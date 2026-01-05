@@ -1,0 +1,756 @@
+# LANGUAGE translation for Living In Viellci for the following files:
+# res://prefabs/screens/mainMenu_screen.tscn
+# res://prefabs/screens/splashScreen_screen_A1.tscn
+# res://prefabs/screens/settings_screen.tscn
+# res://prefabs/screens/settings_screenAudio.tscn
+# res://prefabs/screens/settings_screenGameplay.tscn
+# res://prefabs/screens/settings_screenVisual.tscn
+# res://core/scripts/setup_audioSlider.gd
+# res://core/scripts/global_persistentData.gd
+# res://core/scripts/screen_settingsAudio.gd
+# res://core/scripts/screen_settingsDisplay.gd
+# res://core/scripts/screen_settingsGameplay.gd
+# res://core/scripts/setup_optionCycler.gd
+# res://core/scripts/screen_settings.gd
+#
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Living In Viellci\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2026-01-05 17:19+0700\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: id\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.8\n"
+
+#: prefabs/screens/mainMenu_screen.tscn
+msgid "DEV_POST"
+msgstr "DEV POSTS"
+
+#: prefabs/screens/mainMenu_screen.tscn
+msgid "BUTTON_NEW_GAME"
+msgstr "GAME BARU"
+
+#: prefabs/screens/mainMenu_screen.tscn prefabs/global/PauseMenuScreen.tscn
+msgid "BUTTON_LOAD_GAME"
+msgstr "LANJUT GAME"
+
+#: prefabs/screens/mainMenu_screen.tscn prefabs/global/PauseMenuScreen.tscn
+msgid "BUTTON_SETTINGS"
+msgstr "PENGATURAN"
+
+#: prefabs/screens/mainMenu_screen.tscn
+msgid "BUTTON_EXTRAS"
+msgstr "TAMBAHAN"
+
+#: prefabs/screens/mainMenu_screen.tscn prefabs/global/PauseMenuScreen.tscn
+msgid "BUTTON_QUIT"
+msgstr "KELUAR"
+
+#: prefabs/screens/splashScreen_screen_A1.tscn
+msgid "TEXT_DISCLAIMER"
+msgstr ""
+"Semua nama, karakter, kejadian dan insiden yang didalam game ini hanyalah "
+"fiktif semata.\n"
+"\n"
+"Semua karakter di game ini berusia 18 keatas."
+
+#: prefabs/screens/splashScreen_screen_A1.tscn
+msgid "[CTC_LABEL]"
+msgstr "[KLIK DIMANA AJA UNTUK MELANJUTKAN]"
+
+#: prefabs/screens/settings_screen.tscn
+msgid "SETTINGS_TITLE"
+msgstr "PENGATURAN"
+
+#: prefabs/screens/settings_screen.tscn
+msgid "PAGE_AUDIO"
+msgstr "SUARA"
+
+#: prefabs/screens/settings_screen.tscn
+msgid "PAGE_VISUAL"
+msgstr "VISUAL"
+
+#: prefabs/screens/settings_screen.tscn
+msgid "PAGE_GAMEPLAY"
+msgstr "GAMEPLAY"
+
+#: prefabs/screens/settings_screen.tscn core/scripts/screen_settings.gd
+msgid "OPTION_HELPHOVER_DESCRIPTION"
+msgstr "[center]Arahkan kursor mu ke opsi yang kamu ingin aku jelasin~"
+
+#: prefabs/screens/settings_screen.tscn
+msgid "BUTTON_RESET_TO_DEFAULT"
+msgstr "SETEL ULANG"
+
+#: prefabs/screens/settings_screen.tscn prefabs/screens/extras_screen.tscn
+msgid "BUTTON_RETURN"
+msgstr "KEMBALI"
+
+#: core/scripts/setup_audioSlider.gd
+msgid "AUDIO_MUTED"
+msgstr "BISU"
+
+#: core/scripts/global_persistentData.gd
+msgid "INTRO_LINES1"
+msgstr ""
+"Ini mod\n"
+"Friday Night Funkin Kah???"
+
+#: core/scripts/global_persistentData.gd
+msgid "INTRO_LINES2"
+msgstr ""
+"HIDUP!\n"
+"Err..."
+
+#: core/scripts/global_persistentData.gd
+msgid "INTRO_LINES3"
+msgstr ""
+"Aku keracunan\n"
+"MBG cik."
+
+#: core/scripts/global_persistentData.gd
+msgid "INTRO_LINES4"
+msgstr ""
+"Semoga nggak ngelag\n"
+"amin."
+
+#: core/scripts/global_persistentData.gd
+msgid "INTRO_LINES5"
+msgstr ""
+"Iris\n"
+"bini ku cik."
+
+#: core/scripts/global_persistentData.gd
+msgid "OPTION_WINDOWED"
+msgstr "Jendela"
+
+#: core/scripts/global_persistentData.gd
+msgid "OPTION_FULLSCREEN"
+msgstr "Layar penuh"
+
+#: core/scripts/global_persistentData.gd
+msgid "OPTION_MAXIMIZED"
+msgstr "Maksimalkan"
+
+#: core/scripts/global_persistentData.gd
+msgid "OPTION_30FPS"
+msgstr "30 FPS"
+
+#: core/scripts/global_persistentData.gd
+msgid "OPTION_60FPS"
+msgstr "60FPS"
+
+#: core/scripts/global_persistentData.gd
+msgid "OPTION_120FPS"
+msgstr "120 FPS"
+
+#: core/scripts/global_persistentData.gd
+msgid "OPTION_UNLIMITED"
+msgstr "Tanpa batas"
+
+#: core/scripts/global_persistentData.gd
+msgid "OPTION_ADAPTIVE"
+msgstr "Adaptif"
+
+#: core/scripts/global_persistentData.gd
+msgid "OPTION_2X"
+msgstr "2x"
+
+#: core/scripts/global_persistentData.gd
+msgid "OPTION_4X"
+msgstr "4x"
+
+#: core/scripts/global_persistentData.gd
+msgid "OPTION_8X"
+msgstr "8x"
+
+#: core/scripts/global_persistentData.gd
+msgid "OPTION_24_HOUR"
+msgstr "24 Jam"
+
+#: core/scripts/global_persistentData.gd
+msgid "OPTION_12_HOUR"
+msgstr "12 Jam"
+
+#: core/scripts/global_persistentData.gd
+msgid "OPTION_INSTANT"
+msgstr "Instan"
+
+#: core/scripts/global_persistentData.gd
+msgid "OPTION_DELAY"
+msgstr "Tertunda"
+
+#: core/scripts/global_persistentData.gd
+msgid "OPTION_DISABLED"
+msgstr "Nonaktif"
+
+#: core/scripts/global_persistentData.gd
+msgid "OPTION_ENABLED"
+msgstr "Aktif"
+
+#: core/scripts/global_persistentData.gd
+msgid "OPTION_LOW"
+msgstr "Buruk"
+
+#: core/scripts/global_persistentData.gd
+msgid "OPTION_MEDIUM"
+msgstr "Menengah"
+
+#: core/scripts/global_persistentData.gd
+msgid "OPTION_HIGH"
+msgstr "Tinggi"
+
+#: core/scripts/global_persistentData.gd
+msgid "VERSION"
+msgstr "VERSI"
+
+#: core/scripts/global_persistentData.gd
+msgid "ALL_RIGHTS_RESERVED"
+msgstr "Hak cipta dilindungi."
+
+#: core/scripts/global_persistentData.gd
+msgid "AUDIO_MASTERVOLUME_DESC"
+msgstr ""
+"[b]Sesuaikan volume utama game.[/b]\n"
+"\n"
+"   Ayah dari semua volume! Volume lainnya tergantung olehnya..."
+
+#: core/scripts/global_persistentData.gd
+msgid "AUDIO_MUSICVOLUME_DESC"
+msgstr ""
+"[b]Sesuaikan volume musik.[/b]\n"
+"\n"
+"   Ini untuk mengatur suara musik di game...! B-bukan kah ini cukup jelas?\n"
+"\n"
+"   Nih! Aku bantuin deh:\n"
+"   [url]https://kbbi.web.id/suai[/url]"
+
+#: core/scripts/global_persistentData.gd
+msgid "AUDIO_AMBIENCEVOLUME_DESC"
+msgstr ""
+"[b]Sesuaikan volume suasana.[/b]\n"
+"\n"
+"   Hmm... kamu pilih suasana kota atau musik? Apapun itu, disini kamu bisa "
+"menyesuaikannya!"
+
+#: core/scripts/global_persistentData.gd
+msgid "AUDIO_SFXVOLUME_DESC"
+msgstr ""
+"[b]Sesuaikan volume efek suara.[/b]\n"
+"\n"
+"   Tau efek suara kan? Yang itu loh... kalau kamu ngeklik sesuatu?"
+
+#: core/scripts/global_persistentData.gd
+msgid "AUDIO_DIALOGUEVOLUME_DESC"
+msgstr ""
+"[b]Sesuaikan volume dialog.[/b]\n"
+"\n"
+"   Bunyi bip boop dan dialog suara diatur oleh penggeser ini...! Kalian "
+"suka suara kami... kan?"
+
+#: core/scripts/global_persistentData.gd
+msgid "VISUAL_WINDOWMODE_DESC"
+msgstr ""
+"[b]Atur mode jendela pada game.[/b]\n"
+"\n"
+"   Atur layer gamenya biar menuhin seluruh layar monitor mu, atau dibuat "
+"mode jendela yang bisa kamu geser kemana saja~"
+
+#: core/scripts/global_persistentData.gd
+msgid "VISUAL_MAXFPS_DESC"
+msgstr ""
+"[b]Batasi jumlah frame per detik yang dapat dijalankan oleh game.[/b]\n"
+"\n"
+"   Lebih cepat, leeebih lancaaar...! T-tapi jangan sampai prosesor kalian "
+"terbakar yaa... pastiin layer kalian memiliki kecepatan refresh yang "
+"memadai!"
+
+#: core/scripts/global_persistentData.gd
+msgid "VISUAL_VSYNC_DESC"
+msgstr ""
+"[b]Cegah screen tearing dengan menyinkronkan frame ke monitor kalian.[/b]\n"
+"\n"
+"   [i]Dinonaktifkan[/i] - Tanpa sinkronisasi! Cepat, tetapi kemungkinan "
+"screen tearing bakal terjadi!\n"
+"\n"
+"   [i]Diaktifkan[/i] - Halus~\n"
+"\n"
+"   [i]Adaptif[/i] - Sinkronisasi jika diperlukan! Dan akan dinonaktifkan "
+"sendiri jika FPS menurun!"
+
+#: core/scripts/global_persistentData.gd
+msgid "VISUAL_TEXTUREQUALITY_DESC"
+msgstr ""
+"[b]Sesuaikan ketajaman dan detail tekstur.[/b]\n"
+"\n"
+"   Aku penasaran seperti apa sebenarnya tekstur ini... hmm..."
+
+#: core/scripts/global_persistentData.gd
+msgid "VISUAL_SHADOWQUALITY_DESC"
+msgstr ""
+"[b]Atur seberapa detail bayangannya.[/b]\n"
+"\n"
+"   Oooh... bayangan halus~ Atau engga...?"
+
+#: core/scripts/global_persistentData.gd
+msgid "VISUAL_MSAA_DESC"
+msgstr ""
+"[b]Haluskan tepi bergerigi pada objek.[/b]\n"
+"\n"
+"   Ucapkan selamat tinggal pada piksel yang kasar! Aku... harap?"
+
+#: core/scripts/global_persistentData.gd
+msgid "VISUAL_MONOCHROMEFILTER_DESC"
+msgstr ""
+"[b]Atur visual permainan ke monokrom.[/b]\n"
+" \n"
+"   Ooohohoho! Kembali ke masa lalu, eh?"
+
+#: core/scripts/global_persistentData.gd
+msgid "VISUAL_GRAINFILTER_DESC"
+msgstr ""
+"[b]Atur filter kasar pada layar di dalam game.[/b]\n"
+" \n"
+"   Waaahhhh! Berteksturr~"
+
+#: core/scripts/global_persistentData.gd
+msgid "VISUAL_BLOODCENSOR_DESC"
+msgstr ""
+"[b]Sensor darah pada adegan di game.[/b]\n"
+"\n"
+"   Brr... kenapa dia pikir ini ide yang bagus...?"
+
+#: core/scripts/global_persistentData.gd
+msgid "GAMEPLAY_LANGUAGEINTERFACE_DESC"
+msgstr ""
+"[b]Ubah bahasa antarmuka.[/b]\n"
+"\n"
+"   Ini kamu lagi baca antarmuka!"
+
+#: core/scripts/global_persistentData.gd
+msgid "GAMEPLAY_FPSMONITOR_DESC"
+msgstr ""
+"[b]Tampilkan frame per second (FPS) di layar.[/b]\n"
+"\n"
+"   Angka... begitu banyak angka... apa arti angka-angka ini, Raymond!?"
+
+#: core/scripts/global_persistentData.gd
+msgid "GAMEPLAY_HOURFORMAT_DESC"
+msgstr ""
+"[b]Atur format jam di dalam game.[/b]\n"
+"\n"
+"   Kamu ngerti format 21:00 kan? Kan...?"
+
+#: core/scripts/global_persistentData.gd
+msgid "GAMEPLAY_BUYTOGGLE_DESC"
+msgstr ""
+"[b]Atur tombol jual beli ke instan atau tertunda.[/b]\n"
+"\n"
+"   Aku mau beli ini dong...\n"
+"\n"
+"   Bisa cepet dikit engga?\n"
+"\n"
+"   Kenapa lama banget!?"
+
+#: core/scripts/global_persistentData.gd
+msgid "DAY_SUNDAY"
+msgstr "Minggu"
+
+#: core/scripts/global_persistentData.gd
+msgid "DAY_MONDAY"
+msgstr "Senin"
+
+#: core/scripts/global_persistentData.gd
+msgid "DAY_TUESDAY"
+msgstr "Selasa"
+
+#: core/scripts/global_persistentData.gd
+msgid "DAY_WEDNESDAY"
+msgstr "Rabu"
+
+#: core/scripts/global_persistentData.gd
+msgid "DAY_THURSDAY"
+msgstr "Kamis"
+
+#: core/scripts/global_persistentData.gd
+msgid "DAY_FRIDAY"
+msgstr "Jumat"
+
+#: core/scripts/global_persistentData.gd
+msgid "DAY_SATURDAY"
+msgstr "Sabtu"
+
+#: core/scripts/global_persistentData.gd
+msgid "MONTH_JANUARY"
+msgstr "Januari"
+
+#: core/scripts/global_persistentData.gd
+msgid "MONTH_FEBRUARY"
+msgstr "Februari"
+
+#: core/scripts/global_persistentData.gd
+msgid "MONTH_MARCH"
+msgstr "Maret"
+
+#: core/scripts/global_persistentData.gd
+msgid "MONTH_APRIL"
+msgstr "April"
+
+#: core/scripts/global_persistentData.gd
+msgid "MONTH_MAY"
+msgstr "Mei"
+
+#: core/scripts/global_persistentData.gd
+msgid "MONTH_JUNE"
+msgstr "Juni"
+
+#: core/scripts/global_persistentData.gd
+msgid "MONTH_JULY"
+msgstr "Juli"
+
+#: core/scripts/global_persistentData.gd
+msgid "MONTH_AUGUST"
+msgstr "Augustus"
+
+#: core/scripts/global_persistentData.gd
+msgid "MONTH_SEPTEMBER"
+msgstr "September"
+
+#: core/scripts/global_persistentData.gd
+msgid "MONTH_OCTOBER"
+msgstr "Oktober"
+
+#: core/scripts/global_persistentData.gd
+msgid "MONTH_NOVEMBER"
+msgstr "November"
+
+#: core/scripts/global_persistentData.gd
+msgid "MONTH_DECEMBER"
+msgstr "Desember"
+
+#: core/scripts/screen_settings.gd
+msgid "CONFIRMATION_RESET_DEFAULT_TITLE"
+msgstr "Setel ulang ke awal?"
+
+#: core/scripts/screen_settings.gd
+msgid "CONFIRMATION_RESET_DEFAULT_DESC"
+msgstr ""
+"Ini akan menyetel ulang ke pengaturan awal.\n"
+"[i]Kecuali jendela dan Bahasa.[/i]"
+
+#: core/scripts/screen_settings.gd core/scripts/Screen_newGame.gd
+#: core/scripts/Global_pauseScreen.gd
+msgid "CONFIRMATION_CONFIRM"
+msgstr "KONFIRMASI"
+
+#: core/scripts/screen_settings.gd core/scripts/Screen_newGame.gd
+#: core/scripts/Global_pauseScreen.gd
+msgid "CONFIRMATION_CANCEL"
+msgstr "BATALKAN"
+
+#: prefabs/screens/mainMenu_newGame.tscn
+msgid "NEWGAME_MODE1"
+msgstr "MODE CERITA"
+
+#: prefabs/screens/mainMenu_newGame.tscn
+msgid "NEWGAME_DESC1"
+msgstr "Surat dari ayah ku?"
+
+#: prefabs/screens/mainMenu_newGame.tscn
+msgid "NEWGAME_MODE2"
+msgstr "MODE BEBAS"
+
+#: prefabs/screens/mainMenu_newGame.tscn
+msgid "NEWGAME_DESC2"
+msgstr ""
+"Jelajahi sesuki hati mu dan bereksperimen dengan dunia! Tanpa hambatan~"
+
+#: prefabs/screens/settings_screenAudio.tscn
+msgid "LABEL_VOLUME"
+msgstr "VOLUME"
+
+#: prefabs/screens/settings_screenAudio.tscn
+msgid "VOLUME_MASTER"
+msgstr "Volume Utama"
+
+#: prefabs/screens/settings_screenAudio.tscn
+msgid "VOLUME_MUSIC"
+msgstr "Volume Musik"
+
+#: prefabs/screens/settings_screenAudio.tscn
+msgid "VOLUME_AMBIENCE"
+msgstr "Volume Suasana"
+
+#: prefabs/screens/settings_screenAudio.tscn
+msgid "VOLUME_SFX"
+msgstr "Volume Efek Suara"
+
+#: prefabs/screens/settings_screenAudio.tscn
+msgid "VOLUME_DIALOGUE"
+msgstr "Volume Dialog"
+
+#: prefabs/screens/settings_screenGameplay.tscn
+msgid "LABEL_LANGUAGE"
+msgstr "BAHASA"
+
+#: prefabs/screens/settings_screenGameplay.tscn
+msgid "LANGUAGE_INTERFACE"
+msgstr "Antarmuka"
+
+#: prefabs/screens/settings_screenGameplay.tscn
+msgid "LABEL_GAMEPLAY"
+msgstr "GAMEPLAY"
+
+#: prefabs/screens/settings_screenGameplay.tscn
+msgid "GAMEPLAY_FPSMONITOR"
+msgstr "FPS Monitor"
+
+#: prefabs/screens/settings_screenGameplay.tscn
+msgid "GAMEPLAY_HOURFORMAT"
+msgstr "Format Jam"
+
+#: prefabs/screens/settings_screenGameplay.tscn
+msgid "GAMEPLAY_BUYTOGGLE"
+msgstr "Tombol Jual Beli"
+
+#: prefabs/screens/settings_screenVisual.tscn
+msgid "LABEL_DISPLAY"
+msgstr "TAMPILAN"
+
+#: prefabs/screens/settings_screenVisual.tscn
+msgid "MODE_WINDOW"
+msgstr "Mode Window"
+
+#: prefabs/screens/settings_screenVisual.tscn
+msgid "MAX_FPS"
+msgstr "FPS Maximal"
+
+#: prefabs/screens/settings_screenVisual.tscn
+msgid "VSYNC"
+msgstr "VSYNC"
+
+#: prefabs/screens/settings_screenVisual.tscn
+msgid "LABEL_GRAPHICS"
+msgstr "GRAFIS"
+
+#: prefabs/screens/settings_screenVisual.tscn
+msgid "QUALITY_TEXTURE"
+msgstr "Kualitas Tekstur"
+
+#: prefabs/screens/settings_screenVisual.tscn
+msgid "QUALITY_SHADOW"
+msgstr "Kualitas Bayangan"
+
+#: prefabs/screens/settings_screenVisual.tscn
+msgid "QUALITY_MSAA"
+msgstr "Kualitas MSAA"
+
+#: prefabs/screens/settings_screenVisual.tscn
+msgid "LABEL_FILTER"
+msgstr "FILTER"
+
+#: prefabs/screens/settings_screenVisual.tscn
+msgid "FILTER_MONOCHROME"
+msgstr "Filter Monokrom"
+
+#: prefabs/screens/settings_screenVisual.tscn
+msgid "FILTER_GRAIN"
+msgstr "Filter Kasar"
+
+#: prefabs/screens/settings_screenVisual.tscn
+msgid "CENSOR_BLOOD"
+msgstr "Sensor Darah"
+
+#: prefabs/screens/extras_screen.tscn
+msgid "PAGE_PATRONS"
+msgstr "PATRON"
+
+#: prefabs/screens/extras_screen.tscn
+msgid "PATRONPAGE_LANDLORD"
+msgstr "LANDLORD"
+
+#: prefabs/screens/extras_screen.tscn
+msgid "PATRONPAGE_CITIZEN"
+msgstr "CITIZEN"
+
+#: prefabs/screens/extras_screen.tscn
+msgid "PATRONPAGE_TOURIST"
+msgstr "TOURIST"
+
+#: prefabs/screens/extras_screen.tscn
+msgid "PATRONPAGE_THANKS"
+msgstr ""
+"Living In Viellci tidak akan terwujud tanpa kebaikan, kesabaran, dan "
+"dukungan kalian!\n"
+"\n"
+"Terima kasih kepada semua Patron dan Donatur!"
+
+#: core/scripts/Setup_patronLister.gd
+msgid "ACTIVE"
+msgstr "Aktif"
+
+#: core/scripts/Setup_patronLister.gd
+msgid "NONACTIVE"
+msgstr "Nonaktif"
+
+#: core/scripts/Setup_patronLister.gd
+msgid "PATRON_LOADING"
+msgstr "Memuat"
+
+#: core/scripts/Setup_patronLister.gd
+msgid "PATRON_FAIL_FETCHING"
+msgstr "Gagal mengambil patron"
+
+#: core/scripts/Setup_patronLister.gd
+msgid "PATRON_NO_MEMBERS"
+msgstr "Tidak ada member"
+
+#: prefabs/screens/mainMenu_loadGame.tscn
+msgid "LOAD_FILE"
+msgstr "SIMPANAN FILE"
+
+#: prefabs/screens/mainMenu_loadGame.tscn
+msgid "PAGE_EVENTLOAD"
+msgstr "MUAT EVENT"
+
+#: prefabs/screens/mainMenu_loadGame.tscn
+msgid "PAGE_AUTOLOAD"
+msgstr "MUAT AUTO"
+
+#: prefabs/screens/mainMenu_loadGame.tscn
+msgid "1"
+msgstr ""
+
+#: prefabs/screens/mainMenu_loadGame.tscn
+msgid "2"
+msgstr ""
+
+#: prefabs/screens/mainMenu_loadGame.tscn
+msgid "3"
+msgstr ""
+
+#: prefabs/global/LoadCard.tscn
+msgid "SAVE_NAME"
+msgstr ""
+
+#: prefabs/global/LoadCard.tscn
+msgid "VERSION | FILE_NAME"
+msgstr ""
+
+#: prefabs/global/LoadCard.tscn
+msgid "DATE"
+msgstr ""
+
+#: prefabs/global/LoadCard.tscn
+msgid "CURRENT_OBJECTIVE | CHAPTER"
+msgstr ""
+
+#: prefabs/global/LoadCard.tscn
+msgid "DAY_SPENT | GAME_TIME | WEEKDAY"
+msgstr ""
+
+#: prefabs/global/LoadCard.tscn
+msgid "CHARACTER |  LEVEL"
+msgstr ""
+
+#: prefabs/global/LoadCard.tscn
+msgid "LOCATIONS"
+msgstr ""
+
+#: prefabs/global/LoadCard.tscn
+msgid "LOADCARD_SAVE"
+msgstr "SIMPAN"
+
+#: prefabs/global/LoadCard.tscn
+msgid "LOADCARD_LOAD"
+msgstr "LANJUT"
+
+#: prefabs/global/LoadCard.tscn
+msgid "► EMPTY_SLOT ◄"
+msgstr "► SLOT KOSONG ◄"
+
+#: core/scripts/Screen_newGame.gd
+msgid "INPUT_SAVE_NAME_TITLE"
+msgstr "NAMA SLOT SIMPANAN"
+
+#: core/scripts/Screen_newGame.gd
+msgid "INPUT_SAVE_NAME_BACKTEXT"
+msgstr "MASUKAN NAMA SIMPANAN SLOT MU DISINI"
+
+#: prefabs/global/Persistent_screen.tscn
+msgid "BUTTON_PAUSE_MENU"
+msgstr "MENU JEDA"
+
+#: prefabs/global/PauseMenuScreen.tscn
+msgid "BUTTON_CONTINUE_GAME"
+msgstr "LANJUTKAN"
+
+#: prefabs/global/PauseMenuScreen.tscn
+msgid "BUTTON_DIALOGUE_HISTORY"
+msgstr "SEJARAH"
+
+#: prefabs/global/PauseMenuScreen.tscn
+msgid "BUTTON_MAINMENU"
+msgstr "MENU UTAMA"
+
+#: core/scripts/Global_pauseScreen.gd
+msgid "CONFIRMATION_QUIT_TITLE"
+msgstr "Apa kamu yakin mau keluar?"
+
+#: core/scripts/Global_pauseScreen.gd
+msgid "CONFIRMATION_QUIT_DESC"
+msgstr ""
+"Keluar dari game tidak akan menyimpan perkembangan secara otomatis.\n"
+"[i]Ini akan menyebabkan hilangnya progres yang belum disimpan.[/i]"
+
+#: core/scripts/Global_pauseScreen.gd
+msgid "CONFIRMATION_MAIN_MENU_TITLE"
+msgstr "Kembali ke menu utama?"
+
+#: core/scripts/Global_pauseScreen.gd
+msgid "CONFIRMATION_MAIN_MENU_DESC"
+msgstr ""
+"Kembali ke menu utama tidak akan menyimpan permainan secara otomatis.\n"
+"[i]Ini akan menyebabkan hilangnya progres yang belum disimpan.[/i]"
+
+#~ msgid ""
+#~ "[b]Adjust the music volume.[/b]\n"
+#~ "\n"
+#~ "This adjust the music in the game...! Aren't this self-explanatory "
+#~ "enough?\n"
+#~ "\n"
+#~ "Here! Let me help you:\n"
+#~ "[url]https://dictionary.cambridge.org/dictionary/english/adjust[/url]"
+#~ msgstr ""
+#~ "[b]Adjust the music volume.[/b]\n"
+#~ "\n"
+#~ "This adjusts the music in the game... Isn't this self-explanatory "
+#~ "enough?\n"
+#~ "\n"
+#~ "Here! Let me help you:\n"
+#~ "[url]https://dictionary.cambridge.org/dictionary/english/adjust[/url]"
+
+#~ msgid ""
+#~ "[b]Set the game's window mode.[/b]\n"
+#~ "\n"
+#~ "Making the game to fully taking your monitor's space or you can move it "
+#~ "around~"
+#~ msgstr ""
+#~ "[b]Set the game's window mode.[/b]\n"
+#~ "\n"
+#~ "Makes the game fully use your monitor or make it a window that you can "
+#~ "move around~"
+
+#~ msgid "PROCEED"
+#~ msgstr "Proceed"
+
+#~ msgid "CANCEL"
+#~ msgstr "Cancel"
