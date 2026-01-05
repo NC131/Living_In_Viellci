@@ -14,14 +14,14 @@
   "id": {
     "locale": "id",
     "name": "Indonesia",
-    "author": "Hayden_036",
-    "flavor": "Community",
+    "author": "NC131",
+    "flavor": "Official",
     "interface": {
-      "version": "0.2.9",
+      "version": "0.2.9.1",
       "url": "https://raw.githubusercontent.com/NC131/Living_In_Viellci/main/translations/id_interface.po"
     },
     "subtitle": {
-      "version": "0.2.9",
+      "version": "0.2.9.1",
       "url": "https://raw.githubusercontent.com/NC131/Living_In_Viellci/main/translations/id_subtitle.po"
     }
   },
