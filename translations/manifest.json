@@ -3,11 +3,11 @@
     "locale": "en",
     "name": "English",
     "interface": {
-      "version": "0.2.9",
+      "version": "0.2.11",
       "url": "https://raw.githubusercontent.com/NC131/Living_In_Viellci/main/translations/en_interface.po"
     },
     "subtitle": {
-      "version": "0.2.9",
+      "version": "0.2.11",
       "url": "https://raw.githubusercontent.com/NC131/Living_In_Viellci/main/translations/en_subtitle.po"
     }
   },
@@ -17,11 +17,11 @@
     "author": "NC131",
     "flavor": "Official",
     "interface": {
-      "version": "0.2.10",
+      "version": "0.2.11",
       "url": "https://raw.githubusercontent.com/NC131/Living_In_Viellci/main/translations/id_interface.po"
     },
     "subtitle": {
-      "version": "0.2.10",
+      "version": "0.2.11",
       "url": "https://raw.githubusercontent.com/NC131/Living_In_Viellci/main/translations/id_subtitle.po"
     }
   },
