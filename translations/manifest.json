@@ -17,11 +17,11 @@
     "author": "NC131",
     "flavor": "Official",
     "interface": {
-      "version": "0.2.9.1",
+      "version": "0.2.10",
       "url": "https://raw.githubusercontent.com/NC131/Living_In_Viellci/main/translations/id_interface.po"
     },
     "subtitle": {
-      "version": "0.2.9.1",
+      "version": "0.2.10",
       "url": "https://raw.githubusercontent.com/NC131/Living_In_Viellci/main/translations/id_subtitle.po"
     }
   },
