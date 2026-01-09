@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-01-09T02:08:55.637Z",
+  "last_updated": "2026-01-09T06:42:51.063Z",
   "total_members": 329,
   "members": [
     {
@@ -46,6 +46,15 @@
       ],
       "is_active": "Landlord",
       "additional_note": ""
+    },
+    {
+      "id": "QRJqxKdYR",
+      "name": "Gintaras Simkus",
+      "pledge_levels": [
+        "Landlord"
+      ],
+      "is_active": "Landlord",
+      "additional_note": "Voidling bathhouse"
     },
     {
       "id": "LdXSIRhSd",
@@ -668,7 +677,7 @@
       "additional_note": ""
     },
     {
-      "id": "eca937ptL",
+      "id": "c4Gsvxtls",
       "name": "Kade Stevens",
       "pledge_levels": [
         "Tourist"
@@ -857,7 +866,7 @@
       "additional_note": ""
     },
     {
-      "id": "R5eKmHi9g",
+      "id": "UCKVklL0o",
       "name": "Roy",
       "pledge_levels": [
         "Tourist"
@@ -1410,7 +1419,7 @@
       "additional_note": ""
     },
     {
-      "id": "zsYfN8QcG",
+      "id": "1e8PTCnjX",
       "name": "Denis Sanchez",
       "pledge_levels": [
         "Tourist"
@@ -1554,7 +1563,7 @@
       "additional_note": ""
     },
     {
-      "id": "mBwywtwVR",
+      "id": "wWL8sWQq1",
       "name": "euirin",
       "pledge_levels": [
         "Tourist"
@@ -1669,15 +1678,6 @@
       ],
       "is_active": false,
       "additional_note": ""
-    },
-    {
-      "id": "QRJqxKdYR",
-      "name": "Gintaras Simkus",
-      "pledge_levels": [
-        "Landlord"
-      ],
-      "is_active": false,
-      "additional_note": "Voidling bathhouse"
     },
     {
       "id": "xrJ3ji0dF",
