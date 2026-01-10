@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-01-10T02:04:55.685Z",
+  "last_updated": "2026-01-10T06:38:38.294Z",
   "total_members": 329,
   "members": [
     {
@@ -172,6 +172,16 @@
       "name": "Cod",
       "pledge_levels": [
         "Citizen"
+      ],
+      "is_active": "Citizen",
+      "additional_note": ""
+    },
+    {
+      "id": "FahDYbpeN",
+      "name": "ConnorZL",
+      "pledge_levels": [
+        "Citizen",
+        "Tourist"
       ],
       "is_active": "Citizen",
       "additional_note": ""
@@ -668,7 +678,7 @@
       "additional_note": ""
     },
     {
-      "id": "IpmbMVlVE",
+      "id": "Wt1gU0DQc",
       "name": "Kade Stevens",
       "pledge_levels": [
         "Tourist"
@@ -857,7 +867,7 @@
       "additional_note": ""
     },
     {
-      "id": "RTlafnWVq",
+      "id": "nAhzJmgFS",
       "name": "Roy",
       "pledge_levels": [
         "Tourist"
@@ -1309,16 +1319,6 @@
       "additional_note": ""
     },
     {
-      "id": "FahDYbpeN",
-      "name": "ConnorZL",
-      "pledge_levels": [
-        "Citizen",
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
       "id": "5FAQizJOv",
       "name": "Corvis123",
       "pledge_levels": [
@@ -1410,7 +1410,7 @@
       "additional_note": ""
     },
     {
-      "id": "nQHO4tlPy",
+      "id": "jbM8iyrX7",
       "name": "Denis Sanchez",
       "pledge_levels": [
         "Tourist"
@@ -1554,7 +1554,7 @@
       "additional_note": ""
     },
     {
-      "id": "vJtM0rJa4",
+      "id": "AmdYjTemq",
       "name": "euirin",
       "pledge_levels": [
         "Tourist"
