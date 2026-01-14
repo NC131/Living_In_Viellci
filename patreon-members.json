@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-01-13T18:39:02.609Z",
+  "last_updated": "2026-01-14T02:12:45.547Z",
   "total_members": 329,
   "members": [
     {
@@ -424,15 +424,6 @@
       "additional_note": ""
     },
     {
-      "id": "bXNqGQdW1",
-      "name": "宇呈 張",
-      "pledge_levels": [
-        "Citizen"
-      ],
-      "is_active": "Citizen",
-      "additional_note": ""
-    },
-    {
       "id": "Ygslv4o19",
       "name": "祺琳 刀藤",
       "pledge_levels": [
@@ -687,7 +678,7 @@
       "additional_note": ""
     },
     {
-      "id": "KfGwdWqi8",
+      "id": "hB9TaIghW",
       "name": "Kade Stevens",
       "pledge_levels": [
         "Tourist"
@@ -858,7 +849,7 @@
       "additional_note": ""
     },
     {
-      "id": "BHUwDP08z",
+      "id": "IP1wefBdq",
       "name": "Roy",
       "pledge_levels": [
         "Tourist"
@@ -1401,7 +1392,7 @@
       "additional_note": ""
     },
     {
-      "id": "mmsRCWj8D",
+      "id": "kQ0jkLjUL",
       "name": "Denis Sanchez",
       "pledge_levels": [
         "Tourist"
@@ -1545,7 +1536,7 @@
       "additional_note": ""
     },
     {
-      "id": "83QdERPV3",
+      "id": "sGa0Q7Okp",
       "name": "euirin",
       "pledge_levels": [
         "Tourist"
@@ -2964,6 +2955,15 @@
       "name": "юрий ножкин",
       "pledge_levels": [
         "Tourist"
+      ],
+      "is_active": false,
+      "additional_note": ""
+    },
+    {
+      "id": "bXNqGQdW1",
+      "name": "宇呈 張",
+      "pledge_levels": [
+        "Citizen"
       ],
       "is_active": false,
       "additional_note": ""
