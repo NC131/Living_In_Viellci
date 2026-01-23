@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-01-23T06:43:50.265Z",
+  "last_updated": "2026-01-23T13:00:27.056Z",
   "total_members": 330,
   "members": [
     {
@@ -697,7 +697,7 @@
       "additional_note": ""
     },
     {
-      "id": "CTePfZ1g3",
+      "id": "MWgCSuw7o",
       "name": "Kade Stevens",
       "pledge_levels": [
         "Tourist"
@@ -796,15 +796,6 @@
       "additional_note": ""
     },
     {
-      "id": "1HyTnUEFl",
-      "name": "oan",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": "Tourist",
-      "additional_note": ""
-    },
-    {
       "id": "O4uSHc5QU",
       "name": "Pharaoh",
       "pledge_levels": [
@@ -886,7 +877,7 @@
       "additional_note": ""
     },
     {
-      "id": "wNPUosvs9",
+      "id": "JjTFjRqty",
       "name": "Roy",
       "pledge_levels": [
         "Tourist"
@@ -1411,7 +1402,7 @@
       "additional_note": ""
     },
     {
-      "id": "gJyarsKwA",
+      "id": "AsIPpl3Au",
       "name": "Denis Sanchez",
       "pledge_levels": [
         "Tourist"
@@ -1555,7 +1546,7 @@
       "additional_note": ""
     },
     {
-      "id": "8TNoRgCAa",
+      "id": "jWDIY3J0T",
       "name": "euirin",
       "pledge_levels": [
         "Tourist"
@@ -2343,6 +2334,15 @@
     {
       "id": "mvvaWhIH6",
       "name": "Nuttakit 7841",
+      "pledge_levels": [
+        "Tourist"
+      ],
+      "is_active": false,
+      "additional_note": ""
+    },
+    {
+      "id": "1HyTnUEFl",
+      "name": "oan",
       "pledge_levels": [
         "Tourist"
       ],
