@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-01-25T18:37:51.642Z",
+  "last_updated": "2026-01-26T02:25:47.988Z",
   "total_members": 330,
   "members": [
     {
@@ -103,15 +103,6 @@
       ],
       "is_active": "Landlord",
       "additional_note": "Shades casino"
-    },
-    {
-      "id": "gLrV8tYHA",
-      "name": "SunFish",
-      "pledge_levels": [
-        "Landlord"
-      ],
-      "is_active": "Landlord",
-      "additional_note": ""
     },
     {
       "id": "XSah4TTC8",
@@ -687,7 +678,7 @@
       "additional_note": ""
     },
     {
-      "id": "LV6bsvYfw",
+      "id": "RV0EyMQG8",
       "name": "Kade Stevens",
       "pledge_levels": [
         "Tourist"
@@ -867,7 +858,7 @@
       "additional_note": ""
     },
     {
-      "id": "0oXjAYcZT",
+      "id": "dZZUd8en5",
       "name": "Roy",
       "pledge_levels": [
         "Tourist"
@@ -878,15 +869,6 @@
     {
       "id": "BB6QsUoxJ",
       "name": "s0m3per5on",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": "Tourist",
-      "additional_note": ""
-    },
-    {
-      "id": "TudtD3b0w",
-      "name": "Silvii",
       "pledge_levels": [
         "Tourist"
       ],
@@ -1392,7 +1374,7 @@
       "additional_note": ""
     },
     {
-      "id": "jypxsR94x",
+      "id": "u10WRhU52",
       "name": "Denis Sanchez",
       "pledge_levels": [
         "Tourist"
@@ -1536,7 +1518,7 @@
       "additional_note": ""
     },
     {
-      "id": "bBbCl1DdD",
+      "id": "dtq7p59hy",
       "name": "euirin",
       "pledge_levels": [
         "Tourist"
@@ -2623,6 +2605,15 @@
       "additional_note": ""
     },
     {
+      "id": "TudtD3b0w",
+      "name": "Silvii",
+      "pledge_levels": [
+        "Tourist"
+      ],
+      "is_active": false,
+      "additional_note": ""
+    },
+    {
       "id": "NPREW0oUg",
       "name": "sleddingwelder7",
       "pledge_levels": [
@@ -2654,6 +2645,15 @@
       "name": "SpritezUp",
       "pledge_levels": [
         "Tourist"
+      ],
+      "is_active": false,
+      "additional_note": ""
+    },
+    {
+      "id": "gLrV8tYHA",
+      "name": "SunFish",
+      "pledge_levels": [
+        "Landlord"
       ],
       "is_active": false,
       "additional_note": ""
