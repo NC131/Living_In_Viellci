@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-01-29T18:56:56.449Z",
+  "last_updated": "2026-01-30T02:34:38.086Z",
   "total_members": 330,
   "members": [
     {
@@ -270,15 +270,6 @@
     {
       "id": "SH7DYKcRJ",
       "name": "Glowkatz",
-      "pledge_levels": [
-        "Citizen"
-      ],
-      "is_active": "Citizen",
-      "additional_note": ""
-    },
-    {
-      "id": "GWv1FQiyc",
-      "name": "goo mba",
       "pledge_levels": [
         "Citizen"
       ],
@@ -687,7 +678,7 @@
       "additional_note": ""
     },
     {
-      "id": "xr3ZrlUhm",
+      "id": "7ZjhtnG2K",
       "name": "Kade Stevens",
       "pledge_levels": [
         "Tourist"
@@ -867,7 +858,7 @@
       "additional_note": ""
     },
     {
-      "id": "8Z9QcUNLA",
+      "id": "ue14XYMQs",
       "name": "Roy",
       "pledge_levels": [
         "Tourist"
@@ -1383,7 +1374,7 @@
       "additional_note": ""
     },
     {
-      "id": "2nzNMO3WY",
+      "id": "0EWqs8Ann",
       "name": "Denis Sanchez",
       "pledge_levels": [
         "Tourist"
@@ -1527,7 +1518,7 @@
       "additional_note": ""
     },
     {
-      "id": "8NH1Zfyg1",
+      "id": "80d2Nx6pv",
       "name": "euirin",
       "pledge_levels": [
         "Tourist"
@@ -1648,6 +1639,15 @@
       "name": "giangian",
       "pledge_levels": [
         "Tourist"
+      ],
+      "is_active": false,
+      "additional_note": ""
+    },
+    {
+      "id": "GWv1FQiyc",
+      "name": "goo mba",
+      "pledge_levels": [
+        "Citizen"
       ],
       "is_active": false,
       "additional_note": ""
