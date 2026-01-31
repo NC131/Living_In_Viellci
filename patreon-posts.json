@@ -1,8 +1,15 @@
 {
-  "last_updated": "2026-01-31T13:00:15.271Z",
+  "last_updated": "2026-01-31T18:41:03.647Z",
   "total_posts": 10,
   "note": "",
   "posts": [
+    {
+      "title": "Weekly log #18",
+      "url": "/posts/weekly-log-18-149581909",
+      "thumbnail": "patreon/posts/149581909.png",
+      "date": "2026-01-31T15:29:41.000+00:00",
+      "is_public": true
+    },
     {
       "title": "Weekly log #17",
       "url": "/posts/weekly-log-17-148418352",
@@ -64,13 +71,6 @@
       "url": "/posts/weekly-log-9-143042431",
       "thumbnail": "patreon/posts/143042431.png",
       "date": "2025-11-07T14:17:04.000+00:00",
-      "is_public": true
-    },
-    {
-      "title": "Update 0.3 - PATCH 3 release and Announcement!",
-      "url": "/posts/update-0-3-patch-142555182",
-      "thumbnail": "patreon/posts/142555182.png",
-      "date": "2025-11-01T15:19:55.000+00:00",
       "is_public": true
     }
   ]
