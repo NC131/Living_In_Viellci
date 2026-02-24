@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-02-23T19:12:26.464Z",
-  "total_members": 331,
+  "last_updated": "2026-02-24T02:41:18.964Z",
+  "total_members": 332,
   "members": [
     {
       "id": "B3McfawEs",
@@ -281,16 +281,6 @@
       "name": "Ham63",
       "pledge_levels": [
         "Citizen"
-      ],
-      "is_active": "Citizen",
-      "additional_note": ""
-    },
-    {
-      "id": "kdirMv822",
-      "name": "HOLY HANDS",
-      "pledge_levels": [
-        "Citizen",
-        "Tourist"
       ],
       "is_active": "Citizen",
       "additional_note": ""
@@ -615,6 +605,15 @@
       "additional_note": ""
     },
     {
+      "id": "rPvsJchSJ",
+      "name": "Grayson Alexander Jones",
+      "pledge_levels": [
+        "Tourist"
+      ],
+      "is_active": "Tourist",
+      "additional_note": ""
+    },
+    {
       "id": "PRhvOdJFi",
       "name": "guillermo2620",
       "pledge_levels": [
@@ -823,17 +822,8 @@
       "additional_note": ""
     },
     {
-      "id": "vwSWz2nfV",
+      "id": "kIRNmI9US",
       "name": "Roy",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": "Tourist",
-      "additional_note": ""
-    },
-    {
-      "id": "BB6QsUoxJ",
-      "name": "s0m3per5on",
       "pledge_levels": [
         "Tourist"
       ],
@@ -1348,7 +1338,7 @@
       "additional_note": ""
     },
     {
-      "id": "zqxZjPbBN",
+      "id": "tWttp3zur",
       "name": "Denis Sanchez",
       "pledge_levels": [
         "Tourist"
@@ -1492,7 +1482,7 @@
       "additional_note": ""
     },
     {
-      "id": "3EhTCSpm4",
+      "id": "qgIxIinPP",
       "name": "euirin",
       "pledge_levels": [
         "Tourist"
@@ -1648,6 +1638,16 @@
       "id": "YjSib5wbd",
       "name": "Hideyoshi",
       "pledge_levels": [
+        "Tourist"
+      ],
+      "is_active": false,
+      "additional_note": ""
+    },
+    {
+      "id": "kdirMv822",
+      "name": "HOLY HANDS",
+      "pledge_levels": [
+        "Citizen",
         "Tourist"
       ],
       "is_active": false,
@@ -1962,7 +1962,7 @@
       "additional_note": ""
     },
     {
-      "id": "qVe7IBdle",
+      "id": "DhBA9rEsy",
       "name": "Kade Stevens",
       "pledge_levels": [
         "Tourist"
@@ -2537,6 +2537,15 @@
       "pledge_levels": [
         "Landlord",
         "Citizen"
+      ],
+      "is_active": false,
+      "additional_note": ""
+    },
+    {
+      "id": "BB6QsUoxJ",
+      "name": "s0m3per5on",
+      "pledge_levels": [
+        "Tourist"
       ],
       "is_active": false,
       "additional_note": ""
