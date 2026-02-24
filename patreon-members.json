@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-02-24T13:20:40.222Z",
-  "total_members": 332,
+  "last_updated": "2026-02-24T19:11:17.086Z",
+  "total_members": 333,
   "members": [
     {
       "id": "B3McfawEs",
@@ -66,6 +66,16 @@
       ],
       "is_active": "Landlord",
       "additional_note": "Campbell Defense Dynamic"
+    },
+    {
+      "id": "AxH2N62EI",
+      "name": "polimer",
+      "pledge_levels": [
+        "Landlord",
+        "Tourist"
+      ],
+      "is_active": "Landlord",
+      "additional_note": ""
     },
     {
       "id": "12ojchgR8",
@@ -351,6 +361,15 @@
       "additional_note": ""
     },
     {
+      "id": "TH6nKaePe",
+      "name": "Stakesi Uter",
+      "pledge_levels": [
+        "Citizen"
+      ],
+      "is_active": "Citizen",
+      "additional_note": ""
+    },
+    {
       "id": "oMm7Abv5b",
       "name": "Surviving Moon",
       "pledge_levels": [
@@ -605,7 +624,7 @@
       "additional_note": ""
     },
     {
-      "id": "0DDxIHAyg",
+      "id": "lzbFeDHhw",
       "name": "Grayson Alexander Jones",
       "pledge_levels": [
         "Tourist"
@@ -822,7 +841,7 @@
       "additional_note": ""
     },
     {
-      "id": "1pNA7d4Ws",
+      "id": "XSIMtuYvW",
       "name": "Roy",
       "pledge_levels": [
         "Tourist"
@@ -1338,7 +1357,7 @@
       "additional_note": ""
     },
     {
-      "id": "MFuSpjsdl",
+      "id": "jQZFDURXm",
       "name": "Denis Sanchez",
       "pledge_levels": [
         "Tourist"
@@ -1482,7 +1501,7 @@
       "additional_note": ""
     },
     {
-      "id": "THeJeSorA",
+      "id": "SgCVhnApd",
       "name": "euirin",
       "pledge_levels": [
         "Tourist"
@@ -1962,7 +1981,7 @@
       "additional_note": ""
     },
     {
-      "id": "JQKZiHOvE",
+      "id": "7gxyAgXds",
       "name": "Kade Stevens",
       "pledge_levels": [
         "Tourist"
@@ -2399,16 +2418,6 @@
       "id": "H4LHXlksj",
       "name": "Pluto",
       "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "id": "AxH2N62EI",
-      "name": "polimer",
-      "pledge_levels": [
-        "Landlord",
         "Tourist"
       ],
       "is_active": false,
