@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-02-27T02:35:49.090Z",
+  "last_updated": "2026-02-27T07:02:59.823Z",
   "total_members": 333,
   "members": [
     {
@@ -624,7 +624,7 @@
       "additional_note": ""
     },
     {
-      "id": "Sph3WuGJ3",
+      "id": "ntJruRuj2",
       "name": "Grayson Alexander Jones",
       "pledge_levels": [
         "Tourist"
@@ -841,8 +841,26 @@
       "additional_note": ""
     },
     {
-      "id": "wfhP8NUto",
+      "id": "k8gPGxwKG",
       "name": "Roy",
+      "pledge_levels": [
+        "Tourist"
+      ],
+      "is_active": "Tourist",
+      "additional_note": ""
+    },
+    {
+      "id": "BB6QsUoxJ",
+      "name": "s0m3per5on",
+      "pledge_levels": [
+        "Tourist"
+      ],
+      "is_active": "Tourist",
+      "additional_note": ""
+    },
+    {
+      "id": "TudtD3b0w",
+      "name": "Silvii",
       "pledge_levels": [
         "Tourist"
       ],
@@ -1348,7 +1366,7 @@
       "additional_note": ""
     },
     {
-      "id": "TM7UE15b1",
+      "id": "MBzb7BSST",
       "name": "Denis Sanchez",
       "pledge_levels": [
         "Tourist"
@@ -1492,7 +1510,7 @@
       "additional_note": ""
     },
     {
-      "id": "U8YqKr4ir",
+      "id": "QHVjgv5fv",
       "name": "euirin",
       "pledge_levels": [
         "Tourist"
@@ -1972,7 +1990,7 @@
       "additional_note": ""
     },
     {
-      "id": "gz96nif94",
+      "id": "apKfn68HQ",
       "name": "Kade Stevens",
       "pledge_levels": [
         "Tourist"
@@ -2542,15 +2560,6 @@
       "additional_note": ""
     },
     {
-      "id": "BB6QsUoxJ",
-      "name": "s0m3per5on",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
       "id": "7s6oKe5a2",
       "name": "SAN",
       "pledge_levels": [
@@ -2616,15 +2625,6 @@
     {
       "id": "8115xc0gW",
       "name": "Sidney Allen",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "id": "TudtD3b0w",
-      "name": "Silvii",
       "pledge_levels": [
         "Tourist"
       ],
