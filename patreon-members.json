@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-02-27T18:54:28.766Z",
+  "last_updated": "2026-02-28T02:25:17.580Z",
   "total_members": 334,
   "members": [
     {
@@ -95,15 +95,6 @@
       ],
       "is_active": "Landlord",
       "additional_note": "SalmonCare Pharma"
-    },
-    {
-      "id": "MLJf5BZwV",
-      "name": "ShadesIshere",
-      "pledge_levels": [
-        "Landlord"
-      ],
-      "is_active": "Landlord",
-      "additional_note": "Shades casino"
     },
     {
       "id": "gLrV8tYHA",
@@ -525,7 +516,7 @@
       "additional_note": ""
     },
     {
-      "id": "JYZokTjnB",
+      "id": "w0vz6AyfB",
       "name": "Cretorial",
       "pledge_levels": [
         "Tourist"
@@ -633,7 +624,7 @@
       "additional_note": ""
     },
     {
-      "id": "Htbdr5PLt",
+      "id": "PSEIrSCI5",
       "name": "Grayson Alexander Jones",
       "pledge_levels": [
         "Tourist"
@@ -1366,7 +1357,7 @@
       "additional_note": ""
     },
     {
-      "id": "IBI0eunOC",
+      "id": "MzzM0Buia",
       "name": "Denis Sanchez",
       "pledge_levels": [
         "Tourist"
@@ -1510,7 +1501,7 @@
       "additional_note": ""
     },
     {
-      "id": "x9jYHq5ft",
+      "id": "aWWCKlAPi",
       "name": "euirin",
       "pledge_levels": [
         "Tourist"
@@ -1990,7 +1981,7 @@
       "additional_note": ""
     },
     {
-      "id": "mATea6ODO",
+      "id": "rJo8nGeiu",
       "name": "Kade Stevens",
       "pledge_levels": [
         "Tourist"
@@ -2621,6 +2612,15 @@
       ],
       "is_active": false,
       "additional_note": ""
+    },
+    {
+      "id": "MLJf5BZwV",
+      "name": "ShadesIshere",
+      "pledge_levels": [
+        "Landlord"
+      ],
+      "is_active": false,
+      "additional_note": "Shades casino"
     },
     {
       "id": "MBoganT3o",
