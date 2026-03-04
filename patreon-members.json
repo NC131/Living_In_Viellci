@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-03-03T19:00:20.463Z",
+  "last_updated": "2026-03-04T02:33:57.193Z",
   "total_members": 334,
   "members": [
     {
@@ -352,15 +352,6 @@
       "additional_note": ""
     },
     {
-      "id": "oMm7Abv5b",
-      "name": "Surviving Moon",
-      "pledge_levels": [
-        "Citizen"
-      ],
-      "is_active": "Citizen",
-      "additional_note": ""
-    },
-    {
       "id": "pkc5DxpHJ",
       "name": "That_ Guy",
       "pledge_levels": [
@@ -443,15 +434,6 @@
       "additional_note": ""
     },
     {
-      "id": "iUOhBPilM",
-      "name": "Al3_DaGama",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": "Tourist",
-      "additional_note": ""
-    },
-    {
       "id": "XJez62Ybj",
       "name": "Andy Perez",
       "pledge_levels": [
@@ -516,7 +498,7 @@
       "additional_note": ""
     },
     {
-      "id": "5SnFBggq7",
+      "id": "C1JLzlfRz",
       "name": "Cretorial",
       "pledge_levels": [
         "Tourist"
@@ -615,7 +597,7 @@
       "additional_note": ""
     },
     {
-      "id": "PsoRhJJbq",
+      "id": "9R1pOYUU6",
       "name": "Grayson Alexander Jones",
       "pledge_levels": [
         "Tourist"
@@ -994,6 +976,15 @@
       "additional_note": ""
     },
     {
+      "id": "iUOhBPilM",
+      "name": "Al3_DaGama",
+      "pledge_levels": [
+        "Tourist"
+      ],
+      "is_active": false,
+      "additional_note": ""
+    },
+    {
       "id": "b3MIbWZaR",
       "name": "aldo marquez salas",
       "pledge_levels": [
@@ -1357,7 +1348,7 @@
       "additional_note": ""
     },
     {
-      "id": "ZbXFyr2wO",
+      "id": "hERS68Rdv",
       "name": "Denis Sanchez",
       "pledge_levels": [
         "Tourist"
@@ -1501,7 +1492,7 @@
       "additional_note": ""
     },
     {
-      "id": "en0jjMV13",
+      "id": "nlNyk4rF7",
       "name": "euirin",
       "pledge_levels": [
         "Tourist"
@@ -1981,7 +1972,7 @@
       "additional_note": ""
     },
     {
-      "id": "MEOGHTmXo",
+      "id": "AcYZ5Edkq",
       "name": "Kade Stevens",
       "pledge_levels": [
         "Tourist"
@@ -2681,6 +2672,15 @@
       "name": "SpritezUp",
       "pledge_levels": [
         "Tourist"
+      ],
+      "is_active": false,
+      "additional_note": ""
+    },
+    {
+      "id": "oMm7Abv5b",
+      "name": "Surviving Moon",
+      "pledge_levels": [
+        "Citizen"
       ],
       "is_active": false,
       "additional_note": ""
