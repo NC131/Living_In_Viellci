@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-03-09T07:10:36.769Z",
-  "total_members": 335,
+  "last_updated": "2026-03-09T13:17:43.879Z",
+  "total_members": 336,
   "members": [
     {
       "id": "B3McfawEs",
@@ -508,7 +508,7 @@
       "additional_note": ""
     },
     {
-      "id": "sAd1jiaXB",
+      "id": "6GvTvIGvp",
       "name": "Cretorial",
       "pledge_levels": [
         "Tourist"
@@ -607,7 +607,7 @@
       "additional_note": ""
     },
     {
-      "id": "jV6RqnBi6",
+      "id": "z8fHy0C9V",
       "name": "Grayson Alexander Jones",
       "pledge_levels": [
         "Tourist"
@@ -618,15 +618,6 @@
     {
       "id": "PRhvOdJFi",
       "name": "guillermo2620",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": "Tourist",
-      "additional_note": ""
-    },
-    {
-      "id": "IrZ0NNjla",
-      "name": "Hazelkidz",
       "pledge_levels": [
         "Tourist"
       ],
@@ -736,6 +727,15 @@
     {
       "id": "WHy05IIfF",
       "name": "Mofftender",
+      "pledge_levels": [
+        "Tourist"
+      ],
+      "is_active": "Tourist",
+      "additional_note": ""
+    },
+    {
+      "id": "ilT6W76CZ",
+      "name": "Oscuz",
       "pledge_levels": [
         "Tourist"
       ],
@@ -906,7 +906,7 @@
       "additional_note": ""
     },
     {
-      "id": "VPNP6SPee",
+      "id": "DSltaBI8V",
       "name": "Vinyl Scratch",
       "pledge_levels": [
         "Tourist"
@@ -1368,7 +1368,7 @@
       "additional_note": ""
     },
     {
-      "id": "ldxhCVHq6",
+      "id": "Bi9lvCaIs",
       "name": "Denis Sanchez",
       "pledge_levels": [
         "Tourist"
@@ -1512,7 +1512,7 @@
       "additional_note": ""
     },
     {
-      "id": "pmdSyPFna",
+      "id": "pcnUmjIct",
       "name": "euirin",
       "pledge_levels": [
         "Tourist"
@@ -1660,6 +1660,15 @@
       "name": "Gucci_Supreme",
       "pledge_levels": [
         "Citizen"
+      ],
+      "is_active": false,
+      "additional_note": ""
+    },
+    {
+      "id": "IrZ0NNjla",
+      "name": "Hazelkidz",
+      "pledge_levels": [
+        "Tourist"
       ],
       "is_active": false,
       "additional_note": ""
@@ -1982,7 +1991,7 @@
       "additional_note": ""
     },
     {
-      "id": "48H8RSRDa",
+      "id": "arHG9fjO8",
       "name": "Kade Stevens",
       "pledge_levels": [
         "Tourist"
