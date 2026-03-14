@@ -1,8 +1,15 @@
 {
-  "last_updated": "2026-03-14T06:56:50.204Z",
+  "last_updated": "2026-03-14T13:05:04.107Z",
   "total_posts": 10,
   "note": "",
   "posts": [
+    {
+      "title": "Weekly log #23",
+      "url": "/posts/weekly-log-23-153012634",
+      "thumbnail": "patreon/posts/153012634.png",
+      "date": "2026-03-14T11:49:14.000+00:00",
+      "is_public": true
+    },
     {
       "title": "Announcement for the future NSFW content of the game",
       "url": "/posts/announcement-for-152434283",
@@ -64,13 +71,6 @@
       "url": "/posts/weekly-log-15-146332251",
       "thumbnail": "patreon/posts/146332251.png",
       "date": "2025-12-21T04:31:38.000+00:00",
-      "is_public": true
-    },
-    {
-      "title": "Weekly log #14",
-      "url": "/posts/weekly-log-14-145757269",
-      "thumbnail": "patreon/posts/145757269.png",
-      "date": "2025-12-13T14:26:33.000+00:00",
       "is_public": true
     }
   ]
