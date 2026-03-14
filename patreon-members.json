@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-03-13T18:52:27.645Z",
+  "last_updated": "2026-03-14T02:34:26.683Z",
   "total_members": 336,
   "members": [
     {
@@ -372,15 +372,6 @@
       "additional_note": ""
     },
     {
-      "id": "rHwD5l6Kh",
-      "name": "TheSeventhGeek",
-      "pledge_levels": [
-        "Citizen"
-      ],
-      "is_active": "Citizen",
-      "additional_note": ""
-    },
-    {
       "id": "ZXF9XePCn",
       "name": "Trashboii",
       "pledge_levels": [
@@ -508,7 +499,7 @@
       "additional_note": ""
     },
     {
-      "id": "r9GBaw8FZ",
+      "id": "m5kdPitY4",
       "name": "Cretorial",
       "pledge_levels": [
         "Tourist"
@@ -598,7 +589,7 @@
       "additional_note": ""
     },
     {
-      "id": "ztT2G5LDa",
+      "id": "83z9u4HZm",
       "name": "Grayson Alexander Jones",
       "pledge_levels": [
         "Tourist"
@@ -707,7 +698,7 @@
       "additional_note": ""
     },
     {
-      "id": "ketvPrqCg",
+      "id": "bN7Bqjbs2",
       "name": "Oscuz",
       "pledge_levels": [
         "Tourist"
@@ -852,7 +843,7 @@
       "additional_note": ""
     },
     {
-      "id": "qa4Bcu0bw",
+      "id": "80a1PWwUq",
       "name": "Vinyl Scratch",
       "pledge_levels": [
         "Tourist"
@@ -1314,7 +1305,7 @@
       "additional_note": ""
     },
     {
-      "id": "Wx3EKMSkF",
+      "id": "gLrRjwDlE",
       "name": "Denis Sanchez",
       "pledge_levels": [
         "Tourist"
@@ -1458,7 +1449,7 @@
       "additional_note": ""
     },
     {
-      "id": "oF0MgXuBe",
+      "id": "7SpYxA09b",
       "name": "euirin",
       "pledge_levels": [
         "Tourist"
@@ -1955,7 +1946,7 @@
       "additional_note": ""
     },
     {
-      "id": "bRWap0nRB",
+      "id": "rCug3BJkU",
       "name": "Kade Stevens",
       "pledge_levels": [
         "Tourist"
@@ -2726,6 +2717,15 @@
       "name": "The Air",
       "pledge_levels": [
         "Tourist"
+      ],
+      "is_active": false,
+      "additional_note": ""
+    },
+    {
+      "id": "rHwD5l6Kh",
+      "name": "TheSeventhGeek",
+      "pledge_levels": [
+        "Citizen"
       ],
       "is_active": false,
       "additional_note": ""
