@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-03-14T18:49:16.102Z",
+  "last_updated": "2026-03-15T02:55:18.543Z",
   "total_members": 336,
   "members": [
     {
@@ -199,15 +199,6 @@
     {
       "id": "T2L6eOquX",
       "name": "Fallen_",
-      "pledge_levels": [
-        "Citizen"
-      ],
-      "is_active": "Citizen",
-      "additional_note": ""
-    },
-    {
-      "id": "Ek6dBP9h8",
-      "name": "Francis York Morgan",
       "pledge_levels": [
         "Citizen"
       ],
@@ -499,7 +490,7 @@
       "additional_note": ""
     },
     {
-      "id": "G5ZdmozXK",
+      "id": "nrmrg3Jqx",
       "name": "Cretorial",
       "pledge_levels": [
         "Tourist"
@@ -589,7 +580,7 @@
       "additional_note": ""
     },
     {
-      "id": "JoVjOR44t",
+      "id": "cHRYGVUir",
       "name": "Grayson Alexander Jones",
       "pledge_levels": [
         "Tourist"
@@ -698,7 +689,7 @@
       "additional_note": ""
     },
     {
-      "id": "ccfIBpCRS",
+      "id": "KSMx8cc3F",
       "name": "Oscuz",
       "pledge_levels": [
         "Tourist"
@@ -728,15 +719,6 @@
     {
       "id": "mK8vyP77y",
       "name": "Philip Tennant",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": "Tourist",
-      "additional_note": ""
-    },
-    {
-      "id": "eW66soXNS",
-      "name": "Randomized",
       "pledge_levels": [
         "Tourist"
       ],
@@ -843,7 +825,7 @@
       "additional_note": ""
     },
     {
-      "id": "gMBWL9lfZ",
+      "id": "kVmObhU8M",
       "name": "Vinyl Scratch",
       "pledge_levels": [
         "Tourist"
@@ -1305,7 +1287,7 @@
       "additional_note": ""
     },
     {
-      "id": "XGf7CDebI",
+      "id": "fhkejuln2",
       "name": "Denis Sanchez",
       "pledge_levels": [
         "Tourist"
@@ -1449,7 +1431,7 @@
       "additional_note": ""
     },
     {
-      "id": "5hxHT0OBI",
+      "id": "JnmYRpY1k",
       "name": "euirin",
       "pledge_levels": [
         "Tourist"
@@ -1496,6 +1478,15 @@
     {
       "id": "932XvSFTM",
       "name": "Francesca Maud",
+      "pledge_levels": [
+        "Citizen"
+      ],
+      "is_active": false,
+      "additional_note": ""
+    },
+    {
+      "id": "Ek6dBP9h8",
+      "name": "Francis York Morgan",
       "pledge_levels": [
         "Citizen"
       ],
@@ -1946,7 +1937,7 @@
       "additional_note": ""
     },
     {
-      "id": "OZB9VUFgt",
+      "id": "KWmnTsEFQ",
       "name": "Kade Stevens",
       "pledge_levels": [
         "Tourist"
@@ -2444,6 +2435,15 @@
     {
       "id": "9DvBLnmsK",
       "name": "Rain",
+      "pledge_levels": [
+        "Tourist"
+      ],
+      "is_active": false,
+      "additional_note": ""
+    },
+    {
+      "id": "eW66soXNS",
+      "name": "Randomized",
       "pledge_levels": [
         "Tourist"
       ],
