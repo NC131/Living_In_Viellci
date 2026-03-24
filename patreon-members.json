@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-03-24T13:25:37.492Z",
+  "last_updated": "2026-03-24T19:12:58.735Z",
   "total_members": 336,
   "members": [
     {
@@ -57,16 +57,6 @@
       ],
       "is_active": "Landlord",
       "additional_note": "Campbell Defense Dynamic"
-    },
-    {
-      "id": "AxH2N62EI",
-      "name": "polimer",
-      "pledge_levels": [
-        "Landlord",
-        "Tourist"
-      ],
-      "is_active": "Landlord",
-      "additional_note": ""
     },
     {
       "id": "12ojchgR8",
@@ -435,7 +425,7 @@
       "additional_note": ""
     },
     {
-      "id": "FTgZKo4nn",
+      "id": "pWXIfOcPj",
       "name": "Cretorial",
       "pledge_levels": [
         "Tourist"
@@ -516,7 +506,7 @@
       "additional_note": ""
     },
     {
-      "id": "8LT1T1aQ6",
+      "id": "bdZQXRop3",
       "name": "Grayson Alexander Jones",
       "pledge_levels": [
         "Tourist"
@@ -725,7 +715,7 @@
       "additional_note": ""
     },
     {
-      "id": "HBhQ1gu9d",
+      "id": "HXHBGDiHB",
       "name": "Vinyl Scratch",
       "pledge_levels": [
         "Tourist"
@@ -1214,7 +1204,7 @@
       "additional_note": ""
     },
     {
-      "id": "yNIoANP4k",
+      "id": "IZsO0tt9f",
       "name": "Denis Sanchez",
       "pledge_levels": [
         "Tourist"
@@ -1367,7 +1357,7 @@
       "additional_note": ""
     },
     {
-      "id": "1bX9UeOSf",
+      "id": "JucqOM9HY",
       "name": "euirin",
       "pledge_levels": [
         "Tourist"
@@ -1883,7 +1873,7 @@
       "additional_note": ""
     },
     {
-      "id": "vaDPLpGnP",
+      "id": "4cuG2aN88",
       "name": "Kade Stevens",
       "pledge_levels": [
         "Tourist"
@@ -2346,6 +2336,16 @@
       "id": "H4LHXlksj",
       "name": "Pluto",
       "pledge_levels": [
+        "Tourist"
+      ],
+      "is_active": false,
+      "additional_note": ""
+    },
+    {
+      "id": "AxH2N62EI",
+      "name": "polimer",
+      "pledge_levels": [
+        "Landlord",
         "Tourist"
       ],
       "is_active": false,
