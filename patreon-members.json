@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-03-25T19:04:00.584Z",
+  "last_updated": "2026-03-26T02:51:15.379Z",
   "total_members": 336,
   "members": [
     {
@@ -67,15 +67,6 @@
       ],
       "is_active": "Landlord",
       "additional_note": "Ryu's HARDware store"
-    },
-    {
-      "id": "gLrV8tYHA",
-      "name": "SunFish",
-      "pledge_levels": [
-        "Landlord"
-      ],
-      "is_active": "Landlord",
-      "additional_note": ""
     },
     {
       "id": "1WmsPEXvZ",
@@ -416,17 +407,8 @@
       "additional_note": ""
     },
     {
-      "id": "vXQPDue09",
+      "id": "qCgDsUUEa",
       "name": "Cretorial",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": "Tourist",
-      "additional_note": ""
-    },
-    {
-      "id": "Wli5G7nwX",
-      "name": "D",
       "pledge_levels": [
         "Tourist"
       ],
@@ -497,7 +479,7 @@
       "additional_note": ""
     },
     {
-      "id": "tvbARClyj",
+      "id": "V7IsrZbx7",
       "name": "Grayson Alexander Jones",
       "pledge_levels": [
         "Tourist"
@@ -661,15 +643,6 @@
       "additional_note": ""
     },
     {
-      "id": "TudtD3b0w",
-      "name": "Silvii",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": "Tourist",
-      "additional_note": ""
-    },
-    {
       "id": "EkfN08Axb",
       "name": "ThrobsGoblin",
       "pledge_levels": [
@@ -706,7 +679,7 @@
       "additional_note": ""
     },
     {
-      "id": "3cO1NBCDW",
+      "id": "IYORkJa4h",
       "name": "Vinyl Scratch",
       "pledge_levels": [
         "Tourist"
@@ -1122,6 +1095,15 @@
       "additional_note": ""
     },
     {
+      "id": "Wli5G7nwX",
+      "name": "D",
+      "pledge_levels": [
+        "Tourist"
+      ],
+      "is_active": false,
+      "additional_note": ""
+    },
+    {
       "id": "AvdnijkV7",
       "name": "Dameon",
       "pledge_levels": [
@@ -1204,7 +1186,7 @@
       "additional_note": ""
     },
     {
-      "id": "8EPVjBpAn",
+      "id": "wGQbvpqzO",
       "name": "Denis Sanchez",
       "pledge_levels": [
         "Tourist"
@@ -1357,7 +1339,7 @@
       "additional_note": ""
     },
     {
-      "id": "iTKk5LvCv",
+      "id": "AqHbbfCMd",
       "name": "euirin",
       "pledge_levels": [
         "Tourist"
@@ -1873,7 +1855,7 @@
       "additional_note": ""
     },
     {
-      "id": "cfywUlzOD",
+      "id": "ZxzO7QwZO",
       "name": "Kade Stevens",
       "pledge_levels": [
         "Tourist"
@@ -2605,6 +2587,15 @@
       "additional_note": ""
     },
     {
+      "id": "TudtD3b0w",
+      "name": "Silvii",
+      "pledge_levels": [
+        "Tourist"
+      ],
+      "is_active": false,
+      "additional_note": ""
+    },
+    {
       "id": "NPREW0oUg",
       "name": "sleddingwelder7",
       "pledge_levels": [
@@ -2654,6 +2645,15 @@
       "name": "Stakesi Uter",
       "pledge_levels": [
         "Citizen"
+      ],
+      "is_active": false,
+      "additional_note": ""
+    },
+    {
+      "id": "gLrV8tYHA",
+      "name": "SunFish",
+      "pledge_levels": [
+        "Landlord"
       ],
       "is_active": false,
       "additional_note": ""
