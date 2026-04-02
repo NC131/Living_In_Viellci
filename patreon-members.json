@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-01T19:12:18.624Z",
+  "last_updated": "2026-04-02T02:49:00.445Z",
   "total_members": 336,
   "members": [
     {
@@ -110,15 +110,6 @@
       "pledge_levels": [
         "Citizen",
         "Tourist"
-      ],
-      "is_active": "Citizen",
-      "additional_note": ""
-    },
-    {
-      "id": "WDK7EZ7T9",
-      "name": "Darkvirus969",
-      "pledge_levels": [
-        "Citizen"
       ],
       "is_active": "Citizen",
       "additional_note": ""
@@ -380,7 +371,7 @@
       "additional_note": ""
     },
     {
-      "id": "WFOShGJS2",
+      "id": "WcrgUnLmm",
       "name": "Cretorial",
       "pledge_levels": [
         "Tourist"
@@ -461,7 +452,7 @@
       "additional_note": ""
     },
     {
-      "id": "SwZfTakGf",
+      "id": "8YfsA91Oy",
       "name": "Grayson Alexander Jones",
       "pledge_levels": [
         "Tourist"
@@ -518,15 +509,6 @@
     {
       "id": "NmC8xGh3v",
       "name": "Majima",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": "Tourist",
-      "additional_note": ""
-    },
-    {
-      "id": "ijcgRg7Je",
-      "name": "Marc Michel",
       "pledge_levels": [
         "Tourist"
       ],
@@ -661,7 +643,7 @@
       "additional_note": ""
     },
     {
-      "id": "zW4bxzfjd",
+      "id": "fS2hsyjQs",
       "name": "Vinyl Scratch",
       "pledge_levels": [
         "Tourist"
@@ -1123,6 +1105,15 @@
       "additional_note": ""
     },
     {
+      "id": "WDK7EZ7T9",
+      "name": "Darkvirus969",
+      "pledge_levels": [
+        "Citizen"
+      ],
+      "is_active": false,
+      "additional_note": ""
+    },
+    {
       "id": "s3cdaOkW0",
       "name": "Darling Azusaneko",
       "pledge_levels": [
@@ -1150,7 +1141,7 @@
       "additional_note": ""
     },
     {
-      "id": "OGojPaUpM",
+      "id": "hkS9SmjaR",
       "name": "Denis Sanchez",
       "pledge_levels": [
         "Tourist"
@@ -1303,7 +1294,7 @@
       "additional_note": ""
     },
     {
-      "id": "PNYGvM4qJ",
+      "id": "7omaGFAbv",
       "name": "euirin",
       "pledge_levels": [
         "Tourist"
@@ -1837,7 +1828,7 @@
       "additional_note": ""
     },
     {
-      "id": "qgMU6LEAI",
+      "id": "EpRhc48Lg",
       "name": "Kade Stevens",
       "pledge_levels": [
         "Tourist"
@@ -2121,6 +2112,15 @@
       "name": "Manuel Millan",
       "pledge_levels": [
         "Citizen"
+      ],
+      "is_active": false,
+      "additional_note": ""
+    },
+    {
+      "id": "ijcgRg7Je",
+      "name": "Marc Michel",
+      "pledge_levels": [
+        "Tourist"
       ],
       "is_active": false,
       "additional_note": ""
