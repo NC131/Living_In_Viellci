@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-06T19:10:28.904Z",
+  "last_updated": "2026-04-07T02:54:16.733Z",
   "total_members": 336,
   "members": [
     {
@@ -177,15 +177,6 @@
       "additional_note": ""
     },
     {
-      "id": "LAztJHwBu",
-      "name": "KetoRocks Gaming",
-      "pledge_levels": [
-        "Citizen"
-      ],
-      "is_active": "Citizen",
-      "additional_note": ""
-    },
-    {
       "id": "CQFNNXHeL",
       "name": "KiloWarrior",
       "pledge_levels": [
@@ -352,7 +343,7 @@
       "additional_note": ""
     },
     {
-      "id": "qf8hc5Fjk",
+      "id": "xTtdFnEDr",
       "name": "Cretorial",
       "pledge_levels": [
         "Tourist"
@@ -415,7 +406,7 @@
       "additional_note": ""
     },
     {
-      "id": "iLTTgXp3I",
+      "id": "8Ka2iSZzP",
       "name": "Grayson Alexander Jones",
       "pledge_levels": [
         "Tourist"
@@ -606,7 +597,7 @@
       "additional_note": ""
     },
     {
-      "id": "PzX3baKfu",
+      "id": "c0KAHTAI9",
       "name": "Vinyl Scratch",
       "pledge_levels": [
         "Tourist"
@@ -709,15 +700,6 @@
       "name": "Alex Creasman",
       "pledge_levels": [
         "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "id": "WyRZ0RC88",
-      "name": "Alexander Macke",
-      "pledge_levels": [
-        "Citizen"
       ],
       "is_active": false,
       "additional_note": ""
@@ -873,6 +855,15 @@
       "name": "blank.",
       "pledge_levels": [
         "Tourist"
+      ],
+      "is_active": false,
+      "additional_note": ""
+    },
+    {
+      "id": "WyRZ0RC88",
+      "name": "BoomSchnuckums",
+      "pledge_levels": [
+        "Citizen"
       ],
       "is_active": false,
       "additional_note": ""
@@ -1113,7 +1104,7 @@
       "additional_note": ""
     },
     {
-      "id": "NnqBs1vRt",
+      "id": "6X5zSj6g3",
       "name": "Denis Sanchez",
       "pledge_levels": [
         "Tourist"
@@ -1275,7 +1266,7 @@
       "additional_note": ""
     },
     {
-      "id": "oRCRv0T24",
+      "id": "To03emVHj",
       "name": "euirin",
       "pledge_levels": [
         "Tourist"
@@ -1809,7 +1800,7 @@
       "additional_note": ""
     },
     {
-      "id": "xMSkgH3kx",
+      "id": "zDbIqeKq2",
       "name": "Kade Stevens",
       "pledge_levels": [
         "Tourist"
@@ -1838,6 +1829,15 @@
     {
       "id": "mjA32aLAL",
       "name": "Kenodoxia",
+      "pledge_levels": [
+        "Citizen"
+      ],
+      "is_active": false,
+      "additional_note": ""
+    },
+    {
+      "id": "LAztJHwBu",
+      "name": "KetoRocks Gaming",
       "pledge_levels": [
         "Citizen"
       ],
