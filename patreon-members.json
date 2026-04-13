@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-12T18:59:17.314Z",
+  "last_updated": "2026-04-13T03:32:11.298Z",
   "total_members": 337,
   "members": [
     {
@@ -270,7 +270,7 @@
       "additional_note": ""
     },
     {
-      "id": "aeYrLJOu9",
+      "id": "jBQIrvGTP",
       "name": "abody 315",
       "pledge_levels": [
         "Tourist"
@@ -343,7 +343,7 @@
       "additional_note": ""
     },
     {
-      "id": "Hm1SeLtpL",
+      "id": "sjEiTqzQv",
       "name": "Cretorial",
       "pledge_levels": [
         "Tourist"
@@ -406,7 +406,7 @@
       "additional_note": ""
     },
     {
-      "id": "QAl8rZ80C",
+      "id": "OIAFaqrTz",
       "name": "Grayson Alexander Jones",
       "pledge_levels": [
         "Tourist"
@@ -560,15 +560,6 @@
       "additional_note": ""
     },
     {
-      "id": "wgrku96eQ",
-      "name": "Tomas Gudauskas",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": "Tourist",
-      "additional_note": ""
-    },
-    {
       "id": "d3HbVOBaM",
       "name": "Vas’Tel",
       "pledge_levels": [
@@ -578,7 +569,7 @@
       "additional_note": ""
     },
     {
-      "id": "6Yym4NDvz",
+      "id": "t3OYvh8V2",
       "name": "Vinyl Scratch",
       "pledge_levels": [
         "Tourist"
@@ -1094,7 +1085,7 @@
       "additional_note": ""
     },
     {
-      "id": "0Hul0cW6u",
+      "id": "IERRpXEmm",
       "name": "Denis Sanchez",
       "pledge_levels": [
         "Tourist"
@@ -1256,7 +1247,7 @@
       "additional_note": ""
     },
     {
-      "id": "8mVyuP9dv",
+      "id": "EZb0J1iwr",
       "name": "euirin",
       "pledge_levels": [
         "Tourist"
@@ -1799,7 +1790,7 @@
       "additional_note": ""
     },
     {
-      "id": "QuTWP32bY",
+      "id": "QQsG7z7SK",
       "name": "Kade Stevens",
       "pledge_levels": [
         "Tourist"
@@ -2733,6 +2724,15 @@
     {
       "id": "INM20vicT",
       "name": "toast",
+      "pledge_levels": [
+        "Tourist"
+      ],
+      "is_active": false,
+      "additional_note": ""
+    },
+    {
+      "id": "wgrku96eQ",
+      "name": "Tomas Gudauskas",
       "pledge_levels": [
         "Tourist"
       ],
