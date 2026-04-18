@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-17T19:10:30.109Z",
+  "last_updated": "2026-04-18T02:54:40.451Z",
   "total_members": 337,
   "members": [
     {
@@ -280,7 +280,7 @@
       "additional_note": ""
     },
     {
-      "id": "HV0kFuJED",
+      "id": "KaK3vOlYI",
       "name": "abody 315",
       "pledge_levels": [
         "Tourist"
@@ -353,7 +353,7 @@
       "additional_note": ""
     },
     {
-      "id": "IP4HQCRzp",
+      "id": "OgOs3ONi4",
       "name": "Cretorial",
       "pledge_levels": [
         "Tourist"
@@ -389,15 +389,6 @@
       "additional_note": ""
     },
     {
-      "id": "t67sQHUFm",
-      "name": "ElectroBeatz",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": "Tourist",
-      "additional_note": ""
-    },
-    {
       "id": "GCwK665hp",
       "name": "EmberHeart",
       "pledge_levels": [
@@ -416,7 +407,7 @@
       "additional_note": ""
     },
     {
-      "id": "DHfmeUSTB",
+      "id": "1e4kCkYai",
       "name": "Grayson Alexander Jones",
       "pledge_levels": [
         "Tourist"
@@ -579,7 +570,7 @@
       "additional_note": ""
     },
     {
-      "id": "aP0W2mIGL",
+      "id": "wPY2YHPpR",
       "name": "Vinyl Scratch",
       "pledge_levels": [
         "Tourist"
@@ -1095,7 +1086,7 @@
       "additional_note": ""
     },
     {
-      "id": "HMrgWrSkO",
+      "id": "43DO1toj0",
       "name": "Denis Sanchez",
       "pledge_levels": [
         "Tourist"
@@ -1221,6 +1212,15 @@
       "additional_note": ""
     },
     {
+      "id": "t67sQHUFm",
+      "name": "ElectroBeatz",
+      "pledge_levels": [
+        "Tourist"
+      ],
+      "is_active": false,
+      "additional_note": ""
+    },
+    {
       "id": "UsAGOWDka",
       "name": "Elyse",
       "pledge_levels": [
@@ -1257,7 +1257,7 @@
       "additional_note": ""
     },
     {
-      "id": "WHOGmjwFp",
+      "id": "PeN30uLuu",
       "name": "euirin",
       "pledge_levels": [
         "Tourist"
@@ -1790,7 +1790,7 @@
       "additional_note": ""
     },
     {
-      "id": "VCbcJS4Cb",
+      "id": "i1SmukDaK",
       "name": "Kade Stevens",
       "pledge_levels": [
         "Tourist"
