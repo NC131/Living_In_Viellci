@@ -1,8 +1,15 @@
 {
-  "last_updated": "2026-04-18T13:14:16.168Z",
+  "last_updated": "2026-04-18T19:00:16.082Z",
   "total_posts": 10,
   "note": "",
   "posts": [
+    {
+      "title": "Weekly log #27",
+      "url": "/posts/weekly-log-27-155935795",
+      "thumbnail": "patreon/posts/155935795.png",
+      "date": "2026-04-18T15:40:09.000+00:00",
+      "is_public": true
+    },
     {
       "title": "Weekly log #26",
       "url": "/posts/weekly-log-26-155358442",
@@ -64,13 +71,6 @@
       "url": "/posts/weekly-log-19-150759079",
       "thumbnail": "patreon/posts/150759079.png",
       "date": "2026-02-14T11:44:29.000+00:00",
-      "is_public": true
-    },
-    {
-      "title": "Weekly log #18",
-      "url": "/posts/weekly-log-18-149581909",
-      "thumbnail": "patreon/posts/149581909.png",
-      "date": "2026-01-31T15:29:41.000+00:00",
       "is_public": true
     }
   ]
