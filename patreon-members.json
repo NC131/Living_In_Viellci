@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-19T19:00:18.162Z",
+  "last_updated": "2026-04-20T03:32:13.845Z",
   "total_members": 337,
   "members": [
     {
@@ -280,15 +280,6 @@
       "additional_note": ""
     },
     {
-      "id": "1mEFUu9ri",
-      "name": "abody 315",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": "Tourist",
-      "additional_note": ""
-    },
-    {
       "id": "iUOhBPilM",
       "name": "Al3_DaGama",
       "pledge_levels": [
@@ -353,17 +344,8 @@
       "additional_note": ""
     },
     {
-      "id": "WF8nNEAAi",
+      "id": "Rd0Db0UsQ",
       "name": "Cretorial",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": "Tourist",
-      "additional_note": ""
-    },
-    {
-      "id": "Pm6agS46b",
-      "name": "Damaged Codex",
       "pledge_levels": [
         "Tourist"
       ],
@@ -407,7 +389,7 @@
       "additional_note": ""
     },
     {
-      "id": "1oQLzpd7K",
+      "id": "GoLm5wmE7",
       "name": "Grayson Alexander Jones",
       "pledge_levels": [
         "Tourist"
@@ -498,15 +480,6 @@
       "additional_note": ""
     },
     {
-      "id": "mK8vyP77y",
-      "name": "Philip Tennant",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": "Tourist",
-      "additional_note": ""
-    },
-    {
       "id": "HfSm5NPDM",
       "name": "Remington",
       "pledge_levels": [
@@ -570,7 +543,7 @@
       "additional_note": ""
     },
     {
-      "id": "LcF0wHNGJ",
+      "id": "rnfS0iPkY",
       "name": "Vinyl Scratch",
       "pledge_levels": [
         "Tourist"
@@ -628,6 +601,15 @@
       "name": "A💜",
       "pledge_levels": [
         "Citizen"
+      ],
+      "is_active": false,
+      "additional_note": ""
+    },
+    {
+      "id": "pyEIPYG9F",
+      "name": "abody 315",
+      "pledge_levels": [
+        "Tourist"
       ],
       "is_active": false,
       "additional_note": ""
@@ -995,6 +977,15 @@
       "additional_note": ""
     },
     {
+      "id": "Pm6agS46b",
+      "name": "Damaged Codex",
+      "pledge_levels": [
+        "Tourist"
+      ],
+      "is_active": false,
+      "additional_note": ""
+    },
+    {
       "id": "AvdnijkV7",
       "name": "Dameon",
       "pledge_levels": [
@@ -1086,7 +1077,7 @@
       "additional_note": ""
     },
     {
-      "id": "I1TaILXe5",
+      "id": "R9C4IQIJS",
       "name": "Denis Sanchez",
       "pledge_levels": [
         "Tourist"
@@ -1257,7 +1248,7 @@
       "additional_note": ""
     },
     {
-      "id": "Gv48MmieP",
+      "id": "2OKUyxud7",
       "name": "euirin",
       "pledge_levels": [
         "Tourist"
@@ -1790,7 +1781,7 @@
       "additional_note": ""
     },
     {
-      "id": "yiHnOLVy0",
+      "id": "Ew5oYuRdx",
       "name": "Kade Stevens",
       "pledge_levels": [
         "Tourist"
@@ -2253,6 +2244,15 @@
     {
       "id": "0EnX8fp8E",
       "name": "PD.B",
+      "pledge_levels": [
+        "Tourist"
+      ],
+      "is_active": false,
+      "additional_note": ""
+    },
+    {
+      "id": "mK8vyP77y",
+      "name": "Philip Tennant",
       "pledge_levels": [
         "Tourist"
       ],
