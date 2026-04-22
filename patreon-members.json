@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-21T19:21:00.452Z",
+  "last_updated": "2026-04-22T03:22:38.112Z",
   "total_members": 337,
   "members": [
     {
@@ -344,7 +344,7 @@
       "additional_note": ""
     },
     {
-      "id": "9hsM4UYAv",
+      "id": "U2QSZESih",
       "name": "Cretorial",
       "pledge_levels": [
         "Tourist"
@@ -389,7 +389,7 @@
       "additional_note": ""
     },
     {
-      "id": "8vQvFCyDD",
+      "id": "vblWI4mjx",
       "name": "Grayson Alexander Jones",
       "pledge_levels": [
         "Tourist"
@@ -543,7 +543,7 @@
       "additional_note": ""
     },
     {
-      "id": "KfkfIv6DK",
+      "id": "kAkRKfoRE",
       "name": "Vinyl Scratch",
       "pledge_levels": [
         "Tourist"
@@ -554,15 +554,6 @@
     {
       "id": "HteXjR0IO",
       "name": "Wtyson",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": "Tourist",
-      "additional_note": ""
-    },
-    {
-      "id": "gXT96url5",
-      "name": "Zadeno",
       "pledge_levels": [
         "Tourist"
       ],
@@ -606,7 +597,7 @@
       "additional_note": ""
     },
     {
-      "id": "S1HHYd0Sj",
+      "id": "P97hPy5sN",
       "name": "abody 315",
       "pledge_levels": [
         "Tourist"
@@ -1077,7 +1068,7 @@
       "additional_note": ""
     },
     {
-      "id": "FuqMWAxHo",
+      "id": "R4dtsDkfq",
       "name": "Denis Sanchez",
       "pledge_levels": [
         "Tourist"
@@ -1248,7 +1239,7 @@
       "additional_note": ""
     },
     {
-      "id": "veCAtfMNr",
+      "id": "v5NtYCuQx",
       "name": "euirin",
       "pledge_levels": [
         "Tourist"
@@ -1781,7 +1772,7 @@
       "additional_note": ""
     },
     {
-      "id": "jueeEDMtS",
+      "id": "E16ccgesO",
       "name": "Kade Stevens",
       "pledge_levels": [
         "Tourist"
@@ -2964,6 +2955,15 @@
       "name": "Zack Roman",
       "pledge_levels": [
         "Citizen"
+      ],
+      "is_active": false,
+      "additional_note": ""
+    },
+    {
+      "id": "gXT96url5",
+      "name": "Zadeno",
+      "pledge_levels": [
+        "Tourist"
       ],
       "is_active": false,
       "additional_note": ""
