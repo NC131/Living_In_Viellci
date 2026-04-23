@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-22T19:22:59.838Z",
+  "last_updated": "2026-04-23T03:26:05.961Z",
   "total_members": 337,
   "members": [
     {
@@ -344,7 +344,7 @@
       "additional_note": ""
     },
     {
-      "id": "MUenuBJhJ",
+      "id": "wGufWizwX",
       "name": "Cretorial",
       "pledge_levels": [
         "Tourist"
@@ -389,7 +389,7 @@
       "additional_note": ""
     },
     {
-      "id": "E9LYD9tTA",
+      "id": "xOvvFCQIN",
       "name": "Grayson Alexander Jones",
       "pledge_levels": [
         "Tourist"
@@ -471,15 +471,6 @@
       "additional_note": ""
     },
     {
-      "id": "O4uSHc5QU",
-      "name": "Pharaoh",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": "Tourist",
-      "additional_note": ""
-    },
-    {
       "id": "HfSm5NPDM",
       "name": "Remington",
       "pledge_levels": [
@@ -543,7 +534,7 @@
       "additional_note": ""
     },
     {
-      "id": "UOGdWFEY8",
+      "id": "JlbN4xfIo",
       "name": "Vinyl Scratch",
       "pledge_levels": [
         "Tourist"
@@ -597,7 +588,7 @@
       "additional_note": ""
     },
     {
-      "id": "aqckAFk4T",
+      "id": "C5UeK30uB",
       "name": "abody 315",
       "pledge_levels": [
         "Tourist"
@@ -1068,7 +1059,7 @@
       "additional_note": ""
     },
     {
-      "id": "EmDELCz5x",
+      "id": "N3O1XLpiI",
       "name": "Denis Sanchez",
       "pledge_levels": [
         "Tourist"
@@ -1239,7 +1230,7 @@
       "additional_note": ""
     },
     {
-      "id": "v6EqD0DsL",
+      "id": "eBsZeuOvY",
       "name": "euirin",
       "pledge_levels": [
         "Tourist"
@@ -1772,7 +1763,7 @@
       "additional_note": ""
     },
     {
-      "id": "tweCRWWy1",
+      "id": "UHa4tuNt6",
       "name": "Kade Stevens",
       "pledge_levels": [
         "Tourist"
@@ -2235,6 +2226,15 @@
     {
       "id": "0EnX8fp8E",
       "name": "PD.B",
+      "pledge_levels": [
+        "Tourist"
+      ],
+      "is_active": false,
+      "additional_note": ""
+    },
+    {
+      "id": "O4uSHc5QU",
+      "name": "Pharaoh",
       "pledge_levels": [
         "Tourist"
       ],
