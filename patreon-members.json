@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-26T19:04:27.147Z",
+  "last_updated": "2026-04-27T03:39:14.386Z",
   "total_members": 337,
   "members": [
     {
@@ -187,15 +187,6 @@
       "additional_note": ""
     },
     {
-      "id": "dhFoEJaPl",
-      "name": "Lv9Slime",
-      "pledge_levels": [
-        "Citizen"
-      ],
-      "is_active": "Citizen",
-      "additional_note": ""
-    },
-    {
       "id": "lLvvqBspW",
       "name": "Sebastian",
       "pledge_levels": [
@@ -334,7 +325,7 @@
       "additional_note": ""
     },
     {
-      "id": "VCP1wJ8k6",
+      "id": "lqI3BaR8H",
       "name": "Cretorial",
       "pledge_levels": [
         "Tourist"
@@ -379,7 +370,7 @@
       "additional_note": ""
     },
     {
-      "id": "pNr6owCaD",
+      "id": "Lx6ESUB1C",
       "name": "Grayson Alexander Jones",
       "pledge_levels": [
         "Tourist"
@@ -533,7 +524,7 @@
       "additional_note": ""
     },
     {
-      "id": "WYpui0wsR",
+      "id": "EALF4wOup",
       "name": "Vinyl Scratch",
       "pledge_levels": [
         "Tourist"
@@ -587,7 +578,7 @@
       "additional_note": ""
     },
     {
-      "id": "JLnlhr8fj",
+      "id": "iAAJwMAxR",
       "name": "abody 315",
       "pledge_levels": [
         "Tourist"
@@ -1058,7 +1049,7 @@
       "additional_note": ""
     },
     {
-      "id": "LVR8UQmbU",
+      "id": "uWwLurnrT",
       "name": "Denis Sanchez",
       "pledge_levels": [
         "Tourist"
@@ -1229,7 +1220,7 @@
       "additional_note": ""
     },
     {
-      "id": "8GV8GMM2h",
+      "id": "gRB2afxa3",
       "name": "euirin",
       "pledge_levels": [
         "Tourist"
@@ -1772,7 +1763,7 @@
       "additional_note": ""
     },
     {
-      "id": "cDTmxt4Us",
+      "id": "tzSBTMG8h",
       "name": "Kade Stevens",
       "pledge_levels": [
         "Tourist"
@@ -2008,6 +1999,15 @@
     {
       "id": "6pReTzE4M",
       "name": "Luscious Potato",
+      "pledge_levels": [
+        "Citizen"
+      ],
+      "is_active": false,
+      "additional_note": ""
+    },
+    {
+      "id": "dhFoEJaPl",
+      "name": "Lv9Slime",
       "pledge_levels": [
         "Citizen"
       ],
