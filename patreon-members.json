@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-30T19:41:33.880Z",
+  "last_updated": "2026-05-01T03:55:10.114Z",
   "total_members": 337,
   "members": [
     {
@@ -168,15 +168,6 @@
       "additional_note": ""
     },
     {
-      "id": "CQFNNXHeL",
-      "name": "KiloWarrior",
-      "pledge_levels": [
-        "Citizen"
-      ],
-      "is_active": "Citizen",
-      "additional_note": ""
-    },
-    {
       "id": "6p0wV8n5k",
       "name": "Lurchy",
       "pledge_levels": [
@@ -325,7 +316,7 @@
       "additional_note": ""
     },
     {
-      "id": "QSjTVsjHV",
+      "id": "3cJgowyGq",
       "name": "Cretorial",
       "pledge_levels": [
         "Tourist"
@@ -370,7 +361,7 @@
       "additional_note": ""
     },
     {
-      "id": "3MvJP1z4e",
+      "id": "rvMGELAjZ",
       "name": "Grayson Alexander Jones",
       "pledge_levels": [
         "Tourist"
@@ -524,7 +515,7 @@
       "additional_note": ""
     },
     {
-      "id": "0R0tHITo6",
+      "id": "EAFWPKA1s",
       "name": "Vinyl Scratch",
       "pledge_levels": [
         "Tourist"
@@ -578,7 +569,7 @@
       "additional_note": ""
     },
     {
-      "id": "LGYxkBPRL",
+      "id": "przyFS9zE",
       "name": "abody 315",
       "pledge_levels": [
         "Tourist"
@@ -1049,7 +1040,7 @@
       "additional_note": ""
     },
     {
-      "id": "HPIBoSN41",
+      "id": "QxOL5otvM",
       "name": "Denis Sanchez",
       "pledge_levels": [
         "Tourist"
@@ -1220,7 +1211,7 @@
       "additional_note": ""
     },
     {
-      "id": "MzVz6qdXh",
+      "id": "17PlkfbES",
       "name": "euirin",
       "pledge_levels": [
         "Tourist"
@@ -1763,7 +1754,7 @@
       "additional_note": ""
     },
     {
-      "id": "32psjUXwj",
+      "id": "lxBbJezkj",
       "name": "Kade Stevens",
       "pledge_levels": [
         "Tourist"
@@ -1821,6 +1812,15 @@
       "name": "Kiba",
       "pledge_levels": [
         "Tourist"
+      ],
+      "is_active": false,
+      "additional_note": ""
+    },
+    {
+      "id": "CQFNNXHeL",
+      "name": "KiloWarrior",
+      "pledge_levels": [
+        "Citizen"
       ],
       "is_active": false,
       "additional_note": ""
