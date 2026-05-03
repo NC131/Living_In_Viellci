@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-02T19:09:20.645Z",
+  "last_updated": "2026-05-03T03:49:42.675Z",
   "total_members": 337,
   "members": [
     {
@@ -316,7 +316,7 @@
       "additional_note": ""
     },
     {
-      "id": "KrH1b0BYj",
+      "id": "3KsHhOr4w",
       "name": "Cretorial",
       "pledge_levels": [
         "Tourist"
@@ -361,7 +361,7 @@
       "additional_note": ""
     },
     {
-      "id": "jLPM2O19L",
+      "id": "bmnZLIYLF",
       "name": "Grayson Alexander Jones",
       "pledge_levels": [
         "Tourist"
@@ -452,15 +452,6 @@
       "additional_note": ""
     },
     {
-      "id": "5JCj8iKPZ",
-      "name": "Ricci",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": "Tourist",
-      "additional_note": ""
-    },
-    {
       "id": "LV0YRd7Uw",
       "name": "Richard Joyce",
       "pledge_levels": [
@@ -515,7 +506,7 @@
       "additional_note": ""
     },
     {
-      "id": "U1nrg1tlU",
+      "id": "L4cXHQTer",
       "name": "Vinyl Scratch",
       "pledge_levels": [
         "Tourist"
@@ -569,7 +560,7 @@
       "additional_note": ""
     },
     {
-      "id": "RvjylDf82",
+      "id": "OqbcbfVdB",
       "name": "abody 315",
       "pledge_levels": [
         "Tourist"
@@ -1040,7 +1031,7 @@
       "additional_note": ""
     },
     {
-      "id": "BMvS84C1h",
+      "id": "AMkrauVds",
       "name": "Denis Sanchez",
       "pledge_levels": [
         "Tourist"
@@ -1211,7 +1202,7 @@
       "additional_note": ""
     },
     {
-      "id": "Ok6lT3noQ",
+      "id": "63WUBue9e",
       "name": "euirin",
       "pledge_levels": [
         "Tourist"
@@ -1754,7 +1745,7 @@
       "additional_note": ""
     },
     {
-      "id": "qFRsJPY6P",
+      "id": "rDH9Sa8lX",
       "name": "Kade Stevens",
       "pledge_levels": [
         "Tourist"
@@ -2394,6 +2385,15 @@
       ],
       "is_active": false,
       "additional_note": "Reaves restaurant"
+    },
+    {
+      "id": "5JCj8iKPZ",
+      "name": "Ricci",
+      "pledge_levels": [
+        "Tourist"
+      ],
+      "is_active": false,
+      "additional_note": ""
     },
     {
       "id": "DZtJErc2d",
