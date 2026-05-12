@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-11T19:55:49.534Z",
+  "last_updated": "2026-05-12T03:46:11.400Z",
   "total_members": 338,
   "members": [
     {
@@ -95,7 +95,7 @@
       "additional_note": ""
     },
     {
-      "id": "chWj61x7s",
+      "id": "jK4wOEkLc",
       "name": "ChicasNeko64 Legion Neko",
       "pledge_levels": [
         "Citizen"
@@ -344,7 +344,7 @@
       "additional_note": ""
     },
     {
-      "id": "BID0uvL1U",
+      "id": "sW10wtMji",
       "name": "Cretorial",
       "pledge_levels": [
         "Tourist"
@@ -389,7 +389,7 @@
       "additional_note": ""
     },
     {
-      "id": "VenraJaI0",
+      "id": "0xE5i527I",
       "name": "Grayson Alexander Jones",
       "pledge_levels": [
         "Tourist"
@@ -516,15 +516,6 @@
       "additional_note": ""
     },
     {
-      "id": "y99NhW2Kt",
-      "name": "Vinyl Scratch",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": "Tourist",
-      "additional_note": ""
-    },
-    {
       "id": "HteXjR0IO",
       "name": "Wtyson",
       "pledge_levels": [
@@ -570,7 +561,7 @@
       "additional_note": ""
     },
     {
-      "id": "AlfiSM4VG",
+      "id": "qmmtoBb0M",
       "name": "abody 315",
       "pledge_levels": [
         "Tourist"
@@ -1041,7 +1032,7 @@
       "additional_note": ""
     },
     {
-      "id": "Q9xGqYhJb",
+      "id": "y3GJbDuDA",
       "name": "Denis Sanchez",
       "pledge_levels": [
         "Tourist"
@@ -1212,7 +1203,7 @@
       "additional_note": ""
     },
     {
-      "id": "6yCYL8GzL",
+      "id": "ORV83I1Bk",
       "name": "euirin",
       "pledge_levels": [
         "Tourist"
@@ -1754,7 +1745,7 @@
       "additional_note": ""
     },
     {
-      "id": "cbl0b7BID",
+      "id": "O9zXfQJiA",
       "name": "Kade Stevens",
       "pledge_levels": [
         "Tourist"
@@ -2837,6 +2828,15 @@
       ],
       "is_active": false,
       "additional_note": "Vars-Tech apparatus"
+    },
+    {
+      "id": "erUMGNBtf",
+      "name": "Vinyl Scratch",
+      "pledge_levels": [
+        "Tourist"
+      ],
+      "is_active": false,
+      "additional_note": ""
     },
     {
       "id": "u6Wsm1VWv",
