@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-12T20:00:53.559Z",
+  "last_updated": "2026-05-13T03:55:19.161Z",
   "total_members": 338,
   "members": [
     {
@@ -95,7 +95,7 @@
       "additional_note": ""
     },
     {
-      "id": "LbdJMJrqa",
+      "id": "fM4vnAbHQ",
       "name": "ChicasNeko64 Legion Neko",
       "pledge_levels": [
         "Citizen"
@@ -344,7 +344,7 @@
       "additional_note": ""
     },
     {
-      "id": "smxYUjoIZ",
+      "id": "4nGMTwzkS",
       "name": "Cretorial",
       "pledge_levels": [
         "Tourist"
@@ -389,7 +389,7 @@
       "additional_note": ""
     },
     {
-      "id": "Wpw0uyTKS",
+      "id": "NTWkk5n7e",
       "name": "Grayson Alexander Jones",
       "pledge_levels": [
         "Tourist"
@@ -437,15 +437,6 @@
     {
       "id": "2aupoDxu9",
       "name": "Landon",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": "Tourist",
-      "additional_note": ""
-    },
-    {
-      "id": "NmC8xGh3v",
-      "name": "Majima",
       "pledge_levels": [
         "Tourist"
       ],
@@ -561,7 +552,7 @@
       "additional_note": ""
     },
     {
-      "id": "H1MwgRfDv",
+      "id": "8tUK2qq44",
       "name": "abody 315",
       "pledge_levels": [
         "Tourist"
@@ -1032,7 +1023,7 @@
       "additional_note": ""
     },
     {
-      "id": "UV3CByvZT",
+      "id": "MZov9mQoL",
       "name": "Denis Sanchez",
       "pledge_levels": [
         "Tourist"
@@ -1203,7 +1194,7 @@
       "additional_note": ""
     },
     {
-      "id": "4o7r8VFR9",
+      "id": "ulGTIBOMj",
       "name": "euirin",
       "pledge_levels": [
         "Tourist"
@@ -1745,7 +1736,7 @@
       "additional_note": ""
     },
     {
-      "id": "7LGUog7oC",
+      "id": "4Fl0SoEr6",
       "name": "Kade Stevens",
       "pledge_levels": [
         "Tourist"
@@ -2019,6 +2010,15 @@
       "name": "Main One",
       "pledge_levels": [
         "Citizen",
+        "Tourist"
+      ],
+      "is_active": false,
+      "additional_note": ""
+    },
+    {
+      "id": "NmC8xGh3v",
+      "name": "Majima",
+      "pledge_levels": [
         "Tourist"
       ],
       "is_active": false,
@@ -2830,7 +2830,7 @@
       "additional_note": "Vars-Tech apparatus"
     },
     {
-      "id": "KVBIfiRon",
+      "id": "dfbfBjuD4",
       "name": "Vinyl Scratch",
       "pledge_levels": [
         "Tourist"
