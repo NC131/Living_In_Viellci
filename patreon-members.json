@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-27T04:19:47.010Z",
+  "last_updated": "2026-05-27T10:05:12.176Z",
   "total_members": 338,
   "members": [
     {
@@ -95,7 +95,7 @@
       "additional_note": ""
     },
     {
-      "id": "2z3M4MKem",
+      "id": "upkxlZ7YV",
       "name": "ChicasNeko64 Legion Neko",
       "pledge_levels": [
         "Citizen"
@@ -307,7 +307,7 @@
       "additional_note": ""
     },
     {
-      "id": "dxCmt71Ij",
+      "id": "NgNe1mUFT",
       "name": "Cretorial",
       "pledge_levels": [
         "Tourist"
@@ -352,7 +352,7 @@
       "additional_note": ""
     },
     {
-      "id": "3A5uTsjVT",
+      "id": "etUduksOH",
       "name": "Grayson Alexander Jones",
       "pledge_levels": [
         "Tourist"
@@ -515,7 +515,7 @@
       "additional_note": ""
     },
     {
-      "id": "Lk2UfW3Pf",
+      "id": "cv2wldPIw",
       "name": "abody 315",
       "pledge_levels": [
         "Tourist"
@@ -995,7 +995,7 @@
       "additional_note": ""
     },
     {
-      "id": "I1bX0QXev",
+      "id": "vJD9u9iQU",
       "name": "Denis Sanchez",
       "pledge_levels": [
         "Tourist"
@@ -1166,7 +1166,7 @@
       "additional_note": ""
     },
     {
-      "id": "2Wwl6HMwi",
+      "id": "bpjnJDxL6",
       "name": "euirin",
       "pledge_levels": [
         "Tourist"
@@ -1186,15 +1186,6 @@
     {
       "id": "YoOSvaEx3",
       "name": "Evol1t💜",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "id": "2KcTN7iSO",
-      "name": "Felipe de Souza",
       "pledge_levels": [
         "Tourist"
       ],
@@ -1718,7 +1709,7 @@
       "additional_note": ""
     },
     {
-      "id": "iAsUbyr9N",
+      "id": "8NTpiezRM",
       "name": "Kade Stevens",
       "pledge_levels": [
         "Tourist"
@@ -2830,7 +2821,7 @@
       "additional_note": "Vars-Tech apparatus"
     },
     {
-      "id": "99BvUrxDl",
+      "id": "U0gXKL4kr",
       "name": "Vinyl Scratch",
       "pledge_levels": [
         "Tourist"
@@ -2890,6 +2881,15 @@
       "name": "wynautt",
       "pledge_levels": [
         "Citizen"
+      ],
+      "is_active": false,
+      "additional_note": ""
+    },
+    {
+      "id": "2KcTN7iSO",
+      "name": "X_Bacon",
+      "pledge_levels": [
+        "Tourist"
       ],
       "is_active": false,
       "additional_note": ""
