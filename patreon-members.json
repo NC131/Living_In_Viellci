@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-26T20:17:05.276Z",
+  "last_updated": "2026-05-27T04:19:47.010Z",
   "total_members": 338,
   "members": [
     {
@@ -95,7 +95,7 @@
       "additional_note": ""
     },
     {
-      "id": "XBGJKvhWS",
+      "id": "2z3M4MKem",
       "name": "ChicasNeko64 Legion Neko",
       "pledge_levels": [
         "Citizen"
@@ -173,15 +173,6 @@
       "pledge_levels": [
         "Citizen",
         "Tourist"
-      ],
-      "is_active": "Citizen",
-      "additional_note": ""
-    },
-    {
-      "id": "dhFoEJaPl",
-      "name": "Lv9Slime",
-      "pledge_levels": [
-        "Citizen"
       ],
       "is_active": "Citizen",
       "additional_note": ""
@@ -316,7 +307,7 @@
       "additional_note": ""
     },
     {
-      "id": "MNjMJ4c1w",
+      "id": "dxCmt71Ij",
       "name": "Cretorial",
       "pledge_levels": [
         "Tourist"
@@ -361,7 +352,7 @@
       "additional_note": ""
     },
     {
-      "id": "OlnKzkgIe",
+      "id": "3A5uTsjVT",
       "name": "Grayson Alexander Jones",
       "pledge_levels": [
         "Tourist"
@@ -524,7 +515,7 @@
       "additional_note": ""
     },
     {
-      "id": "hOCG1Au30",
+      "id": "Lk2UfW3Pf",
       "name": "abody 315",
       "pledge_levels": [
         "Tourist"
@@ -1004,7 +995,7 @@
       "additional_note": ""
     },
     {
-      "id": "tuuP97Nd5",
+      "id": "I1bX0QXev",
       "name": "Denis Sanchez",
       "pledge_levels": [
         "Tourist"
@@ -1175,7 +1166,7 @@
       "additional_note": ""
     },
     {
-      "id": "2NLHLoNv5",
+      "id": "2Wwl6HMwi",
       "name": "euirin",
       "pledge_levels": [
         "Tourist"
@@ -1727,7 +1718,7 @@
       "additional_note": ""
     },
     {
-      "id": "pmsvo6Lau",
+      "id": "iAsUbyr9N",
       "name": "Kade Stevens",
       "pledge_levels": [
         "Tourist"
@@ -1972,6 +1963,15 @@
     {
       "id": "6pReTzE4M",
       "name": "Luscious Potato",
+      "pledge_levels": [
+        "Citizen"
+      ],
+      "is_active": false,
+      "additional_note": ""
+    },
+    {
+      "id": "dhFoEJaPl",
+      "name": "Lv9Slime",
       "pledge_levels": [
         "Citizen"
       ],
@@ -2830,7 +2830,7 @@
       "additional_note": "Vars-Tech apparatus"
     },
     {
-      "id": "Ff5fyspto",
+      "id": "99BvUrxDl",
       "name": "Vinyl Scratch",
       "pledge_levels": [
         "Tourist"
