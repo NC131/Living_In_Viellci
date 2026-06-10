@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-09T20:13:06.822Z",
+  "last_updated": "2026-06-10T04:14:55.298Z",
   "total_members": 339,
   "members": [
     {
@@ -88,15 +88,6 @@
     {
       "id": "S94Y8PSys",
       "name": "Bonnie",
-      "pledge_levels": [
-        "Citizen"
-      ],
-      "is_active": "Citizen",
-      "additional_note": ""
-    },
-    {
-      "id": "C5wJeZkWl",
-      "name": "ChicasNeko64 Legion Neko",
       "pledge_levels": [
         "Citizen"
       ],
@@ -317,7 +308,7 @@
       "additional_note": ""
     },
     {
-      "id": "nfYC48YRA",
+      "id": "fpcdSrLFP",
       "name": "Cretorial",
       "pledge_levels": [
         "Tourist"
@@ -362,7 +353,7 @@
       "additional_note": ""
     },
     {
-      "id": "W56mipycU",
+      "id": "dQgraAVAy",
       "name": "Grayson Alexander Jones",
       "pledge_levels": [
         "Tourist"
@@ -534,7 +525,7 @@
       "additional_note": ""
     },
     {
-      "id": "sfhh9EyT7",
+      "id": "A53VTmEJ1",
       "name": "abody 315",
       "pledge_levels": [
         "Tourist"
@@ -824,6 +815,15 @@
       "additional_note": ""
     },
     {
+      "id": "jP3HgoNJN",
+      "name": "ChicasNeko64 Legion Neko",
+      "pledge_levels": [
+        "Citizen"
+      ],
+      "is_active": false,
+      "additional_note": ""
+    },
+    {
       "id": "tJwHm0ta0",
       "name": "Chiko",
       "pledge_levels": [
@@ -1014,7 +1014,7 @@
       "additional_note": ""
     },
     {
-      "id": "HkJiwSIdw",
+      "id": "oeO6SKwbM",
       "name": "Denis Sanchez",
       "pledge_levels": [
         "Tourist"
@@ -1195,7 +1195,7 @@
       "additional_note": ""
     },
     {
-      "id": "ssn6VP1MO",
+      "id": "OMieM20r1",
       "name": "euirin",
       "pledge_levels": [
         "Tourist"
@@ -1728,7 +1728,7 @@
       "additional_note": ""
     },
     {
-      "id": "06gt4CxSa",
+      "id": "6lhZxs37z",
       "name": "Kade Stevens",
       "pledge_levels": [
         "Tourist"
@@ -2830,7 +2830,7 @@
       "additional_note": "Vars-Tech apparatus"
     },
     {
-      "id": "B6UT6UQam",
+      "id": "KKqusJZLE",
       "name": "Vinyl Scratch",
       "pledge_levels": [
         "Tourist"
