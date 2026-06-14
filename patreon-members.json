@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-13T19:44:20.754Z",
+  "last_updated": "2026-06-14T04:46:11.874Z",
   "total_members": 339,
   "members": [
     {
@@ -308,7 +308,7 @@
       "additional_note": ""
     },
     {
-      "id": "oul0P4ifh",
+      "id": "PF8XxKZmw",
       "name": "Cretorial",
       "pledge_levels": [
         "Tourist"
@@ -353,7 +353,7 @@
       "additional_note": ""
     },
     {
-      "id": "g7idx8EAT",
+      "id": "bf76oDtXk",
       "name": "Grayson Alexander Jones",
       "pledge_levels": [
         "Tourist"
@@ -364,15 +364,6 @@
     {
       "id": "PRhvOdJFi",
       "name": "guillermo2620",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": "Tourist",
-      "additional_note": ""
-    },
-    {
-      "id": "HteXjR0IO",
-      "name": "invayne",
       "pledge_levels": [
         "Tourist"
       ],
@@ -525,7 +516,7 @@
       "additional_note": ""
     },
     {
-      "id": "OPrlLlZGp",
+      "id": "raIbWd1E2",
       "name": "abody 315",
       "pledge_levels": [
         "Tourist"
@@ -815,7 +806,7 @@
       "additional_note": ""
     },
     {
-      "id": "gHH4Yn4hQ",
+      "id": "xK5xv7q8H",
       "name": "ChicasNeko64 Legion Neko",
       "pledge_levels": [
         "Citizen"
@@ -1014,7 +1005,7 @@
       "additional_note": ""
     },
     {
-      "id": "04tPwfUx0",
+      "id": "oP50QKr1x",
       "name": "Denis Sanchez",
       "pledge_levels": [
         "Tourist"
@@ -1195,7 +1186,7 @@
       "additional_note": ""
     },
     {
-      "id": "MwX4VuibU",
+      "id": "2WSDAG6WA",
       "name": "euirin",
       "pledge_levels": [
         "Tourist"
@@ -1465,6 +1456,15 @@
       "additional_note": ""
     },
     {
+      "id": "HteXjR0IO",
+      "name": "invayne",
+      "pledge_levels": [
+        "Tourist"
+      ],
+      "is_active": false,
+      "additional_note": ""
+    },
+    {
       "id": "7Pbx2N8CV",
       "name": "irwin43",
       "pledge_levels": [
@@ -1728,7 +1728,7 @@
       "additional_note": ""
     },
     {
-      "id": "fxMeB7bY1",
+      "id": "eUh70efz4",
       "name": "Kade Stevens",
       "pledge_levels": [
         "Tourist"
@@ -2830,7 +2830,7 @@
       "additional_note": "Vars-Tech apparatus"
     },
     {
-      "id": "Kxp5u8vZj",
+      "id": "HOPgWjFmm",
       "name": "Vinyl Scratch",
       "pledge_levels": [
         "Tourist"
