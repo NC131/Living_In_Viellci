@@ -5,10 +5,6 @@
     "interface": {
       "version": "0.2.10",
       "url": "https://raw.githubusercontent.com/NC131/Living_In_Viellci/main/translations/en_interface.po"
-    },
-    "subtitle": {
-      "version": "0.2.10",
-      "url": "https://raw.githubusercontent.com/NC131/Living_In_Viellci/main/translations/en_subtitle.po"
     }
   },
   "id": {
@@ -20,9 +16,9 @@
       "version": "0.2.11",
       "url": "https://raw.githubusercontent.com/NC131/Living_In_Viellci/main/translations/id_interface.po"
     },
-    "subtitle": {
+    "dialogue": {
       "version": "0.2.11",
-      "url": "https://raw.githubusercontent.com/NC131/Living_In_Viellci/main/translations/id_subtitle.po"
+      "url": "https://raw.githubusercontent.com/NC131/Living_In_Viellci/main/translations/id_dialogue.po"
     }
   },
   "vi": {
@@ -33,10 +29,6 @@
     "interface": {
       "version": "0.2.9",
       "url": "https://raw.githubusercontent.com/NC131/Living_In_Viellci/main/translations/vi_interface.po"
-    },
-    "subtitle": {
-      "version": "0.2.9",
-      "url": "https://raw.githubusercontent.com/NC131/Living_In_Viellci/main/translations/vi_subtitle.po"
     }
   },
   "ru": {
@@ -47,10 +39,6 @@
     "interface": {
       "version": "0.2.9",
       "url": "https://raw.githubusercontent.com/NC131/Living_In_Viellci/main/translations/ru_interface.po"
-    },
-    "subtitle": {
-      "version": "0.2.9",
-      "url": "https://raw.githubusercontent.com/NC131/Living_In_Viellci/main/translations/ru_subtitle.po"
     }
   },
   "ph": {
@@ -61,10 +49,6 @@
     "interface": {
       "version": "0.2.9",
       "url": "https://raw.githubusercontent.com/NC131/Living_In_Viellci/main/translations/ph_interface.po"
-    },
-    "subtitle": {
-      "version": "0.2.9",
-      "url": "https://raw.githubusercontent.com/NC131/Living_In_Viellci/main/translations/ph_subtitle.po"
     }
   }
 }
