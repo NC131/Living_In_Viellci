@@ -5,6 +5,10 @@
     "interface": {
       "version": "0.2.10",
       "url": "https://raw.githubusercontent.com/NC131/Living_In_Viellci/main/translations/en_interface.po"
+    },
+    "dialogue": {
+      "version": "0.2.11",
+      "url": "https://raw.githubusercontent.com/NC131/Living_In_Viellci/main/translations/en_dialogue.po"
     }
   },
   "id": {
@@ -17,7 +21,7 @@
       "url": "https://raw.githubusercontent.com/NC131/Living_In_Viellci/main/translations/id_interface.po"
     },
     "dialogue": {
-      "version": "0.2.11",
+      "version": "0.2.12",
       "url": "https://raw.githubusercontent.com/NC131/Living_In_Viellci/main/translations/id_dialogue.po"
     }
   },
