@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Living In Viellci\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2026-01-05 17:53+0700\n"
+"PO-Revision-Date: 2026-07-03 18:50+0700\n"
 "Last-Translator: \n"
 "Language-Team: English\n"
 "Language: en\n"
@@ -14,6 +14,687 @@ msgstr ""
 "X-Loco-Source-Locale: id_ID\n"
 "X-Generator: Poedit 3.8\n"
 "X-Loco-Parser: loco_parse_po\n"
+
+#: core/scripts/Global_persistentData.gd:99
+msgid "INTRO_LINES1"
+msgstr ""
+"Is this\n"
+"Friday Night Funkin mod??"
+
+#: core/scripts/Global_persistentData.gd:100
+msgid "INTRO_LINES2"
+msgstr ""
+"Oh look!\n"
+"A placeholder text!"
+
+#: core/scripts/Global_persistentData.gd:101
+msgid "INTRO_LINES3"
+msgstr ""
+"I like this so much\n"
+"Better than the previous one"
+
+#: core/scripts/Global_persistentData.gd:102
+msgid "INTRO_LINES4"
+msgstr ""
+"I hope this won't\n"
+"Lag in your device"
+
+#: core/scripts/Global_persistentData.gd:103
+msgid "INTRO_LINES5"
+msgstr ""
+"Keep up\n"
+"The grind!"
+
+#: core/scripts/Global_persistentData.gd:108
+msgid "OPTION_WINDOWED"
+msgstr "Windowed"
+
+#: core/scripts/Global_persistentData.gd:109
+msgid "OPTION_FULLSCREEN"
+msgstr "Fullscreen"
+
+#: core/scripts/Global_persistentData.gd:110
+msgid "OPTION_MAXIMIZED"
+msgstr "Maximized"
+
+#: core/scripts/Global_persistentData.gd:111
+msgid "OPTION_30FPS"
+msgstr "30 FPS"
+
+#: core/scripts/Global_persistentData.gd:112
+msgid "OPTION_60FPS"
+msgstr "60 FPS"
+
+#: core/scripts/Global_persistentData.gd:113
+msgid "OPTION_120FPS"
+msgstr "120 FPS"
+
+#: core/scripts/Global_persistentData.gd:114
+msgid "OPTION_UNLIMITED"
+msgstr "Unlimited"
+
+#: core/scripts/Global_persistentData.gd:115
+msgid "OPTION_ADAPTIVE"
+msgstr "Adaptive"
+
+#: core/scripts/Global_persistentData.gd:116
+msgid "OPTION_2X"
+msgstr "2x"
+
+#: core/scripts/Global_persistentData.gd:117
+msgid "OPTION_4X"
+msgstr "4x"
+
+#: core/scripts/Global_persistentData.gd:118
+msgid "OPTION_8X"
+msgstr "8x"
+
+#: core/scripts/Global_persistentData.gd:119
+msgid "OPTION_GLOBAL"
+msgstr "Global"
+
+#: core/scripts/Global_persistentData.gd:120
+msgid "OPTION_3D"
+msgstr "3D Space"
+
+#: core/scripts/Global_persistentData.gd:123
+msgid "OPTION_24_HOUR"
+msgstr "24 Hour"
+
+#: core/scripts/Global_persistentData.gd:124
+msgid "OPTION_12_HOUR"
+msgstr "12 Hour"
+
+#: core/scripts/Global_persistentData.gd:125
+msgid "OPTION_INSTANT"
+msgstr "Instant"
+
+#: core/scripts/Global_persistentData.gd:126
+msgid "OPTION_DELAY"
+msgstr "Delay"
+
+#: core/scripts/Global_persistentData.gd:129
+msgid "OPTION_HELPHOVER_DESC"
+msgstr "[center]Hover which options you want me to explain~"
+
+#: core/scripts/Global_persistentData.gd:130
+msgid "OPTION_DISABLED"
+msgstr "Disabled"
+
+#: core/scripts/Global_persistentData.gd:131
+msgid "OPTION_ENABLED"
+msgstr "Enabled"
+
+#: core/scripts/Global_persistentData.gd:132
+msgid "OPTION_LOW"
+msgstr "Low"
+
+#: core/scripts/Global_persistentData.gd:133
+msgid "OPTION_MEDIUM"
+msgstr "Medium"
+
+#: core/scripts/Global_persistentData.gd:134
+msgid "OPTION_HIGH"
+msgstr "High"
+
+#: core/scripts/Global_persistentData.gd:137
+msgid "BUTTON_LEAVE"
+msgstr "Leave"
+
+#: core/scripts/Global_persistentData.gd:138
+msgid "ACTIVE"
+msgstr "Active"
+
+#: core/scripts/Global_persistentData.gd:139
+msgid "NONACTIVE"
+msgstr "Nonactive"
+
+#: core/scripts/Global_persistentData.gd:140
+msgid "AUDIO_MUTED"
+msgstr "MUTED"
+
+#: core/scripts/Global_persistentData.gd:141
+msgid "VERSION"
+msgstr "VERSION"
+
+#: core/scripts/Global_persistentData.gd:142
+msgid "ALL_RIGHTS_RESERVED"
+msgstr "All rights reserved."
+
+#: core/scripts/Global_persistentData.gd:143
+msgid "PATRON_LOADING"
+msgstr "Loading"
+
+#: core/scripts/Global_persistentData.gd:144
+msgid "PATRON_FAIL_FETCHING"
+msgstr "Failed fetching patron"
+
+#: core/scripts/Global_persistentData.gd:145
+msgid "PATRON_NO_MEMBERS"
+msgstr "No members"
+
+#: core/scripts/Global_persistentData.gd:146
+msgid "FAILED_FETCHING"
+msgstr "Failed fetching patron"
+
+#: core/scripts/Global_persistentData.gd:147
+msgid "LANGUAGE_BY"
+msgstr "By: "
+
+#: core/scripts/Global_persistentData.gd:148
+msgid "LANGUAGE_DOWNLOAD"
+msgstr "Download"
+
+#: core/scripts/Global_persistentData.gd:149
+msgid "LANGUAGE_DOWNLOADING"
+msgstr "Downloading..."
+
+#: core/scripts/Global_persistentData.gd:150
+msgid "LANGUAGE_UPDATE"
+msgstr "Update"
+
+#: core/scripts/Global_persistentData.gd:151
+msgid "LANGUAGE_UPDATE_TRANSLATION"
+msgstr "Translation update available!"
+
+#: core/scripts/Global_persistentData.gd:152
+msgid "LANGUAGE_REMOVE"
+msgstr "Remove"
+
+#: core/scripts/Global_persistentData.gd:153
+msgid "LANGUAGE_REMOVE_TRANSLATION"
+msgstr "Remove translation."
+
+#: core/scripts/Global_persistentData.gd:154
+msgid "CONFIRMATION_RESET_DEFAULT_TITLE"
+msgstr "Reset to default?"
+
+#: core/scripts/Global_persistentData.gd:155
+msgid "CONFIRMATION_RESET_DEFAULT_DESC"
+msgstr ""
+"This will reset all settings to default.\n"
+"[i]Except windows and language.[/i]"
+
+#: core/scripts/Global_persistentData.gd:156
+#: core/scripts/Global_pauseScreen.gd:79 core/scripts/Global_pauseScreen.gd:93
+#: core/scripts/Global_globalFunction.gd:73
+msgid "CONFIRMATION_CONFIRM"
+msgstr "CONFIRM"
+
+#: core/scripts/Global_persistentData.gd:157
+#: core/scripts/Global_pauseScreen.gd:80 core/scripts/Global_pauseScreen.gd:94
+#: core/scripts/Global_globalFunction.gd:73
+msgid "CONFIRMATION_CANCEL"
+msgstr "CANCEL"
+
+#: core/scripts/Global_persistentData.gd:158
+msgid "INPUT_SAVE_NAME_TITLE"
+msgstr "SAVE SLOT NAME"
+
+#: core/scripts/Global_persistentData.gd:159
+msgid "INPUT_SAVE_NAME_BACKTEXT"
+msgstr "INPUT YOUR SAVE SLOT NAME HERE"
+
+#: core/scripts/Global_persistentData.gd:162
+msgid "AUDIO_MASTERVOLUME_DESC"
+msgstr ""
+"[b]Adjust the main volume of the game.[/b]\n"
+"\n"
+"   The father of all volumes! All other volumes depend on him..."
+
+#: core/scripts/Global_persistentData.gd:163
+msgid "AUDIO_MUSICVOLUME_DESC"
+msgstr ""
+"[b]Adjust the music volume.[/b]\n"
+"\n"
+"   This adjust the music in the game...! I-isn't this self-explanatory "
+"enough?\n"
+"\n"
+"   Here! Let me help you:\n"
+"   [url]https://dictionary.cambridge.org/dictionary/english/adjust[/url]"
+
+#: core/scripts/Global_persistentData.gd:164
+msgid "AUDIO_AMBIENCEVOLUME_DESC"
+msgstr ""
+"[b]Adjust the ambience volume.[/b]\n"
+"\n"
+"   Hmm... you prefer the cityscape's ambience or the music? Whatever it is, "
+"adjust the ambience here!"
+
+#: core/scripts/Global_persistentData.gd:165
+msgid "AUDIO_SFXVOLUME_DESC"
+msgstr ""
+"[b]Adjust the sound effects volume.[/b]\n"
+"\n"
+"   The sound effects! You know... the one when you click on things?"
+
+#: core/scripts/Global_persistentData.gd:166
+msgid "AUDIO_DIALOGUEVOLUME_DESC"
+msgstr ""
+"[b]Adjust the dialogue volume.[/b]\n"
+"\n"
+"   Bleeps and voice lines controlled by this slider! You don't hate our "
+"voices... do you?"
+
+#: core/scripts/Global_persistentData.gd:167
+msgid "VISUAL_WINDOWMODE_DESC"
+msgstr ""
+"[b]Set the game's window mode.[/b]\n"
+"\n"
+"   Makes the game fully use your monitor or make it a window that you can "
+"move around~"
+
+#: core/scripts/Global_persistentData.gd:168
+msgid "VISUAL_MAXFPS_DESC"
+msgstr ""
+"[b]Limit how many frames per second the game can run.[/b]\n"
+"\n"
+"   Faster, smoother...! J-just don't burn your processor... make sure your "
+"display has the required refresh rate! "
+
+#: core/scripts/Global_persistentData.gd:169
+msgid "VISUAL_VSYNC_DESC"
+msgstr ""
+"[b]Prevent screen tearing by syncing frames to your monitor.[/b]\n"
+"\n"
+"   [i]Disabled[/i] - No sync! Fast, but expect screen tearing!\n"
+"\n"
+"   [i]Enabled[/i] - Smooth~\n"
+"\n"
+"   [i]Adaptive[/i] - Sync when needed! And it disables itself if the FPS is "
+"dropping!"
+
+#: core/scripts/Global_persistentData.gd:170
+msgid "VISUAL_TEXTUREQUALITY_DESC"
+msgstr ""
+"[b]Adjust the sharpness and detail of textures.[/b]\n"
+"\n"
+"   I wonder what this texture actually looks like... hmm..."
+
+#: core/scripts/Global_persistentData.gd:171
+msgid "VISUAL_SHADOWQUALITY_DESC"
+msgstr ""
+"[b]Set how detailed the shadows appear.[/b]\n"
+"\n"
+"   Oooh... smooth shadows~ Or is it?"
+
+#: core/scripts/Global_persistentData.gd:172
+msgid "VISUAL_BLOOM_DESC"
+msgstr ""
+"[b]Toggle bloom effect from the light.[/b]\n"
+"\n"
+"   MY EYES!"
+
+#: core/scripts/Global_persistentData.gd:173
+msgid "VISUAL_MSAA_DESC"
+msgstr ""
+"[b]Smooth out jagged edges on objects.[/b]\n"
+"\n"
+"   Say goodbye to crunchy pixels! I... hope?"
+
+#: core/scripts/Global_persistentData.gd:174
+msgid "VISUAL_MONOCHROMEFILTER_DESC"
+msgstr ""
+"[b]Set the whole game to be monochrome.[/b]\n"
+"\n"
+"   Ooohohoho! Back to the good ol' days, eh?"
+
+#: core/scripts/Global_persistentData.gd:175
+msgid "VISUAL_CAFILTER_DESC"
+msgstr ""
+"[b]Toggle chromatic aberration filter in the game.[/b]\n"
+"\n"
+"   [i]Disabled[/i] - Clean~\n"
+"\n"
+"   [i]Global[/i] - Is this what it feels like to have a headache?\n"
+"\n"
+"   [i]3D Space[/i] - Affect the in-world only!"
+
+#: core/scripts/Global_persistentData.gd:176
+msgid "VISUAL_GRAINFILTER_DESC"
+msgstr ""
+"[b]Toggle grain filter in the game.[/b]\n"
+"\n"
+"   Whoaaa! Graiinyyy~"
+
+#: core/scripts/Global_persistentData.gd:177
+msgid "VISUAL_BLOODCENSOR_DESC"
+msgstr ""
+"[b]Censor blood in the scene.[/b]\n"
+"\n"
+"   Brr... why does he think this is a good idea...?"
+
+#: core/scripts/Global_persistentData.gd:178
+msgid "GAMEPLAY_LANGUAGEINTERFACE_DESC"
+msgstr ""
+"[b]Change the interface language.[/b]\n"
+"\n"
+"   You're currently reading the interface!"
+
+#: core/scripts/Global_persistentData.gd:179
+msgid "GAMEPLAY_LANGUAGEDIALOGUE_DESC"
+msgstr ""
+"[b]Change the dialogue language.[/b]\n"
+"\n"
+"   I hope you understand what we're talking..."
+
+#: core/scripts/Global_persistentData.gd:180
+msgid "GAMEPLAY_FPSMONITOR_DESC"
+msgstr ""
+"[b]Display your current frames per second on screen.[/b]\n"
+"\n"
+"   Numbers... the numbers... Raymond! What do they mean!?"
+
+#: core/scripts/Global_persistentData.gd:181
+msgid "GAMEPLAY_HOURFORMAT_DESC"
+msgstr ""
+"[b]Set the hour format.[/b]\n"
+"\n"
+"   I'm sure you can tell what 21:00 is, right? Right...?"
+
+#: core/scripts/Global_persistentData.gd:182
+msgid "GAMEPLAY_BUYTOGGLE_DESC"
+msgstr ""
+"[b]Toggle between instant or delayed buying and selling buttons.[/b]\n"
+"\n"
+"   I wanted to buy this, please...\n"
+"\n"
+"   Can you go a bit faster?\n"
+"\n"
+"   What's taking you so long!?"
+
+#: core/scripts/Global_persistentData.gd:183
+msgid "DIALOG_DIACOLOR_DESC"
+msgstr ""
+"[b]Adjust the dialogue color.[/b]\n"
+"\n"
+"   Change the color of the dialogue as you please!"
+
+#: core/scripts/Global_persistentData.gd:184
+msgid "DIALOG_NAMCOLOR_DESC"
+msgstr ""
+"[b]Adjust the name color.[/b]\n"
+"\n"
+"   Change the color of the person who talks to you~"
+
+#: core/scripts/Global_persistentData.gd:185
+msgid "DIALOG_DIASIZE_DESC"
+msgstr ""
+"[b]Adjust the dialogue size.[/b]\n"
+"\n"
+"   I can't read the text!"
+
+#: core/scripts/Global_persistentData.gd:186
+msgid "DIALOG_DIASPEED_DESC"
+msgstr ""
+"[b]Adjust the dialogue speed.[/b]\n"
+"\n"
+"   Type faster would ya?!"
+
+#: core/scripts/Global_persistentData.gd:189
+msgid "INTERACT_FRIDGE"
+msgstr "Fridge"
+
+#: core/scripts/Global_persistentData.gd:190
+msgid "INTERACT_MILLIE"
+msgstr "Millie"
+
+#: core/scripts/Global_persistentData.gd:191
+msgid "INTERACT_TV"
+msgstr "Television"
+
+#: core/scripts/Global_persistentData.gd:193
+msgid "LIRA_TRANSFER"
+msgstr "Transfer"
+
+#: core/scripts/Global_persistentData.gd:194
+msgid "LIRA_RECEIVE"
+msgstr "Receive"
+
+#: core/scripts/Global_persistentData.gd:196
+msgid "STAT_MOOD"
+msgstr "Mood"
+
+#: core/scripts/Global_persistentData.gd:197
+msgid "STAT_TRUST"
+msgstr "Trust"
+
+#: core/scripts/Global_persistentData.gd:198
+msgid "STAT_HEALTH"
+msgstr "Health"
+
+#: core/scripts/Global_persistentData.gd:199
+msgid "STAT_MAXENERGY"
+msgstr "Max energy"
+
+#: core/scripts/Global_persistentData.gd:200
+msgid "STAT_ENERGY"
+msgstr "Energy"
+
+#: core/scripts/Global_persistentData.gd:201
+msgid "STAT_LIRA"
+msgstr "Lira"
+
+#: core/scripts/Global_persistentData.gd:202
+msgid "STAT_EXP"
+msgstr "Exp"
+
+#: core/scripts/Global_persistentData.gd:203
+msgid "STAT_LEVEL"
+msgstr "Level"
+
+#: core/scripts/Global_persistentData.gd:206
+msgid "CHOICE_OPTION_INTERACT"
+msgstr "Interaction"
+
+#: core/scripts/Global_persistentData.gd:207
+msgid "CHOICE_OPTION_PHYCO"
+msgstr "Physical Contact"
+
+#: core/scripts/Global_persistentData.gd:208
+msgid "CHOICE_OPTION_WEEKENDACT"
+msgstr "Weekend Activities"
+
+#: core/scripts/Global_persistentData.gd:209
+msgid "CHOICE_OPTION_COMMU"
+msgstr "Communicate"
+
+#: core/scripts/Global_persistentData.gd:210
+msgid "CHOICE_OPTION_COMMU_TALK"
+msgstr "Talk"
+
+#: core/scripts/Global_persistentData.gd:211
+msgid "STAT_TALK_NORMAL_TITLE"
+msgstr "Normal Topic"
+
+#: core/scripts/Global_persistentData.gd:212
+msgid "STAT_TALK_INFO_TITLE"
+msgstr "Informative Topic"
+
+#: core/scripts/Global_persistentData.gd:213
+msgid "STAT_TALK_FUNNY_TITLE"
+msgstr "Funny Topic"
+
+#: core/scripts/Global_persistentData.gd:214
+msgid "STAT_TALK_NORMAL_DESC"
+msgstr "Ask about trivial stuff"
+
+#: core/scripts/Global_persistentData.gd:215
+msgid "STAT_TALK_INFO_DESC"
+msgstr "Have a deep conversation"
+
+#: core/scripts/Global_persistentData.gd:216
+msgid "STAT_TALK_FUNNY_DESC"
+msgstr "Cheer them up with a joke"
+
+#: core/scripts/Global_persistentData.gd:218
+msgid "STAT_TALK_NORMAL_D1"
+msgstr "She allows you to know her secret"
+
+#: core/scripts/Global_persistentData.gd:219
+msgid "STAT_TALK_NORMAL_D2"
+msgstr "Damn"
+
+#: core/scripts/Global_persistentData.gd:220
+msgid "STAT_TALK_INFO_D1"
+msgstr "Idk something about info ig"
+
+#: core/scripts/Global_persistentData.gd:223
+msgid "POPUP_DIALOG_NORMALTOPIC_SUC"
+msgstr "have a good talk about normal topic with"
+
+#: core/scripts/Global_persistentData.gd:224
+msgid "POPUP_DIALOG_NORMALTOPIC_NOR"
+msgstr "talks about normal topic with"
+
+#: core/scripts/Global_persistentData.gd:225
+msgid "POPUP_DIALOG_NORMALTOPIC_FAI"
+msgstr "'s normal topic with Millie doesn't go well"
+
+#: core/scripts/Global_persistentData.gd:233
+msgid "DAY_SUNDAY"
+msgstr "Sunday"
+
+#: core/scripts/Global_persistentData.gd:234
+msgid "DAY_MONDAY"
+msgstr "Monday"
+
+#: core/scripts/Global_persistentData.gd:235
+msgid "DAY_TUESDAY"
+msgstr "Tuesday"
+
+#: core/scripts/Global_persistentData.gd:236
+msgid "DAY_WEDNESDAY"
+msgstr "Wednesday"
+
+#: core/scripts/Global_persistentData.gd:237
+msgid "DAY_THURSDAY"
+msgstr "Thursday"
+
+#: core/scripts/Global_persistentData.gd:238
+msgid "DAY_FRIDAY"
+msgstr "Friday"
+
+#: core/scripts/Global_persistentData.gd:239
+msgid "DAY_SATURDAY"
+msgstr "Saturday"
+
+#: core/scripts/Global_persistentData.gd:242
+msgid "MONTH_JANUARY"
+msgstr "January"
+
+#: core/scripts/Global_persistentData.gd:243
+msgid "MONTH_FEBRUARY"
+msgstr "February"
+
+#: core/scripts/Global_persistentData.gd:244
+msgid "MONTH_MARCH"
+msgstr "March"
+
+#: core/scripts/Global_persistentData.gd:245
+msgid "MONTH_APRIL"
+msgstr "April"
+
+#: core/scripts/Global_persistentData.gd:246
+msgid "MONTH_MAY"
+msgstr "May"
+
+#: core/scripts/Global_persistentData.gd:247
+msgid "MONTH_JUNE"
+msgstr "June"
+
+#: core/scripts/Global_persistentData.gd:248
+msgid "MONTH_JULY"
+msgstr "July"
+
+#: core/scripts/Global_persistentData.gd:249
+msgid "MONTH_AUGUST"
+msgstr "August"
+
+#: core/scripts/Global_persistentData.gd:250
+msgid "MONTH_SEPTEMBER"
+msgstr "September"
+
+#: core/scripts/Global_persistentData.gd:251
+msgid "MONTH_OCTOBER"
+msgstr "October"
+
+#: core/scripts/Global_persistentData.gd:252
+msgid "MONTH_NOVEMBER"
+msgstr "November"
+
+#: core/scripts/Global_persistentData.gd:253
+msgid "MONTH_DECEMBER"
+msgstr "December"
+
+#: prefabs/screens/extras_screen.tscn
+msgid "PAGE_PATRONS"
+msgstr "PATRONS"
+
+#: prefabs/screens/extras_screen.tscn
+msgid "PATRONPAGE_LANDLORD"
+msgstr "LANDLORD"
+
+#: prefabs/screens/extras_screen.tscn
+msgid "PATRONPAGE_CITIZEN"
+msgstr "CITIZEN"
+
+#: prefabs/screens/extras_screen.tscn
+msgid "PATRONPAGE_TOURIST"
+msgstr "TOURIST"
+
+#: prefabs/screens/extras_screen.tscn
+msgid "PATRONPAGE_THANKS"
+msgstr ""
+"Living In Viellci would never have been possible without your generousity, "
+"patience, and support!\n"
+"\n"
+"Thank you to all Patrons and Donators!"
+
+#: prefabs/screens/extras_screen.tscn prefabs/screens/settings_screen.tscn
+msgid "BUTTON_RETURN"
+msgstr "Return"
+
+#: prefabs/screens/mainMenu_loadGame.tscn
+msgid "LOAD_FILE"
+msgstr "LOAD FILE"
+
+#: prefabs/screens/mainMenu_loadGame.tscn
+msgid "PAGE_EVENTLOAD"
+msgstr "EVENT LOAD"
+
+#: prefabs/screens/mainMenu_loadGame.tscn
+msgid "PAGE_AUTOLOAD"
+msgstr "AUTO LOAD"
+
+#: prefabs/screens/mainMenu_loadGame.tscn
+msgid "1"
+msgstr ""
+
+#: prefabs/screens/mainMenu_loadGame.tscn
+msgid "2"
+msgstr ""
+
+#: prefabs/screens/mainMenu_loadGame.tscn
+msgid "3"
+msgstr ""
+
+#: prefabs/screens/mainMenu_newGame.tscn
+msgid "NEWGAME_MODE1"
+msgstr "STORY MODE"
+
+#: prefabs/screens/mainMenu_newGame.tscn
+msgid "NEWGAME_DESC1"
+msgstr "A letter from my father?"
+
+#: prefabs/screens/mainMenu_newGame.tscn
+msgid "NEWGAME_MODE2"
+msgstr "SANDBOX MODE"
+
+#: prefabs/screens/mainMenu_newGame.tscn
+msgid "NEWGAME_DESC2"
+msgstr ""
+"Explore at your own pace, experiment with the world! No strings attached~"
 
 #: prefabs/screens/mainMenu_screen.tscn
 msgid "DEV_POST"
@@ -39,18 +720,6 @@ msgstr "EXTRAS"
 msgid "BUTTON_QUIT"
 msgstr "QUIT"
 
-#: prefabs/screens/splashScreen_screen_A1.tscn
-msgid "TEXT_DISCLAIMER"
-msgstr ""
-"All names, characters, events and incidents portrayed in this game are "
-"fictitious.\n"
-"\n"
-"All characters in this game are over 18 years old."
-
-#: prefabs/screens/splashScreen_screen_A1.tscn
-msgid "[CTC_LABEL]"
-msgstr "[CLICK ANYWHERE TO CONTINUE]"
-
 #: prefabs/screens/settings_screen.tscn
 msgid "SETTINGS_TITLE"
 msgstr "SETTINGS"
@@ -67,395 +736,13 @@ msgstr "VISUAL"
 msgid "PAGE_GAMEPLAY"
 msgstr "GAMEPLAY"
 
-#: prefabs/screens/settings_screen.tscn core/scripts/screen_settings.gd
+#: prefabs/screens/settings_screen.tscn
 msgid "OPTION_HELPHOVER_DESCRIPTION"
 msgstr "[center]Hover which options you want me to explain~"
 
 #: prefabs/screens/settings_screen.tscn
 msgid "BUTTON_RESET_TO_DEFAULT"
-msgstr "RESET"
-
-#: prefabs/screens/settings_screen.tscn prefabs/screens/extras_screen.tscn
-msgid "BUTTON_RETURN"
-msgstr "RETURN"
-
-#: core/scripts/setup_audioSlider.gd
-msgid "AUDIO_MUTED"
-msgstr "MUTED"
-
-#: core/scripts/global_persistentData.gd
-msgid "INTRO_LINES1"
-msgstr ""
-"Is this\n"
-"Friday Night Funkin mod??"
-
-#: core/scripts/global_persistentData.gd
-msgid "INTRO_LINES2"
-msgstr ""
-"Oh look!\n"
-"A placeholder text!"
-
-#: core/scripts/global_persistentData.gd
-msgid "INTRO_LINES3"
-msgstr ""
-"I like this so much\n"
-"Better than the previous one"
-
-#: core/scripts/global_persistentData.gd
-msgid "INTRO_LINES4"
-msgstr ""
-"I hope this won't\n"
-"Lag in your device"
-
-#: core/scripts/global_persistentData.gd
-msgid "INTRO_LINES5"
-msgstr ""
-"Keep up\n"
-"The grind!"
-
-#: core/scripts/global_persistentData.gd
-msgid "OPTION_WINDOWED"
-msgstr "Windowed"
-
-#: core/scripts/global_persistentData.gd
-msgid "OPTION_FULLSCREEN"
-msgstr "Fullscreen"
-
-#: core/scripts/global_persistentData.gd
-msgid "OPTION_MAXIMIZED"
-msgstr "Maximized"
-
-#: core/scripts/global_persistentData.gd
-msgid "OPTION_30FPS"
-msgstr "30 FPS"
-
-#: core/scripts/global_persistentData.gd
-msgid "OPTION_60FPS"
-msgstr "60 FPS"
-
-#: core/scripts/global_persistentData.gd
-msgid "OPTION_120FPS"
-msgstr "120 FPS"
-
-#: core/scripts/global_persistentData.gd
-msgid "OPTION_UNLIMITED"
-msgstr "Unlimited"
-
-#: core/scripts/global_persistentData.gd
-msgid "OPTION_ADAPTIVE"
-msgstr "Adaptive"
-
-#: core/scripts/global_persistentData.gd
-msgid "OPTION_2X"
-msgstr "2x"
-
-#: core/scripts/global_persistentData.gd
-msgid "OPTION_4X"
-msgstr "4x"
-
-#: core/scripts/global_persistentData.gd
-msgid "OPTION_8X"
-msgstr "8x"
-
-#: core/scripts/global_persistentData.gd
-msgid "OPTION_24_HOUR"
-msgstr "24 Hour"
-
-#: core/scripts/global_persistentData.gd
-msgid "OPTION_12_HOUR"
-msgstr "12 Hour"
-
-#: core/scripts/global_persistentData.gd
-msgid "OPTION_INSTANT"
-msgstr "Instant"
-
-#: core/scripts/global_persistentData.gd
-msgid "OPTION_DELAY"
-msgstr "Delay"
-
-#: core/scripts/global_persistentData.gd
-msgid "OPTION_DISABLED"
-msgstr "Disabled"
-
-#: core/scripts/global_persistentData.gd
-msgid "OPTION_ENABLED"
-msgstr "Enabled"
-
-#: core/scripts/global_persistentData.gd
-msgid "OPTION_LOW"
-msgstr "Low"
-
-#: core/scripts/global_persistentData.gd
-msgid "OPTION_MEDIUM"
-msgstr "Medium"
-
-#: core/scripts/global_persistentData.gd
-msgid "OPTION_HIGH"
-msgstr "High"
-
-#: core/scripts/global_persistentData.gd
-msgid "VERSION"
-msgstr "VERSION"
-
-#: core/scripts/global_persistentData.gd
-msgid "ALL_RIGHTS_RESERVED"
-msgstr "All rights reserved."
-
-#: core/scripts/global_persistentData.gd
-msgid "AUDIO_MASTERVOLUME_DESC"
-msgstr ""
-"[b]Adjust the main volume of the game.[/b]\n"
-"\n"
-"   The father of all volumes! All other volumes depend on him..."
-
-#: core/scripts/global_persistentData.gd
-msgid "AUDIO_MUSICVOLUME_DESC"
-msgstr ""
-"[b]Adjust the music volume.[/b]\n"
-"\n"
-"   This adjust the music in the game...! I-isn't this self-explanatory "
-"enough?\n"
-"\n"
-"   Here! Let me help you:\n"
-"   [url]https://dictionary.cambridge.org/dictionary/english/adjust[/url]"
-
-#: core/scripts/global_persistentData.gd
-msgid "AUDIO_AMBIENCEVOLUME_DESC"
-msgstr ""
-"[b]Adjust the ambience volume.[/b]\n"
-"\n"
-"   Hmm... you prefer the cityscape's ambience or the music? Whatever it is, "
-"adjust the ambience here!"
-
-#: core/scripts/global_persistentData.gd
-msgid "AUDIO_SFXVOLUME_DESC"
-msgstr ""
-"[b]Adjust the sound effects volume.[/b]\n"
-"\n"
-"   The sound effects! You know... the one when you click on things?"
-
-#: core/scripts/global_persistentData.gd
-msgid "AUDIO_DIALOGUEVOLUME_DESC"
-msgstr ""
-"[b]Adjust the dialogue volume.[/b]\n"
-"\n"
-"   Bleeps and voice lines controlled by this slider! You don't hate our "
-"voices... do you?"
-
-#: core/scripts/global_persistentData.gd
-msgid "VISUAL_WINDOWMODE_DESC"
-msgstr ""
-"[b]Set the game's window mode.[/b]\n"
-"\n"
-"   Makes the game fully use your monitor or make it a window that you can "
-"move around~"
-
-#: core/scripts/global_persistentData.gd
-msgid "VISUAL_MAXFPS_DESC"
-msgstr ""
-"[b]Limit how many frames per second the game can run.[/b]\n"
-"\n"
-"   Faster, smoother...! J-just don't burn your processor... make sure your "
-"display has the required refresh rate! "
-
-#: core/scripts/global_persistentData.gd
-msgid "VISUAL_VSYNC_DESC"
-msgstr ""
-"[b]Prevent screen tearing by syncing frames to your monitor.[/b]\n"
-"\n"
-"   [i]Disabled[/i] - No sync! Fast, but expect screen tearing!\n"
-"\n"
-"   [i]Enabled[/i] - Smooth~\n"
-"\n"
-"   [i]Adaptive[/i] - Sync when needed! And it disables itself if the FPS is "
-"dropping!"
-
-#: core/scripts/global_persistentData.gd
-msgid "VISUAL_TEXTUREQUALITY_DESC"
-msgstr ""
-"[b]Adjust the sharpness and detail of textures.[/b]\n"
-"\n"
-"   I wonder what this texture actually looks like... hmm..."
-
-#: core/scripts/global_persistentData.gd
-msgid "VISUAL_SHADOWQUALITY_DESC"
-msgstr ""
-"[b]Set how detailed the shadows appear.[/b]\n"
-"\n"
-"   Oooh... smooth shadows~ Or is it?"
-
-#: core/scripts/global_persistentData.gd
-msgid "VISUAL_MSAA_DESC"
-msgstr ""
-"[b]Smooth out jagged edges on objects.[/b]\n"
-"\n"
-"   Say goodbye to crunchy pixels! I... hope?"
-
-#: core/scripts/global_persistentData.gd
-msgid "VISUAL_MONOCHROMEFILTER_DESC"
-msgstr ""
-"[b]Set the whole game to be monochrome.[/b]\n"
-"\n"
-"   Ooohohoho! Back to the good ol' days, eh?"
-
-#: core/scripts/global_persistentData.gd
-msgid "VISUAL_GRAINFILTER_DESC"
-msgstr ""
-"[b]Toggle grain filter in the game.[/b]\n"
-"\n"
-"   Whoaaa! Graiinyyy~"
-
-#: core/scripts/global_persistentData.gd
-msgid "VISUAL_BLOODCENSOR_DESC"
-msgstr ""
-"[b]Censor blood in the scene.[/b]\n"
-"\n"
-"   Brr... why does he think this is a good idea...?"
-
-#: core/scripts/global_persistentData.gd
-msgid "GAMEPLAY_LANGUAGEINTERFACE_DESC"
-msgstr ""
-"[b]Change the interface language.[/b]\n"
-"\n"
-"   You're currently reading the interface!"
-
-#: core/scripts/global_persistentData.gd
-msgid "GAMEPLAY_FPSMONITOR_DESC"
-msgstr ""
-"[b]Display your current frames per second on screen.[/b]\n"
-"\n"
-"   Numbers... so many numbers... what's the number mean, Raymond!?"
-
-#: core/scripts/global_persistentData.gd
-msgid "GAMEPLAY_HOURFORMAT_DESC"
-msgstr ""
-"[b]Set the hour format.[/b]\n"
-"\n"
-"   I'm sure you can tell what 21:00 is, right? Right...?"
-
-#: core/scripts/global_persistentData.gd
-msgid "GAMEPLAY_BUYTOGGLE_DESC"
-msgstr ""
-"[b]Toggle between instant or delayed buying and selling buttons.[/b]\n"
-"\n"
-"   I wanted to buy this, please...\n"
-"\n"
-"   Can you go a bit faster?\n"
-"\n"
-"   What's taking you so long!?"
-
-#: core/scripts/global_persistentData.gd
-msgid "DAY_SUNDAY"
-msgstr "Sunday"
-
-#: core/scripts/global_persistentData.gd
-msgid "DAY_MONDAY"
-msgstr "Monday"
-
-#: core/scripts/global_persistentData.gd
-msgid "DAY_TUESDAY"
-msgstr "Tuesday"
-
-#: core/scripts/global_persistentData.gd
-msgid "DAY_WEDNESDAY"
-msgstr "Wednesday"
-
-#: core/scripts/global_persistentData.gd
-msgid "DAY_THURSDAY"
-msgstr "Thursday"
-
-#: core/scripts/global_persistentData.gd
-msgid "DAY_FRIDAY"
-msgstr "Friday"
-
-#: core/scripts/global_persistentData.gd
-msgid "DAY_SATURDAY"
-msgstr "Saturday"
-
-#: core/scripts/global_persistentData.gd
-msgid "MONTH_JANUARY"
-msgstr "January"
-
-#: core/scripts/global_persistentData.gd
-msgid "MONTH_FEBRUARY"
-msgstr "February"
-
-#: core/scripts/global_persistentData.gd
-msgid "MONTH_MARCH"
-msgstr "March"
-
-#: core/scripts/global_persistentData.gd
-msgid "MONTH_APRIL"
-msgstr "April"
-
-#: core/scripts/global_persistentData.gd
-msgid "MONTH_MAY"
-msgstr "May"
-
-#: core/scripts/global_persistentData.gd
-msgid "MONTH_JUNE"
-msgstr "June"
-
-#: core/scripts/global_persistentData.gd
-msgid "MONTH_JULY"
-msgstr "July"
-
-#: core/scripts/global_persistentData.gd
-msgid "MONTH_AUGUST"
-msgstr "August"
-
-#: core/scripts/global_persistentData.gd
-msgid "MONTH_SEPTEMBER"
-msgstr "September"
-
-#: core/scripts/global_persistentData.gd
-msgid "MONTH_OCTOBER"
-msgstr "October"
-
-#: core/scripts/global_persistentData.gd
-msgid "MONTH_NOVEMBER"
-msgstr "November"
-
-#: core/scripts/global_persistentData.gd
-msgid "MONTH_DECEMBER"
-msgstr "December"
-
-#: core/scripts/screen_settings.gd
-msgid "CONFIRMATION_RESET_DEFAULT_TITLE"
-msgstr "Reset to default?"
-
-#: core/scripts/screen_settings.gd
-msgid "CONFIRMATION_RESET_DEFAULT_DESC"
-msgstr ""
-"This will reset all settings to default.\n"
-"[i]Except windows and language.[/i]"
-
-#: core/scripts/screen_settings.gd core/scripts/Screen_newGame.gd
-#: core/scripts/Global_pauseScreen.gd
-msgid "CONFIRMATION_CONFIRM"
-msgstr "CONFIRM"
-
-#: core/scripts/screen_settings.gd core/scripts/Screen_newGame.gd
-#: core/scripts/Global_pauseScreen.gd
-msgid "CONFIRMATION_CANCEL"
-msgstr "CANCEL"
-
-#: prefabs/screens/mainMenu_newGame.tscn
-msgid "NEWGAME_MODE1"
-msgstr "STORY MODE"
-
-#: prefabs/screens/mainMenu_newGame.tscn
-msgid "NEWGAME_DESC1"
-msgstr "A letter from my father?"
-
-#: prefabs/screens/mainMenu_newGame.tscn
-msgid "NEWGAME_MODE2"
-msgstr "SANDBOX MODE"
-
-#: prefabs/screens/mainMenu_newGame.tscn
-msgid "NEWGAME_DESC2"
-msgstr ""
-"Explore at your own pace, experiment with the world! No strings attached~"
+msgstr "Reset"
 
 #: prefabs/screens/settings_screenAudio.tscn
 msgid "LABEL_VOLUME"
@@ -490,6 +777,10 @@ msgid "LANGUAGE_INTERFACE"
 msgstr "Interface"
 
 #: prefabs/screens/settings_screenGameplay.tscn
+msgid "LANGUAGE_DIALOGUE"
+msgstr "Dialogue"
+
+#: prefabs/screens/settings_screenGameplay.tscn
 msgid "LABEL_GAMEPLAY"
 msgstr "GAMEPLAY"
 
@@ -504,6 +795,26 @@ msgstr "Hour Format"
 #: prefabs/screens/settings_screenGameplay.tscn
 msgid "GAMEPLAY_BUYTOGGLE"
 msgstr "Buy and Sell Toggle"
+
+#: prefabs/screens/settings_screenGameplay.tscn
+msgid "LABEL_DIALOGUE"
+msgstr "DIALOGUE"
+
+#: prefabs/screens/settings_screenGameplay.tscn
+msgid "DIALOGUE_DIACOLOR"
+msgstr "Dialogue Color"
+
+#: prefabs/screens/settings_screenGameplay.tscn
+msgid "DIALOGUE_NAMCOLOR"
+msgstr "Name Color"
+
+#: prefabs/screens/settings_screenGameplay.tscn
+msgid "DIALOGUE_DIASIZE"
+msgstr "Dialogue Size"
+
+#: prefabs/screens/settings_screenGameplay.tscn
+msgid "DIALOGUE_DIASPEED"
+msgstr "Dialogue Speed"
 
 #: prefabs/screens/settings_screenVisual.tscn
 msgid "LABEL_DISPLAY"
@@ -526,6 +837,10 @@ msgid "LABEL_GRAPHICS"
 msgstr "GRAPHICS"
 
 #: prefabs/screens/settings_screenVisual.tscn
+msgid "QUALITY_BLOOM"
+msgstr "Bloom"
+
+#: prefabs/screens/settings_screenVisual.tscn
 msgid "QUALITY_TEXTURE"
 msgstr "Texture Quality"
 
@@ -542,6 +857,10 @@ msgid "LABEL_FILTER"
 msgstr "FILTER"
 
 #: prefabs/screens/settings_screenVisual.tscn
+msgid "FILTER_CA"
+msgstr "Chromatic Aberration"
+
+#: prefabs/screens/settings_screenVisual.tscn
 msgid "FILTER_MONOCHROME"
 msgstr "Monochrome Filter"
 
@@ -553,73 +872,25 @@ msgstr "Grain Filter"
 msgid "CENSOR_BLOOD"
 msgstr "Blood Censor"
 
-#: prefabs/screens/extras_screen.tscn
-msgid "PAGE_PATRONS"
-msgstr "PATRONS"
-
-#: prefabs/screens/extras_screen.tscn
-msgid "PATRONPAGE_LANDLORD"
-msgstr "LANDLORD"
-
-#: prefabs/screens/extras_screen.tscn
-msgid "PATRONPAGE_CITIZEN"
-msgstr "CITIZEN"
-
-#: prefabs/screens/extras_screen.tscn
-msgid "PATRONPAGE_TOURIST"
-msgstr "TOURIST"
-
-#: prefabs/screens/extras_screen.tscn
-msgid "PATRONPAGE_THANKS"
+#: prefabs/screens/splashScreen_screen_A1.tscn
+msgid "TEXT_DISCLAIMER"
 msgstr ""
-"Living In Viellci would never have been possible without your generousity, "
-"patience, and support!\n"
+"All names, characters, events and incidents portrayed in this game are "
+"fictitious.\n"
 "\n"
-"Thank you to all Patrons and Donators!"
+"All characters in this game are over 18 years old."
 
-#: core/scripts/Setup_patronLister.gd
-msgid "ACTIVE"
-msgstr "Active"
+#: prefabs/screens/splashScreen_screen_A1.tscn
+msgid "[CTC_LABEL]"
+msgstr "[CLICK ANYWHERE TO CONTINUE]"
 
-#: core/scripts/Setup_patronLister.gd
-msgid "NONACTIVE"
-msgstr "Nonactive"
+#: prefabs/global/Persistent_screen.tscn
+msgid "BUTTON_AVA_MENU"
+msgstr "AVA MENU"
 
-#: core/scripts/Setup_patronLister.gd
-msgid "PATRON_LOADING"
-msgstr "Loading"
-
-#: core/scripts/Setup_patronLister.gd
-msgid "PATRON_FAIL_FETCHING"
-msgstr "Failed fetching patron"
-
-#: core/scripts/Setup_patronLister.gd
-msgid "PATRON_NO_MEMBERS"
-msgstr "No members"
-
-#: prefabs/screens/mainMenu_loadGame.tscn
-msgid "LOAD_FILE"
-msgstr "LOAD FILE"
-
-#: prefabs/screens/mainMenu_loadGame.tscn
-msgid "PAGE_EVENTLOAD"
-msgstr "EVENT LOAD"
-
-#: prefabs/screens/mainMenu_loadGame.tscn
-msgid "PAGE_AUTOLOAD"
-msgstr "AUTO LOAD"
-
-#: prefabs/screens/mainMenu_loadGame.tscn
-msgid "1"
-msgstr ""
-
-#: prefabs/screens/mainMenu_loadGame.tscn
-msgid "2"
-msgstr ""
-
-#: prefabs/screens/mainMenu_loadGame.tscn
-msgid "3"
-msgstr ""
+#: prefabs/global/Persistent_screen.tscn
+msgid "BUTTON_PAUSE_MENU"
+msgstr "PAUSE MENU"
 
 #: prefabs/global/LoadCard.tscn
 msgid "SAVE_NAME"
@@ -661,73 +932,45 @@ msgstr "LOAD SLOT"
 msgid "► EMPTY_SLOT ◄"
 msgstr "► EMPTY SLOT ◄"
 
-#: core/scripts/Screen_newGame.gd
-msgid "INPUT_SAVE_NAME_TITLE"
-msgstr "SAVE SLOT NAME"
+#: core/scripts/Registry_character.gd:203
+msgid "POPUP_CHARACTER_MAXENERGY_LIMIT"
+msgstr "[color=#ea4f4f]Max energy reached limit[/color]"
 
-#: core/scripts/Screen_newGame.gd
-msgid "INPUT_SAVE_NAME_BACKTEXT"
-msgstr "INPUT YOUR SAVE SLOT NAME HERE"
+#: core/scripts/Global_pauseScreen.gd:77
+#: core/scripts/Global_globalFunction.gd:72
+msgid "CONFIRMATION_QUIT_TITLE"
+msgstr "Are you sure you want to quit?"
 
-#: prefabs/global/Persistent_screen.tscn
-msgid "BUTTON_PAUSE_MENU"
-msgstr "PAUSE MENU"
+#: core/scripts/Global_pauseScreen.gd:78
+#: core/scripts/Global_globalFunction.gd:72
+msgid "CONFIRMATION_QUIT_DESC"
+msgstr ""
+"Quitting game will not save the game automatically.\n"
+"[i]This will lose unsaved progress.[/i]"
+
+#: core/scripts/Global_pauseScreen.gd:91
+msgid "CONFIRMATION_MAIN_MENU_TITLE"
+msgstr "Return to the main menu?"
+
+#: core/scripts/Global_pauseScreen.gd:92
+msgid "CONFIRMATION_MAIN_MENU_DESC"
+msgstr ""
+"Returning to main menu will not save the game automatically.\n"
+"[i]This will lose unsaved progress.[/i]"
 
 #: prefabs/global/PauseMenuScreen.tscn
 msgid "BUTTON_CONTINUE_GAME"
 msgstr "CONTINUE"
 
 #: prefabs/global/PauseMenuScreen.tscn
+#, fuzzy
+#| msgid "DIALOGUE_DIACOLOR"
 msgid "BUTTON_DIALOGUE_HISTORY"
-msgstr "HISTORY"
+msgstr "Dialogue Color"
 
 #: prefabs/global/PauseMenuScreen.tscn
 msgid "BUTTON_MAINMENU"
 msgstr "MAIN MENU"
 
-#: core/scripts/Global_pauseScreen.gd
-msgid "CONFIRMATION_QUIT_TITLE"
-msgstr "Are you sure you want to quit?"
-
-#: core/scripts/Global_pauseScreen.gd
-msgid "CONFIRMATION_QUIT_DESC"
+msgid "Living In Viellci"
 msgstr ""
-"Quitting game will not save the game automatically.\n"
-"[i]This will lose unsaved progress.[/i]"
-
-#: core/scripts/Global_pauseScreen.gd
-msgid "CONFIRMATION_MAIN_MENU_TITLE"
-msgstr "Return to the main menu?"
-
-#: core/scripts/Global_pauseScreen.gd
-msgid "CONFIRMATION_MAIN_MENU_DESC"
-msgstr ""
-"Returning to main menu will not save the game automatically.\n"
-"[i]This will lose unsaved progress.[/i]"
-
-#: core/scripts/Setup_languageDropdown.gd
-msgid "LANGUAGE_BY"
-msgstr "BY: "
-
-#: core/scripts/Setup_languageDropdown.gd
-msgid "LANGUAGE_DOWNLOAD"
-msgstr "Download"
-
-#: core/scripts/Setup_languageDropdown.gd
-msgid "LANGUAGE_UPDATE"
-msgstr "Update"
-
-#: core/scripts/Setup_languageDropdown.gd
-msgid "LANGUAGE_UPDATE_TRANSLATION"
-msgstr "Translation update available!"
-
-#: core/scripts/Setup_languageDropdown.gd
-msgid "LANGUAGE_REMOVE"
-msgstr "Remove"
-
-#: core/scripts/Setup_languageDropdown.gd
-msgid "LANGUAGE_REMOVE_TRANSLATION"
-msgstr "Remove translation."
-
-#~ msgid "OPTION_MAILBOX"
-#~ msgstr "Mailbox"
