@@ -11,6 +11,30 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 3.8\n"
 
+msgid "VARIANT_NORMALTOPIC_FAI2"
+msgstr "[[Nna?|Nnaa . . .|Mmaa . . .?]]"
+
+msgid "COMMENTARY_OPTIONCHOICE_WEEKEND"
+msgstr "Akhir pekan!"
+
+msgid "COMMENTARY_OPTIONCHOICE_TOUCH"
+msgstr "Mmaa ...?"
+
+msgid "COMMENTARY_OPTIONCHOICE_TALK"
+msgstr "Mau bicara tentang apa?"
+
+msgid "COMMENTARY_LASTCHOICE_TALK"
+msgstr "Naa? Oke?"
+
+msgid "COMMENTARY_LASTCHOICE_WEEKEND"
+msgstr "[[Nna?|Nnaa . . .|Mmaa . . .?]]"
+
+msgid "COMMENTARY_LASTCHOICE_START"
+msgstr "[[Nna?|Nnaa . . .|Mmaa . . .?]]"
+
+msgid "COMMENTARY_LASTCHOICE_TOUCH"
+msgstr "Mau ngapain?"
+
 msgid "Physical Contact"
 msgstr "Sentuhan Fisik"
 
@@ -20,20 +44,34 @@ msgstr "Aktifitas Minggu"
 msgid "Communicate"
 msgstr "Komunikasi"
 
-msgid "[shake rate=20 level=5]I'm shaking![/shake] and [wave amp=50 freq=5]wavy[/wave] too!"
-msgstr "[shake rate=20 level=5]I'm shaking![/shake] and [wave amp=50 freq=5]wavy[/wave] too!"
+msgid ""
+"[shake rate=20 level=5]I'm shaking![/shake] and [wave amp=50 freq=5]wavy[/"
+"wave] too!"
+msgstr ""
+"[shake rate=20 level=5]I'm shaking![/shake] and [wave amp=50 freq=5]wavy[/"
+"wave] too!"
 
-msgid "[rainbow freq=1.0 sat=0.8 val=0.8]Rainbow text[/rainbow] I'm trippin gang."
-msgstr "[rainbow freq=1.0 sat=0.8 val=0.8]Rainbow text[/rainbow] I'm trippin gang."
+msgid ""
+"[rainbow freq=1.0 sat=0.8 val=0.8]Rainbow text[/rainbow] I'm trippin gang."
+msgstr ""
+"[rainbow freq=1.0 sat=0.8 val=0.8]Rainbow text[/rainbow] I'm trippin gang."
 
-msgid "[tornado radius=5 freq=2]Spinning![/tornado] [pulse freq=2.0 color=#ff0000ff ease=-2.0]pulsing!![/pulse]"
-msgstr "[tornado radius=5 freq=2]Spinning![/tornado] [pulse freq=2.0 color=#ff0000ff ease=-2.0]pulsing!![/pulse]"
+msgid ""
+"[tornado radius=5 freq=2]Spinning![/tornado] [pulse freq=2.0 color=#ff0000ff "
+"ease=-2.0]pulsing!![/pulse]"
+msgstr ""
+"[tornado radius=5 freq=2]Spinning![/tornado] [pulse freq=2.0 color=#ff0000ff "
+"ease=-2.0]pulsing!![/pulse]"
 
-msgid "Aight, time to banish thee to the talk branch! (Notice the start BG color is green, it'll stay green because it is not prompted to change color)"
-msgstr "Aight, time to banish thee to the talk branch! (Notice the start BG color is green, it'll stay green because it is not prompted to change color)"
+msgid ""
+"Aight, time to banish thee to the talk branch! (Notice the start BG color is "
+"green, it'll stay green because it is not prompted to change color)"
+msgstr ""
+"Aight, time to banish thee to the talk branch! (Notice the start BG color is "
+"green, it'll stay green because it is not prompted to change color)"
 
 msgid "Dialogue and effect test"
-msgstr "Dialogue and effect test"
+msgstr "Tes dialog dan efek"
 
 msgid "Leave"
 msgstr "Keluar"
@@ -104,8 +142,12 @@ msgstr "Skip"
 msgid "Funny Topic"
 msgstr "Topik Lucu"
 
-msgid "Millie tells you about her secret... She bought KFC's burger and eat it at Wendy's."
-msgstr "Millie memberitahukan rahasianya... Dia membeli burger KFC dan memakannya di Wendy's."
+msgid ""
+"Millie tells you about her secret... She bought KFC's burger and eat it at "
+"Wendy's."
+msgstr ""
+"Millie memberitahukan rahasianya... Dia membeli burger KFC dan memakannya di "
+"Wendy's."
 
 msgid "Secret talk"
 msgstr "Pembicaraan rahasia"
