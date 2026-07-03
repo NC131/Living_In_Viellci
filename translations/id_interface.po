@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: Living In Viellci\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2026-07-03 18:32+0700\n"
+"PO-Revision-Date: 2026-07-03 20:36+0700\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: id\n"
@@ -236,10 +236,14 @@ msgstr ""
 "[i]Kecuali jendela dan Bahasa.[/i]"
 
 #: core/scripts/Global_persistentData.gd:156
+#: core/scripts/Global_pauseScreen.gd:79 core/scripts/Global_pauseScreen.gd:93
+#: core/scripts/Global_globalFunction.gd:73
 msgid "CONFIRMATION_CONFIRM"
 msgstr "LANJUT"
 
 #: core/scripts/Global_persistentData.gd:157
+#: core/scripts/Global_pauseScreen.gd:80 core/scripts/Global_pauseScreen.gd:94
+#: core/scripts/Global_globalFunction.gd:73
 msgid "CONFIRMATION_CANCEL"
 msgstr "BATAL"
 
@@ -449,15 +453,15 @@ msgstr ""
 
 #: core/scripts/Global_persistentData.gd:189
 msgid "INTERACT_FRIDGE"
-msgstr "Kulkas"
+msgstr "Buka kulkas"
 
 #: core/scripts/Global_persistentData.gd:190
 msgid "INTERACT_MILLIE"
-msgstr "Millie"
+msgstr "Interaksi dengan Millie"
 
 #: core/scripts/Global_persistentData.gd:191
 msgid "INTERACT_TV"
-msgstr "Televisi"
+msgstr "Nyalakan televisi"
 
 #: core/scripts/Global_persistentData.gd:193
 msgid "LIRA_TRANSFER"
@@ -469,23 +473,23 @@ msgstr "Menerima"
 
 #: core/scripts/Global_persistentData.gd:196
 msgid "STAT_MOOD"
-msgstr "Perasaan"
+msgstr "Mood"
 
 #: core/scripts/Global_persistentData.gd:197
 msgid "STAT_TRUST"
-msgstr "Kepercayaan"
+msgstr "Trust"
 
 #: core/scripts/Global_persistentData.gd:198
 msgid "STAT_HEALTH"
-msgstr "Kesehatan"
+msgstr "Health"
 
 #: core/scripts/Global_persistentData.gd:199
 msgid "STAT_MAXENERGY"
-msgstr "Energi maks"
+msgstr "Max Energy"
 
 #: core/scripts/Global_persistentData.gd:200
 msgid "STAT_ENERGY"
-msgstr "Energi"
+msgstr "Energy"
 
 #: core/scripts/Global_persistentData.gd:201
 msgid "STAT_LIRA"
@@ -567,6 +571,82 @@ msgstr "ngobrol tentang topik biasa dengan"
 msgid "POPUP_DIALOG_NORMALTOPIC_FAI"
 msgstr "ngobrol dengan Millie tentang topik biasanya ga berjalan baik"
 
+#: core/scripts/Global_persistentData.gd:233
+msgid "DAY_SUNDAY"
+msgstr "Minggu"
+
+#: core/scripts/Global_persistentData.gd:234
+msgid "DAY_MONDAY"
+msgstr "Senin"
+
+#: core/scripts/Global_persistentData.gd:235
+msgid "DAY_TUESDAY"
+msgstr "Selasa"
+
+#: core/scripts/Global_persistentData.gd:236
+msgid "DAY_WEDNESDAY"
+msgstr "Rabu"
+
+#: core/scripts/Global_persistentData.gd:237
+msgid "DAY_THURSDAY"
+msgstr "Kamis"
+
+#: core/scripts/Global_persistentData.gd:238
+msgid "DAY_FRIDAY"
+msgstr "Jumat"
+
+#: core/scripts/Global_persistentData.gd:239
+msgid "DAY_SATURDAY"
+msgstr "Sabtu"
+
+#: core/scripts/Global_persistentData.gd:242
+msgid "MONTH_JANUARY"
+msgstr "Januari"
+
+#: core/scripts/Global_persistentData.gd:243
+msgid "MONTH_FEBRUARY"
+msgstr "Februari"
+
+#: core/scripts/Global_persistentData.gd:244
+msgid "MONTH_MARCH"
+msgstr "Maret"
+
+#: core/scripts/Global_persistentData.gd:245
+msgid "MONTH_APRIL"
+msgstr "April"
+
+#: core/scripts/Global_persistentData.gd:246
+msgid "MONTH_MAY"
+msgstr "Mei"
+
+#: core/scripts/Global_persistentData.gd:247
+msgid "MONTH_JUNE"
+msgstr "Juni"
+
+#: core/scripts/Global_persistentData.gd:248
+msgid "MONTH_JULY"
+msgstr "Juli"
+
+#: core/scripts/Global_persistentData.gd:249
+msgid "MONTH_AUGUST"
+msgstr "Augustus"
+
+#: core/scripts/Global_persistentData.gd:250
+msgid "MONTH_SEPTEMBER"
+msgstr "September"
+
+#: core/scripts/Global_persistentData.gd:251
+msgid "MONTH_OCTOBER"
+msgstr "Oktober"
+
+#: core/scripts/Global_persistentData.gd:252
+msgid "MONTH_NOVEMBER"
+msgstr "November"
+
+#: core/scripts/Global_persistentData.gd:253
+msgid "MONTH_DECEMBER"
+msgstr "Desember"
+
 #: prefabs/screens/extras_screen.tscn
 msgid "PAGE_PATRONS"
 msgstr "PATRON"
@@ -644,11 +724,11 @@ msgstr "DEV POSTS"
 msgid "BUTTON_NEW_GAME"
 msgstr "GAME BARU"
 
-#: prefabs/screens/mainMenu_screen.tscn
+#: prefabs/screens/mainMenu_screen.tscn prefabs/global/PauseMenuScreen.tscn
 msgid "BUTTON_LOAD_GAME"
 msgstr "LANJUT GAME"
 
-#: prefabs/screens/mainMenu_screen.tscn
+#: prefabs/screens/mainMenu_screen.tscn prefabs/global/PauseMenuScreen.tscn
 msgid "BUTTON_SETTINGS"
 msgstr "PENGATURAN"
 
@@ -656,7 +736,7 @@ msgstr "PENGATURAN"
 msgid "BUTTON_EXTRAS"
 msgstr "TAMBAHAN"
 
-#: prefabs/screens/mainMenu_screen.tscn
+#: prefabs/screens/mainMenu_screen.tscn prefabs/global/PauseMenuScreen.tscn
 msgid "BUTTON_QUIT"
 msgstr "KELUAR"
 
@@ -876,84 +956,39 @@ msgstr "► SLOT KOSONG ◄"
 msgid "POPUP_CHARACTER_MAXENERGY_LIMIT"
 msgstr "[color=#ea4f4f]Batas energi maksimum telah tercapai[/color]"
 
-msgid "Living In Viellci"
-msgstr ""
-
-msgid "DAY_SUNDAY"
-msgstr "Minggu"
-
-msgid "DAY_MONDAY"
-msgstr "Senin"
-
-msgid "DAY_TUESDAY"
-msgstr "Selasa"
-
-msgid "DAY_WEDNESDAY"
-msgstr "Rabu"
-
-msgid "DAY_THURSDAY"
-msgstr "Kamis"
-
-msgid "DAY_FRIDAY"
-msgstr "Jumat"
-
-msgid "DAY_SATURDAY"
-msgstr "Sabtu"
-
-msgid "MONTH_JANUARY"
-msgstr "Januari"
-
-msgid "MONTH_FEBRUARY"
-msgstr "Februari"
-
-msgid "MONTH_MARCH"
-msgstr "Maret"
-
-msgid "MONTH_APRIL"
-msgstr "April"
-
-msgid "MONTH_MAY"
-msgstr "Mei"
-
-msgid "MONTH_JUNE"
-msgstr "Juni"
-
-msgid "MONTH_JULY"
-msgstr "Juli"
-
-msgid "MONTH_AUGUST"
-msgstr "Augustus"
-
-msgid "MONTH_SEPTEMBER"
-msgstr "September"
-
-msgid "MONTH_OCTOBER"
-msgstr "Oktober"
-
-msgid "MONTH_NOVEMBER"
-msgstr "November"
-
-msgid "MONTH_DECEMBER"
-msgstr "Desember"
-
-msgid "BUTTON_CONTINUE_GAME"
-msgstr "LANJUTKAN"
-
-msgid "BUTTON_MAINMENU"
-msgstr "MENU UTAMA"
-
+#: core/scripts/Global_pauseScreen.gd:77
+#: core/scripts/Global_globalFunction.gd:72
 msgid "CONFIRMATION_QUIT_TITLE"
 msgstr "Apa kamu yakin mau keluar?"
 
+#: core/scripts/Global_pauseScreen.gd:78
+#: core/scripts/Global_globalFunction.gd:72
 msgid "CONFIRMATION_QUIT_DESC"
 msgstr ""
 "Keluar dari game tidak akan menyimpan progres secara otomatis.\n"
 "[i]Kamu bakal kehilangan progres yang belum disimpan.[/i]"
 
+#: core/scripts/Global_pauseScreen.gd:91
 msgid "CONFIRMATION_MAIN_MENU_TITLE"
 msgstr "Kembali ke menu utama?"
 
+#: core/scripts/Global_pauseScreen.gd:92
 msgid "CONFIRMATION_MAIN_MENU_DESC"
 msgstr ""
 "Kembali ke menu utama tidak akan menyimpan progres secara otomatis.\n"
 "[i]Kamu bakal kehilangan progres yang belum disimpan.[/i]"
+
+#: prefabs/global/PauseMenuScreen.tscn
+msgid "BUTTON_CONTINUE_GAME"
+msgstr "LANJUTKAN"
+
+#: prefabs/global/PauseMenuScreen.tscn
+msgid "BUTTON_DIALOGUE_HISTORY"
+msgstr "SEJARAH"
+
+#: prefabs/global/PauseMenuScreen.tscn
+msgid "BUTTON_MAINMENU"
+msgstr "MENU UTAMA"
+
+msgid "Living In Viellci"
+msgstr ""
