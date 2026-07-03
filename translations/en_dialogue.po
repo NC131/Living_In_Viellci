@@ -1,0 +1,147 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.8\n"
+
+msgid "VARIANT_NORMALTOPIC_FAI2"
+msgstr "[[Nna?|Nnaa . . .|Mmaa . . .?]]"
+
+msgid "COMMENTARY_OPTIONCHOICE_WEEKEND"
+msgstr "Weekend!"
+
+msgid "COMMENTARY_OPTIONCHOICE_TOUCH"
+msgstr "Mmaa ...?"
+
+msgid "COMMENTARY_OPTIONCHOICE_TALK"
+msgstr "What are you going to talk about?"
+
+msgid "COMMENTARY_LASTCHOICE_TALK"
+msgstr "Naa? Okay?"
+
+msgid "COMMENTARY_LASTCHOICE_WEEKEND"
+msgstr "[[Nna?|Nnaa . . .|Mmaa . . .?]]"
+
+msgid "COMMENTARY_LASTCHOICE_START"
+msgstr "[[Nna?|Nnaa . . .|Mmaa . . .?]]"
+
+msgid "COMMENTARY_LASTCHOICE_TOUCH"
+msgstr "What were you trying to do?"
+
+msgid "Physical Contact"
+msgstr "Physical Contact"
+
+msgid "Weekend Activity"
+msgstr "Weekend Activity"
+
+msgid "Communicate"
+msgstr "Communicate"
+
+msgid "[shake rate=20 level=5]I'm shaking![/shake] and [wave amp=50 freq=5]wavy[/wave] too!"
+msgstr "[shake rate=20 level=5]I'm shaking![/shake] and [wave amp=50 freq=5]wavy[/wave] too!"
+
+msgid "[rainbow freq=1.0 sat=0.8 val=0.8]Rainbow text[/rainbow] I'm trippin gang."
+msgstr "[rainbow freq=1.0 sat=0.8 val=0.8]Rainbow text[/rainbow] I'm trippin gang."
+
+msgid "[tornado radius=5 freq=2]Spinning![/tornado] [pulse freq=2.0 color=#ff0000ff ease=-2.0]pulsing!![/pulse]"
+msgstr "[tornado radius=5 freq=2]Spinning![/tornado] [pulse freq=2.0 color=#ff0000ff ease=-2.0]pulsing!![/pulse]"
+
+msgid "Aight, time to banish thee to the talk branch! (Notice the start BG color is green, it'll stay green because it is not prompted to change color)"
+msgstr "Aight, time to banish thee to the talk branch! (Notice the start BG color is green, it'll stay green because it is not prompted to change color)"
+
+msgid "Dialogue and effect test"
+msgstr "Dialogue and effect test"
+
+msgid "Leave"
+msgstr "Leave"
+
+msgid "Talk"
+msgstr "Talk"
+
+msgid "Return"
+msgstr "Return"
+
+msgid "Millie? Did you see where I put the ..."
+msgstr "Millie? Did you see where I put the ..."
+
+msgid "Hey, hey, Millie, have you seen my ..."
+msgstr "Hey, hey, Millie, have you seen my ..."
+
+msgid "Today's going to be hot."
+msgstr "Today's going to be hot."
+
+msgid "Fuaaa ... it's gonna be hot ...!"
+msgstr "Fuaaa ... it's gonna be hot ...!"
+
+msgid "Nna? Isn't it near the table?"
+msgstr "Nna? Isn't it near the table?"
+
+msgid "Nnaa ... It is ... hot ..."
+msgstr "Nnaa ... It is ... hot ..."
+
+msgid "I need water ..."
+msgstr "I need water ..."
+
+msgid "The chat is surprisingly fun."
+msgstr "The chat is surprisingly fun."
+
+msgid "Mma. I think it's near the table."
+msgstr "Mma. I think it's near the table."
+
+msgid "Mmaa ...? It is hot ..."
+msgstr "Mmaa ...? It is hot ..."
+
+msgid "The chat goes well."
+msgstr "The chat goes well."
+
+msgid "Table ..."
+msgstr "Table ..."
+
+msgid "[randchoice[persistent.millieDiag_def1]]"
+msgstr "[randchoice[persistent.millieDiag_def1]]"
+
+msgid "It doesn't go smooth."
+msgstr "It doesn't go smooth."
+
+msgid "Normal Topic"
+msgstr "Normal Topic"
+
+msgid "You and Millie had an interesting convo!"
+msgstr "You and Millie had an interesting convo!"
+
+msgid "I see you reading this >w>"
+msgstr "I see you reading this >w>"
+
+msgid "Informative Topic"
+msgstr "Informative Topic"
+
+msgid "You paused the video didn't you?"
+msgstr "You paused the video didn't you?"
+
+msgid "Funny Topic"
+msgstr "Funny Topic"
+
+msgid "Millie tells you about her secret... She bought KFC's burger and eat it at Wendy's."
+msgstr "Millie tells you about her secret... She bought KFC's burger and eat it at Wendy's."
+
+msgid "Secret talk"
+msgstr "Secret talk"
+
+msgid "You pat Millie's head gently."
+msgstr "You pat Millie's head gently."
+
+msgid "Pat her head"
+msgstr "Pat her head"
+
+msgid "You plan a weekend outing."
+msgstr "You plan a weekend outing."
+
+msgid "Go out together"
+msgstr "Go out together"
