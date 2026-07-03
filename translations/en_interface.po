@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Living In Viellci\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2026-07-03 18:50+0700\n"
+"PO-Revision-Date: 2026-07-03 20:36+0700\n"
 "Last-Translator: \n"
 "Language-Team: English\n"
 "Language: en\n"
@@ -433,15 +433,15 @@ msgstr ""
 
 #: core/scripts/Global_persistentData.gd:189
 msgid "INTERACT_FRIDGE"
-msgstr "Fridge"
+msgstr "Open fridge"
 
 #: core/scripts/Global_persistentData.gd:190
 msgid "INTERACT_MILLIE"
-msgstr "Millie"
+msgstr "Interact with Millie"
 
 #: core/scripts/Global_persistentData.gd:191
 msgid "INTERACT_TV"
-msgstr "Television"
+msgstr "Toggle television"
 
 #: core/scripts/Global_persistentData.gd:193
 msgid "LIRA_TRANSFER"
@@ -963,10 +963,8 @@ msgid "BUTTON_CONTINUE_GAME"
 msgstr "CONTINUE"
 
 #: prefabs/global/PauseMenuScreen.tscn
-#, fuzzy
-#| msgid "DIALOGUE_DIACOLOR"
 msgid "BUTTON_DIALOGUE_HISTORY"
-msgstr "Dialogue Color"
+msgstr "HISTORY"
 
 #: prefabs/global/PauseMenuScreen.tscn
 msgid "BUTTON_MAINMENU"
@@ -974,3 +972,6 @@ msgstr "MAIN MENU"
 
 msgid "Living In Viellci"
 msgstr ""
+
+#~ msgid "OPTION_MAILBOX"
+#~ msgstr "Mailbox"
