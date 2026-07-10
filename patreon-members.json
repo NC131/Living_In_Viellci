@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-09T19:54:01.789Z",
+  "last_updated": "2026-07-10T03:51:03.245Z",
   "total_members": 339,
   "members": [
     {
@@ -290,7 +290,7 @@
       "additional_note": ""
     },
     {
-      "id": "qd3oH2MCU",
+      "id": "RON6Ii2Oa",
       "name": "Cretorial",
       "pledge_levels": [
         "Tourist"
@@ -355,7 +355,7 @@
       "additional_note": ""
     },
     {
-      "id": "3OetWmXVw",
+      "id": "q1QpvJajC",
       "name": "Grayson Alexander Jones",
       "pledge_levels": [
         "Tourist"
@@ -429,6 +429,15 @@
       "additional_note": ""
     },
     {
+      "id": "BB6QsUoxJ",
+      "name": "s0m3per5on",
+      "pledge_levels": [
+        "Tourist"
+      ],
+      "is_active": "Tourist",
+      "additional_note": ""
+    },
+    {
       "id": "EkfN08Axb",
       "name": "ThrobsGoblin",
       "pledge_levels": [
@@ -492,7 +501,7 @@
       "additional_note": ""
     },
     {
-      "id": "AHMP4g2mq",
+      "id": "uhleCyx1c",
       "name": "abody 315",
       "pledge_levels": [
         "Tourist"
@@ -782,7 +791,7 @@
       "additional_note": ""
     },
     {
-      "id": "14vMVe5wr",
+      "id": "jwTXQVozg",
       "name": "ChicasNeko64 Legion Neko",
       "pledge_levels": [
         "Citizen"
@@ -972,7 +981,7 @@
       "additional_note": ""
     },
     {
-      "id": "4WmonCu5O",
+      "id": "Dr9cE0YWR",
       "name": "Denis Sanchez",
       "pledge_levels": [
         "Tourist"
@@ -1162,7 +1171,7 @@
       "additional_note": ""
     },
     {
-      "id": "sTfvyPSvX",
+      "id": "QxpcCfBOH",
       "name": "euirin",
       "pledge_levels": [
         "Tourist"
@@ -1227,15 +1236,6 @@
     {
       "id": "zOGxrm90S",
       "name": "freedome1146",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "id": "3BXCI6N0v",
-      "name": "Freya",
       "pledge_levels": [
         "Tourist"
       ],
@@ -1704,7 +1704,7 @@
       "additional_note": ""
     },
     {
-      "id": "0rBeAn9uU",
+      "id": "yAdYiwpYi",
       "name": "Kade Stevens",
       "pledge_levels": [
         "Tourist"
@@ -1733,15 +1733,6 @@
     {
       "id": "mjA32aLAL",
       "name": "Kenodoxia",
-      "pledge_levels": [
-        "Citizen"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "id": "LAztJHwBu",
-      "name": "KetoRocks Gaming",
       "pledge_levels": [
         "Citizen"
       ],
@@ -2427,15 +2418,6 @@
       "additional_note": "Ryu's HARDware store"
     },
     {
-      "id": "BB6QsUoxJ",
-      "name": "s0m3per5on",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
       "id": "9i1IZdJtz",
       "name": "Salmondude",
       "pledge_levels": [
@@ -2787,6 +2769,15 @@
       "additional_note": ""
     },
     {
+      "id": "LAztJHwBu",
+      "name": "Unknown",
+      "pledge_levels": [
+        "Citizen"
+      ],
+      "is_active": false,
+      "additional_note": ""
+    },
+    {
       "id": "LagMqtetY",
       "name": "User name",
       "pledge_levels": [
@@ -2832,7 +2823,7 @@
       "additional_note": ""
     },
     {
-      "id": "eJRmKrEFn",
+      "id": "CVXFaapVw",
       "name": "Vinyl Scratch",
       "pledge_levels": [
         "Tourist"
@@ -2948,6 +2939,15 @@
       "name": "Yarino Tengoku",
       "pledge_levels": [
         "Citizen"
+      ],
+      "is_active": false,
+      "additional_note": ""
+    },
+    {
+      "id": "3BXCI6N0v",
+      "name": "Yuki",
+      "pledge_levels": [
+        "Tourist"
       ],
       "is_active": false,
       "additional_note": ""
