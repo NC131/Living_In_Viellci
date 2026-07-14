@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-07-14T02:53:35.296Z",
-  "total_members": 340,
+  "last_updated": "2026-07-14T08:17:51.795Z",
+  "total_members": 341,
   "members": [
     {
       "id": "8AmEvUv2V",
@@ -290,7 +290,7 @@
       "additional_note": ""
     },
     {
-      "id": "fmw1FMXpU",
+      "id": "jo7mreWNX",
       "name": "Cretorial",
       "pledge_levels": [
         "Tourist"
@@ -355,7 +355,7 @@
       "additional_note": ""
     },
     {
-      "id": "htNBZpGev",
+      "id": "gqAeV9ets",
       "name": "Grayson Alexander Jones",
       "pledge_levels": [
         "Tourist"
@@ -384,6 +384,15 @@
     {
       "id": "2aupoDxu9",
       "name": "Landon",
+      "pledge_levels": [
+        "Tourist"
+      ],
+      "is_active": "Tourist",
+      "additional_note": ""
+    },
+    {
+      "id": "WXOHUrb4V",
+      "name": "manushadow GAM3R",
       "pledge_levels": [
         "Tourist"
       ],
@@ -438,7 +447,7 @@
       "additional_note": ""
     },
     {
-      "id": "SBr8pIpxB",
+      "id": "80apjzgbe",
       "name": "Speckle",
       "pledge_levels": [
         "Tourist"
@@ -510,7 +519,7 @@
       "additional_note": ""
     },
     {
-      "id": "adE9q8rUF",
+      "id": "mesjF9CWG",
       "name": "abody 315",
       "pledge_levels": [
         "Tourist"
@@ -800,7 +809,7 @@
       "additional_note": ""
     },
     {
-      "id": "mEoGjIzzL",
+      "id": "U8hjhl3KB",
       "name": "ChicasNeko64 Legion Neko",
       "pledge_levels": [
         "Citizen"
@@ -990,7 +999,7 @@
       "additional_note": ""
     },
     {
-      "id": "dqnsUx8GA",
+      "id": "QDi9DjyFf",
       "name": "Denis Sanchez",
       "pledge_levels": [
         "Tourist"
@@ -1189,7 +1198,7 @@
       "additional_note": ""
     },
     {
-      "id": "gg9pZUPW5",
+      "id": "fQIYS1uGt",
       "name": "euirin",
       "pledge_levels": [
         "Tourist"
@@ -1713,7 +1722,7 @@
       "additional_note": ""
     },
     {
-      "id": "hKYZqOM83",
+      "id": "OsXwrTT9N",
       "name": "Kade Stevens",
       "pledge_levels": [
         "Tourist"
@@ -2832,7 +2841,7 @@
       "additional_note": ""
     },
     {
-      "id": "BGwIp8Frr",
+      "id": "CyE9kQdp3",
       "name": "Vinyl Scratch",
       "pledge_levels": [
         "Tourist"
