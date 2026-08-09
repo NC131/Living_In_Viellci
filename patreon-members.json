@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-08-08T18:45:56.722Z",
+  "last_updated": "2026-08-09T02:06:18.370Z",
   "total_members": 341,
   "members": [
     {
@@ -270,7 +270,7 @@
       "additional_note": ""
     },
     {
-      "id": "WpuJ3lix8",
+      "id": "INdad8Fq3",
       "name": "Cretorial",
       "pledge_levels": [
         "Tourist"
@@ -389,18 +389,7 @@
       "additional_note": ""
     },
     {
-      "id": "EKPBrK47d",
-      "name": "Ryzed",
-      "pledge_levels": [
-        "Landlord",
-        "Citizen",
-        "Tourist"
-      ],
-      "is_active": "Tourist",
-      "additional_note": ""
-    },
-    {
-      "id": "dK2To54QM",
+      "id": "ouvuc6lAJ",
       "name": "Speckle",
       "pledge_levels": [
         "Tourist"
@@ -472,7 +461,7 @@
       "additional_note": ""
     },
     {
-      "id": "HpmpQyQdz",
+      "id": "7REvQClEr",
       "name": "abody 315",
       "pledge_levels": [
         "Tourist"
@@ -771,7 +760,7 @@
       "additional_note": ""
     },
     {
-      "id": "C93o47jhf",
+      "id": "NtzqHpr2N",
       "name": "ChicasNeko64 Legion Neko",
       "pledge_levels": [
         "Citizen"
@@ -952,7 +941,7 @@
       "additional_note": ""
     },
     {
-      "id": "2h9teiLTN",
+      "id": "g0RZJhMmd",
       "name": "Denis Sanchez",
       "pledge_levels": [
         "Tourist"
@@ -1160,7 +1149,7 @@
       "additional_note": ""
     },
     {
-      "id": "7ppLcfzzs",
+      "id": "5hjdgjq1d",
       "name": "euirin",
       "pledge_levels": [
         "Tourist"
@@ -1331,7 +1320,7 @@
       "additional_note": ""
     },
     {
-      "id": "2CSGhceAZ",
+      "id": "SfWwIUop8",
       "name": "Grayson Alexander Jones",
       "pledge_levels": [
         "Tourist"
@@ -1712,7 +1701,7 @@
       "additional_note": ""
     },
     {
-      "id": "jBDa9dt3w",
+      "id": "VMdhYreKG",
       "name": "Kade Stevens",
       "pledge_levels": [
         "Tourist"
@@ -2427,6 +2416,17 @@
       "additional_note": "Ryu's HARDware store"
     },
     {
+      "id": "EKPBrK47d",
+      "name": "Ryzed",
+      "pledge_levels": [
+        "Landlord",
+        "Citizen",
+        "Tourist"
+      ],
+      "is_active": false,
+      "additional_note": ""
+    },
+    {
       "id": "BB6QsUoxJ",
       "name": "s0m3per5on",
       "pledge_levels": [
@@ -2841,7 +2841,7 @@
       "additional_note": ""
     },
     {
-      "id": "NIqOtUrFG",
+      "id": "IQ5VAsLnb",
       "name": "Vinyl Scratch",
       "pledge_levels": [
         "Tourist"
