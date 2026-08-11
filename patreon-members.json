@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-08-10T19:03:44.648Z",
+  "last_updated": "2026-08-11T02:05:22.715Z",
   "total_members": 341,
   "members": [
     {
@@ -197,15 +197,6 @@
       "additional_note": ""
     },
     {
-      "id": "Ygslv4o19",
-      "name": "祺琳 刀藤",
-      "pledge_levels": [
-        "Citizen"
-      ],
-      "is_active": "Citizen",
-      "additional_note": ""
-    },
-    {
       "id": "9gkxllUD9",
       "name": "0bsev3r",
       "pledge_levels": [
@@ -270,7 +261,7 @@
       "additional_note": ""
     },
     {
-      "id": "Xu9794D1A",
+      "id": "YTvqT27VS",
       "name": "Cretorial",
       "pledge_levels": [
         "Tourist"
@@ -389,7 +380,7 @@
       "additional_note": ""
     },
     {
-      "id": "SX6Ao8r3I",
+      "id": "Y42zWBoq9",
       "name": "Speckle",
       "pledge_levels": [
         "Tourist"
@@ -461,7 +452,7 @@
       "additional_note": ""
     },
     {
-      "id": "XiFuIgzGk",
+      "id": "UpVzBVEc7",
       "name": "abody 315",
       "pledge_levels": [
         "Tourist"
@@ -760,7 +751,7 @@
       "additional_note": ""
     },
     {
-      "id": "oAv8tuX4R",
+      "id": "Z3rBdRWvQ",
       "name": "ChicasNeko64 Legion Neko",
       "pledge_levels": [
         "Citizen"
@@ -941,7 +932,7 @@
       "additional_note": ""
     },
     {
-      "id": "xWs3yP0JX",
+      "id": "7VAbSWv3C",
       "name": "Denis Sanchez",
       "pledge_levels": [
         "Tourist"
@@ -1149,7 +1140,7 @@
       "additional_note": ""
     },
     {
-      "id": "36sywJ5Gr",
+      "id": "16SZEB6pQ",
       "name": "euirin",
       "pledge_levels": [
         "Tourist"
@@ -1320,7 +1311,7 @@
       "additional_note": ""
     },
     {
-      "id": "3ujWvnGbE",
+      "id": "DBRkwEIyb",
       "name": "Grayson Alexander Jones",
       "pledge_levels": [
         "Tourist"
@@ -1701,7 +1692,7 @@
       "additional_note": ""
     },
     {
-      "id": "ZAhEBAEgP",
+      "id": "sm9Pzsxgf",
       "name": "Kade Stevens",
       "pledge_levels": [
         "Tourist"
@@ -2841,7 +2832,7 @@
       "additional_note": ""
     },
     {
-      "id": "TfAVW1CJq",
+      "id": "V4rd7xR6a",
       "name": "Vinyl Scratch",
       "pledge_levels": [
         "Tourist"
@@ -3092,6 +3083,15 @@
       "name": "汁 橙",
       "pledge_levels": [
         "Tourist"
+      ],
+      "is_active": false,
+      "additional_note": ""
+    },
+    {
+      "id": "Ygslv4o19",
+      "name": "祺琳 刀藤",
+      "pledge_levels": [
+        "Citizen"
       ],
       "is_active": false,
       "additional_note": ""
