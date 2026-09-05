@@ -182,7 +182,7 @@ function isSafeImageUrl(rawUrl) {
   }
 
   const hostname = parsed.hostname.toLowerCase();
-  
+
   const blockedHosts = ['localhost', '0.0.0.0', '169.254.169.254'];
   if (blockedHosts.includes(hostname)) return false;
 
@@ -199,6 +199,15 @@ function isSafeImageUrl(rawUrl) {
   return true;
 }
 
+function escapeHtmlAttribute(value) {
+  return String(value)
+    .replace(/&/g, '&amp;')
+    .replace(/"/g, '&quot;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/'/g, '&#39;');
+}
+
 async function screenshotAndResizeImage(imageUrl, postId, browser) {
   try {
     if (!isSafeImageUrl(imageUrl)) {
@@ -210,8 +219,9 @@ async function screenshotAndResizeImage(imageUrl, postId, browser) {
 
     const page = await browser.newPage();
 
+    // Set viewport to a reasonable size
     await page.setViewport({ width: 1920, height: 1080 });
-
+  
     const html = `
       <!DOCTYPE html>
       <html>
@@ -222,15 +232,12 @@ async function screenshotAndResizeImage(imageUrl, postId, browser) {
         </style>
       </head>
       <body>
-        <img alt="Post thumbnail" />
+        <img src="${escapeHtmlAttribute(imageUrl)}" alt="Post thumbnail" />
       </body>
       </html>
     `;
 
     await page.setContent(html);
-    await page.evaluate((url) => {
-      document.querySelector('img').src = url;
-    }, imageUrl);
 
     // Wait for image to load
     await page.waitForSelector('img', { timeout: 10000 });
@@ -245,6 +252,10 @@ async function screenshotAndResizeImage(imageUrl, postId, browser) {
         }
       });
     });
+
+    await page.evaluate(() => new Promise((resolve) => {
+      requestAnimationFrame(() => requestAnimationFrame(resolve));
+    }));
 
     // Take screenshot of the image element
     const imageElement = await page.$('img');
