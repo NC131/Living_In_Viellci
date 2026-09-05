@@ -10,6 +10,7 @@ const THUMBNAIL_DIR = path.join(__dirname, 'patreon', 'posts');
 const THUMBNAIL_WIDTH = 425;
 const THUMBNAIL_HEIGHT = 221;
 const ID_MAPPING_FILE = path.join(__dirname, 'id-mapping.json');
+const HTTP_TIMEOUT_MS = 15000;
 
 const TIER_NAME_MAP = {
   "9596103": "Tourist",
@@ -28,13 +29,26 @@ function loadIdMapping() {
   if (fs.existsSync(ID_MAPPING_FILE)) {
     try {
       const data = fs.readFileSync(ID_MAPPING_FILE, 'utf8');
-      return JSON.parse(data);
+      const parsed = JSON.parse(data);
+      return migrateIdMapping(parsed);
     } catch (err) {
       console.warn('Could not parse id-mapping.json, starting fresh.');
       return {};
     }
   }
   return {};
+}
+
+function migrateIdMapping(mapping) {
+  const migrated = {};
+  for (const [anonId, value] of Object.entries(mapping)) {
+    if (value && typeof value === 'object') {
+      migrated[anonId] = { memberId: value.memberId || null, userId: value.userId || null };
+    } else {
+      migrated[anonId] = { memberId: value, userId: null };
+    }
+  }
+  return migrated;
 }
 
 function saveIdMapping(mapping) {
@@ -50,12 +64,22 @@ function generateAnonymousId() {
   return result;
 }
 
-function getAnonymousId(patreonId, mapping) {
-  if (!patreonId) return null;
+function getAnonymousId(memberId, userId, mapping) {
+  if (!memberId) return null;
 
-  for (const [anonId, realId] of Object.entries(mapping)) {
-    if (realId === patreonId) {
+  for (const [anonId, entry] of Object.entries(mapping)) {
+    if (entry.memberId === memberId) {
+      if (userId && !entry.userId) entry.userId = userId; // backfill for old entries
       return anonId;
+    }
+  }
+
+  if (userId) {
+    for (const [anonId, entry] of Object.entries(mapping)) {
+      if (entry.userId === userId) {
+        entry.memberId = memberId; // self-heal: reunite under the new membership id
+        return anonId;
+      }
     }
   }
 
@@ -64,7 +88,7 @@ function getAnonymousId(patreonId, mapping) {
     newAnonId = generateAnonymousId();
   } while (mapping[newAnonId]);
 
-  mapping[newAnonId] = patreonId;
+  mapping[newAnonId] = { memberId, userId: userId || null };
   return newAnonId;
 }
 
@@ -90,9 +114,10 @@ function fetchPatreonPage(url) {
       headers: {
         'Authorization': `Bearer ${PATREON_ACCESS_TOKEN}`,
         'User-Agent': 'Living-In-Viellci'
-      }
+      },
+      timeout: HTTP_TIMEOUT_MS
     };
-    https.get(url, options, (res) => {
+    const req = https.get(url, options, (res) => {
       let data = '';
 
       res.on('data', (chunk) => data += chunk);
@@ -107,7 +132,11 @@ function fetchPatreonPage(url) {
           reject(new Error(`Failed to parse JSON: ${error.message}`));
         }
       });
-    }).on('error', reject);
+    });
+    req.on('error', reject);
+    req.on('timeout', () => {
+      req.destroy(new Error(`Request to ${url} timed out after ${HTTP_TIMEOUT_MS}ms`));
+    });
   });
 }
 
@@ -140,16 +169,49 @@ function findImageForPost(post) {
   return descImage;
 }
 
+function isSafeImageUrl(rawUrl) {
+  let parsed;
+  try {
+    parsed = new URL(rawUrl);
+  } catch {
+    return false;
+  }
+
+  if (parsed.protocol !== 'https:' && parsed.protocol !== 'http:') {
+    return false; // blocks file:, data:, javascript:, blob:, etc.
+  }
+
+  const hostname = parsed.hostname.toLowerCase();
+
+  const blockedHosts = ['localhost', '0.0.0.0', '169.254.169.254'];
+  if (blockedHosts.includes(hostname)) return false;
+
+  const ipv4 = hostname.match(/^(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})$/);
+  if (ipv4) {
+    const [a, b] = ipv4.slice(1).map(Number);
+    if (a === 127) return false; // loopback
+    if (a === 10) return false; // 10.0.0.0/8
+    if (a === 172 && b >= 16 && b <= 31) return false; // 172.16.0.0/12
+    if (a === 192 && b === 168) return false; // 192.168.0.0/16
+    if (a === 169 && b === 254) return false; // link-local / metadata
+  }
+
+  return true;
+}
+
 async function screenshotAndResizeImage(imageUrl, postId, browser) {
   try {
+    if (!isSafeImageUrl(imageUrl)) {
+      console.warn(`   ✗ Skipping unsafe or invalid image URL: ${imageUrl}`);
+      return null;
+    }
+
     console.log(`   Screenshotting image: ${imageUrl}`);
 
     const page = await browser.newPage();
 
-    // Set viewport to a reasonable size
     await page.setViewport({ width: 1920, height: 1080 });
 
-    // Create a simple HTML page with just the image
     const html = `
       <!DOCTYPE html>
       <html>
@@ -160,12 +222,15 @@ async function screenshotAndResizeImage(imageUrl, postId, browser) {
         </style>
       </head>
       <body>
-        <img src="${imageUrl}" alt="Post thumbnail" />
+        <img alt="Post thumbnail" />
       </body>
       </html>
     `;
 
     await page.setContent(html);
+    await page.evaluate((url) => {
+      document.querySelector('img').src = url;
+    }, imageUrl);
 
     // Wait for image to load
     await page.waitForSelector('img', { timeout: 10000 });
@@ -260,7 +325,8 @@ function processMembers(rawMembers) {
     const realMemberId = member.id || null;
     if (!realMemberId) return;
 
-    const anonMemberId = getAnonymousId(realMemberId, idMapping);
+    const stableUserId = member.relationships?.user?.data?.id || null;
+    const anonMemberId = getAnonymousId(realMemberId, stableUserId, idMapping);
     const currentName = member.attributes.full_name?.trim() || "Unknown";
 
     if (processedAnonIds.has(anonMemberId)) {
@@ -321,8 +387,8 @@ function processMembers(rawMembers) {
   existing.forEach(existingMember => {
     let anonId = existingMember.id;
 
-    for (const [anon, real] of Object.entries(idMapping)) {
-      if (real === existingMember.id) {
+    for (const [anon, entry] of Object.entries(idMapping)) {
+      if (entry.memberId === existingMember.id) {
         anonId = anon;
         break;
       }
