@@ -182,7 +182,7 @@ function isSafeImageUrl(rawUrl) {
   }
 
   const hostname = parsed.hostname.toLowerCase();
-
+  
   const blockedHosts = ['localhost', '0.0.0.0', '169.254.169.254'];
   if (blockedHosts.includes(hostname)) return false;
 
@@ -503,7 +503,7 @@ async function main() {
     // Launch Puppeteer browser
     console.log('Launching browser...');
     browser = await puppeteer.launch({
-      headless: 'new',
+      headless: true,
       args: [
         '--no-sandbox',
         '--disable-setuid-sandbox',
