@@ -140,11 +140,20 @@ function fetchPatreonPage(url) {
   });
 }
 
+function decodeHtmlEntities(str) {
+  if (!str) return str;
+  const named = { amp: '&', lt: '<', gt: '>', quot: '"', apos: "'" };
+  return str
+    .replace(/&#x([0-9a-fA-F]+);/g, (_, hex) => String.fromCodePoint(parseInt(hex, 16)))
+    .replace(/&#(\d+);/g, (_, dec) => String.fromCodePoint(parseInt(dec, 10)))
+    .replace(/&(amp|lt|gt|quot|apos);/g, (_, name) => named[name]);
+}
+
 function extractFirstImageFromContent(content) {
   if (!content) return null;
   const matches = content.matchAll(/<img[^>]+src="([^">]+)"/g);
   for (const match of matches) {
-    const url = match[1];
+    const url = decodeHtmlEntities(match[1]);
     if (url.match(/\.(png|jpg|jpeg)(\?|$)/i)) {
       return url;
     }
@@ -221,7 +230,7 @@ async function screenshotAndResizeImage(imageUrl, postId, browser) {
 
     // Set viewport to a reasonable size
     await page.setViewport({ width: 1920, height: 1080 });
-  
+
     const html = `
       <!DOCTYPE html>
       <html>
@@ -239,19 +248,25 @@ async function screenshotAndResizeImage(imageUrl, postId, browser) {
 
     await page.setContent(html);
 
-    // Wait for image to load
     await page.waitForSelector('img', { timeout: 10000 });
-    await page.evaluate(() => {
+    const loadResult = await page.evaluate(() => {
       return new Promise((resolve) => {
         const img = document.querySelector('img');
+        const finish = () => resolve({ ok: img.naturalWidth > 0 && img.naturalHeight > 0 });
         if (img.complete) {
-          resolve();
+          finish();
         } else {
-          img.addEventListener('load', resolve);
-          img.addEventListener('error', resolve);
+          img.addEventListener('load', finish);
+          img.addEventListener('error', finish);
         }
       });
     });
+
+    if (!loadResult.ok) {
+      console.warn(`   ✗ Image failed to load (broken URL, expired token, or unreachable): ${imageUrl}`);
+      await page.close();
+      return null;
+    }
 
     await page.evaluate(() => new Promise((resolve) => {
       requestAnimationFrame(() => requestAnimationFrame(resolve));
