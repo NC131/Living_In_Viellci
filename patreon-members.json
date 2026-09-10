@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-09-09T20:46:08.298Z",
+  "last_updated": "2026-09-10T04:04:02.097Z",
   "total_members": 342,
   "members": [
     {
@@ -373,15 +373,6 @@
     {
       "id": "OOPlWSu5r",
       "name": "MiraiMei",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": "Tourist",
-      "additional_note": ""
-    },
-    {
-      "id": "HfSm5NPDM",
-      "name": "Remington",
       "pledge_levels": [
         "Tourist"
       ],
@@ -2323,6 +2314,15 @@
       ],
       "is_active": false,
       "additional_note": "Reaves restaurant"
+    },
+    {
+      "id": "HfSm5NPDM",
+      "name": "Remington",
+      "pledge_levels": [
+        "Tourist"
+      ],
+      "is_active": false,
+      "additional_note": ""
     },
     {
       "id": "5JCj8iKPZ",
