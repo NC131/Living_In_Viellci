@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-09-11T20:46:34.971Z",
+  "last_updated": "2026-09-12T04:02:54.082Z",
   "total_members": 342,
   "members": [
     {
@@ -19,15 +19,6 @@
       ],
       "is_active": "Landlord",
       "additional_note": "Diteol toothpaste ads"
-    },
-    {
-      "id": "J2EdId74C",
-      "name": "EnholThrowAway",
-      "pledge_levels": [
-        "Landlord"
-      ],
-      "is_active": "Landlord",
-      "additional_note": "Enhol electronic"
     },
     {
       "id": "LdXSIRhSd",
@@ -1102,6 +1093,15 @@
       ],
       "is_active": false,
       "additional_note": ""
+    },
+    {
+      "id": "J2EdId74C",
+      "name": "EnholThrowAway",
+      "pledge_levels": [
+        "Landlord"
+      ],
+      "is_active": false,
+      "additional_note": "Enhol electronic"
     },
     {
       "id": "4asd0b2jX",
