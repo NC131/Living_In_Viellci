@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-09-16T21:07:24.295Z",
+  "last_updated": "2026-09-17T04:23:12.026Z",
   "total_members": 342,
   "members": [
     {
@@ -136,15 +136,6 @@
       "pledge_levels": [
         "Citizen",
         "Tourist"
-      ],
-      "is_active": "Citizen",
-      "additional_note": ""
-    },
-    {
-      "id": "SU4eW3Gpl",
-      "name": "Press F",
-      "pledge_levels": [
-        "Citizen"
       ],
       "is_active": "Citizen",
       "additional_note": ""
@@ -2228,6 +2219,15 @@
     {
       "id": "kPzzsPVtt",
       "name": "Posab",
+      "pledge_levels": [
+        "Citizen"
+      ],
+      "is_active": false,
+      "additional_note": ""
+    },
+    {
+      "id": "SU4eW3Gpl",
+      "name": "Press F",
       "pledge_levels": [
         "Citizen"
       ],
