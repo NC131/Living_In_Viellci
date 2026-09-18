@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-09-17T21:09:59.080Z",
+  "last_updated": "2026-09-18T04:07:13.263Z",
   "total_members": 342,
   "members": [
     {
@@ -236,15 +236,6 @@
     {
       "id": "T3T86l8X8",
       "name": "Bidart",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": "Tourist",
-      "additional_note": ""
-    },
-    {
-      "id": "b0lX59EwD",
-      "name": "BRed",
       "pledge_levels": [
         "Tourist"
       ],
@@ -665,6 +656,15 @@
       "name": "BoomSchnuckums",
       "pledge_levels": [
         "Citizen"
+      ],
+      "is_active": false,
+      "additional_note": ""
+    },
+    {
+      "id": "b0lX59EwD",
+      "name": "BRed",
+      "pledge_levels": [
+        "Tourist"
       ],
       "is_active": false,
       "additional_note": ""
