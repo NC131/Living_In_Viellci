@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-09-20T20:35:30.153Z",
+  "last_updated": "2026-09-21T04:20:43.233Z",
   "total_members": 342,
   "members": [
     {
@@ -115,15 +115,6 @@
     {
       "id": "pB4KjdFm6",
       "name": "GHG_Lion",
-      "pledge_levels": [
-        "Citizen"
-      ],
-      "is_active": "Citizen",
-      "additional_note": ""
-    },
-    {
-      "id": "kEZQejbba",
-      "name": "gunther andrews",
       "pledge_levels": [
         "Citizen"
       ],
@@ -1306,6 +1297,15 @@
       "name": "guillermo2620",
       "pledge_levels": [
         "Tourist"
+      ],
+      "is_active": false,
+      "additional_note": ""
+    },
+    {
+      "id": "kEZQejbba",
+      "name": "gunther andrews",
+      "pledge_levels": [
+        "Citizen"
       ],
       "is_active": false,
       "additional_note": ""
