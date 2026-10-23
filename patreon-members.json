@@ -1,16 +1,7 @@
 {
-  "last_updated": "2026-10-22T21:22:53.655Z",
+  "last_updated": "2026-10-23T04:12:16.132Z",
   "total_members": 342,
   "members": [
-    {
-      "id": "8AmEvUv2V",
-      "name": "Dastun",
-      "pledge_levels": [
-        "Landlord"
-      ],
-      "is_active": "Landlord",
-      "additional_note": "Dastun last call bar"
-    },
     {
       "id": "AYU5cp7nQ",
       "name": "diteol",
@@ -858,6 +849,15 @@
       ],
       "is_active": false,
       "additional_note": ""
+    },
+    {
+      "id": "8AmEvUv2V",
+      "name": "Dastun",
+      "pledge_levels": [
+        "Landlord"
+      ],
+      "is_active": false,
+      "additional_note": "Dastun last call bar"
     },
     {
       "id": "qeaaLzKcZ",
