@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-11-01T05:26:27.888Z",
+  "last_updated": "2026-11-01T12:58:52.735Z",
   "total_members": 342,
   "members": [
     {
@@ -3070,15 +3070,6 @@
       "additional_note": ""
     },
     {
-      "id": "bXNqGQdW1",
-      "name": "宇呈 張",
-      "pledge_levels": [
-        "Citizen"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
       "id": "87KsYPhNS",
       "name": "弦 結",
       "pledge_levels": [
@@ -3092,6 +3083,15 @@
       "name": "汁 橙",
       "pledge_levels": [
         "Tourist"
+      ],
+      "is_active": false,
+      "additional_note": ""
+    },
+    {
+      "id": "bXNqGQdW1",
+      "name": "海月行",
+      "pledge_levels": [
+        "Citizen"
       ],
       "is_active": false,
       "additional_note": ""
