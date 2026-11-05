@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-11-05T06:00:07.741Z",
+  "last_updated": "2026-11-05T14:30:52.876Z",
   "total_members": 342,
   "members": [
     {
@@ -737,6 +737,15 @@
       "name": "Corvis123",
       "pledge_levels": [
         "Citizen"
+      ],
+      "is_active": false,
+      "additional_note": ""
+    },
+    {
+      "id": "9wj0y7aUK",
+      "name": "Crazyboy",
+      "pledge_levels": [
+        "Tourist"
       ],
       "is_active": false,
       "additional_note": ""
@@ -1622,15 +1631,6 @@
     {
       "id": "dWxUh5FfH",
       "name": "Joshua Inman",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "id": "9wj0y7aUK",
-      "name": "Josué Gravel",
       "pledge_levels": [
         "Tourist"
       ],
