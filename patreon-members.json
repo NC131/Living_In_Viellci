@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-11-15T22:40:12.563Z",
+  "last_updated": "2026-11-16T05:48:10.434Z",
   "total_members": 342,
   "members": [
     {
@@ -209,15 +209,6 @@
     {
       "id": "KGwh7OKv5",
       "name": "Dayton Parsons",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": "Tourist",
-      "additional_note": ""
-    },
-    {
-      "id": "X0GGCtvlE",
-      "name": "delay",
       "pledge_levels": [
         "Tourist"
       ],
@@ -867,6 +858,15 @@
       ],
       "is_active": false,
       "additional_note": "Dastun last call bar"
+    },
+    {
+      "id": "X0GGCtvlE",
+      "name": "delay",
+      "pledge_levels": [
+        "Tourist"
+      ],
+      "is_active": false,
+      "additional_note": ""
     },
     {
       "id": "qeaaLzKcZ",
