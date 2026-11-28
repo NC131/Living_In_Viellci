@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-11-27T20:56:58.707Z",
+  "last_updated": "2026-11-28T07:11:42.241Z",
   "total_members": 342,
   "members": [
     {
@@ -209,15 +209,6 @@
     {
       "id": "KGwh7OKv5",
       "name": "Dayton Parsons",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": "Tourist",
-      "additional_note": ""
-    },
-    {
-      "id": "GCwK665hp",
-      "name": "EmberHeart",
       "pledge_levels": [
         "Tourist"
       ],
@@ -1077,6 +1068,15 @@
       "additional_note": ""
     },
     {
+      "id": "GCwK665hp",
+      "name": "EmberHeart",
+      "pledge_levels": [
+        "Tourist"
+      ],
+      "is_active": false,
+      "additional_note": ""
+    },
+    {
       "id": "J2EdId74C",
       "name": "EnholThrowAway",
       "pledge_levels": [
@@ -1196,6 +1196,15 @@
     {
       "id": "4JJ8CH7Sy",
       "name": "Funya",
+      "pledge_levels": [
+        "Tourist"
+      ],
+      "is_active": false,
+      "additional_note": ""
+    },
+    {
+      "id": "Hgr7mv8h8",
+      "name": "Fusion: Hexella Dive (ZENKAIVERSE)",
       "pledge_levels": [
         "Tourist"
       ],
@@ -3000,15 +3009,6 @@
     {
       "id": "YxAQBPDct",
       "name": "ZEeo",
-      "pledge_levels": [
-        "Tourist"
-      ],
-      "is_active": false,
-      "additional_note": ""
-    },
-    {
-      "id": "Hgr7mv8h8",
-      "name": "Zenkaiverse Games",
       "pledge_levels": [
         "Tourist"
       ],
